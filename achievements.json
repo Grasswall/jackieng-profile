@@ -1,0 +1,564 @@
+{
+  "Academic-Awards": [
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "ABCT RPG Symposium Best Oral Presentation",
+      "Organization": "PolyU ABCT",
+      "Status": "Won",
+      "Result": "Won"
+    },
+    {
+      "Date": "2024-01-01 00:00:00",
+      "Title": "ABCT Outstanding Postgraduate Student Award",
+      "Organization": "PolyU ABCT",
+      "Status": "Won",
+      "Result": "Won"
+    },
+    {
+      "Date": "2023-01-01 00:00:00",
+      "Title": "Selected Young Scientist \u2014 Hong Kong Laureate Forum",
+      "Organization": "HKLF",
+      "Status": "Selected",
+      "Result": "Selected"
+    },
+    {
+      "Date": "2023-01-01 00:00:00",
+      "Title": "PolyU Research Postgraduate Scholarship + HK$25k Conference Grant",
+      "Organization": "PolyU",
+      "Status": "Won",
+      "Result": "Awarded"
+    },
+    {
+      "Date": "NaT",
+      "Title": "7\u00d7 Dean's List",
+      "Organization": "HKUST",
+      "Status": "Achieved",
+      "Result": "Achieved"
+    },
+    {
+      "Date": "NaT",
+      "Title": "BSc First Class Honours \u2014 MCGA 4.006",
+      "Organization": "HKUST",
+      "Status": "Achieved",
+      "Result": "Achieved"
+    },
+    {
+      "Date": "NaT",
+      "Title": "8th Greater Bay Area Digital Education STEAM Excellence Award 2026 (Postgraduate - Life & Health)",
+      "Organization": "GBA Digital Education STEAM",
+      "Status": "Won",
+      "Result": "Silver Award"
+    }
+  ],
+  "Certifications": [
+    {
+      "Date": "2020-01-01 00:00:00",
+      "Title": "Coursera: Antibiotic Stewardship",
+      "Organization": "Standford University",
+      "Status": "Completed",
+      "Result": "Completed"
+    },
+    {
+      "Date": "2020-01-01 00:00:00",
+      "Title": "Coursera: Plant Bioinformatics",
+      "Organization": "University of Toronto",
+      "Status": "Completed",
+      "Result": "Completed"
+    },
+    {
+      "Date": "2020-01-01 00:00:00",
+      "Title": "Coursera: Introduction to the Biology of Cancer",
+      "Organization": "University of Toronto",
+      "Status": "Completed",
+      "Result": "Completed"
+    },
+    {
+      "Date": "2020-01-01 00:00:00",
+      "Title": "Coursera: Bioinformatic Methods II",
+      "Organization": "University of Toronto",
+      "Status": "Completed",
+      "Result": "Completed"
+    },
+    {
+      "Date": "2020-01-01 00:00:00",
+      "Title": "Coursera: Thoracic Oncology",
+      "Organization": "University of Michigan",
+      "Status": "Completed",
+      "Result": "Completed"
+    },
+    {
+      "Date": "2020-01-01 00:00:00",
+      "Title": "Coursera: Big Data Integration and Processing",
+      "Organization": "UCSandiego",
+      "Status": "Completed",
+      "Result": "Completed"
+    },
+    {
+      "Date": "2020-01-01 00:00:00",
+      "Title": "Coursera: Study Designs in Epidemiology",
+      "Organization": "Imperal College London",
+      "Status": "Completed",
+      "Result": "Completed"
+    },
+    {
+      "Date": "2020-01-01 00:00:00",
+      "Title": "Coursera: Advanced Neurobiology II",
+      "Organization": "Peking University",
+      "Status": "Completed",
+      "Result": "Completed"
+    },
+    {
+      "Date": "2020-01-01 00:00:00",
+      "Title": "Coursera: Statistics for Genomic Data Science",
+      "Organization": "Johns Hopkins university",
+      "Status": "Completed",
+      "Result": "Completed"
+    },
+    {
+      "Date": "2020-01-01 00:00:00",
+      "Title": "Coursera: COVID-19 Contact Tracing",
+      "Organization": "Johns Hopkins university",
+      "Status": "Completed",
+      "Result": "Completed"
+    },
+    {
+      "Date": "2020-01-01 00:00:00",
+      "Title": "Coursera: Introduction to the Biology of Cancer",
+      "Organization": "Johns Hopkins University",
+      "Status": "Completed",
+      "Result": "Completed"
+    },
+    {
+      "Date": "2020-01-01 00:00:00",
+      "Title": "Coursera: Essentials of Global Health",
+      "Organization": "Yale",
+      "Status": "Completed",
+      "Result": "Completed"
+    }
+  ],
+  "Competitions": [
+    {
+      "Date": "NaT",
+      "Title": "\u8d0f\u5728\u8607\u5dde Win in Suzhou Global Entrepreneurship",
+      "Organization": "Suzhou Municipal Government",
+      "Status": "Won",
+      "Result": "\u65b0\u92b3\u734e (Rising Star Award)"
+    },
+    {
+      "Date": "NaT",
+      "Title": "HiCool 2026",
+      "Organization": "HiCool",
+      "Status": "Participated",
+      "Result": "Participated"
+    },
+    {
+      "Date": "NaT",
+      "Title": "\u8607\u5dde\u83ef\u5357\u5340\u7a2e\u5b50\u6c7a\u8cfd",
+      "Organization": "Suzhou",
+      "Status": "Participated",
+      "Result": "Participated"
+    },
+    {
+      "Date": "NaT",
+      "Title": "Techathon+ 10th Anniversary \u2014 Gold Medal",
+      "Organization": "Techathon+",
+      "Status": "Won",
+      "Result": "Gold Medal"
+    },
+    {
+      "Date": "NaT",
+      "Title": "HKSTP Ideation Programme",
+      "Organization": "HKSTP",
+      "Status": "Funded",
+      "Result": "Conditional Approval"
+    },
+    {
+      "Date": "NaT",
+      "Title": "IEP incubation",
+      "Organization": "PolyU",
+      "Status": "In Progress",
+      "Result": "Y12"
+    },
+    {
+      "Date": "NaT",
+      "Title": "MU Metro Challenge",
+      "Organization": "mu",
+      "Status": "In Progress",
+      "Result": "MC26-T13"
+    },
+    {
+      "Date": "NaT",
+      "Title": "Wuhan Innohub",
+      "Organization": "PolyU",
+      "Status": "In Progress",
+      "Result": "1st pitching"
+    },
+    {
+      "Date": "NaT",
+      "Title": "Incubation (STP)",
+      "Organization": "stp",
+      "Status": "In Progress",
+      "Result": NaN
+    },
+    {
+      "Date": "NaT",
+      "Title": "\u83ef\u6f64 Incubation",
+      "Organization": "PolyU",
+      "Status": "In Progress",
+      "Result": NaN
+    },
+    {
+      "Date": "NaT",
+      "Title": "\u5317\u5927\u6ed9\u8c50-\u528d\u6a4b\u5609\u6cbb\u5168\u7403\u5275\u65b0\u5275\u696d\u5927\u8cfd2026 \u9999\u6e2f\u5206\u7ad9\u8cfd",
+      "Organization": "other",
+      "Status": "In Progress",
+      "Result": NaN
+    },
+    {
+      "Date": "NaT",
+      "Title": "Pitch for Good 2026 (SUSS Entrepreneurship)",
+      "Organization": "SUSS",
+      "Status": "In Progress",
+      "Result": "final in aug 24 sg"
+    },
+    {
+      "Date": "NaT",
+      "Title": "IFC 2026",
+      "Organization": "PolyU",
+      "Status": "In Progress",
+      "Result": NaN
+    },
+    {
+      "Date": "NaT",
+      "Title": "HKU Techno 2026",
+      "Organization": "hku",
+      "Status": "In Progress",
+      "Result": "8/8 pitch"
+    },
+    {
+      "Date": "NaT",
+      "Title": "HKUST-SINO One Million Dollar Entrepreneurship Competition 2026",
+      "Organization": "ust",
+      "Status": "In Progress",
+      "Result": "directed to round 2"
+    },
+    {
+      "Date": "NaT",
+      "Title": "\u4e2d\u570b\u570b\u969b\u5927\u5b78\u751f\u5275\u65b0\u5927\u8cfd2026",
+      "Organization": "other",
+      "Status": "In Progress",
+      "Result": "\u6c7a\u8cfd"
+    },
+    {
+      "Date": "NaT",
+      "Title": "Dr Ching Yuen-kai Product Innovation Prize 2025-26",
+      "Organization": "PolyU",
+      "Status": "Participated",
+      "Result": "Participation"
+    },
+    {
+      "Date": "NaT",
+      "Title": "HKU Seed",
+      "Organization": "hku",
+      "Status": "Completed",
+      "Result": "access to TEC"
+    }
+  ],
+  "Media": [
+    {
+      "Date": "NaT",
+      "Title": "\u5c0b\u627e\u5275\u79d1\u7684\u6545\u4e8b RTHK Innovation Stories",
+      "Organization": "RTHK",
+      "Status": "Featured",
+      "Result": "Featured"
+    },
+    {
+      "Date": "NaT",
+      "Title": "\u8f6c\u5728\u5317\u4eac Beijing Coverage",
+      "Organization": "Media",
+      "Status": "Featured",
+      "Result": "Featured"
+    },
+    {
+      "Date": "NaT",
+      "Title": "Ming Pao / Sing Tao Interviews",
+      "Organization": "Ming Pao / Sing Tao",
+      "Status": "Published",
+      "Result": "Published"
+    },
+    {
+      "Date": "NaT",
+      "Title": "\u5317\u5927\u6ed9\u8c50-\u528d\u6a4b\u5609\u6cbb\u5168\u7403\u5275\u65b0\u5275\u696d\u5927\u8cfd2026 \u2014 HK01 Coverage",
+      "Organization": "HK01",
+      "Status": "In Progress",
+      "Result": NaN
+    }
+  ],
+  "Positions-Affiliations": [
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "YDC Youth Ambassadors Programme",
+      "Organization": "YDC",
+      "Status": "Active",
+      "Result": "Active"
+    },
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "Guest Editor, Open Access Pub",
+      "Organization": "Open Access Pub",
+      "Status": "Active",
+      "Result": "Active"
+    },
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "Founder, AtomBios",
+      "Organization": "AtomBios",
+      "Status": "Active",
+      "Result": "Active"
+    },
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "CEO, HerbyCM Ltd",
+      "Organization": "HerbyCM Ltd",
+      "Status": "Active",
+      "Result": "Active"
+    },
+    {
+      "Date": "2024-01-01 00:00:00",
+      "Title": "YO Place",
+      "Organization": "YO Place",
+      "Status": "Active",
+      "Result": "Active"
+    },
+    {
+      "Date": "2024-01-01 00:00:00",
+      "Title": "\u9023\u9752\u4eba\u7db2\u7d61",
+      "Organization": "\u9023\u9752\u4eba\u7db2\u7d61",
+      "Status": "Active",
+      "Result": "Active"
+    },
+    {
+      "Date": "2024-01-01 00:00:00",
+      "Title": "Member, Hong Kong Institute of Science",
+      "Organization": "HKIS",
+      "Status": "Active",
+      "Result": "Active"
+    },
+    {
+      "Date": "2024-01-01 00:00:00",
+      "Title": "Member, American Society of Biochemistry & Molecular Biology",
+      "Organization": "ASBMB",
+      "Status": "Active",
+      "Result": "Active"
+    },
+    {
+      "Date": "2024-01-01 00:00:00",
+      "Title": "Member, HK Association for Science & Mathematics Education",
+      "Organization": "HKASME",
+      "Status": "Active",
+      "Result": "Active"
+    }
+  ],
+  "Publications": [
+    {
+      "Date": "NaT",
+      "Title": "Tang et al. Novel host cell factors interacting with SARS-CoV-2 spike protein RBD",
+      "Organization": "J. Biological Chemistry",
+      "Status": "Published",
+      "Result": "Published"
+    }
+  ],
+  "Scholarships": [
+    {
+      "Date": "2021-01-01 00:00:00",
+      "Title": "MTR Corporate Scholarship",
+      "Organization": "MTR Corporation",
+      "Status": "Won",
+      "Result": "Awarded"
+    },
+    {
+      "Date": "2021-01-01 00:00:00",
+      "Title": "D.H. Chen Foundation Scholarship",
+      "Organization": "D.H. Chen Foundation",
+      "Status": "Won",
+      "Result": "Awarded"
+    },
+    {
+      "Date": "2021-01-01 00:00:00",
+      "Title": "AEON Credit Service Scholarship",
+      "Organization": "AEON Credit",
+      "Status": "Won",
+      "Result": "Awarded"
+    },
+    {
+      "Date": "2021-01-01 00:00:00",
+      "Title": "Mr Amin & Lillian Kitchell Undergraduate Research Award",
+      "Organization": "HKUST",
+      "Status": "Won",
+      "Result": "Awarded"
+    },
+    {
+      "Date": "2021-01-01 00:00:00",
+      "Title": "UROP Support Grant HK$18,960",
+      "Organization": "HKUST",
+      "Status": "Won",
+      "Result": "Awarded"
+    },
+    {
+      "Date": "NaT",
+      "Title": "MicroFund 25/26 Cohort 1",
+      "Organization": "PolyU",
+      "Status": "Funded",
+      "Result": "E-26(1)-065"
+    }
+  ],
+  "Speaking-Conferences": [
+    {
+      "Date": "2026-01-01 00:00:00",
+      "Title": "Prof Ko Kum Ming Meeting",
+      "Organization": "PolyU",
+      "Status": "Attended",
+      "Result": "Attended"
+    },
+    {
+      "Date": "2026-01-01 00:00:00",
+      "Title": "\u7da0\u8272\u63a1\u8cfc\u4ea4\u6d41\u5206\u4eab\u6703 iRecycle \u2014 Guest Speaker",
+      "Organization": "iRecycle / HerbyCM",
+      "Status": "Attended",
+      "Result": "Delivered"
+    },
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "HK-Jiangsu Symposium on Drug Discovery \u2014 Speaker",
+      "Organization": "HK-Jiangsu",
+      "Status": "Attended",
+      "Result": "Delivered"
+    },
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "Nobel Laureate Meeting",
+      "Organization": "Nobel Foundation",
+      "Status": "Attended",
+      "Result": "Attended"
+    },
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "HKSTP \u00d7 Hang Seng Ecopreneur Programme \u2014 Speaker & Member",
+      "Organization": "HKSTP / Hang Seng",
+      "Status": "Attended",
+      "Result": "Delivered"
+    },
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "6th ABCT RPG Symposium",
+      "Organization": "PolyU ABCT",
+      "Status": "Attended",
+      "Result": "Delivered"
+    },
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "CAS Future Leader",
+      "Organization": "Chinese Academy of Sciences",
+      "Status": "Selected",
+      "Result": "Selected"
+    },
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "S\u00e3o Paulo Advanced Science School",
+      "Organization": "SPSAS",
+      "Status": "Attended",
+      "Result": "Attended"
+    },
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "2\u5c4a\u5927\u6e7e\u533a\u751f\u7269\u7535\u955c\u524d\u6cbf\u8bba\u575b \u2014 Speaker",
+      "Organization": "GBA EM Forum",
+      "Status": "Attended",
+      "Result": "Delivered"
+    },
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "Max Planck Institute RPg Forum \u2014 Speaker",
+      "Organization": "Max Planck Institute",
+      "Status": "Attended",
+      "Result": "Delivered"
+    },
+    {
+      "Date": "2025-01-01 00:00:00",
+      "Title": "Shaw Laureates Roundtable \u2014 Academic Representative",
+      "Organization": "Shaw Prize Foundation",
+      "Status": "Attended",
+      "Result": "Attended"
+    },
+    {
+      "Date": "2024-01-01 00:00:00",
+      "Title": "GBA EM Symposium",
+      "Organization": "GBA",
+      "Status": "Attended",
+      "Result": "Attended"
+    },
+    {
+      "Date": "2024-01-01 00:00:00",
+      "Title": "Global University Presidents & Leaders Summit",
+      "Organization": "PolyU",
+      "Status": "Attended",
+      "Result": "Attended"
+    },
+    {
+      "Date": "2024-01-01 00:00:00",
+      "Title": "HKLF",
+      "Organization": "HKLF",
+      "Status": "Attended",
+      "Result": "Attended"
+    },
+    {
+      "Date": "2019-01-01 00:00:00",
+      "Title": "Science Exposition for Life Science and Medicine",
+      "Organization": "HKUST",
+      "Status": "Completed",
+      "Result": "Attended"
+    },
+    {
+      "Date": "2018-01-01 00:00:00",
+      "Title": "Tomorrow's Scientist Exploration Camp",
+      "Organization": "HKUST",
+      "Status": "Completed",
+      "Result": "Selected"
+    },
+    {
+      "Date": "NaT",
+      "Title": "GBA HYAB Donor Visit",
+      "Organization": "GBA HYAB",
+      "Status": "Attended",
+      "Result": "Attended"
+    },
+    {
+      "Date": "NaT",
+      "Title": "China Resource \u00d7 HKSTP",
+      "Organization": "China Resources / HKSTP",
+      "Status": "Attended",
+      "Result": "Attended"
+    },
+    {
+      "Date": "NaT",
+      "Title": "\u7406\u5927\u4f01\u696d\u5bb6\u5927\u8b1b\u5802 \u5f35\u52dd\u7537",
+      "Organization": "PolyU",
+      "Status": "Attended",
+      "Result": "Attended"
+    },
+    {
+      "Date": "NaT",
+      "Title": "JoinCap Investment",
+      "Organization": "JoinCap",
+      "Status": "Secured",
+      "Result": "Secured"
+    },
+    {
+      "Date": "NaT",
+      "Title": "EduU CNY",
+      "Organization": "EduU",
+      "Status": "Attended",
+      "Result": "Attended"
+    }
+  ]
+}

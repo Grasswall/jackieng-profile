@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "placeholder-1",
+    "image": "assets/placeholder-1.png",
+    "title": "CFD Simulation",
+    "caption": "Computational fluid dynamics visualization of drug-protein interaction"
+  },
+  {
+    "slug": "placeholder-2", 
+    "image": "assets/placeholder-2.png",
+    "title": "Molecular Structure",
+    "caption": "High-resolution structural biology render"
+  },
+  {
+    "slug": "placeholder-3",
+    "image": "assets/placeholder-3.png",
+    "title": "Protein Dynamics",
+    "caption": "Real-time molecular motion visualization"
+  }
+]
