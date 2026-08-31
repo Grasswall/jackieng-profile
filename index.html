@@ -3,689 +3,874 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jackie Ng — Biochemistry researcher, structural biologist, and founder. Where the atom meets the brain.">
     <title>Jackie Ng — The Invisible Architect</title>
-    <meta name="description" content="I work where the atom meets the brain. Biochemistry researcher, structural biologist, and founder of AtomBios.">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         :root {
             --navy: #0A1828;
             --gold: #BFA181;
             --white: #FFFFFF;
-            --grey: #6B7280;
-            --light-grey: #F9FAFB;
-            --border: #E5E7EB;
+            --light-gray: #F8F9FA;
+            --mid-gray: #6C757D;
         }
-
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', sans-serif;
             color: var(--navy);
-            line-height: 1.7;
             background: var(--white);
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
             overflow-x: hidden;
         }
-
-        h1, h2, h3 {
+        
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
-            font-weight: 600;
+            font-weight: 700;
             line-height: 1.2;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 32px;
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 24, 40, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
         }
-
-        /* Hero Section - Full Bleed */
+        
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        
+        nav a:hover {
+            color: var(--gold);
+        }
+        
+        /* Hero Section */
         .hero {
-            height: 100vh;
-            position: relative;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--navy);
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.25;
-            filter: brightness(0.8);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
             text-align: center;
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2f3f 50%, #0A1828 100%);
             color: var(--white);
-            max-width: 900px;
-            padding: 48px;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 600;
-            margin-bottom: 32px;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-        }
-
-        .hero .manifesto {
-            font-size: clamp(1.25rem, 3vw, 2rem);
-            font-style: italic;
-            color: var(--gold);
-            margin-bottom: 48px;
-            font-weight: 300;
-            letter-spacing: 0.01em;
-        }
-
-        .hero .scroll-hint {
-            position: absolute;
-            bottom: 48px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--gold);
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translate(-50%, 0); }
-            50% { transform: translate(-50%, 10px); }
-        }
-
-        /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px 32px;
-        }
-
-        nav .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--navy);
-            text-decoration: none;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        nav a {
-            color: var(--grey);
-            text-decoration: none;
-            font-size: 0.9375rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--navy);
-        }
-
-        /* Section Base */
-        section {
-            padding: 120px 0;
-        }
-
-        section h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 24px;
-            color: var(--navy);
-        }
-
-        section .lead {
-            font-size: clamp(1.125rem, 2vw, 1.5rem);
-            color: var(--grey);
-            max-width: 800px;
-            margin-bottom: 64px;
-            line-height: 1.8;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--light-grey);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        .about-text h3 {
-            font-size: 1.75rem;
-            margin-bottom: 24px;
-            color: var(--navy);
-        }
-
-        .about-text p {
-            font-size: 1.0625rem;
-            color: var(--grey);
-            margin-bottom: 24px;
-            line-height: 1.8;
-        }
-
-        .about-highlights {
-            background: var(--white);
-            padding: 48px;
-            border-radius: 8px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-        }
-
-        .highlight-item {
-            padding: 24px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .highlight-item:last-child {
-            border-bottom: none;
-        }
-
-        .highlight-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 600;
-            color: var(--gold);
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .highlight-label {
-            font-size: 1rem;
-            color: var(--navy);
-            font-weight: 500;
-        }
-
-        /* Work Gallery */
-        .work {
-            background: var(--navy);
-            color: var(--white);
-        }
-
-        .work h2 {
-            color: var(--white);
-        }
-
-        .work .lead {
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-        }
-
-        .work-item {
             position: relative;
-            aspect-ratio: 1 / 1;
             overflow: hidden;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.4s ease;
+            padding: 2rem;
         }
-
-        .work-item:hover {
-            transform: scale(1.02);
-        }
-
-        .work-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .work-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .work-overlay {
+        
+        .hero::before {
+            content: '';
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(10, 24, 40, 0.95), transparent);
-            padding: 32px;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.4s ease;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(191, 161, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(191, 161, 129, 0.08) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
         }
-
-        .work-item:hover .work-overlay {
-            transform: translateY(0);
-            opacity: 1;
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
-
-        .work-title {
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle {
             font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-style: italic;
         }
-
-        .work-caption {
-            font-size: 0.9375rem;
-            color: rgba(255, 255, 255, 0.8);
+        
+        .hero .tagline {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
         }
-
-        /* Timeline */
-        .timeline {
-            background: var(--white);
+        
+        .hero .bio {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        .timeline-container {
-            max-width: 900px;
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        /* Highlights Strip */
+        .highlights {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .highlights-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
             margin: 0 auto;
         }
-
-        .timeline-item {
-            display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 48px;
-            margin-bottom: 64px;
+        
+        .highlight-item {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-item span {
+            display: block;
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 0.25rem;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.6s ease;
         }
-
-        .timeline-item.visible {
+        
+        section.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        .timeline-year {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: var(--gold);
-            text-align: right;
+        
+        section:nth-child(even) {
+            background: var(--light-gray);
         }
-
-        .timeline-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            color: var(--navy);
-        }
-
-        .timeline-org {
-            font-size: 1rem;
-            color: var(--grey);
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .timeline-desc {
-            font-size: 0.9375rem;
-            color: var(--grey);
-            line-height: 1.8;
-        }
-
-        .timeline-badge {
-            display: inline-block;
-            background: var(--light-grey);
-            color: var(--navy);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.8125rem;
-            font-weight: 500;
-            margin-top: 12px;
-        }
-
-        .timeline-badge.won {
-            background: #D1FAE5;
-            color: #065F46;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--light-grey);
+        
+        section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 3rem;
             text-align: center;
-        }
-
-        .contact h2 {
-            margin-bottom: 48px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            flex-wrap: wrap;
-            margin-bottom: 48px;
-        }
-
-        .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 20px 40px;
-            background: var(--navy);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 1.0625rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(10, 24, 40, 0.2);
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(10, 24, 40, 0.3);
-        }
-
-        .contact-btn.secondary {
-            background: var(--white);
             color: var(--navy);
-            border: 2px solid var(--navy);
+            position: relative;
+            padding-bottom: 1rem;
         }
-
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+        }
+        
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--gold);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: var(--navy);
+        }
+        
+        .card .org {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card .date {
+            color: var(--mid-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card .result {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold) 0%, #d4b896 100%);
+            color: var(--navy);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        /* Awards Section - Special Emphasis */
+        #awards .card {
+            border-left-width: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #awards .card::before {
+            content: '★';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 3rem;
+            color: rgba(191, 161, 129, 0.1);
+        }
+        
+        #awards .card h3 {
+            font-size: 1.5rem;
+            color: var(--navy);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gold);
+        }
+        
+        .timeline-item {
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--gold);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .two-col-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
+        }
+        
+        .two-col-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .two-col-item .org {
+            color: var(--mid-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Publication Special */
+        .publication {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2f3f 100%);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .publication h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        
+        .publication .journal {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
         /* Footer */
         footer {
             background: var(--navy);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 48px 0;
+            color: var(--white);
+            padding: 3rem 2rem;
             text-align: center;
-            font-size: 0.9375rem;
         }
-
-        footer .tagline {
-            color: var(--gold);
-            font-style: italic;
-            margin-bottom: 8px;
+        
+        footer .social-links {
+            margin-bottom: 2rem;
         }
-
-        /* Responsive */
+        
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             nav ul {
-                gap: 24px;
+                gap: 1rem;
+                font-size: 0.85rem;
             }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 48px;
+            
+            .highlights-grid {
+                gap: 1.5rem;
             }
-
+            
+            .highlight-item {
+                font-size: 0.9rem;
+            }
+            
+            .highlight-item span {
+                font-size: 1.5rem;
+            }
+            
+            section {
+                padding: 3rem 1.5rem;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
             .timeline-item {
-                grid-template-columns: 80px 1fr;
-                gap: 24px;
-                margin-bottom: 48px;
+                flex-direction: column !important;
+                align-items: flex-start;
+                padding-left: 50px;
             }
-
-            .timeline-year {
-                font-size: 1.75rem;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-btn {
+            
+            .timeline-content {
                 width: 100%;
-                max-width: 300px;
-                justify-content: center;
             }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Utility */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-2 {
+            margin-bottom: 2rem;
         }
     </style>
 </head>
 <body>
-    <!-- Hero -->
-    <section class="hero">
-        <img src="assets/hero.jpg" alt="" class="hero-bg" id="hero-bg">
-        <div class="hero-content">
-            <h1>Jackie Ng</h1>
-            <p class="manifesto">"I work where the atom meets the brain."</p>
-        </div>
-        <div class="scroll-hint">Scroll</div>
-    </section>
-
     <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="#" class="logo">Jackie Ng</a>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#achievements">Timeline</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#speaking">Speaking</a></li>
+            <li><a href="#competitions">Entrepreneurship</a></li>
+            <li><a href="#media">Media</a></li>
+            <li><a href="#ventures">Ventures</a></li>
+            <li><a href="#education">Education</a></li>
+        </ul>
     </nav>
 
-    <!-- About -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <h3>Biochemistry Researcher & Structural Biologist</h3>
-                    <p>
-                        Postgraduate student in Advanced Biochemistry at PolyU. My work lives at the intersection 
-                        of structural biology, computational modeling, and storytelling.
-                    </p>
-                    <p>
-                        I see molecules the way most people see landscapes—as structures with logic, beauty, and consequence. 
-                        Every protein tells a story. Every mutation rewrites the ending.
-                    </p>
-                    <h3 style="margin-top: 40px;">AtomBios</h3>
-                    <p>
-                        Founder of AtomBios, a therapeutic delivery platform using AI-guided lipid nanoparticle screening 
-                        to accelerate drug delivery research. We're building the bridge between molecular prediction and 
-                        clinical reality.
-                    </p>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Jackie Ng</h1>
+            <div class="subtitle">The Invisible Architect</div>
+            <div class="tagline">Where the atom meets the brain.</div>
+            <p class="bio">Biochemistry researcher, structural biologist, and founder bridging molecular science and human innovation.</p>
+            <div class="social-links">
+                <a href="https://instagram.com/jackieng_ch" target="_blank" aria-label="Instagram">📷</a>
+                <a href="https://linkedin.com/in/jackieng-ch" target="_blank" aria-label="LinkedIn">💼</a>
+                <a href="mailto:jackie.ng@connect.polyu.hk" aria-label="Email">✉️</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Strip -->
+    <div class="highlights">
+        <div class="highlights-grid">
+            <div class="highlight-item">
+                <span>7×</span>
+                Dean's List
+            </div>
+            <div class="highlight-item">
+                <span>20+</span>
+                Awards & Honors
+            </div>
+            <div class="highlight-item">
+                <span>15+</span>
+                Invited Talks
+            </div>
+            <div class="highlight-item">
+                <span>1</span>
+                Published Paper
+            </div>
+            <div class="highlight-item">
+                <span>2</span>
+                Companies Founded
+            </div>
+        </div>
+    </div>
+
+    <!-- Awards & Honors -->
+    <section id="awards">
+        <h2>Awards & Honors</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>Selected Young Scientist</h3>
+                <div class="org">Hong Kong Laureate Forum</div>
+                <div class="date">2023</div>
+                <div class="result">Selected</div>
+            </div>
+            <div class="card">
+                <h3>ABCT Best Oral Presentation</h3>
+                <div class="org">PolyU ABCT RPG Symposium</div>
+                <div class="date">2025</div>
+                <div class="result">Won</div>
+            </div>
+            <div class="card">
+                <h3>Outstanding Postgraduate Student Award</h3>
+                <div class="org">PolyU ABCT</div>
+                <div class="date">2024</div>
+                <div class="result">Won</div>
+            </div>
+            <div class="card">
+                <h3>GBA STEAM Excellence Award</h3>
+                <div class="org">Greater Bay Area Digital Education</div>
+                <div class="date">2026</div>
+                <div class="result">Silver Award — Life & Health</div>
+            </div>
+            <div class="card">
+                <h3>BSc First Class Honours</h3>
+                <div class="org">HKUST</div>
+                <div class="date">MCGA 4.006</div>
+                <div class="result">Achieved</div>
+            </div>
+            <div class="card">
+                <h3>7× Dean's List</h3>
+                <div class="org">HKUST</div>
+                <div class="result">Achieved</div>
+            </div>
+            <div class="card">
+                <h3>Research Postgraduate Scholarship</h3>
+                <div class="org">PolyU</div>
+                <div class="date">2023</div>
+                <div class="result">+ HK$25k Conference Grant</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speaking & Leadership -->
+    <section id="speaking">
+        <h2>Speaking & Leadership</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Nobel Laureate Meeting</h3>
+                    <div class="org">Nobel Foundation</div>
+                    <div class="date">2025</div>
                 </div>
-                <div class="about-highlights">
-                    <div class="highlight-item">
-                        <span class="highlight-number">78</span>
-                        <span class="highlight-label">Total Achievements</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="highlight-number">21</span>
-                        <span class="highlight-label">Conferences & Speaking</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="highlight-number">18</span>
-                        <span class="highlight-label">Competition Wins</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="highlight-number">7</span>
-                        <span class="highlight-label">Academic Awards</span>
-                    </div>
-                    <div class="highlight-item">
-                        <span class="highlight-number">6</span>
-                        <span class="highlight-label">Scholarships</span>
-                    </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Shaw Laureates Roundtable</h3>
+                    <div class="org">Shaw Prize Foundation — Academic Representative</div>
+                    <div class="date">2025</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>CAS Future Leader</h3>
+                    <div class="org">Chinese Academy of Sciences</div>
+                    <div class="date">2025</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Max Planck Institute RPg Forum</h3>
+                    <div class="org">Max Planck Institute — Speaker</div>
+                    <div class="date">2025</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>HK-Jiangsu Drug Discovery Symposium</h3>
+                    <div class="org">HK-Jiangsu — Speaker</div>
+                    <div class="date">2025</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>2nd GBA EM Forum</h3>
+                    <div class="org">Greater Bay Area — Speaker</div>
+                    <div class="date">2025</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>São Paulo Advanced Science School</h3>
+                    <div class="org">SPSAS</div>
+                    <div class="date">2025</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>HKSTP × Hang Seng Ecopreneur Programme</h3>
+                    <div class="org">HKSTP / Hang Seng — Speaker & Member</div>
+                    <div class="date">2025</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>6th ABCT RPG Symposium</h3>
+                    <div class="org">PolyU ABCT</div>
+                    <div class="date">2025</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Work Gallery -->
-    <section id="work" class="work">
-        <div class="container">
-            <h2>Selected Work</h2>
-            <p class="lead">Molecular renders and visualizations from The Invisible Architect series.</p>
-            <div class="work-grid" id="work-grid">
-                <!-- Gallery items will be injected here -->
+    <!-- Competitions & Entrepreneurship -->
+    <section id="competitions">
+        <h2>Competitions & Entrepreneurship</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>Techathon+ 10th Anniversary</h3>
+                <div class="org">Techathon+</div>
+                <div class="result">🏆 Gold Medal</div>
+            </div>
+            <div class="card">
+                <h3>赢在苏州 Win in Suzhou</h3>
+                <div class="org">Suzhou Municipal Government</div>
+                <div class="result">🌟 Rising Star Award (新鋭奖)</div>
+            </div>
+            <div class="card">
+                <h3>HKSTP Ideation Programme</h3>
+                <div class="org">Hong Kong Science & Technology Parks</div>
+                <div class="result">✅ Funded — Conditional Approval</div>
+            </div>
+            <div class="card">
+                <h3>PolyU MicroFund</h3>
+                <div class="org">The Hong Kong Polytechnic University</div>
+                <div class="result">✅ Funded — E-26(1)-065</div>
+            </div>
+            <div class="card">
+                <h3>HKUST-SINO One Million Dollar Competition</h3>
+                <div class="org">HKUST × SINO Group</div>
+                <div class="result">🚀 Round 2</div>
+            </div>
+            <div class="card">
+                <h3>中國國際大學生創新大賽 2026</h3>
+                <div class="org">China International College Students Innovation Competition</div>
+                <div class="result">🎯 Finals (决赛)</div>
+            </div>
+            <div class="card">
+                <h3>北大滙豐-劍橋嘉治全球創新創業大賽 2026</h3>
+                <div class="org">PKU-Cambridge Innovation Competition — Hong Kong Station</div>
+                <div class="result">🔄 In Progress</div>
+            </div>
+            <div class="card">
+                <h3>Pitch for Good 2026</h3>
+                <div class="org">SUSS Entrepreneurship</div>
+                <div class="result">🇸🇬 Singapore Finals — Aug 2024</div>
             </div>
         </div>
     </section>
 
-    <!-- Timeline -->
-    <section id="achievements" class="timeline">
-        <div class="container">
-            <h2>Timeline</h2>
-            <p class="lead">Key moments, achievements, and milestones.</p>
-            <div class="timeline-container" id="timeline-container">
-                <!-- Timeline will be generated from achievements.json -->
+    <!-- Media & Press -->
+    <section id="media">
+        <h2>Media & Press</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>尋找創科的故事 RTHK Innovation Stories</h3>
+                <div class="org">Radio Television Hong Kong</div>
+                <div class="result">📺 Featured</div>
+            </div>
+            <div class="card">
+                <h3>Ming Pao / Sing Tao Interviews</h3>
+                <div class="org">Ming Pao / Sing Tao Daily</div>
+                <div class="result">📰 Published</div>
+            </div>
+            <div class="card">
+                <h3>转在北京 Beijing Coverage</h3>
+                <div class="org">Beijing Media</div>
+                <div class="result">🎥 Featured</div>
+            </div>
+            <div class="card">
+                <h3>HK01 Coverage</h3>
+                <div class="org">HK01</div>
+                <div class="result">📱 Upcoming</div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Let's Connect</h2>
-            <div class="contact-links">
-                <a href="https://instagram.com/jackieng_ch" class="contact-btn" target="_blank">
-                    Instagram
-                </a>
-                <a href="https://linkedin.com/in/jackieng-ch" class="contact-btn" target="_blank">
-                    LinkedIn
-                </a>
-                <a href="mailto:jackie.ng@connect.polyu.hk" class="contact-btn secondary">
-                    Email
-                </a>
+    <!-- Ventures & Positions -->
+    <section id="ventures">
+        <h2>Ventures & Positions</h2>
+        <div class="two-col">
+            <div class="two-col-item">
+                <h3>Founder</h3>
+                <div class="org">AtomBios</div>
             </div>
+            <div class="two-col-item">
+                <h3>CEO</h3>
+                <div class="org">HerbyCM Ltd</div>
+            </div>
+            <div class="two-col-item">
+                <h3>Youth Ambassador</h3>
+                <div class="org">YDC Youth Development Commission</div>
+            </div>
+            <div class="two-col-item">
+                <h3>Guest Editor</h3>
+                <div class="org">Open Access Publishing</div>
+            </div>
+            <div class="two-col-item">
+                <h3>Member</h3>
+                <div class="org">Hong Kong Institute of Science</div>
+            </div>
+            <div class="two-col-item">
+                <h3>Member</h3>
+                <div class="org">American Society of Biochemistry & Molecular Biology</div>
+            </div>
+            <div class="two-col-item">
+                <h3>Member</h3>
+                <div class="org">HK Association for Science & Mathematics Education</div>
+            </div>
+            <div class="two-col-item">
+                <h3>Member</h3>
+                <div class="org">YO Place</div>
+            </div>
+            <div class="two-col-item">
+                <h3>Member</h3>
+                <div class="org">連青人網絡</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Scholarships -->
+    <section id="education">
+        <h2>Education & Scholarships</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <h3>BSc First Class Honours</h3>
+                <div class="org">The Hong Kong University of Science and Technology</div>
+                <div class="date">MCGA 4.006 | 7× Dean's List</div>
+            </div>
+            <div class="card">
+                <h3>Research Postgraduate</h3>
+                <div class="org">The Hong Kong Polytechnic University</div>
+                <div class="result">Full Scholarship + HK$25k Grant</div>
+            </div>
+            <div class="card">
+                <h3>MTR Corporate Scholarship</h3>
+                <div class="org">MTR Corporation</div>
+                <div class="date">2021</div>
+            </div>
+            <div class="card">
+                <h3>D.H. Chen Foundation Scholarship</h3>
+                <div class="org">D.H. Chen Foundation</div>
+                <div class="date">2021</div>
+            </div>
+            <div class="card">
+                <h3>AEON Credit Service Scholarship</h3>
+                <div class="org">AEON Credit</div>
+                <div class="date">2021</div>
+            </div>
+            <div class="card">
+                <h3>Kitchell Undergraduate Research Award</h3>
+                <div class="org">HKUST</div>
+                <div class="date">2021</div>
+            </div>
+            <div class="card">
+                <h3>UROP Support Grant</h3>
+                <div class="org">HKUST</div>
+                <div class="result">HK$18,960</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publication -->
+    <section id="publication">
+        <h2>Publication</h2>
+        <div class="publication">
+            <h3>Novel host cell factors interacting with SARS-CoV-2 spike protein RBD</h3>
+            <p class="journal">Tang et al., Journal of Biological Chemistry</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p class="tagline">The Invisible Architect</p>
-            <p>© 2026 Jackie Ng (Ng Cheuk Hei)</p>
+        <div class="social-links">
+            <a href="https://instagram.com/jackieng_ch" target="_blank" aria-label="Instagram">📷</a>
+            <a href="https://linkedin.com/in/jackieng-ch" target="_blank" aria-label="LinkedIn">💼</a>
+            <a href="mailto:jackie.ng@connect.polyu.hk" aria-label="Email">✉️</a>
         </div>
+        <p>&copy; 2026 Jackie Ng. All rights reserved.</p>
     </footer>
 
     <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Timeline scroll animation
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
+        // Smooth scroll animation on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, {
+            threshold: 0.1
+        });
 
-        // Load achievements and build timeline
-        fetch('achievements.json')
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById('timeline-container');
-                
-                // Flatten and sort all achievements by date
-                const allAchievements = [];
-                Object.keys(data).forEach(category => {
-                    data[category].forEach(achievement => {
-                        allAchievements.push({
-                            ...achievement,
-                            category: category
-                        });
-                    });
-                });
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
 
-                // Sort by date descending
-                allAchievements.sort((a, b) => {
-                    const dateA = new Date(a.Date);
-                    const dateB = new Date(b.Date);
-                    return dateB - dateA;
-                });
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-                // Take top 15 most significant achievements
-                const significantCategories = ['Academic-Awards', 'Scholarships', 'Competitions', 'Speaking-Conferences', 'Publications'];
-                const topAchievements = allAchievements
-                    .filter(a => significantCategories.includes(a.category))
-                    .slice(0, 15);
-
-                topAchievements.forEach(achievement => {
-                    const year = achievement.Date ? new Date(achievement.Date).getFullYear() : 'Ongoing';
-                    
-                    const item = document.createElement('div');
-                    item.className = 'timeline-item';
-                    
-                    item.innerHTML = `
-                        <div class="timeline-year">${year}</div>
-                        <div class="timeline-content">
-                            <h3>${achievement.Title}</h3>
-                            <div class="timeline-org">${achievement.Organization}</div>
-                            ${achievement.Result ? `<span class="timeline-badge ${achievement.Result.toLowerCase().includes('won') ? 'won' : ''}">${achievement.Result}</span>` : ''}
-                        </div>
-                    `;
-                    
-                    container.appendChild(item);
-                    observer.observe(item);
-                });
-            })
-            .catch(error => {
-                console.error('Error loading timeline:', error);
-            });
-
-        // Load work gallery
-        fetch('gallery.json')
-            .then(response => response.json())
-            .then(gallery => {
-                const grid = document.getElementById('work-grid');
-                gallery.forEach(item => {
-                    const workItem = document.createElement('div');
-                    workItem.className = 'work-item';
-                    workItem.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}">
-                        <div class="work-overlay">
-                            <div class="work-title">${item.title}</div>
-                            <div class="work-caption">${item.caption}</div>
-                        </div>
-                    `;
-                    grid.appendChild(workItem);
-                });
-            })
-            .catch(error => {
-                console.error('Error loading gallery:', error);
-                // Show placeholder if gallery fails to load
-                document.getElementById('work-grid').innerHTML = 
-                    '<p style="color: rgba(255,255,255,0.7); grid-column: 1/-1; text-align: center;">Gallery coming soon.</p>';
-            });
+        // Make hero visible immediately
+        document.querySelector('.hero').classList.add('visible');
     </script>
 </body>
 </html>
