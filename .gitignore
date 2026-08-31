@@ -1,5 +1,3 @@
-assets/*.png
-assets/*.jpg
 *.pyc
 __pycache__/
 .DS_Store
