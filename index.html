@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Jackie Ng — Computational biologist building molecular simulation tools for drug discovery. Selected by Nobel Laureates, Shaw Prize Foundation, and Chinese Academy of Sciences.">
-<title>Jackie Ng — Computational Biology × Drug Discovery</title>
+<meta name="description" content="Jackie Ng — From HKUST lab to Nobel Laureate meetings to founding AtomBios. The story of bridging atomic science and drug discovery.">
+<title>Jackie Ng — The Invisible Architect</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,125 +16,115 @@
   --serif:'Cormorant Garamond',Georgia,serif;
   --sans:'Inter',-apple-system,system-ui,sans-serif;
   --shadow:0 8px 40px rgba(0,0,0,.06);
-  --shadow-hover:0 16px 64px rgba(0,0,0,.1);
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased;font-size:17px;line-height:1.65}
+body{font-family:var(--sans);color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased;font-size:18px;line-height:1.7}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 
 /* ── NAV ─── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px max(32px,6vw);display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px max(40px,6vw);display:flex;justify-content:space-between;align-items:center;transition:all .3s}
 nav.scrolled{background:rgba(253,252,250,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-name{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:#fff;transition:color .3s}
+.nav-name{font-family:var(--serif);font-size:1.35rem;font-weight:400;color:#fff;transition:color .3s}
 nav.scrolled .nav-name{color:var(--fg)}
 .nav-links{display:flex;gap:2.5rem;align-items:center;list-style:none}
-.nav-links a{font-size:.88rem;color:rgba(255,255,255,.7);font-weight:500;transition:color .2s}
+.nav-links a{font-size:.9rem;color:rgba(255,255,255,.7);font-weight:500;transition:color .2s}
 nav.scrolled .nav-links a{color:var(--muted)}
 .nav-links a:hover{color:var(--accent)}
-.nav-links .cta{background:rgba(255,255,255,.12);backdrop-filter:blur(8px);color:#fff;padding:10px 26px;border-radius:100px;font-weight:600;border:1px solid rgba(255,255,255,.2);transition:all .2s}
-nav.scrolled .nav-links .cta{background:var(--fg);color:var(--bg);border-color:transparent}
-.nav-links .cta:hover{opacity:.88}
+.nav-cta{background:rgba(255,255,255,.12);backdrop-filter:blur(8px);color:#fff!important;padding:10px 28px;border-radius:100px;font-weight:600;border:1px solid rgba(255,255,255,.2);transition:all .2s}
+nav.scrolled .nav-cta{background:var(--fg);color:var(--bg)!important;border-color:transparent}
+.nav-cta:hover{opacity:.88}
 
 /* ── HERO ─── */
 .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:url('assets/hero-stage.jpg') center 30%/cover;transform:scale(1.02);transition:transform 8s ease-out}
 .hero.loaded .hero-bg{transform:scale(1)}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,6,.95) 0%,rgba(10,8,6,.7) 30%,rgba(10,8,6,.3) 55%,rgba(10,8,6,.1) 100%)}
-.hero-content{position:relative;z-index:2;padding:0 max(32px,6vw) clamp(60px,10vh,120px);max-width:960px}
-.hero-tag{font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
-.hero-h1{font-family:var(--serif);font-size:clamp(3.2rem,6.5vw,5.8rem);font-weight:300;line-height:1.05;color:#fff;margin-bottom:1.75rem;letter-spacing:-.01em}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,8,6,.96) 0%,rgba(10,8,6,.72) 28%,rgba(10,8,6,.35) 50%,rgba(10,8,6,.12) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 max(40px,6vw) clamp(70px,12vh,140px);max-width:980px}
+.hero-tag{font-size:.82rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem}
+.hero-h1{font-family:var(--serif);font-size:clamp(3.4rem,6.8vw,6rem);font-weight:300;line-height:1.05;color:#fff;margin-bottom:2rem;letter-spacing:-.015em}
 .hero-h1 em{font-style:italic;font-weight:400;color:var(--accent)}
-.hero-sub{font-size:1.2rem;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:2.5rem;max-width:600px;font-weight:300}
-.hero-stats{display:flex;gap:3rem;margin-bottom:2.5rem;flex-wrap:wrap}
-.hero-stat{display:flex;flex-direction:column;gap:.3rem}
-.hero-stat-num{font-family:var(--serif);font-size:2.8rem;font-weight:400;color:#fff;line-height:1}
-.hero-stat-label{font-size:.82rem;color:rgba(255,255,255,.5);font-weight:500;letter-spacing:.05em;text-transform:uppercase}
-.hero-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--fg);font-weight:700;font-size:1rem;padding:16px 36px;border-radius:100px;transition:transform .2s,box-shadow .3s;box-shadow:0 4px 24px rgba(157,126,90,.35)}
-.hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(157,126,90,.45)}
+.hero-sub{font-size:1.3rem;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:3rem;max-width:640px;font-weight:300}
+.hero-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--fg);font-weight:700;font-size:1.05rem;padding:18px 40px;border-radius:100px;transition:transform .2s,box-shadow .3s;box-shadow:0 4px 24px rgba(157,126,90,.4)}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(157,126,90,.5)}
 
-/* ── STATS BAR ─── */
-.stats-bar{
-  padding:60px max(32px,6vw);
-  border-bottom:1px solid var(--border);
-  background:linear-gradient(to bottom,rgba(253,252,250,0),rgba(157,126,90,.02),rgba(253,252,250,0));
-}
-.stats-bar-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:3rem}
-.stat-block{text-align:center}
-.stat-block-num{font-family:var(--serif);font-size:3.2rem;font-weight:400;color:var(--accent);line-height:1;margin-bottom:.5rem}
-.stat-block-label{font-size:.88rem;color:var(--muted);font-weight:500;letter-spacing:.04em}
+/* ── CHAPTER ─── */
+.chapter{max-width:1120px;margin:0 auto;padding:120px max(40px,6vw)}
+.chapter-num{font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;opacity:.75}
+.chapter-title{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4rem);font-weight:300;line-height:1.12;margin-bottom:2rem;max-width:800px}
+.chapter-body{font-size:1.15rem;line-height:1.8;color:var(--muted);max-width:720px;font-weight:300}
+.chapter-body p{margin-bottom:1.5rem}
+.chapter-body p:last-child{margin-bottom:0}
+.chapter-body strong{font-weight:600;color:var(--fg)}
+.chapter-body em{font-style:italic;color:var(--accent)}
 
-/* ── SECTION ─── */
-.section{padding:100px max(32px,6vw);max-width:1280px;margin:0 auto}
-.section-header{max-width:720px;margin-bottom:4rem}
-.section-tag{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;opacity:.85}
-.section-title{font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:300;line-height:1.15;margin-bottom:1.25rem}
-.section-desc{font-size:1.1rem;color:var(--muted);line-height:1.75;font-weight:300}
+/* ── SPLIT ─── */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;margin-top:4rem}
+.split-visual{border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.split-visual img{width:100%;display:block}
 
-/* ── RECOGNITION GRID ─── */
-.rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.rec-card{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow);transition:transform .4s,box-shadow .4s;cursor:default}
-.rec-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover)}
-.rec-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.rec-card:hover img{transform:scale(1.05)}
-.rec-card .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.2) 40%,transparent 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;opacity:0;transition:opacity .3s}
-.rec-card:hover .ov{opacity:1}
-.rec-card .ov .tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
-.rec-card .ov h3{font-family:var(--serif);font-size:1.35rem;font-weight:400;color:#fff;line-height:1.3}
-.rec-card .ov .sub{font-size:.85rem;color:rgba(255,255,255,.5);margin-top:.3rem;font-weight:400}
+/* ── TIMELINE ─── */
+.timeline{max-width:900px;margin:4rem auto 0;position:relative;padding-left:3rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),rgba(157,126,90,.2))}
+.timeline-item{position:relative;padding-bottom:3rem}
+.timeline-item::before{content:'';position:absolute;left:-3rem;top:.4rem;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 0 2px var(--accent)}
+.timeline-year{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.timeline-title{font-size:1.25rem;font-weight:500;margin-bottom:.35rem;color:var(--fg)}
+.timeline-desc{font-size:1rem;color:var(--muted);line-height:1.65;font-weight:300}
+
+/* ── PROOF GRID ─── */
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:4rem}
+.proof-card{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow);transition:transform .4s,box-shadow .4s}
+.proof-card:hover{transform:translateY(-4px);box-shadow:0 12px 48px rgba(0,0,0,.1)}
+.proof-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.proof-card:hover img{transform:scale(1.04)}
+.proof-card .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,rgba(0,0,0,.2) 40%,transparent 58%);display:flex;flex-direction:column;justify-content:flex-end;padding:26px;opacity:0;transition:opacity .3s}
+.proof-card:hover .ov{opacity:1}
+.proof-card .ov .tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+.proof-card .ov h3{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:#fff;line-height:1.3}
 
 /* ── ATOMBIOS FEATURE ─── */
-.atombios{padding:100px max(32px,6vw);background:var(--fg);color:var(--bg)}
-.atombios-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
-.atombios-tag{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;opacity:.9}
-.atombios h2{font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,3.6rem);font-weight:300;line-height:1.15;margin-bottom:1.5rem}
-.atombios p{font-size:1.1rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:1rem;font-weight:300}
-.atombios ul{list-style:none;margin:2rem 0;display:flex;flex-direction:column;gap:.85rem}
-.atombios ul li{display:flex;align-items:flex-start;gap:.75rem;font-size:1rem;color:rgba(255,255,255,.75);line-height:1.65}
-.atombios ul li::before{content:'→';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:.1em}
-.atombios-visual{border-radius:20px;overflow:hidden;box-shadow:var(--shadow-hover)}
+.atombios{padding:120px max(40px,6vw);background:var(--fg);color:var(--bg)}
+.atombios-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.atombios-tag{font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1.75rem}
+.atombios h2{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4rem);font-weight:300;line-height:1.15;margin-bottom:1.75rem}
+.atombios p{font-size:1.15rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:1.25rem;font-weight:300}
+.atombios ul{list-style:none;margin:2.5rem 0;display:flex;flex-direction:column;gap:1rem}
+.atombios ul li{display:flex;align-items:flex-start;gap:.85rem;font-size:1.05rem;color:rgba(255,255,255,.8);line-height:1.7}
+.atombios ul li::before{content:'→';color:var(--accent);font-weight:700;flex-shrink:0;font-size:1.15rem;margin-top:.1em}
+.atombios-visual{border-radius:20px;overflow:hidden;box-shadow:0 12px 56px rgba(0,0,0,.25)}
 .atombios-visual img{width:100%;display:block}
-.atombios-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--fg);font-weight:700;font-size:.95rem;padding:14px 32px;border-radius:100px;margin-top:1.5rem;transition:transform .2s,box-shadow .3s;box-shadow:0 4px 20px rgba(157,126,90,.3)}
-.atombios-cta:hover{transform:translateY(-2px);box-shadow:0 6px 32px rgba(157,126,90,.4)}
-
-/* ── BACKGROUND ─── */
-.background{padding:100px max(32px,6vw);max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:6rem}
-.bg-block{margin-bottom:2.5rem}
-.bg-block:last-child{margin-bottom:0}
-.bg-block h3{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;opacity:.85}
-.bg-item{padding:.85rem 0;border-bottom:1px solid var(--border)}
-.bg-item:last-child{border-bottom:none}
-.bg-item strong{display:block;font-size:1rem;font-weight:500;margin-bottom:.25rem}
-.bg-item span{font-size:.9rem;color:var(--muted);font-weight:300;line-height:1.6}
+.atombios-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--fg);font-weight:700;font-size:1rem;padding:16px 38px;border-radius:100px;margin-top:1.75rem;transition:transform .2s,box-shadow .3s;box-shadow:0 4px 20px rgba(157,126,90,.35)}
+.atombios-cta:hover{transform:translateY(-2px);box-shadow:0 6px 32px rgba(157,126,90,.45)}
 
 /* ── CTA ─── */
-.cta-section{padding:140px max(32px,6vw);text-align:center;background:var(--fg);color:var(--bg);position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(157,126,90,.12) 0%,transparent 70%);pointer-events:none}
-.cta-section h2{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.2rem);font-weight:300;line-height:1.12;margin-bottom:1.5rem;position:relative}
-.cta-section p{font-size:1.15rem;color:rgba(255,255,255,.5);max-width:540px;margin:0 auto 3rem;line-height:1.75;font-weight:300;position:relative}
-.cta-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--fg);font-weight:700;font-size:1.05rem;padding:18px 42px;border-radius:100px;transition:transform .2s,box-shadow .3s;box-shadow:0 4px 24px rgba(157,126,90,.35);position:relative}
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(157,126,90,.45)}
-.cta-links{display:flex;justify-content:center;gap:2.5rem;margin-top:3rem;flex-wrap:wrap;position:relative}
-.cta-links a{font-size:.9rem;color:rgba(255,255,255,.4);font-weight:500;transition:color .2s}
+.cta-section{padding:140px max(40px,6vw);text-align:center;background:var(--fg);color:var(--bg);position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(157,126,90,.14) 0%,transparent 72%);pointer-events:none}
+.cta-section h2{font-family:var(--serif);font-size:clamp(3rem,5.5vw,4.6rem);font-weight:300;line-height:1.1;margin-bottom:1.75rem;position:relative}
+.cta-section p{font-size:1.2rem;color:rgba(255,255,255,.5);max-width:560px;margin:0 auto 3.5rem;line-height:1.75;font-weight:300;position:relative}
+.cta-btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:var(--fg);font-weight:700;font-size:1.1rem;padding:20px 46px;border-radius:100px;transition:transform .2s,box-shadow .3s;box-shadow:0 4px 28px rgba(157,126,90,.4);position:relative}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 44px rgba(157,126,90,.5)}
+.cta-links{display:flex;justify-content:center;gap:2.75rem;margin-top:3.5rem;flex-wrap:wrap;position:relative}
+.cta-links a{font-size:.95rem;color:rgba(255,255,255,.4);font-weight:500;transition:color .2s}
 .cta-links a:hover{color:var(--accent)}
 
-footer{text-align:center;padding:32px;font-size:.85rem;color:var(--muted);font-weight:300}
+footer{text-align:center;padding:40px;font-size:.88rem;color:var(--muted);font-weight:300}
 
 /* ── RESPONSIVE ─── */
-@media(max-width:1100px){
-  .rec-grid{grid-template-columns:repeat(2,1fr)}
-  .atombios-inner,.background{grid-template-columns:1fr;gap:4rem}
+@media(max-width:1024px){
+  .split,.atombios-inner{grid-template-columns:1fr;gap:4rem}
+  .proof-grid{grid-template-columns:repeat(2,1fr)}
   .nav-links{display:none}
-  .hero-stats{gap:2rem}
-  .stats-bar-inner{grid-template-columns:repeat(2,1fr)}
+  .timeline{padding-left:2.5rem}
+  .timeline-item::before{left:-2.5rem}
+  .timeline::before{left:0}
 }
-@media(max-width:700px){
-  .rec-grid{grid-template-columns:1fr}
-  .hero-stats{flex-direction:column;gap:1.5rem}
-  .stats-bar-inner{grid-template-columns:1fr;gap:2rem}
+@media(max-width:640px){
+  .proof-grid{grid-template-columns:1fr}
+  body{font-size:17px}
 }
 
-.fade{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.25,.8,.25,1),transform .6s cubic-bezier(.25,.8,.25,1)}
+.fade{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.25,.8,.25,1),transform .7s cubic-bezier(.25,.8,.25,1)}
 .fade.vis{opacity:1;transform:none}
 </style>
 </head>
@@ -143,10 +133,9 @@ footer{text-align:center;padding:32px;font-size:.85rem;color:var(--muted);font-w
 <nav id="nav">
   <a class="nav-name" href="#">Jackie Ng</a>
   <ul class="nav-links">
-    <li><a href="#recognition">Recognition</a></li>
+    <li><a href="#story">Story</a></li>
     <li><a href="#atombios">AtomBios</a></li>
-    <li><a href="#background">Background</a></li>
-    <li><a href="#connect" class="cta">Contact</a></li>
+    <li><a href="#connect" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
@@ -155,178 +144,145 @@ footer{text-align:center;padding:32px;font-size:.85rem;color:var(--muted);font-w
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-tag">Computational Biology × Drug Discovery</p>
+    <p class="hero-tag">The Invisible Architect</p>
     <h1 class="hero-h1">I work where the <em>atom meets the brain</em></h1>
-    <p class="hero-sub">Building molecular simulation tools for drug discovery. Founder of AtomBios. Selected by Nobel Laureates and the Chinese Academy of Sciences.</p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">13+</div>
-        <div class="hero-stat-label">Awards & Honors</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">4.0/4.3</div>
-        <div class="hero-stat-label">MCGA · HKUST</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">3</div>
-        <div class="hero-stat-label">Global Selections</div>
-      </div>
-    </div>
-    <a href="#connect" class="hero-cta">Get in touch →</a>
+    <p class="hero-sub">From HKUST lab to Nobel Laureate meetings to founding AtomBios — the story of bridging atomic science and drug discovery.</p>
+    <a href="#story" class="hero-cta">Read my story →</a>
   </div>
 </section>
 
-<!-- ── STATS BAR ─── -->
-<div class="stats-bar">
-  <div class="stats-bar-inner">
-    <div class="stat-block">
-      <div class="stat-block-num">Nobel + Shaw</div>
-      <div class="stat-block-label">Selected by two major foundations</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-block-num">Gold Medal</div>
-      <div class="stat-block-label">Techathon+ 10th Anniversary</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-block-num">CAS</div>
-      <div class="stat-block-label">Chinese Academy of Sciences Future Leader</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-block-num">7×</div>
-      <div class="stat-block-label">Dean's List · HKUST</div>
-    </div>
+<!-- ── CHAPTER 1: THE BEGINNING ─── -->
+<section class="chapter fade" id="story">
+  <p class="chapter-num">Chapter 1</p>
+  <h2 class="chapter-title">It started with a cryo-EM image</h2>
+  <div class="chapter-body">
+    <p>I didn't plan to become a computational biologist. At HKUST, I was just another biochemistry student trying to figure out what research actually meant.</p>
+    <p>Then I saw my first cryo-EM structure. A protein frozen mid-action, every atom in place. <strong>That's when it clicked: molecular mechanisms aren't abstract — they're architectural blueprints you can see.</strong></p>
+    <p>I spent the next three years learning everything I could. Structural biology. Computational chemistry. Molecular dynamics. Graduated First Class Honours with a 4.0 GPA, made Dean's List 7 times, won the Kitchell Research Award.</p>
+    <p>But the real lesson came later: <em>academic tools are built for precision, not speed. And pharma needs speed.</em></p>
   </div>
-</div>
+</section>
 
-<!-- ── RECOGNITION ─── -->
-<section class="section" id="recognition">
-  <div class="section-header fade">
-    <p class="section-tag">Recognition</p>
-    <h2 class="section-title">Selected by the world's leading institutions</h2>
-    <p class="section-desc">From the Nobel Foundation to China's Academy of Sciences — a track record of being chosen when it matters.</p>
+<!-- ── CHAPTER 2: GLOBAL RECOGNITION ─── -->
+<section class="chapter fade">
+  <p class="chapter-num">Chapter 2</p>
+  <h2 class="chapter-title">The world started paying attention</h2>
+  <div class="chapter-body">
+    <p>In 2024, I was selected as a Young Scientist for the Hong Kong Laureate Forum. Then came the Shaw Prize Roundtable in 2025 — sitting across from Nobel Laureates, realizing I belonged in those rooms.</p>
+    <p><strong>Three major selections changed everything:</strong></p>
   </div>
-  <div class="rec-grid">
-    <div class="rec-card fade">
-      <img src="assets/nobel-new.jpg" alt="Shaw Prize Roundtable 2025">
+  <div class="timeline fade">
+    <div class="timeline-item">
+      <p class="timeline-year">2025</p>
+      <h3 class="timeline-title">Nobel Laureate Meeting — Lindau, Germany</h3>
+      <p class="timeline-desc">Selected Young Scientist among <600 global applicants. Week-long immersion with Nobel Prize winners in chemistry, physics, and physiology.</p>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-year">2025</p>
+      <h3 class="timeline-title">Shaw Prize Roundtable — Hong Kong</h3>
+      <p class="timeline-desc">Academic Representative. Dialogue with Shaw Laureates on the future of life sciences and medicine.</p>
+    </div>
+    <div class="timeline-item">
+      <p class="timeline-year">2025</p>
+      <h3 class="timeline-title">CAS Future Leader</h3>
+      <p class="timeline-desc">Chinese Academy of Sciences leadership program. Selected from Greater Bay Area postgraduates for research excellence and innovation potential.</p>
+    </div>
+  </div>
+  <div class="proof-grid fade">
+    <div class="proof-card">
+      <img src="assets/nobel-new.jpg" alt="Shaw Prize Roundtable">
       <div class="ov">
         <span class="tag">Shaw Prize · 2025</span>
         <h3>Shaw Prize Roundtable</h3>
-        <p class="sub">Academic Representative</p>
       </div>
     </div>
-    <div class="rec-card fade">
-      <img src="assets/shaw-prize-new.jpg" alt="Nobel Laureate Meeting 2025">
+    <div class="proof-card">
+      <img src="assets/shaw-prize-new.jpg" alt="Nobel Laureate Meeting">
       <div class="ov">
-        <span class="tag">Nobel Foundation · 2025</span>
-        <h3>Selected Young Scientist</h3>
-        <p class="sub">Lindau Nobel Laureate Meeting</p>
+        <span class="tag">Nobel · 2025</span>
+        <h3>Lindau Meeting</h3>
       </div>
     </div>
-    <div class="rec-card fade">
-      <img src="assets/techathon-new.jpg" alt="Techathon+ Gold Medal">
-      <div class="ov">
-        <span class="tag">Techathon+ · 2026</span>
-        <h3>Gold Medal Winner</h3>
-        <p class="sub">10th Anniversary Edition</p>
-      </div>
-    </div>
-    <div class="rec-card fade">
-      <img src="assets/suzhou-award-new.jpg" alt="贏在蘇州 Rising Star">
-      <div class="ov">
-        <span class="tag">Suzhou Municipal · 2026</span>
-        <h3>贏在蘇州 Rising Star</h3>
-        <p class="sub">Global Entrepreneurship Competition</p>
-      </div>
-    </div>
-    <div class="rec-card fade">
+    <div class="proof-card">
       <img src="assets/hklf-new.jpg" alt="HK Laureate Forum">
       <div class="ov">
         <span class="tag">HKLF · 2024</span>
-        <h3>Selected Young Scientist</h3>
-        <p class="sub">Hong Kong Laureate Forum</p>
+        <h3>Young Scientist</h3>
       </div>
     </div>
-    <div class="rec-card fade">
-      <img src="assets/rthk-media-new.jpg" alt="RTHK Documentary">
-      <div class="ov">
-        <span class="tag">RTHK · 2026</span>
-        <h3>尋找創科的故事</h3>
-        <p class="sub">Science & Innovation Documentary</p>
-      </div>
-    </div>
+  </div>
+</section>
+
+<!-- ── CHAPTER 3: THE GAP ─── -->
+<section class="chapter fade">
+  <p class="chapter-num">Chapter 3</p>
+  <h2 class="chapter-title">I saw the gap pharma couldn't fix</h2>
+  <div class="chapter-body">
+    <p>In those rooms with Nobel Laureates and pharma executives, the same frustration kept surfacing: <strong>academic simulation tools are too slow for drug discovery timelines.</strong></p>
+    <p>A medicinal chemist wants to test 1,000 binding hypotheses before committing synthesis budget. But setting up molecular dynamics takes weeks. The tools are built for Nature papers, not pipeline decisions.</p>
+    <p>I realized: <em>someone who understands both the atomic-level science AND the pharma urgency could build the bridge.</em> That's when AtomBios was born.</p>
   </div>
 </section>
 
 <!-- ── ATOMBIOS ─── -->
-<section class="atombios" id="atombios">
+<section class="atombios fade" id="atombios">
   <div class="atombios-inner">
     <div>
-      <p class="atombios-tag">AtomBios</p>
-      <h2>Simulation at scale — built for pharma speed</h2>
-      <p>A computational biology platform designed for drug developers who need answers fast. Test binding hypotheses before committing synthesis budget.</p>
+      <p class="atombios-tag">Chapter 4 — AtomBios</p>
+      <h2>Molecular simulation at pharma speed</h2>
+      <p>AtomBios is a computational biology platform that lets drug teams visualize protein–ligand interactions in real time. No weeks of setup. No IT tickets. Just: load your structure, test your hypothesis, get your answer.</p>
       <ul>
-        <li>Visualize protein–ligand interactions in real time</li>
-        <li>One-click molecular dynamics — no IT tickets</li>
-        <li>Test 1,000 hypotheses before synthesis</li>
+        <li>One-click molecular dynamics — rigor without the ritual</li>
+        <li>Test 1,000 binding modes before you synthesize one</li>
         <li>Built on cryo-EM validated structural data</li>
+        <li>Deployed at HK Science and Technology Park</li>
       </ul>
       <a href="mailto:jackie.ng@connect.polyu.hk" class="atombios-cta">Request Demo →</a>
-      <p style="margin-top:1.5rem;font-size:.9rem;color:rgba(255,255,255,.4)">Incubated at Hong Kong Science and Technology Park</p>
     </div>
-    <div class="atombios-visual fade">
+    <div class="atombios-visual">
       <img src="assets/gba-steam.png" alt="AtomBios platform">
     </div>
   </div>
 </section>
 
-<!-- ── BACKGROUND ─── -->
-<section class="background" id="background">
-  <div>
-    <div class="section-header">
-      <p class="section-tag">Background</p>
-      <h2 class="section-title">The foundation behind the work</h2>
-    </div>
+<!-- ── CHAPTER 5: VALIDATION ─── -->
+<section class="chapter fade">
+  <p class="chapter-num">Chapter 5</p>
+  <h2 class="chapter-title">The market confirmed it</h2>
+  <div class="chapter-body">
+    <p>In January 2026, AtomBios won <strong>Gold Medal at Techathon+ 10th Anniversary</strong> — Hong Kong's flagship deep-tech competition. Then came <strong>贏在蘇州 Rising Star Award</strong> at Suzhou's Global Entrepreneurship Competition.</p>
+    <p>RTHK featured the story in their <em>尋找創科的故事</em> documentary series. Ming Pao, HK01, and Beijing media followed. The validation wasn't just academic anymore — it was entrepreneurial.</p>
+    <p><strong>Now I'm building at the intersection of two worlds:</strong> rigorous enough for Nature, fast enough for a pharma pipeline decision.</p>
   </div>
-  <div>
-    <div class="bg-block">
-      <h3>Education</h3>
-      <div class="bg-item">
-        <strong>MPhil, Biochemistry</strong>
-        <span>The Hong Kong Polytechnic University · In Progress</span>
-      </div>
-      <div class="bg-item">
-        <strong>BSc First Class Honours</strong>
-        <span>HKUST · MCGA 4.006 / 4.3 · 7× Dean's List</span>
+  <div class="proof-grid fade" style="grid-template-columns:repeat(3,1fr)">
+    <div class="proof-card">
+      <img src="assets/techathon-new.jpg" alt="Techathon+ Gold Medal">
+      <div class="ov">
+        <span class="tag">Techathon+ · 2026</span>
+        <h3>Gold Medal</h3>
       </div>
     </div>
-    <div class="bg-block">
-      <h3>Scholarships</h3>
-      <div class="bg-item">
-        <strong>PolyU Research Postgraduate Scholarship</strong>
-        <span>Competitive research funding + HK$25k conference grant</span>
-      </div>
-      <div class="bg-item">
-        <strong>MTR Corporate Scholarship</strong>
-        <span>Awarded to top academic performers</span>
-      </div>
-      <div class="bg-item">
-        <strong>D.H. Chen Foundation Scholarship</strong>
-        <span>Academic excellence and research potential</span>
+    <div class="proof-card">
+      <img src="assets/suzhou-award-new.jpg" alt="贏在蘇州">
+      <div class="ov">
+        <span class="tag">Suzhou · 2026</span>
+        <h3>Rising Star</h3>
       </div>
     </div>
-    <div class="bg-block">
-      <h3>Affiliations</h3>
-      <div class="bg-item">
-        <span>ASBMB · HKIS · HKASME · CAS Future Leaders</span>
+    <div class="proof-card">
+      <img src="assets/rthk-media-new.jpg" alt="RTHK Documentary">
+      <div class="ov">
+        <span class="tag">RTHK · 2026</span>
+        <h3>尋找創科的故事</h3>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ── CTA ─── -->
-<section class="cta-section" id="connect">
-  <h2>Let's talk</h2>
-  <p>Whether you're evaluating computational tools, scouting innovation talent, or exploring AtomBios for your discovery team.</p>
+<section class="cta-section fade" id="connect">
+  <h2>Let's work together</h2>
+  <p>Whether you're evaluating computational tools for your discovery team, scouting innovation talent, or exploring partnerships — I'd love to connect.</p>
   <a href="mailto:jackie.ng@connect.polyu.hk" class="cta-btn">jackie.ng@connect.polyu.hk</a>
   <div class="cta-links">
     <a href="https://www.linkedin.com/in/jackie-ng-computational-bio/" target="_blank">LinkedIn</a>
@@ -334,7 +290,7 @@ footer{text-align:center;padding:32px;font-size:.85rem;color:var(--muted);font-w
   </div>
 </section>
 
-<footer><p>© 2026 Jackie Ng</p></footer>
+<footer><p>© 2026 Jackie Ng · The Invisible Architect</p></footer>
 
 <script>
 (function(){
