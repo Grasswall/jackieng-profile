@@ -3,1124 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Jackie Ng — Computational biologist building molecular simulation tools for drug discovery. Founder of AtomBios. Selected by Nobel Laureates, Shaw Prize, and CAS.">
-<title>Jackie Ng | Computational Biology for Drug Discovery</title>
+<meta name="description" content="Jackie Ng — I work where the atom meets the brain. Computational biologist, founder of AtomBios, selected by Nobel Laureates.">
+<title>Jackie Ng</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* ── RESET & BASE ─────────────────────────────────────────────────────── */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --navy:   #0A1828;
-    --navy2:  #112233;
-    --gold:   #BFA181;
-    --gold-lt:#D4B896;
-    --white:  #FFFFFF;
-    --off-white: #F8F9FA;
-    --grey:   #6B7280;
-    --grey-lt:#E5E7EB;
-    --blue:   #0EA5E9;
-    --blue-dk:#0284C7;
-    --radius: 12px;
-    --shadow: 0 8px 32px rgba(10,24,40,.12);
-    --shadow-lg: 0 20px 60px rgba(10,24,40,.18);
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', sans-serif;
-    color: var(--navy);
-    background: var(--white);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-  img { display: block; max-width: 100%; }
-  a { color: inherit; text-decoration: none; }
-  button { cursor: pointer; font-family: inherit; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAFAF8;--fg:#111;--muted:#666;--accent:#B8956A;
+  --card:#FFF;--border:rgba(0,0,0,.06);
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Inter',-apple-system,system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
 
-  /* ── NAV ──────────────────────────────────────────────────────────────── */
-  #nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 5vw;
-    background: transparent;
-    transition: background .3s, box-shadow .3s;
-  }
-  #nav.scrolled {
-    background: rgba(10,24,40,.95);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 2px 20px rgba(0,0,0,.25);
-  }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: .02em;
-  }
-  .nav-links {
-    display: flex; gap: 2rem; list-style: none;
-  }
-  .nav-links a {
-    color: rgba(255,255,255,.8);
-    font-size: .875rem;
-    font-weight: 500;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-    transition: color .2s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    background: var(--gold);
-    color: var(--navy) !important;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-weight: 600 !important;
-    transition: background .2s, transform .15s !important;
-  }
-  .nav-cta:hover { background: var(--gold-lt) !important; transform: translateY(-1px); }
-  #nav-toggle {
-    display: none;
-    flex-direction: column; gap: 5px;
-    background: none; border: none; padding: 4px;
-  }
-  #nav-toggle span {
-    display: block; width: 24px; height: 2px;
-    background: var(--white); border-radius: 2px;
-    transition: all .3s;
-  }
+/* ── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px max(24px,5vw);display:flex;justify-content:space-between;align-items:center;background:rgba(250,250,248,.9);backdrop-filter:blur(12px)}
+.nav-name{font-family:var(--serif);font-size:1.15rem}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
+.nav-links a{font-size:.88rem;color:var(--muted);font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--fg)}
+.nav-links .cta{background:var(--fg);color:var(--bg);padding:8px 20px;border-radius:100px;font-weight:600}
+.nav-links .cta:hover{opacity:.85}
 
-  /* ── HERO ─────────────────────────────────────────────────────────────── */
-  #hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex; align-items: center;
-    overflow: hidden;
-    background: var(--navy);
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background-image: url('assets/headshot.jpg');
-    background-size: cover;
-    background-position: center top;
-    opacity: .22;
-  }
-  .hero-gradient {
-    position: absolute; inset: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(10,24,40,1) 0%,
-      rgba(10,24,40,.85) 40%,
-      rgba(10,24,40,.6) 70%,
-      rgba(10,24,40,.85) 100%
-    );
-  }
-  /* Particle canvas */
-  #particles-canvas {
-    position: absolute; inset: 0;
-    pointer-events: none;
-    opacity: .6;
-  }
-  .hero-content {
-    position: relative; z-index: 2;
-    max-width: 900px;
-    padding: 0 5vw;
-    padding-top: 100px;
-  }
-  .hero-eyebrow {
-    display: inline-block;
-    font-size: .78rem;
-    font-weight: 600;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.4rem;
-    border-left: 3px solid var(--gold);
-    padding-left: .75rem;
-  }
-  .hero-headline {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
-    font-weight: 900;
-    line-height: 1.1;
-    color: var(--white);
-    margin-bottom: 1.4rem;
-    max-width: 760px;
-  }
-  .hero-headline em {
-    font-style: normal;
-    color: var(--gold);
-  }
-  .hero-sub {
-    font-size: clamp(1rem, 1.8vw, 1.2rem);
-    color: rgba(255,255,255,.78);
-    max-width: 620px;
-    margin-bottom: 2.4rem;
-    line-height: 1.75;
-    font-weight: 300;
-  }
-  .hero-actions {
-    display: flex; align-items: center; gap: 1.25rem;
-    flex-wrap: wrap;
-  }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: .5rem;
-    background: var(--gold);
-    color: var(--navy);
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 15px 34px;
-    border-radius: 50px;
-    border: none;
-    transition: background .2s, transform .15s, box-shadow .2s;
-    box-shadow: 0 4px 20px rgba(191,161,129,.35);
-  }
-  .btn-primary:hover {
-    background: var(--gold-lt);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(191,161,129,.45);
-  }
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: .5rem;
-    color: rgba(255,255,255,.85);
-    font-weight: 500;
-    font-size: 1rem;
-    padding: 14px 20px;
-    border: 1.5px solid rgba(255,255,255,.3);
-    border-radius: 50px;
-    background: transparent;
-    transition: border-color .2s, color .2s, transform .15s;
-  }
-  .btn-ghost:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    transform: translateY(-2px);
-  }
-  .hero-social {
-    display: flex; gap: 1.2rem; margin-top: 3rem;
-  }
-  .hero-social a {
-    color: rgba(255,255,255,.45);
-    transition: color .2s;
-    font-size: .9rem;
-    display: flex; align-items: center; gap: .35rem;
-  }
-  .hero-social a:hover { color: var(--gold); }
+/* ── HERO ─── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:120px max(24px,5vw) 80px;
+  max-width:1400px;margin:0 auto;
+  gap:clamp(3rem,6vw,8rem);
+}
+.hero-text{flex:1;max-width:580px}
+.hero-tag{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+.hero-h1{font-family:var(--serif);font-size:clamp(3rem,6vw,5rem);font-weight:400;line-height:1.08;letter-spacing:-.02em;margin-bottom:1.5rem}
+.hero-h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:1.15rem;color:var(--muted);line-height:1.7;margin-bottom:2.5rem;max-width:480px}
+.hero-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--fg);color:var(--bg);font-weight:600;font-size:.95rem;padding:14px 30px;border-radius:100px;transition:opacity .15s}
+.hero-cta:hover{opacity:.85}
+.hero-photo{flex:0 0 auto;width:min(420px,40vw)}
+.hero-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px}
 
-  /* Headshot inset (right side, desktop) */
-  .hero-photo-wrap {
-    position: absolute;
-    right: 5vw; top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
-    width: min(360px, 34vw);
-  }
-  .hero-photo-wrap img {
-    width: 100%;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
-    border: 3px solid rgba(191,161,129,.3);
-    object-fit: cover;
-    aspect-ratio: 3/4;
-  }
-  .hero-photo-badge {
-    position: absolute;
-    bottom: -16px; left: -16px;
-    background: var(--gold);
-    color: var(--navy);
-    font-size: .75rem;
-    font-weight: 700;
-    padding: 10px 16px;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    max-width: 180px;
-    line-height: 1.4;
-  }
+/* ── LOGOS / SOCIAL PROOF BAR ─── */
+.proof-bar{
+  padding:48px max(24px,5vw);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;gap:clamp(2rem,4vw,5rem);flex-wrap:wrap;
+}
+.proof-item{font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
 
-  /* ── SECTION SHARED ───────────────────────────────────────────────────── */
-  section { padding: 100px 5vw; }
-  .section-label {
-    font-size: .75rem;
-    font-weight: 700;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: .75rem;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: var(--navy);
-  }
-  .section-intro {
-    font-size: 1.1rem;
-    color: var(--grey);
-    max-width: 620px;
-    line-height: 1.75;
-    margin-bottom: 3.5rem;
-  }
-  .container { max-width: 1180px; margin: 0 auto; }
+/* ── BENTO GRID ─── */
+.bento-section{padding:100px max(24px,5vw);max-width:1400px;margin:0 auto}
+.bento-label{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:2.5rem}
+.bento{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-auto-rows:320px;
+  gap:16px;
+}
+.bento-card{
+  position:relative;border-radius:14px;overflow:hidden;cursor:default;
+  background:var(--card);border:1px solid var(--border);
+}
+.bento-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.bento-card:hover img{transform:scale(1.04)}
+.bento-card .overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 50%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:24px;
+  opacity:0;transition:opacity .3s;
+}
+.bento-card:hover .overlay{opacity:1}
+.bento-card .overlay .tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.35rem}
+.bento-card .overlay h3{font-size:1.15rem;font-weight:600;color:#fff;line-height:1.3}
+/* Span variants */
+.bento-wide{grid-column:span 2}
+.bento-tall{grid-row:span 2}
 
-  /* ── WHAT I DO ────────────────────────────────────────────────────────── */
-  #what-i-do { background: var(--off-white); padding-top: 80px; padding-bottom: 80px; }
-  .pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-  .pillar-card {
-    background: var(--white);
-    padding: 2.5rem;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    border-top: 3px solid var(--gold);
-    transition: transform .25s, box-shadow .25s;
-  }
-  .pillar-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-  }
-  .pillar-icon {
-    width: 52px; height: 52px;
-    background: rgba(191,161,129,.12);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.25rem;
-    font-size: 1.5rem;
-  }
-  .pillar-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: .75rem;
-    color: var(--navy);
-  }
-  .pillar-card p { font-size: .95rem; color: var(--grey); line-height: 1.7; }
+/* ── TEXT CARD (for bento) ─── */
+.bento-text{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:40px;background:var(--fg);color:var(--bg);
+}
+.bento-text .tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.bento-text h3{font-family:var(--serif);font-size:1.6rem;font-weight:400;line-height:1.3;margin-bottom:1rem}
+.bento-text p{font-size:.92rem;color:rgba(255,255,255,.6);line-height:1.7}
 
-  /* ── RECOGNITION ──────────────────────────────────────────────────────── */
-  #recognition { background: var(--white); }
-  .recognition-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
-  }
-  .rec-card {
-    position: relative;
-    border-radius: var(--radius);
-    overflow: hidden;
-    aspect-ratio: 4/3;
-    box-shadow: var(--shadow);
-    cursor: default;
-    transition: transform .3s, box-shadow .3s;
-  }
-  .rec-card:hover {
-    transform: translateY(-5px) scale(1.01);
-    box-shadow: var(--shadow-lg);
-  }
-  .rec-card img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform .5s;
-  }
-  .rec-card:hover img { transform: scale(1.05); }
-  .rec-card-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(10,24,40,.92) 30%, rgba(10,24,40,.2) 80%);
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 1.75rem;
-  }
-  .rec-org {
-    font-size: .7rem;
-    font-weight: 700;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: .4rem;
-  }
-  .rec-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.25;
-    margin-bottom: .3rem;
-  }
-  .rec-sub {
-    font-size: .82rem;
-    color: rgba(255,255,255,.65);
-    font-weight: 400;
-  }
+/* ── ABOUT STRIP ─── */
+.about{
+  padding:100px max(24px,5vw);max-width:1400px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;
+}
+.about-left .tag{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem}
+.about-left h2{font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:1.5rem;letter-spacing:-.01em}
+.about-left p{font-size:1.05rem;color:var(--muted);line-height:1.75;margin-bottom:1rem}
+.about-right{display:flex;flex-direction:column;gap:2rem}
+.about-block h4{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.about-item{padding:.6rem 0;border-bottom:1px solid var(--border)}
+.about-item:last-child{border-bottom:none}
+.about-item strong{display:block;font-size:.95rem;font-weight:600}
+.about-item span{font-size:.88rem;color:var(--muted)}
 
-  /* ── IN THE PRESS ─────────────────────────────────────────────────────── */
-  #press { background: var(--navy); padding: 80px 5vw; }
-  #press .section-label { color: var(--gold-lt); }
-  #press .section-title { color: var(--white); }
-  #press .section-intro { color: rgba(255,255,255,.6); }
-  .press-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.5rem;
-  }
-  .press-card {
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: background .2s, border-color .2s, transform .25s;
-  }
-  .press-card:hover {
-    background: rgba(255,255,255,.1);
-    border-color: var(--gold);
-    transform: translateY(-3px);
-  }
-  .press-card-img {
-    width: 100%; height: 180px;
-    object-fit: cover;
-    object-position: center top;
-  }
-  .press-card-body { padding: 1.25rem; }
-  .press-outlet {
-    font-size: .7rem;
-    font-weight: 700;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: .5rem;
-  }
-  .press-card-body h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.35;
-    margin-bottom: .4rem;
-  }
-  .press-card-body p {
-    font-size: .82rem;
-    color: rgba(255,255,255,.5);
-    line-height: 1.55;
-  }
+/* ── CTA SECTION ─── */
+.cta-section{
+  padding:120px max(24px,5vw);text-align:center;
+  background:var(--fg);color:var(--bg);
+}
+.cta-section h2{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.4rem);font-weight:400;line-height:1.15;margin-bottom:1.25rem;letter-spacing:-.01em}
+.cta-section p{font-size:1.1rem;color:rgba(255,255,255,.55);max-width:480px;margin:0 auto 2.5rem;line-height:1.7}
+.cta-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:var(--fg);font-weight:700;font-size:1rem;padding:16px 36px;border-radius:100px;transition:opacity .15s}
+.cta-btn:hover{opacity:.85}
+.cta-links{display:flex;justify-content:center;gap:2rem;margin-top:2.5rem;flex-wrap:wrap}
+.cta-links a{font-size:.9rem;color:rgba(255,255,255,.4);font-weight:500;transition:color .15s}
+.cta-links a:hover{color:var(--accent)}
 
-  /* ── ATOMBIOS ─────────────────────────────────────────────────────────── */
-  #atombios { background: var(--off-white); }
-  .atombios-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-  .atombios-visual {
-    position: relative;
-    border-radius: var(--radius);
-    overflow: hidden;
-    aspect-ratio: 4/3;
-    box-shadow: var(--shadow-lg);
-  }
-  .atombios-visual img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-  }
-  .atombios-badge {
-    position: absolute; top: 16px; left: 16px;
-    background: rgba(10,24,40,.85);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(191,161,129,.4);
-    color: var(--gold);
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    padding: 7px 14px;
-    border-radius: 50px;
-  }
-  .atombios-features {
-    list-style: none;
-    margin: 1.75rem 0 2.25rem;
-    display: flex; flex-direction: column; gap: .85rem;
-  }
-  .atombios-features li {
-    display: flex; align-items: flex-start; gap: .75rem;
-    font-size: .97rem;
-    color: var(--navy);
-    line-height: 1.6;
-  }
-  .atombios-features li::before {
-    content: '→';
-    color: var(--gold);
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: .05em;
-  }
-  .atombios-incubation {
-    display: flex; align-items: center; gap: .75rem;
-    font-size: .82rem;
-    color: var(--grey);
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--grey-lt);
-  }
-  .incubation-dot {
-    width: 8px; height: 8px;
-    background: #22C55E;
-    border-radius: 50%;
-    flex-shrink: 0;
-    box-shadow: 0 0 0 3px rgba(34,197,94,.2);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 3px rgba(34,197,94,.2); }
-    50% { box-shadow: 0 0 0 6px rgba(34,197,94,.08); }
-  }
+/* ── FOOTER ─── */
+footer{text-align:center;padding:24px;font-size:.8rem;color:var(--muted)}
 
-  /* ── BACKGROUND ───────────────────────────────────────────────────────── */
-  #background { background: var(--white); }
-  .bg-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem 5rem;
-    margin-top: 1rem;
-  }
-  .bg-group h4 {
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1rem;
-  }
-  .bg-item {
-    padding: .9rem 0;
-    border-bottom: 1px solid var(--grey-lt);
-  }
-  .bg-item:last-child { border-bottom: none; }
-  .bg-item-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: .2rem;
-  }
-  .bg-item-sub {
-    font-size: .85rem;
-    color: var(--grey);
-    line-height: 1.55;
-  }
-  .bg-tag-list {
-    display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem;
-  }
-  .bg-tag {
-    font-size: .75rem;
-    font-weight: 600;
-    padding: 5px 12px;
-    background: rgba(191,161,129,.12);
-    color: var(--navy);
-    border-radius: 50px;
-    border: 1px solid rgba(191,161,129,.3);
-  }
+/* ── RESPONSIVE ─── */
+@media(max-width:900px){
+  .hero{flex-direction:column-reverse;text-align:center;gap:3rem}
+  .hero-text{max-width:100%}
+  .hero-sub{margin:0 auto 2.5rem}
+  .hero-photo{width:min(320px,80vw)}
+  .bento{grid-template-columns:1fr 1fr;grid-auto-rows:260px}
+  .bento-wide{grid-column:span 2}
+  .bento-tall{grid-row:span 1}
+  .about{grid-template-columns:1fr;gap:3rem}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .bento{grid-template-columns:1fr;grid-auto-rows:280px}
+  .bento-wide{grid-column:span 1}
+}
 
-  /* ── CONNECT ──────────────────────────────────────────────────────────── */
-  #connect {
-    background: var(--navy);
-    text-align: center;
-    padding: 120px 5vw;
-    position: relative;
-    overflow: hidden;
-  }
-  #connect::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center, rgba(191,161,129,.08) 0%, transparent 70%);
-  }
-  #connect .section-label { justify-content: center; display: flex; }
-  #connect .section-title {
-    color: var(--white);
-    max-width: 640px;
-    margin: 0 auto 1.25rem;
-  }
-  #connect p {
-    color: rgba(255,255,255,.65);
-    font-size: 1.1rem;
-    max-width: 540px;
-    margin: 0 auto 2.75rem;
-    line-height: 1.75;
-  }
-  .connect-actions {
-    display: flex; justify-content: center; align-items: center;
-    gap: 1.25rem; flex-wrap: wrap;
-    margin-bottom: 2.5rem;
-  }
-  .btn-primary-dark {
-    display: inline-flex; align-items: center; gap: .5rem;
-    background: var(--gold);
-    color: var(--navy);
-    font-weight: 700;
-    font-size: 1.05rem;
-    padding: 16px 38px;
-    border-radius: 50px;
-    border: none;
-    transition: background .2s, transform .15s, box-shadow .2s;
-    box-shadow: 0 4px 24px rgba(191,161,129,.3);
-  }
-  .btn-primary-dark:hover {
-    background: var(--gold-lt);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 36px rgba(191,161,129,.45);
-  }
-  .social-links {
-    display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
-  }
-  .social-link {
-    display: flex; align-items: center; gap: .5rem;
-    color: rgba(255,255,255,.5);
-    font-size: .88rem;
-    font-weight: 500;
-    transition: color .2s;
-    padding: 8px 0;
-  }
-  .social-link:hover { color: var(--gold); }
-  .social-link svg { width: 18px; height: 18px; }
-
-  /* ── FOOTER ───────────────────────────────────────────────────────────── */
-  footer {
-    background: #060F1A;
-    text-align: center;
-    padding: 24px 5vw;
-    font-size: .8rem;
-    color: rgba(255,255,255,.3);
-  }
-
-  /* ── ANIMATIONS ───────────────────────────────────────────────────────── */
-  .fade-up {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity .65s ease, transform .65s ease;
-  }
-  .fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .fade-up-delay-1 { transition-delay: .1s; }
-  .fade-up-delay-2 { transition-delay: .2s; }
-  .fade-up-delay-3 { transition-delay: .3s; }
-
-  /* ── RESPONSIVE ───────────────────────────────────────────────────────── */
-  @media (max-width: 900px) {
-    .hero-photo-wrap { display: none; }
-    .atombios-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .bg-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .nav-links { display: none; }
-    #nav-toggle { display: flex; }
-  }
-  @media (max-width: 600px) {
-    section { padding: 70px 5vw; }
-    .hero-content { padding-top: 80px; }
-    .hero-actions { flex-direction: column; align-items: flex-start; }
-    .recognition-grid { grid-template-columns: 1fr; }
-    .press-grid { grid-template-columns: 1fr; }
-  }
-
-  /* Mobile nav */
-  #mobile-nav {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(10,24,40,.97);
-    z-index: 998;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-  }
-  #mobile-nav.open { display: flex; }
-  #mobile-nav a {
-    color: var(--white);
-    font-size: 1.4rem;
-    font-weight: 600;
-    font-family: 'Playfair Display', serif;
-    transition: color .2s;
-  }
-  #mobile-nav a:hover { color: var(--gold); }
-  #mobile-close {
-    position: absolute; top: 20px; right: 5vw;
-    background: none; border: none;
-    color: var(--white); font-size: 2rem; cursor: pointer;
-  }
+/* ── FADE ─── */
+.fade{opacity:0;transform:translateY(20px);transition:opacity .5s,transform .5s}
+.fade.vis{opacity:1;transform:none}
 </style>
 </head>
 <body>
 
-<!-- ── NAV ─────────────────────────────────────────────────────────────── -->
-<nav id="nav" role="navigation" aria-label="Main navigation">
-  <a class="nav-logo" href="#hero">Jackie Ng</a>
+<nav>
+  <a class="nav-name" href="#">Jackie Ng</a>
   <ul class="nav-links">
-    <li><a href="#what-i-do">What I Do</a></li>
-    <li><a href="#recognition">Recognition</a></li>
-    <li><a href="#atombios">AtomBios</a></li>
-    <li><a href="#background">Background</a></li>
-    <li><a href="#connect" class="nav-cta">Let's Talk</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#connect" class="cta">Contact</a></li>
   </ul>
-  <button id="nav-toggle" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
-<!-- Mobile Nav -->
-<div id="mobile-nav" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-  <button id="mobile-close" aria-label="Close menu">×</button>
-  <a href="#what-i-do">What I Do</a>
-  <a href="#recognition">Recognition</a>
-  <a href="#atombios">AtomBios</a>
-  <a href="#background">Background</a>
-  <a href="#connect">Let's Talk</a>
+<!-- ── HERO ─── -->
+<section class="hero" id="top">
+  <div class="hero-text">
+    <p class="hero-tag">Computational Biology</p>
+    <h1 class="hero-h1">I work where the <em>atom meets the brain</em></h1>
+    <p class="hero-sub">Building molecular simulation tools for drug discovery. Founder of AtomBios. Selected by Nobel Laureates.</p>
+    <a href="mailto:jackie.ng@connect.polyu.hk" class="hero-cta">Get in touch →</a>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/headshot.jpg" alt="Jackie Ng">
+  </div>
+</section>
+
+<!-- ── SOCIAL PROOF ─── -->
+<div class="proof-bar">
+  <span class="proof-item">Nobel Foundation</span>
+  <span class="proof-item">Shaw Prize</span>
+  <span class="proof-item">CAS · Chinese Academy of Sciences</span>
+  <span class="proof-item">RTHK</span>
+  <span class="proof-item">HK Science Park</span>
+  <span class="proof-item">Ming Pao</span>
 </div>
 
-<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
-<section id="hero" aria-label="Hero">
-  <div class="hero-bg" role="presentation" aria-hidden="true"></div>
-  <div class="hero-gradient" aria-hidden="true"></div>
-  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+<!-- ── BENTO GRID ─── -->
+<section class="bento-section" id="work">
+  <p class="bento-label">Recognition & Work</p>
+  <div class="bento">
 
-  <div class="hero-content">
-    <p class="hero-eyebrow">Selected by Nobel Laureates · Founder, AtomBios · Award-Winning Structural Biologist</p>
-    <h1 class="hero-headline">
-      Computational biology at the<br>
-      <em>speed of drug discovery</em>
-    </h1>
-    <p class="hero-sub">
-      I build molecular simulation tools that let pharma teams explore protein mechanisms, test binding hypotheses, and run virtual experiments — in real time, not years.
-    </p>
-    <div class="hero-actions">
-      <a href="mailto:jackie.ng@connect.polyu.hk" class="btn-primary" role="button">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Let's Talk
-      </a>
-      <a href="#recognition" class="btn-ghost">
-        See My Work
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19,12 12,19 5,12"/></svg>
-      </a>
+    <!-- Row 1: wide image + text card -->
+    <div class="bento-card bento-wide fade">
+      <img src="assets/nobel-new.jpg" alt="Shaw Prize Roundtable 2025 - Circular stage with dramatic lighting">
+      <div class="overlay">
+        <span class="tag">Shaw Prize · 2025</span>
+        <h3>Shaw Prize Roundtable — Academic Representative</h3>
+      </div>
     </div>
-    <div class="hero-social" aria-label="Social links">
-      <a href="https://www.linkedin.com/in/jackie-ng-computational-bio/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-      <a href="https://www.instagram.com/the_invisible_architect_" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        Instagram
-      </a>
-      <a href="mailto:jackie.ng@connect.polyu.hk" aria-label="Send email">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Email
-      </a>
+    <div class="bento-card bento-text fade">
+      <span class="tag">AtomBios</span>
+      <h3>Molecular simulation at pharma speed</h3>
+      <p>Real-time protein visualization and binding prediction. Incubated at HK Science Park.</p>
     </div>
-  </div>
 
-  <!-- Headshot inset -->
-  <div class="hero-photo-wrap" aria-hidden="true">
-    <img src="assets/headshot.jpg" alt="Jackie Ng — computational biologist and founder of AtomBios">
-    <div class="hero-photo-badge">
-      Founder, AtomBios<br>
-      HK Science & Technology Park
+    <!-- Row 2: 3 equal -->
+    <div class="bento-card fade">
+      <img src="assets/shaw-prize-new.jpg" alt="Nobel Laureate Meeting 2025 - Portrait with Nobel Laureate">
+      <div class="overlay">
+        <span class="tag">Nobel Foundation · 2025</span>
+        <h3>Selected Young Scientist — Lindau</h3>
+      </div>
     </div>
+    <div class="bento-card fade">
+      <img src="assets/suzhou-award-new.jpg" alt="贏在蘇州 Rising Star 2026">
+      <div class="overlay">
+        <span class="tag">Suzhou · 2026</span>
+        <h3>贏在蘇州 Rising Star Award</h3>
+      </div>
+    </div>
+    <div class="bento-card fade">
+      <img src="assets/techathon-new.jpg" alt="Techathon+ Gold Medal 2026">
+      <div class="overlay">
+        <span class="tag">Techathon+ · 2026</span>
+        <h3>Gold Medal Winner</h3>
+      </div>
+    </div>
+
+    <!-- Row 3: text + wide image -->
+    <div class="bento-card bento-text fade">
+      <span class="tag">In the Press</span>
+      <h3>Featured on RTHK, Ming Pao, HK01, and Beijing media</h3>
+      <p>Science meets entrepreneurship — from national broadcast to print.</p>
+    </div>
+    <div class="bento-card bento-wide fade">
+      <img src="assets/rthk-media-new.jpg" alt="RTHK podcast recording - Jackie Ng featured">
+      <div class="overlay">
+        <span class="tag">RTHK · Hong Kong</span>
+        <h3>尋找創科的故事 — Science & Innovation Documentary</h3>
+      </div>
+    </div>
+
+    <!-- Row 4: 3 equal -->
+    <div class="bento-card fade">
+      <img src="assets/hklf-new.jpg" alt="HK Laureate Forum 2024">
+      <div class="overlay">
+        <span class="tag">HKLF · 2024</span>
+        <h3>Selected Young Scientist</h3>
+      </div>
+    </div>
+    <div class="bento-card fade">
+      <img src="assets/abct-new.jpg" alt="ABCT Best Oral Presentation">
+      <div class="overlay">
+        <span class="tag">ABCT · 2024</span>
+        <h3>Best Oral Presentation</h3>
+      </div>
+    </div>
+    <div class="bento-card fade">
+      <img src="assets/beijing-media-new.jpg" alt="Beijing media TV coverage - lab coat presentation">
+      <div class="overlay">
+        <span class="tag">Beijing Coverage</span>
+        <h3>Innovation in the Greater Bay</h3>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ── WHAT I DO ─────────────────────────────────────────────────────────── -->
-<section id="what-i-do" aria-labelledby="what-title">
-  <div class="container">
-    <p class="section-label">What I Do</p>
-    <h2 class="section-title" id="what-title">Where atomic science<br>meets industry speed</h2>
-    <p class="section-intro">
-      I sit at the intersection of structural biology, computational chemistry, and software engineering — translating academic breakthroughs into tools pharma teams can actually deploy.
-    </p>
-    <div class="pillars-grid">
-      <div class="pillar-card fade-up fade-up-delay-1" role="article">
-        <div class="pillar-icon" aria-hidden="true">🧬</div>
-        <h3>Molecular Simulation</h3>
-        <p>Build computational tools that make cryo-EM interpretation and drug-binding prediction accessible to every research team — without a PhD in bioinformatics.</p>
+<!-- ── ABOUT ─── -->
+<section class="about" id="about">
+  <div class="about-left">
+    <p class="tag">About</p>
+    <h2>Structural biologist building tools pharma actually uses</h2>
+    <p>I sit at the intersection of cryo-EM, computational chemistry, and software — translating academic breakthroughs into deployable platforms.</p>
+    <p>My startup AtomBios lets drug teams visualize protein–ligand interactions in real time. Test 1,000 hypotheses before committing to synthesis.</p>
+  </div>
+  <div class="about-right">
+    <div class="about-block">
+      <h4>Education</h4>
+      <div class="about-item">
+        <strong>MPhil, Biochemistry</strong>
+        <span>Hong Kong Polytechnic University · In Progress</span>
       </div>
-      <div class="pillar-card fade-up fade-up-delay-2" role="article">
-        <div class="pillar-icon" aria-hidden="true">💊</div>
-        <h3>Drug Discovery Innovation</h3>
-        <p>Accelerate early-stage discovery by letting teams visualize molecular interactions before committing to synthesis. Test 1,000 hypotheses in the time it used to take to test 10.</p>
-      </div>
-      <div class="pillar-card fade-up fade-up-delay-3" role="article">
-        <div class="pillar-icon" aria-hidden="true">🔗</div>
-        <h3>Academic–Industry Bridge</h3>
-        <p>Translate cutting-edge structural biology research into platforms pharma teams can deploy. Rigorous enough for Nature, fast enough for a pipeline decision.</p>
+      <div class="about-item">
+        <strong>BSc First Class Honours</strong>
+        <span>HKUST · MCGA 4.006 / 4.3 · 7× Dean's List</span>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ── RECOGNITION ───────────────────────────────────────────────────────── -->
-<section id="recognition" aria-labelledby="rec-title">
-  <div class="container">
-    <p class="section-label">Global Recognition</p>
-    <h2 class="section-title" id="rec-title">Recognized by the<br>world's leading institutions</h2>
-    <p class="section-intro">
-      From the Nobel Foundation to China's Academy of Sciences — a track record of being selected when it matters.
-    </p>
-    <div class="recognition-grid">
-
-      <article class="rec-card fade-up">
-        <img src="assets/nobel.jpg" alt="Jackie Ng at the Nobel Laureate Meeting 2025, Lindau">
-        <div class="rec-card-overlay">
-          <p class="rec-org">Nobel Foundation · 2025</p>
-          <h3 class="rec-title">Nobel Laureate Meeting</h3>
-          <p class="rec-sub">Selected Young Scientist — Lindau</p>
-        </div>
-      </article>
-
-      <article class="rec-card fade-up fade-up-delay-1">
-        <img src="assets/shaw-prize.jpg" alt="Jackie Ng at the Shaw Prize Roundtable 2025">
-        <div class="rec-card-overlay">
-          <p class="rec-org">Shaw Prize Foundation · 2025</p>
-          <h3 class="rec-title">Shaw Prize Roundtable</h3>
-          <p class="rec-sub">Academic Representative</p>
-        </div>
-      </article>
-
-      <article class="rec-card fade-up fade-up-delay-2">
-        <img src="assets/suzhou-award.jpg" alt="Jackie Ng receiving the 贏在蘇州 Rising Star Award 2026">
-        <div class="rec-card-overlay">
-          <p class="rec-org">Suzhou Municipal Government · 2026</p>
-          <h3 class="rec-title">贏在蘇州 Rising Star</h3>
-          <p class="rec-sub">Global Entrepreneurship Competition</p>
-        </div>
-      </article>
-
-      <article class="rec-card fade-up fade-up-delay-3">
-        <img src="assets/techathon.jpg" alt="Jackie Ng winning Gold Medal at Techathon+ 2026">
-        <div class="rec-card-overlay">
-          <p class="rec-org">Techathon+ · 2026</p>
-          <h3 class="rec-title">Techathon+ Gold Medal</h3>
-          <p class="rec-sub">10th Anniversary Edition — Innovation Track</p>
-        </div>
-      </article>
-
-      <article class="rec-card fade-up fade-up-delay-1">
-        <img src="assets/hklf.jpg" alt="Jackie Ng at Hong Kong Laureate Forum 2024">
-        <div class="rec-card-overlay">
-          <p class="rec-org">HKLF · 2024</p>
-          <h3 class="rec-title">Hong Kong Laureate Forum</h3>
-          <p class="rec-sub">Selected Young Scientist</p>
-        </div>
-      </article>
-
-      <article class="rec-card fade-up fade-up-delay-2">
-        <img src="assets/abct.jpg" alt="Jackie Ng receiving ABCT Best Oral Presentation award">
-        <div class="rec-card-overlay">
-          <p class="rec-org">ABCT · 2024</p>
-          <h3 class="rec-title">Best Oral Presentation</h3>
-          <p class="rec-sub">Applied Biological & Chemical Technology</p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── IN THE PRESS ──────────────────────────────────────────────────────── -->
-<section id="press" aria-labelledby="press-title">
-  <div class="container">
-    <p class="section-label">In the Press</p>
-    <h2 class="section-title" id="press-title">Featured Across<br>Media &amp; Press</h2>
-    <p class="section-intro">Coverage spanning national broadcast to print — the story of science meeting entrepreneurship.</p>
-    <div class="press-grid">
-
-      <article class="press-card fade-up">
-        <img src="assets/rthk-media.jpg" alt="RTHK 尋找創科的故事 feature on Jackie Ng" class="press-card-img" loading="lazy">
-        <div class="press-card-body">
-          <p class="press-outlet">RTHK · Hong Kong Public Broadcasting</p>
-          <h3>尋找創科的故事</h3>
-          <p>Featured in RTHK's science &amp; innovation documentary series profiling next-generation researchers.</p>
-        </div>
-      </article>
-
-      <article class="press-card fade-up fade-up-delay-1">
-        <img src="assets/beijing-media.jpg" alt="Beijing media coverage of Jackie Ng's innovation work" class="press-card-img" loading="lazy">
-        <div class="press-card-body">
-          <p class="press-outlet">转在北京 · Beijing Coverage</p>
-          <h3>Innovation in the Greater Bay</h3>
-          <p>Beijing feature spotlighting GBA computational biology talent pushing the frontier of drug discovery.</p>
-        </div>
-      </article>
-
-      <article class="press-card fade-up fade-up-delay-2">
-        <div style="height:180px; background: linear-gradient(135deg, #112233, #1e3a5f); display:flex; align-items:center; justify-content:center;">
-          <span style="font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--gold); font-weight:700; text-align:center; padding:1rem;">Ming Pao<br><span style="font-size:.9rem; color:rgba(255,255,255,.5); font-family:Inter,sans-serif; font-weight:400;">明報</span></span>
-        </div>
-        <div class="press-card-body">
-          <p class="press-outlet">Ming Pao · 明報</p>
-          <h3>Rising Talent in HK Biotech</h3>
-          <p>Profile feature on Jackie's research at PolyU and the AtomBios platform for molecular simulation.</p>
-        </div>
-      </article>
-
-      <article class="press-card fade-up fade-up-delay-3">
-        <div style="height:180px; background: linear-gradient(135deg, #1a1a2e, #16213e); display:flex; align-items:center; justify-content:center;">
-          <span style="font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--gold); font-weight:700; text-align:center; padding:1rem;">HK01</span>
-        </div>
-        <div class="press-card-body">
-          <p class="press-outlet">HK01 · Digital Media</p>
-          <h3>Computational Biology Takes Center Stage</h3>
-          <p>Coverage of Jackie's recognition at the Nobel Laureate Meeting and vision for HK's biotech ecosystem.</p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── ATOMBIOS ──────────────────────────────────────────────────────────── -->
-<section id="atombios" aria-labelledby="atombios-title">
-  <div class="container">
-    <div class="atombios-inner">
-      <div>
-        <p class="section-label">AtomBios</p>
-        <h2 class="section-title" id="atombios-title">Simulation at Scale —<br>built for pharma speed</h2>
-        <p style="font-size:1rem; color:var(--grey); line-height:1.75; margin-bottom:.5rem;">
-          AtomBios is a computational biology platform designed for drug developers who need answers fast — not in the next grant cycle.
-        </p>
-        <ul class="atombios-features" aria-label="AtomBios platform capabilities">
-          <li>Visualize protein–ligand interactions in real time, not after weeks of simulation setup</li>
-          <li>Test binding hypotheses before committing synthesis budget — reduce costly late-stage failures</li>
-          <li>One-click molecular dynamics: your team runs experiments, not IT tickets</li>
-          <li>Built on cryo-EM validated structural data — the science holds up under scrutiny</li>
-        </ul>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem;">
-          <a href="mailto:jackie.ng@connect.polyu.hk" class="btn-primary" role="button">
-            Request a Demo
-          </a>
-        </div>
-        <div class="atombios-incubation">
-          <div class="incubation-dot" aria-hidden="true"></div>
-          <span>Currently incubated at <strong>Hong Kong Science and Technology Park</strong> · Backed by Techathon+ and regional innovation programs</span>
-        </div>
-      </div>
-      <div>
-        <div class="atombios-visual fade-up">
-          <div class="atombios-badge" aria-label="Status: Active development">● Active Development</div>
-          <img src="assets/gba-steam.png" alt="AtomBios molecular visualization — protein structure rendered in real time" loading="lazy">
-        </div>
+    <div class="about-block">
+      <h4>Affiliations</h4>
+      <div class="about-item">
+        <span>ASBMB · HKIS · HKASME · CAS Future Leaders</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── BACKGROUND ────────────────────────────────────────────────────────── -->
-<section id="background" aria-labelledby="bg-title">
-  <div class="container">
-    <p class="section-label">Background</p>
-    <h2 class="section-title" id="bg-title">The foundation<br>behind the work</h2>
-    <div class="bg-grid">
-      <div>
-        <div class="bg-group">
-          <h4>Education</h4>
-          <div class="bg-item">
-            <p class="bg-item-title">MPhil, Biochemistry</p>
-            <p class="bg-item-sub">The Hong Kong Polytechnic University · In Progress</p>
-          </div>
-          <div class="bg-item">
-            <p class="bg-item-title">BSc First Class Honours</p>
-            <p class="bg-item-sub">HKUST · MCGA 4.006 / 4.3 · 7× Dean's List</p>
-          </div>
-        </div>
-        <div class="bg-group" style="margin-top:2rem;">
-          <h4>Affiliations</h4>
-          <div class="bg-tag-list">
-            <span class="bg-tag">ASBMB</span>
-            <span class="bg-tag">HKIS</span>
-            <span class="bg-tag">HKASME</span>
-            <span class="bg-tag">CAS Future Leaders</span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="bg-group">
-          <h4>Scholarships &amp; Awards</h4>
-          <div class="bg-item">
-            <p class="bg-item-title">PolyU Research Postgraduate Scholarship</p>
-            <p class="bg-item-sub">Competitive research funding, The Hong Kong Polytechnic University</p>
-          </div>
-          <div class="bg-item">
-            <p class="bg-item-title">MTR Corporate Scholarship</p>
-            <p class="bg-item-sub">MTR Corporation — awarded to top academic performers</p>
-          </div>
-          <div class="bg-item">
-            <p class="bg-item-title">D.H. Chen Foundation Scholarship</p>
-            <p class="bg-item-sub">Awarded for academic excellence and research potential</p>
-          </div>
-          <div class="bg-item">
-            <p class="bg-item-title">Kitchell Research Award · AEON Credit Scholarship</p>
-            <p class="bg-item-sub">Research innovation recognition</p>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- ── CTA ─── -->
+<section class="cta-section" id="connect">
+  <h2>Let's talk</h2>
+  <p>Whether you're evaluating computational tools, scouting talent, or exploring AtomBios for your team.</p>
+  <a href="mailto:jackie.ng@connect.polyu.hk" class="cta-btn">jackie.ng@connect.polyu.hk</a>
+  <div class="cta-links">
+    <a href="https://www.linkedin.com/in/jackie-ng-computational-bio/" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/the_invisible_architect_" target="_blank">Instagram</a>
   </div>
 </section>
 
-<!-- ── CONNECT ───────────────────────────────────────────────────────────── -->
-<section id="connect" aria-labelledby="connect-title">
-  <div class="container" style="position:relative;z-index:1;">
-    <p class="section-label" style="text-align:center; color:var(--gold);">Let's Work Together</p>
-    <h2 class="section-title" id="connect-title" style="text-align:center; color:var(--white);">
-      Ready to explore what<br>computational biology can do<br>for your pipeline?
-    </h2>
-    <p>
-      Whether you're evaluating computational tools, scouting innovation talent, or exploring AtomBios for your discovery team — I'd love to connect.
-    </p>
-    <div class="connect-actions">
-      <a href="mailto:jackie.ng@connect.polyu.hk" class="btn-primary-dark" role="button">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Get in Touch
-      </a>
-      <a href="mailto:jackie.ng@connect.polyu.hk" class="btn-ghost" style="color:rgba(255,255,255,.75); border-color:rgba(255,255,255,.25);" role="button">
-        Request an AtomBios Demo
-      </a>
-    </div>
-    <div class="social-links" aria-label="Social media links">
-      <a href="https://www.linkedin.com/in/jackie-ng-computational-bio/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-      <a href="https://www.instagram.com/the_invisible_architect_" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        Instagram
-      </a>
-      <a href="mailto:jackie.ng@connect.polyu.hk" class="social-link" aria-label="Email Jackie">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        jackie.ng@connect.polyu.hk
-      </a>
-    </div>
-  </div>
-</section>
+<footer><p>© 2026 Jackie Ng</p></footer>
 
-<!-- ── FOOTER ────────────────────────────────────────────────────────────── -->
-<footer role="contentinfo">
-  <p>© 2026 Jackie Ng · Computational Biology · AtomBios · Hong Kong</p>
-</footer>
-
-<!-- ── SCRIPTS ───────────────────────────────────────────────────────────── -->
 <script>
-(function () {
-  'use strict';
-
-  /* ── Nav scroll behaviour ───────────────────────────────────────────── */
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  }, { passive: true });
-
-  /* ── Mobile nav ─────────────────────────────────────────────────────── */
-  const toggle = document.getElementById('nav-toggle');
-  const mobileNav = document.getElementById('mobile-nav');
-  const closeBtn = document.getElementById('mobile-close');
-
-  toggle.addEventListener('click', () => {
-    mobileNav.classList.add('open');
-    toggle.setAttribute('aria-expanded', 'true');
-  });
-  closeBtn.addEventListener('click', closeMobileNav);
-  mobileNav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', closeMobileNav);
-  });
-  function closeMobileNav() {
-    mobileNav.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-  }
-
-  /* ── IntersectionObserver fade-ups ─────────────────────────────────── */
-  const fadeEls = document.querySelectorAll('.fade-up');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  fadeEls.forEach(el => observer.observe(el));
-
-  /* ── Particle canvas ────────────────────────────────────────────────── */
-  const canvas = document.getElementById('particles-canvas');
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  let animId;
-
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize, { passive: true });
-
-  function Particle() {
-    this.reset();
-  }
-  Particle.prototype.reset = function () {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.r = Math.random() * 1.5 + 0.3;
-    this.speed = Math.random() * 0.25 + 0.05;
-    this.angle = Math.random() * Math.PI * 2;
-    this.alpha = Math.random() * 0.5 + 0.1;
-    this.gold = Math.random() > 0.6;
-  };
-  Particle.prototype.update = function () {
-    this.y -= this.speed;
-    this.x += Math.sin(this.angle + Date.now() * 0.0003) * 0.3;
-    if (this.y < -4) this.reset(), this.y = canvas.height + 4;
-  };
-
-  for (let i = 0; i < 80; i++) {
-    const p = new Particle();
-    p.y = Math.random() * canvas.height;
-    particles.push(p);
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-      p.update();
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = p.gold
-        ? `rgba(191,161,129,${p.alpha})`
-        : `rgba(255,255,255,${p.alpha * 0.5})`;
-      ctx.fill();
-    });
-    animId = requestAnimationFrame(draw);
-  }
-
-  /* Only animate when hero is visible */
-  const heroEl = document.getElementById('hero');
-  const heroObs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) {
-      if (!animId) draw();
-    } else {
-      if (animId) { cancelAnimationFrame(animId); animId = null; }
-    }
-  }, { threshold: 0 });
-  heroObs.observe(heroEl);
-
-  /* ── Smooth scroll for anchor links ────────────────────────────────── */
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        const offset = 70;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
+(function(){
+  const obs=new IntersectionObserver(e=>{
+    e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');obs.unobserve(x.target)}})
+  },{threshold:.1});
+  document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-80,behavior:'smooth'})}
     });
   });
-
 })();
 </script>
 </body>
