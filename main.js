@@ -152,15 +152,18 @@
       .fromTo('.hero__line',
         { y: 60, opacity: 0 },
         { y: 0, opacity: 1, duration: 1, stagger: 0.18 }, 0.5)
+      .fromTo('.hero__sub-title',
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7 }, 0.85)
       .fromTo('.hero__sub',
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.9 }, 1.0)
-      .fromTo('.hero__proof',
+        { y: 0, opacity: 1, duration: 0.9 }, 1.05)
+      .fromTo('.hero__pills',
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8 }, 1.3)
-      .fromTo('.hero__proof-item',
+        { y: 0, opacity: 1, duration: 0.8 }, 1.35)
+      .fromTo('.hero__pill',
         { x: -10, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, 1.4)
+        { x: 0, opacity: 1, duration: 0.4, stagger: 0.07 }, 1.45)
       .fromTo('.btn',
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.8 }, 1.8)
@@ -372,6 +375,49 @@
       duration: 0.2,
       ease: 'none',
     }, 0.8);
+  }
+
+  // ─── Social Proof Counter ────────────────────────────────────────────────────
+  function initSocialProof() {
+    const section = document.querySelector('.social-proof');
+    if (!section) return;
+
+    const items = section.querySelectorAll('.social-proof__item');
+    const numberEls = section.querySelectorAll('.social-proof__number');
+
+    // Trigger count-up animation when section comes into view
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top 80%',
+      once: true,
+      onEnter: () => {
+        items.forEach((item, i) => {
+          // Staggered reveal
+          setTimeout(() => {
+            item.classList.add('is-visible');
+          }, i * 100);
+        });
+
+        numberEls.forEach((el) => {
+          const target = parseInt(el.dataset.target || '0', 10);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1200;
+          const start = performance.now();
+
+          function step(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out quad
+            const eased = 1 - (1 - progress) * (1 - progress);
+            const current = Math.round(eased * target);
+            el.textContent = current + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+          }
+
+          requestAnimationFrame(step);
+        });
+      },
+    });
   }
 
   // ─── Intro / About ───────────────────────────────────────────────────────────
@@ -843,6 +889,7 @@
 
           initHero(heroFramesExist);
           initVideoTransition(vtFramesExist);
+          initSocialProof();
           initIntro();
           initRecognition();
           initCinematic();
