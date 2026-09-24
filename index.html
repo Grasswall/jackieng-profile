@@ -259,10 +259,28 @@
     /* ── ABOUT ── */
     #about {
       padding: 0 7%;
-      max-width: calc(580px + 14%);
+      max-width: calc(780px + 14%);
     }
 
-    #about p {
+    .about-inner {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .about-headshot {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 6px;
+      opacity: 0.9;
+      filter: grayscale(0.15);
+      position: sticky;
+      top: 120px;
+    }
+
+    .about-text p {
       font-family: var(--sans);
       font-size: 1rem;
       font-weight: 300;
@@ -271,8 +289,19 @@
       margin-bottom: 22px;
     }
 
-    #about p:last-of-type {
+    .about-text p:last-of-type {
       margin-bottom: 0;
+    }
+
+    @media (max-width: 768px) {
+      .about-inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .about-headshot {
+        max-width: 200px;
+        position: static;
+      }
     }
 
     .about-footer {
@@ -901,10 +930,15 @@
     <!-- ABOUT -->
     <section id="about" aria-labelledby="about-heading">
       <p class="label" id="about-heading">About</p>
-      <p>Four pharma companies spent billions targeting the same pocket on a pain channel. Then someone solved the cryo-EM structure, and it turned out the drug binds 30 ångströms away from where every model predicted. That's the kind of problem I think about.</p>
-      <p>I'm a DPhil researcher at the Hong Kong Polytechnic University. Computational structural biology — which really means I take the 3D coordinates from cryo-EM, run molecular dynamics, and figure out what actually happens when a drug candidate meets a protein. Not what the model predicts. What the physics says. I published my first paper on SARS-CoV-2 spike protein mechanisms in the Journal of Biological Chemistry as an undergraduate at HKUST.</p>
-      <p>Outside the lab, I built AtomBios — because the teams actually making drugs shouldn't need six months of specialist setup to run a binding simulation. I've been selected by the Nobel Foundation, the Shaw Prize, and the Chinese Academy of Sciences. Won gold at Hong Kong's largest deep-tech competition. But the part that matters most is the work: reading structures that explain why things fail, and building tools so others can read them too.</p>
-      <p class="about-footer">Right now: finishing my DPhil, getting AtomBios to its first pharma pilot, and talking about structures at conferences across Asia.</p>
+      <div class="about-inner">
+        <img src="assets/headshot.jpg" alt="Jackie Ng" class="about-headshot" loading="lazy">
+        <div class="about-text">
+          <p>Four pharma companies spent billions targeting the same pocket on a pain channel. Then someone solved the cryo-EM structure, and it turned out the drug binds 30 ångströms away from where every model predicted. That's the kind of problem I think about.</p>
+          <p>I'm a DPhil researcher at the Hong Kong Polytechnic University. Computational structural biology — which really means I take the 3D coordinates from cryo-EM, run molecular dynamics, and figure out what actually happens when a drug candidate meets a protein. Not what the model predicts. What the physics says. I published my first paper on SARS-CoV-2 spike protein mechanisms in the Journal of Biological Chemistry as an undergraduate at HKUST.</p>
+          <p>Outside the lab, I built AtomBios — because the teams actually making drugs shouldn't need six months of specialist setup to run a binding simulation. I've been selected by the Nobel Foundation, the Shaw Prize, and the Chinese Academy of Sciences. Won gold at Hong Kong's largest deep-tech competition. But the part that matters most is the work: reading structures that explain why things fail, and building tools so others can read them too.</p>
+          <p class="about-footer">Right now: finishing my DPhil, getting AtomBios to its first pharma pilot, and talking about structures at conferences across Asia.</p>
+        </div>
+      </div>
     </section>
 
     <!-- SPACER -->
