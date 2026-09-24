@@ -1,1050 +1,1322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jackie Ng — Computational Biologist & Founder</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jackie Ng — Computational Biologist & Founder</title>
+<meta name="description" content="DPhil researcher. Computational biologist. Founder of AtomBios. Selected by the Nobel Foundation, Shaw Prize, and Chinese Academy of Sciences.">
+<meta property="og:title" content="Jackie Ng — Computational Biologist & Founder">
+<meta property="og:description" content="DPhil researcher. Computational biologist. Founder of AtomBios. Selected by the Nobel Foundation, Shaw Prize, and Chinese Academy of Sciences — before turning 26.">
+<meta property="og:image" content="assets/headshot.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jackie Ng — Computational Biologist & Founder">
+<meta name="twitter:description" content="DPhil researcher. Computational biologist. Founder of AtomBios.">
+<meta name="twitter:image" content="assets/headshot.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- OG / Social -->
-  <meta property="og:title" content="Jackie Ng — Computational Biologist & Founder" />
-  <meta property="og:description" content="DPhil researcher at PolyU studying molecular mechanisms at the atomic scale. Founder of AtomBios. Nobel Foundation · Shaw Prize · CAS Future Leader." />
-  <meta property="og:image" content="assets/headshot.jpg" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Jackie Ng — Computational Biologist & Founder" />
-  <meta name="twitter:description" content="DPhil researcher at PolyU studying molecular mechanisms at the atomic scale. Founder of AtomBios." />
-  <meta name="twitter:image" content="assets/headshot.jpg" />
+  :root {
+    --bg: #FDFCFA;
+    --dark: #0a0a0a;
+    --gold: #9d7e5a;
+    --gold-light: #d4a843;
+    --teal: #2a9d8f;
+    --muted: #6b6460;
+    --text: #1a1614;
+    --border: rgba(0,0,0,0.08);
+    --radius-card: 14px;
+    --radius-pill: 100px;
+    --font-heading: 'Instrument Serif', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --transition: 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  html { scroll-behavior: smooth; font-size: 16px; }
 
-  <!-- Three.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
+  }
+  nav.scrolled {
+    background: rgba(10,10,10,0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .nav-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: #fff;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    opacity: 0.9;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #fff; }
 
-    :root {
-      --dark: #0a0a0a;
-      --light: #FDFCFA;
-      --text: #1a1614;
-      --muted: #6b6460;
-      --gold: #9d7e5a;
-      --teal: #2a9d8f;
-      --border: rgba(0,0,0,0.06);
-      --font-serif: 'Instrument Serif', Georgia, serif;
-      --font-sans: 'Inter', system-ui, sans-serif;
-    }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+    outline: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    transition: var(--transition);
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    html { scroll-behavior: smooth; }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background: rgba(10,10,10,0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .mobile-menu.open { display: flex; opacity: 1; }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-family: var(--font-heading);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: #d4a843; }
 
-    body {
-      font-family: var(--font-sans);
-      font-weight: 400;
-      background: var(--light);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+  @media (max-width: 1023px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
 
-    /* ─── NAV ─────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.25rem 2.5rem;
-      transition: background 0.35s, backdrop-filter 0.35s, border-bottom 0.35s;
-    }
-    nav.scrolled {
-      background: rgba(253,252,250,0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    nav.scrolled .nav-logo { color: var(--text); }
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0a0a0a;
+    overflow: hidden;
+  }
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  .hero-fallback {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 40% 50%, rgba(42,157,143,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 30%, rgba(212,168,67,0.08) 0%, transparent 50%),
+                #0a0a0a;
+    z-index: 0;
+  }
+  .hero-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px;
+    max-width: 860px;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    border: 1px solid rgba(212,168,67,0.3);
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 32px;
+    opacity: 0.9;
+  }
+  .hero-h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    line-height: 1.1;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+  .hero-h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-sub {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: rgba(255,255,255,0.58);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+  }
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    justify-content: center;
+    margin-bottom: 48px;
+  }
+  .stat-pill {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 7px 16px;
+    border-radius: var(--radius-pill);
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold-light);
+    color: #0a0a0a;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 14px 28px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(212,168,67,0.35);
+  }
 
-    .nav-links {
-      display: flex;
-      gap: 2.25rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.82rem;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      transition: color 0.25s;
-    }
-    .nav-links a:hover { color: #fff; }
-    nav.scrolled .nav-links a { color: var(--muted); }
-    nav.scrolled .nav-links a:hover { color: var(--text); }
+  /* ── LOGO BAR ── */
+  #logo-bar {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 32px;
+    overflow: hidden;
+  }
+  .logo-bar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px 0;
+  }
+  .logo-item {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 24px;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .logo-item:hover { color: var(--gold); }
+  .logo-sep {
+    color: rgba(107,100,96,0.3);
+    font-size: 0.7rem;
+  }
 
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-      z-index: 200;
-    }
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: #fff;
-      transition: all 0.3s;
-      transform-origin: center;
-    }
-    nav.scrolled .hamburger span { background: var(--text); }
-    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+  /* ── SECTIONS COMMON ── */
+  section { position: relative; }
+  .section-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 100px 32px;
+  }
+  @media (max-width: 768px) {
+    .section-inner { padding: 72px 20px; }
+  }
 
-    /* Mobile menu overlay */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: var(--dark);
-      z-index: 150;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2.5rem;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .mobile-menu.open { opacity: 1; }
-    .mobile-menu a {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .mobile-menu a:hover { color: #fff; }
+  .section-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 16px;
+  }
+  .dark .section-tag { color: var(--teal); }
 
-    /* ─── HERO ────────────────────────────────────── */
-    #hero {
-      position: relative;
-      height: 100dvh;
-      min-height: 600px;
-      background: var(--dark);
-      overflow: hidden;
-    }
-    #three-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .hero-fallback {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 40% 50%, #1a1008 0%, var(--dark) 70%);
-    }
-    .hero-content {
-      position: absolute;
-      bottom: 12vh;
-      left: 5vw;
-      max-width: 680px;
-      padding-right: 2rem;
-    }
-    .hero-name {
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 1.75rem;
-      font-weight: 400;
-    }
-    .hero-headline {
-      font-family: var(--font-serif);
-      font-size: clamp(2.8rem, 6vw, 5.2rem);
-      line-height: 1.05;
-      color: #fff;
-      margin-bottom: 1.5rem;
-      font-weight: 400;
-    }
-    .hero-sub {
-      font-size: clamp(0.9rem, 1.5vw, 1.05rem);
-      line-height: 1.65;
-      color: rgba(255,255,255,0.55);
-      max-width: 520px;
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
-    .hero-tags {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.28);
-      text-transform: uppercase;
-      font-weight: 400;
-    }
-    .hero-scroll {
-      position: absolute;
-      bottom: 3rem;
-      right: 5vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: rgba(255,255,255,0.3);
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .hero-scroll::after {
-      content: '';
-      display: block;
-      width: 1px;
-      height: 40px;
-      background: rgba(255,255,255,0.2);
-      animation: scrollLine 1.8s ease-in-out infinite;
-    }
-    @keyframes scrollLine {
-      0%, 100% { transform: scaleY(1); opacity: 0.3; }
-      50% { transform: scaleY(0.4); opacity: 0.7; }
-    }
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    font-weight: 400;
+    margin-bottom: 48px;
+    letter-spacing: -0.01em;
+  }
+  .dark .section-title { color: #fff; }
+  .light .section-title { color: var(--text); }
 
-    /* ─── SHARED SECTION STYLES ───────────────────── */
-    section { padding: 8rem 5vw; }
-    section.dark-section {
-      background: var(--dark);
-      color: #fff;
-    }
-    .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      font-weight: 400;
-    }
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2.8rem, 5vw, 4.5rem);
-      line-height: 1;
-      color: var(--text);
-      margin-bottom: 4rem;
-      font-weight: 400;
-    }
-    section.dark-section .section-title { color: #fff; }
-    section.dark-section .section-label { color: rgba(255,255,255,0.3); }
+  /* ── INTRO ── */
+  #intro { background: var(--bg); }
+  .intro-lead {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    line-height: 1.6;
+    color: var(--text);
+    max-width: 780px;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .intro-lead strong { font-style: normal; color: var(--gold); }
 
-    /* ─── FADE-IN ─────────────────────────────────── */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: none;
-    }
+  /* ── DARK SECTIONS ── */
+  .dark { background: #0a0a0a; }
+  .dark .section-title { color: #fff; }
 
-    /* ─── ABOUT ───────────────────────────────────── */
-    #about { border-top: 1px solid var(--border); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 6rem;
-      align-items: start;
-      max-width: 1100px;
-    }
-    .about-text p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--text);
-      margin-bottom: 1.25rem;
-      max-width: 580px;
-      font-weight: 300;
-    }
-    .about-text p:last-child { margin-bottom: 0; }
-    .about-text a {
-      color: var(--gold);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(157,126,90,0.3);
-      transition: border-color 0.2s;
-    }
-    .about-text a:hover { border-color: var(--gold); }
-    .about-photo {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      object-position: top center;
-      filter: grayscale(15%);
-      display: block;
-    }
+  /* ── PHOTO GRIDS ── */
+  .photo-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  @media (max-width: 768px) {
+    .photo-grid-3 { grid-template-columns: 1fr; }
+  }
+  @media (min-width: 769px) and (max-width: 1023px) {
+    .photo-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
 
-    /* ─── RECOGNITION / COMPETITIONS ─────────────── */
-    #recognition, #competitions { border-top: 1px solid var(--border); }
-    .entry-list {
-      max-width: 820px;
-      border-top: 1px solid var(--border);
-    }
-    .entry {
-      display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: 1.5rem;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-      align-items: baseline;
-    }
-    .entry-year {
-      font-size: 0.8rem;
-      color: var(--muted);
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      padding-top: 0.05em;
-    }
-    .entry-body {}
-    .entry-title {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 0.2rem;
-      line-height: 1.35;
-    }
-    .entry-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      font-weight: 400;
-    }
-    .entry-desc a {
-      color: var(--gold);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(157,126,90,0.25);
-      transition: border-color 0.2s;
-    }
-    .entry-desc a:hover { border-color: var(--gold); }
+  .photo-card {
+    position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: #111;
+    cursor: pointer;
+  }
+  .photo-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  .photo-card:hover img { transform: scale(1.06); }
+  .photo-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  .photo-card:hover .photo-card-overlay { opacity: 1; }
+  .photo-card-label {
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
 
-    /* ─── ATOMBIOS ────────────────────────────────── */
-    #atombios .atombios-inner {
-      max-width: 1100px;
-      display: grid;
-      grid-template-columns: 1fr 440px;
-      gap: 6rem;
-      align-items: center;
-    }
-    .atombios-text h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.4rem, 4vw, 3.8rem);
-      color: #fff;
-      line-height: 1.05;
-      margin-bottom: 0.75rem;
-      font-weight: 400;
-    }
-    .atombios-text .sub {
-      font-size: 0.82rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      margin-bottom: 2rem;
-    }
-    .atombios-text p {
-      font-size: 1rem;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.6);
-      font-weight: 300;
-      max-width: 500px;
-    }
-    .atombios-image {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      opacity: 0.75;
-      display: block;
-    }
+  /* ── AWARD LIST ── */
+  .award-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .light .award-list { border-top: 1px solid var(--border); }
 
-    /* ─── PRESS ───────────────────────────────────── */
-    #press { border-top: 1px solid var(--border); }
-    .press-photos {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-      max-width: 1100px;
-    }
-    .press-photo-item figure {
-      margin: 0;
-    }
-    .press-photo-item img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: block;
-      filter: grayscale(20%);
-      transition: filter 0.3s;
-    }
-    .press-photo-item img:hover { filter: grayscale(0%); }
-    .press-photo-item figcaption {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 0.6rem;
-      letter-spacing: 0.02em;
-    }
+  .award-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: background 0.2s;
+  }
+  .light .award-item { border-bottom: 1px solid var(--border); }
 
-    /* ─── EDUCATION ───────────────────────────────── */
-    #education { border-top: 1px solid var(--border); }
-    .edu-entries { max-width: 820px; margin-bottom: 3rem; }
-    .edu-entry {
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .edu-entry:first-child { border-top: 1px solid var(--border); }
-    .edu-degree {
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
-      color: var(--text);
-      margin-bottom: 0.35rem;
-      font-weight: 400;
-    }
-    .edu-meta {
-      font-size: 0.875rem;
-      color: var(--muted);
-      font-weight: 400;
-    }
-    .scholarships-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.75rem;
-      font-weight: 400;
-    }
-    .scholarships-list {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 2;
-      max-width: 700px;
-    }
-    .affiliations {
-      margin-top: 2.5rem;
-      font-size: 0.78rem;
-      color: rgba(107,100,96,0.6);
-      letter-spacing: 0.04em;
-    }
+  .award-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+  .award-year {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    min-width: 36px;
+    text-transform: uppercase;
+  }
+  .dark .award-year { color: rgba(255,255,255,0.3); }
+  .award-name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+    flex: 1;
+  }
+  .dark .award-name { color: rgba(255,255,255,0.85); }
+  .award-org {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-align: right;
+  }
+  .dark .award-org { color: rgba(255,255,255,0.3); }
 
-    /* ─── CONTACT ─────────────────────────────────── */
-    #contact {
-      text-align: center;
-      padding: 10rem 5vw;
-    }
-    #contact .section-title {
-      font-size: clamp(2.4rem, 4.5vw, 4rem);
-      margin-bottom: 1.5rem;
-      color: #fff;
-    }
-    .contact-email {
-      display: inline-block;
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      padding-bottom: 2px;
-      transition: color 0.25s, border-color 0.25s;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-    }
-    .contact-email:hover {
-      color: #fff;
-      border-color: rgba(255,255,255,0.6);
-    }
-    .contact-social {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-    }
-    .contact-social a {
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      text-decoration: none;
-      transition: color 0.25s;
-    }
-    .contact-social a:hover { color: rgba(255,255,255,0.75); }
+  /* ── ATOMBIOS ── */
+  .atombios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  @media (max-width: 768px) {
+    .atombios-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .atombios-image {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: #111;
+  }
+  .atombios-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+  }
+  .atombios-image:hover img { opacity: 1; }
+  .atombios-copy { }
+  .atombios-body {
+    color: rgba(255,255,255,0.6);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 32px;
+    font-weight: 300;
+  }
+  .feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+  .feature-list li::before {
+    content: '→';
+    color: var(--teal);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
 
-    /* ─── FOOTER ──────────────────────────────────── */
-    footer {
-      background: var(--dark);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 1.75rem 5vw;
-      text-align: center;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.2);
-      letter-spacing: 0.04em;
-    }
+  /* ── MEDIA GRID ── */
+  .media-grid-6 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  @media (max-width: 768px) {
+    .media-grid-6 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .media-grid-6 { grid-template-columns: 1fr; }
+  }
 
-    /* ─── RESPONSIVE ──────────────────────────────── */
-    @media (max-width: 900px) {
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .about-photo { max-width: 320px; aspect-ratio: 1; }
-      .atombios-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .atombios-image { max-width: 400px; }
-    }
-    @media (max-width: 700px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      section { padding: 5rem 1.5rem; }
-      .press-photos { grid-template-columns: 1fr; }
-      .hero-content { left: 1.5rem; right: 1.5rem; bottom: 10vh; padding-right: 0; }
-      .entry { grid-template-columns: 50px 1fr; gap: 1rem; }
-    }
-  </style>
+  /* ── EDUCATION ── */
+  #education {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 56px;
+  }
+  @media (max-width: 768px) {
+    .edu-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+  .edu-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 28px;
+    transition: box-shadow 0.3s;
+  }
+  .edu-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+  .edu-degree {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .edu-institution {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 12px;
+  }
+  .edu-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .edu-meta strong { color: var(--text); font-weight: 500; }
+
+  .scholarships-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .scholarship-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .scholarship-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text);
+  }
+  .scholarship-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .affil-section { margin-top: 48px; }
+  .affil-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .pill {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 7px 16px;
+    border-radius: var(--radius-pill);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .pill:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* ── CTA SECTION ── */
+  #cta {
+    background: #0a0a0a;
+    text-align: center;
+  }
+  .cta-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    color: #fff;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .cta-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    max-width: 540px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 48px;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold-light);
+    color: #0a0a0a;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 14px 28px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(212,168,67,0.3);
+  }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 14px 24px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.15);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover {
+    border-color: rgba(255,255,255,0.4);
+    color: #fff;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060606;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.04em;
+  }
+  .footer-name {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.2);
+    font-style: italic;
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-up.delay-1 { transition-delay: 0.1s; }
+  .fade-up.delay-2 { transition-delay: 0.2s; }
+  .fade-up.delay-3 { transition-delay: 0.3s; }
+
+  /* ── RESPONSIVE TWEAKS ── */
+  @media (max-width: 480px) {
+    nav { padding: 0 20px; }
+    .hero-stats { flex-direction: column; align-items: center; }
+    .atombios-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav id="main-nav" role="navigation" aria-label="Main">
-    <a href="#hero" class="nav-logo">Jackie Ng</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#atombios">Work</a></li>
-      <li><a href="#recognition">Recognition</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-name">Jackie Ng</a>
+  <ul class="nav-links">
+    <li><a href="#recognition">Recognition</a></li>
+    <li><a href="#competitions">Competitions</a></li>
+    <li><a href="#atombios">AtomBios</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-    <a href="#about" class="mobile-link">About</a>
-    <a href="#atombios" class="mobile-link">Work</a>
-    <a href="#recognition" class="mobile-link">Recognition</a>
-    <a href="#contact" class="mobile-link">Contact</a>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#recognition" class="mobile-link">Recognition</a>
+  <a href="#competitions" class="mobile-link">Competitions</a>
+  <a href="#atombios" class="mobile-link">AtomBios</a>
+  <a href="#media" class="mobile-link">Media</a>
+  <a href="#education" class="mobile-link">Education</a>
+  <a href="#cta" class="mobile-link">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-fallback" id="hero-fallback"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-overlay">
+    <div class="hero-tag">Computational Biologist & Founder</div>
+    <h1 class="hero-h1">
+      I work where the<br><em>atom meets the brain</em>
+    </h1>
+    <p class="hero-sub">
+      DPhil researcher. Computational biologist. Founder of AtomBios. Selected by the Nobel Foundation, Shaw Prize, and Chinese Academy of Sciences — before turning 26.
+    </p>
+    <div class="hero-stats">
+      <span class="stat-pill">3 Global Selections</span>
+      <span class="stat-pill">2 Gold Medals</span>
+      <span class="stat-pill">5 Media Features</span>
+      <span class="stat-pill">1 Funded Startup</span>
+    </div>
+    <a href="#atombios" class="hero-cta">See what I'm building →</a>
   </div>
+</section>
 
-  <!-- HERO -->
-  <section id="hero" aria-label="Introduction">
-    <canvas id="three-canvas" aria-hidden="true"></canvas>
-    <div class="hero-fallback" id="hero-fallback" style="display:none;" aria-hidden="true"></div>
+<!-- LOGO BAR -->
+<div id="logo-bar">
+  <div class="logo-bar-inner">
+    <span class="logo-item">Nobel Foundation</span>
+    <span class="logo-sep">·</span>
+    <span class="logo-item">Shaw Prize</span>
+    <span class="logo-sep">·</span>
+    <span class="logo-item">CAS</span>
+    <span class="logo-sep">·</span>
+    <span class="logo-item">HKUST</span>
+    <span class="logo-sep">·</span>
+    <span class="logo-item">PolyU</span>
+    <span class="logo-sep">·</span>
+    <span class="logo-item">HKSTP</span>
+  </div>
+</div>
 
-    <div class="hero-content">
-      <p class="hero-name">Jackie Ng</p>
-      <h1 class="hero-headline">Computational<br>biologist.</h1>
-      <p class="hero-sub">I study molecular mechanisms at the atomic scale and build tools to accelerate drug discovery. DPhil researcher at PolyU. Founder of AtomBios.</p>
-      <p class="hero-tags">Nobel Foundation &nbsp;·&nbsp; Shaw Prize &nbsp;·&nbsp; CAS &nbsp;·&nbsp; Techathon+ Gold</p>
+<!-- INTRO NARRATIVE -->
+<section id="intro" class="light">
+  <div class="section-inner">
+    <p class="intro-lead fade-up">
+      Most people meet proteins as pills. I meet them as 3D architectures — every atom placed by evolution, every surface a potential drug target. That perspective led me from a <strong>First Class Honours at HKUST</strong> to founding <strong>AtomBios</strong>, winning <strong>Gold at Hong Kong's flagship deep-tech competition</strong>, and sitting across from Nobel Laureates discussing the future of molecular medicine.
+    </p>
+  </div>
+</section>
+
+<!-- RECOGNITION -->
+<section id="recognition" class="dark">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-tag">Global Recognition</span>
+      <h2 class="section-title">In rooms where the<br>future is decided</h2>
     </div>
-
-    <div class="hero-scroll" aria-hidden="true">Scroll</div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" aria-labelledby="about-heading">
-    <div class="fade-in">
-      <p class="section-label">About</p>
-      <h2 id="about-heading" class="section-title">The work.</h2>
-    </div>
-    <div class="about-grid fade-in">
-      <div class="about-text">
-        <p>I'm a computational biologist working at the intersection of structural biology and drug discovery. My research uses cryo-EM validated structures to understand protein–ligand interactions — the atomic-level detail that determines whether a drug works or doesn't.</p>
-        <p>I founded <strong>AtomBios</strong> to make molecular simulation accessible to drug teams who need answers in hours, not months. The platform is incubated at Hong Kong Science and Technology Park and lets researchers test binding hypotheses without requiring dedicated computational infrastructure.</p>
-        <p>Before that, I graduated First Class from HKUST and published on SARS-CoV-2 structural mechanisms in the <a href="https://www.jbc.org/article/S0021-9258(24)02042-X/fulltext" target="_blank" rel="noopener noreferrer">Journal of Biological Chemistry</a>. My DPhil at PolyU continues that thread — structures, mechanisms, molecules.</p>
-        <p>I'm based in Hong Kong and occasionally speak at forums across the region on computational approaches to drug discovery.</p>
-      </div>
-      <img src="assets/headshot.jpg" alt="Jackie Ng" class="about-photo" loading="lazy" />
-    </div>
-  </section>
-
-  <!-- RECOGNITION -->
-  <section id="recognition" aria-labelledby="recognition-heading">
-    <div class="fade-in">
-      <p class="section-label">Honours</p>
-      <h2 id="recognition-heading" class="section-title">Selected.</h2>
-    </div>
-    <div class="entry-list fade-in" role="list">
-      <div class="entry" role="listitem">
-        <span class="entry-year">2025</span>
-        <div class="entry-body">
-          <p class="entry-title">Nobel Laureate Meeting, Lindau</p>
-          <p class="entry-desc">Selected Young Scientist — Nobel Foundation</p>
+    <div class="photo-grid-3 fade-up delay-1">
+      <div class="photo-card">
+        <img src="assets/shaw-prize-new.jpg" alt="Shaw Prize Roundtable 2025" loading="lazy">
+        <div class="photo-card-overlay">
+          <span class="photo-card-label">Shaw Prize Roundtable 2025</span>
         </div>
       </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2025</span>
-        <div class="entry-body">
-          <p class="entry-title">Shaw Prize Roundtable</p>
-          <p class="entry-desc">Academic Representative</p>
+      <div class="photo-card">
+        <img src="assets/nobel-new.jpg" alt="Nobel Lindau 2025" loading="lazy">
+        <div class="photo-card-overlay">
+          <span class="photo-card-label">Nobel Lindau Meeting 2025</span>
         </div>
       </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2025</span>
-        <div class="entry-body">
-          <p class="entry-title">CAS Future Leader Programme</p>
-          <p class="entry-desc">Chinese Academy of Sciences</p>
-        </div>
-      </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2024</span>
-        <div class="entry-body">
-          <p class="entry-title">Hong Kong Laureate Forum</p>
-          <p class="entry-desc">Selected Young Scientist — HKLF</p>
+      <div class="photo-card">
+        <img src="assets/hklf-new.jpg" alt="HKLF 2024" loading="lazy">
+        <div class="photo-card-overlay">
+          <span class="photo-card-label">Hong Kong Leaders Forum 2024</span>
         </div>
       </div>
     </div>
-  </section>
+    <div class="award-list fade-up delay-2">
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <span class="award-year">2025</span>
+        <span class="award-name">Nobel Foundation — Lindau Nobel Laureate Meeting</span>
+        <span class="award-org">Selected Young Scientist</span>
+      </div>
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <span class="award-year">2025</span>
+        <span class="award-name">Shaw Prize Roundtable</span>
+        <span class="award-org">Invited Participant</span>
+      </div>
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <span class="award-year">2025</span>
+        <span class="award-name">CAS Future Leader</span>
+        <span class="award-org">Chinese Academy of Sciences</span>
+      </div>
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <span class="award-year">2024</span>
+        <span class="award-name">Hong Kong Leaders Forum</span>
+        <span class="award-org">HKLF Selected Member</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- COMPETITIONS -->
-  <section id="competitions" aria-labelledby="competitions-heading">
-    <div class="fade-in">
-      <p class="section-label">Competitions</p>
-      <h2 id="competitions-heading" class="section-title">Won.</h2>
+<!-- COMPETITIONS -->
+<section id="competitions" class="light">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-tag">Competitions</span>
+      <h2 class="section-title">Tested against the best</h2>
     </div>
-    <div class="entry-list fade-in" role="list">
-      <div class="entry" role="listitem">
-        <span class="entry-year">2026</span>
-        <div class="entry-body">
-          <p class="entry-title">Techathon+ 10th Anniversary</p>
-          <p class="entry-desc">Gold Medal</p>
+    <div class="photo-grid-3 fade-up delay-1">
+      <div class="photo-card">
+        <img src="assets/techathon-new.jpg" alt="Techathon+ Gold 2026" loading="lazy">
+        <div class="photo-card-overlay">
+          <span class="photo-card-label">Techathon+ Gold 2026</span>
         </div>
       </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2026</span>
-        <div class="entry-body">
-          <p class="entry-title">贏在蘇州 Global Entrepreneurship Competition</p>
-          <p class="entry-desc">Rising Star Award</p>
+      <div class="photo-card">
+        <img src="assets/suzhou-award-new.jpg" alt="贏在蘇州 Rising Star 2026" loading="lazy">
+        <div class="photo-card-overlay">
+          <span class="photo-card-label">贏在蘇州 Rising Star 2026</span>
         </div>
       </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2026</span>
-        <div class="entry-body">
-          <p class="entry-title">GBA STEAM Excellence Award</p>
-          <p class="entry-desc">Silver — Life & Health Track</p>
-        </div>
-      </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2025</span>
-        <div class="entry-body">
-          <p class="entry-title">ABCT RPg Symposium</p>
-          <p class="entry-desc">Best Oral Presentation</p>
-        </div>
-      </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2025</span>
-        <div class="entry-body">
-          <p class="entry-title">HKSTP Ideation Programme</p>
-          <p class="entry-desc">Conditional Funding Approved</p>
-        </div>
-      </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2024</span>
-        <div class="entry-body">
-          <p class="entry-title">ABCT Outstanding Postgraduate Student</p>
-          <p class="entry-desc">Applied Biology & Chemical Technology, PolyU</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ATOMBIOS -->
-  <section id="atombios" class="dark-section" aria-labelledby="atombios-heading">
-    <div class="atombios-inner">
-      <div class="atombios-text fade-in">
-        <h2 id="atombios-heading">AtomBios</h2>
-        <p class="sub">Molecular simulation for drug discovery</p>
-        <p>A computational platform that lets drug teams test protein–ligand binding hypotheses in real time. One-click molecular dynamics. 1,000 binding modes before one synthesis. Built on cryo-EM validated structural data. Incubated at Hong Kong Science and Technology Park.</p>
-      </div>
-      <img src="assets/gba-steam.png" alt="AtomBios — molecular simulation platform" class="atombios-image fade-in" loading="lazy" />
-    </div>
-  </section>
-
-  <!-- PRESS -->
-  <section id="press" aria-labelledby="press-heading">
-    <div class="fade-in">
-      <p class="section-label">Media</p>
-      <h2 id="press-heading" class="section-title">Press & Speaking.</h2>
-    </div>
-    <div class="press-photos fade-in" role="list">
-      <div class="press-photo-item" role="listitem">
-        <figure>
-          <img src="assets/rthk-broadcast.jpg" alt="RTHK broadcast feature" loading="lazy" />
-          <figcaption>RTHK 尋找創科的故事, 2026</figcaption>
-        </figure>
-      </div>
-      <div class="press-photo-item" role="listitem">
-        <figure>
-          <img src="assets/beijing-tv-gesture.jpg" alt="BRTV 转在北京 feature" loading="lazy" />
-          <figcaption>BRTV 转在北京, 2026</figcaption>
-        </figure>
-      </div>
-      <div class="press-photo-item" role="listitem">
-        <figure>
-          <img src="assets/mingpao-spread.jpg" alt="Ming Pao profile feature" loading="lazy" />
-          <figcaption>Ming Pao, 2025</figcaption>
-        </figure>
-      </div>
-    </div>
-    <div class="entry-list fade-in" role="list">
-      <div class="entry" role="listitem">
-        <span class="entry-year">2026</span>
-        <div class="entry-body">
-          <p class="entry-title">RTHK 尋找創科的故事</p>
-          <p class="entry-desc">TV Documentary Feature</p>
-        </div>
-      </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2026</span>
-        <div class="entry-body">
-          <p class="entry-title">BRTV 转在北京</p>
-          <p class="entry-desc">TV Feature</p>
-        </div>
-      </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2026</span>
-        <div class="entry-body">
-          <p class="entry-title">HK01</p>
-          <p class="entry-desc">PKU–Cambridge Competition Coverage</p>
-        </div>
-      </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2025</span>
-        <div class="entry-body">
-          <p class="entry-title">Ming Pao &amp; Sing Tao</p>
-          <p class="entry-desc">Profile Features</p>
-        </div>
-      </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2025</span>
-        <div class="entry-body">
-          <p class="entry-title">Max Planck Institute RPg Forum</p>
-          <p class="entry-desc">Speaker</p>
-        </div>
-      </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2025</span>
-        <div class="entry-body">
-          <p class="entry-title">HK–Jiangsu Drug Discovery Symposium</p>
-          <p class="entry-desc">Speaker</p>
-        </div>
-      </div>
-      <div class="entry" role="listitem">
-        <span class="entry-year">2024</span>
-        <div class="entry-body">
-          <p class="entry-title">Tang et al., Journal of Biological Chemistry</p>
-          <p class="entry-desc"><a href="https://www.jbc.org/article/S0021-9258(24)02042-X/fulltext" target="_blank" rel="noopener noreferrer">SARS-CoV-2 spike protein structural mechanisms</a></p>
+      <div class="photo-card">
+        <img src="assets/abct-new.jpg" alt="GBA STEAM Silver 2026" loading="lazy">
+        <div class="photo-card-overlay">
+          <span class="photo-card-label">GBA STEAM Silver 2026</span>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education" aria-labelledby="education-heading">
-    <div class="fade-in">
-      <p class="section-label">Background</p>
-      <h2 id="education-heading" class="section-title">Education.</h2>
-    </div>
-    <div class="edu-entries fade-in">
-      <div class="edu-entry">
-        <p class="edu-degree">DPhil, Biochemistry</p>
-        <p class="edu-meta">The Hong Kong Polytechnic University &nbsp;·&nbsp; 2023 – present</p>
+    <div class="award-list fade-up delay-2">
+      <div class="award-item">
+        <div class="award-dot" style="background:var(--gold)"></div>
+        <span class="award-year">2026</span>
+        <span class="award-name">Techathon+ — Gold Award</span>
+        <span class="award-org">Hong Kong Flagship Deep-Tech</span>
       </div>
-      <div class="edu-entry">
-        <p class="edu-degree">BSc, First Class Honours</p>
-        <p class="edu-meta">The Hong Kong University of Science and Technology &nbsp;·&nbsp; MCGA 4.006 / 4.3 &nbsp;·&nbsp; 7× Dean's List &nbsp;·&nbsp; 2022</p>
+      <div class="award-item">
+        <div class="award-dot" style="background:var(--gold)"></div>
+        <span class="award-year">2026</span>
+        <span class="award-name">贏在蘇州 — Rising Star Award</span>
+        <span class="award-org">Suzhou Innovation Competition</span>
+      </div>
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <span class="award-year">2026</span>
+        <span class="award-name">GBA STEAM Innovation — Silver Award</span>
+        <span class="award-org">Greater Bay Area</span>
+      </div>
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <span class="award-year">2025</span>
+        <span class="award-name">ABCT Best Oral Presentation</span>
+        <span class="award-org">PolyU ABCT</span>
+      </div>
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <span class="award-year">2025</span>
+        <span class="award-name">HKSTP Ideation — Funded</span>
+        <span class="award-org">Hong Kong Science &amp; Technology Park</span>
+      </div>
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <span class="award-year">2024</span>
+        <span class="award-name">ABCT Outstanding Postgraduate</span>
+        <span class="award-org">PolyU ABCT</span>
       </div>
     </div>
-    <div class="fade-in">
-      <p class="scholarships-label">Scholarships</p>
-      <p class="scholarships-list">PolyU Research Postgraduate Scholarship &nbsp;·&nbsp; MTR Corporate Scholarship &nbsp;·&nbsp; D.H. Chen Foundation Scholarship &nbsp;·&nbsp; Kitchell Undergraduate Research Award &nbsp;·&nbsp; UROP Support Grant (HK$18,960)</p>
-      <p class="affiliations">ASBMB &nbsp;·&nbsp; HKIS &nbsp;·&nbsp; HKASME &nbsp;·&nbsp; CAS Future Leaders &nbsp;·&nbsp; YDC Youth Ambassadors</p>
+  </div>
+</section>
+
+<!-- ATOMBIOS -->
+<section id="atombios" class="dark">
+  <div class="section-inner">
+    <div class="atombios-grid">
+      <div class="atombios-copy fade-up">
+        <span class="section-tag">AtomBios</span>
+        <h2 class="section-title">I built the tool I wished existed</h2>
+        <p class="atombios-body">
+          Every drug team I talked to had the same problem: they could see a protein structure, but couldn't test what happens when a molecule docks. AtomBios makes that instant. One-click molecular dynamics. 1,000 binding modes tested before a single compound is synthesized. Incubated at Hong Kong Science and Technology Park.
+        </p>
+        <ul class="feature-list">
+          <li>One-click molecular dynamics simulation</li>
+          <li>1,000 binding modes tested per target</li>
+          <li>Structure-to-insight in minutes, not weeks</li>
+          <li>Built on validated cryo-EM structural data</li>
+          <li>Designed for early-stage drug discovery teams</li>
+        </ul>
+      </div>
+      <div class="atombios-image fade-up delay-2">
+        <img src="assets/gba-steam.png" alt="AtomBios — GBA STEAM" loading="lazy">
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="dark-section" aria-labelledby="contact-heading">
-    <div class="fade-in">
-      <h2 id="contact-heading" class="section-title">Get in touch.</h2>
-      <a href="mailto:jackie.ng@connect.polyu.hk" class="contact-email">jackie.ng@connect.polyu.hk</a>
-      <nav class="contact-social" aria-label="Social links">
-        <a href="https://www.linkedin.com/in/jackie-ng-computational-bio/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://www.instagram.com/jackieng_ch" target="_blank" rel="noopener noreferrer">Instagram</a>
-      </nav>
+<!-- MEDIA -->
+<section id="media" class="light">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-tag">Speaking &amp; Media</span>
+      <h2 class="section-title">On screen and in print</h2>
     </div>
-  </section>
+    <div class="media-grid-6 fade-up delay-1">
+      <div class="photo-card">
+        <img src="assets/rthk-broadcast.jpg" alt="RTHK Broadcast" loading="lazy">
+        <div class="photo-card-overlay"><span class="photo-card-label">RTHK Broadcast</span></div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/beijing-tv-gesture.jpg" alt="BRTV Feature" loading="lazy">
+        <div class="photo-card-overlay"><span class="photo-card-label">BRTV Feature</span></div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/mingpao-spread.jpg" alt="Ming Pao Spread" loading="lazy">
+        <div class="photo-card-overlay"><span class="photo-card-label">Ming Pao</span></div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/rthk-media-new.jpg" alt="RTHK Media" loading="lazy">
+        <div class="photo-card-overlay"><span class="photo-card-label">RTHK Radio</span></div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/beijing-tv-speaking.jpg" alt="Beijing TV Speaking" loading="lazy">
+        <div class="photo-card-overlay"><span class="photo-card-label">Beijing TV Panel</span></div>
+      </div>
+      <div class="photo-card">
+        <img src="assets/headshot.jpg" alt="Jackie Ng" loading="lazy">
+        <div class="photo-card-overlay"><span class="photo-card-label">Jackie Ng</span></div>
+      </div>
+    </div>
+    <div class="award-list fade-up delay-2">
+      <div class="award-item">
+        <div class="award-dot" style="background:var(--gold)"></div>
+        <span class="award-year">TV</span>
+        <span class="award-name">RTHK — Radio Television Hong Kong</span>
+        <span class="award-org">Featured Segment</span>
+      </div>
+      <div class="award-item">
+        <div class="award-dot" style="background:var(--gold)"></div>
+        <span class="award-year">TV</span>
+        <span class="award-name">BRTV — Beijing Radio &amp; Television</span>
+        <span class="award-org">Science Feature</span>
+      </div>
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <span class="award-year">Print</span>
+        <span class="award-name">Ming Pao Daily News</span>
+        <span class="award-org">Full Spread Feature</span>
+      </div>
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <span class="award-year">Online</span>
+        <span class="award-name">HK01</span>
+        <span class="award-org">Digital Feature</span>
+      </div>
+      <div class="award-item">
+        <div class="award-dot"></div>
+        <span class="award-year">Journal</span>
+        <span class="award-name">Journal of Biological Chemistry — Published</span>
+        <span class="award-org">2024</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Jackie Ng</p>
-  </footer>
+<!-- EDUCATION -->
+<section id="education" class="light">
+  <div class="section-inner">
+    <div class="fade-up">
+      <span class="section-tag">Education &amp; Scholarships</span>
+      <h2 class="section-title">The foundations</h2>
+    </div>
+    <div class="edu-grid fade-up delay-1">
+      <div class="edu-card">
+        <div class="edu-institution">The Hong Kong Polytechnic University</div>
+        <div class="edu-degree">DPhil, Biochemistry</div>
+        <div class="edu-meta">
+          <strong>2023 – Present</strong> &nbsp;·&nbsp; In Progress<br>
+          Computational structural biology. Drug target discovery.<br>
+          Supervisor: research in molecular dynamics and protein–ligand interactions.
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-institution">The Hong Kong University of Science and Technology</div>
+        <div class="edu-degree">BSc, Biochemistry — First Class Honours</div>
+        <div class="edu-meta">
+          <strong>Graduated 2022</strong><br>
+          MCGA <strong>4.006 / 4.3</strong> &nbsp;·&nbsp; 7× Dean's List<br>
+          Undergraduate Research Opportunity Programme (UROP) Graduate
+        </div>
+      </div>
+    </div>
+    <div class="fade-up delay-2">
+      <p class="scholarships-title">Scholarships &amp; Awards</p>
+      <ul class="scholarship-list">
+        <li>PolyU Research Postgraduate (RPg) Scholarship</li>
+        <li>MTR Corporation Scholarship</li>
+        <li>D.H. Chen Foundation Scholarship</li>
+        <li>Kitchell Award</li>
+        <li>UROP Grant — HK$18,960</li>
+      </ul>
+    </div>
+    <div class="affil-section fade-up delay-3">
+      <p class="affil-title">Professional Affiliations</p>
+      <div class="pill-row">
+        <span class="pill">ASBMB</span>
+        <span class="pill">HKIS</span>
+        <span class="pill">HKASME</span>
+        <span class="pill">CAS Future Leaders</span>
+        <span class="pill">YDC Youth Ambassadors</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-  (function () {
-    'use strict';
+<!-- CTA -->
+<section id="cta" class="dark">
+  <div class="section-inner" style="text-align:center">
+    <div class="fade-up">
+      <span class="section-tag">Let's connect</span>
+      <h2 class="cta-title">The next satisfying<br>molecule is waiting</h2>
+      <p class="cta-sub">
+        Whether you're building a drug pipeline, scouting deep-tech founders, or looking for a speaker who actually understands the science.
+      </p>
+    </div>
+    <div class="cta-buttons fade-up delay-1">
+      <a href="mailto:jackie.ng@connect.polyu.hk" class="btn-primary">
+        jackie.ng@connect.polyu.hk
+      </a>
+      <a href="https://www.linkedin.com/in/jackie-ng-computational-bio/" target="_blank" rel="noopener" class="btn-secondary">
+        LinkedIn ↗
+      </a>
+      <a href="https://www.instagram.com/the_invisible_architect_" target="_blank" rel="noopener" class="btn-secondary">
+        Instagram ↗
+      </a>
+    </div>
+  </div>
+</section>
 
-    /* ── NAV SCROLL BEHAVIOUR ─────────────────────── */
-    var nav = document.getElementById('main-nav');
-    var lastScroll = 0;
-    window.addEventListener('scroll', function () {
-      var y = window.scrollY;
-      if (y > 60) { nav.classList.add('scrolled'); }
-      else { nav.classList.remove('scrolled'); }
-      lastScroll = y;
-    }, { passive: true });
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2026 Jackie Ng · All rights reserved</span>
+  <span class="footer-name">Jackie Ng</span>
+</footer>
 
-    /* ── HAMBURGER ────────────────────────────────── */
-    var hamburger = document.getElementById('hamburger');
-    var mobileMenu = document.getElementById('mobile-menu');
-    var mobileLinks = document.querySelectorAll('.mobile-link');
+<!-- THREE.JS CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-    function openMenu() {
-      mobileMenu.style.display = 'flex';
-      requestAnimationFrame(function () { mobileMenu.classList.add('open'); });
-      hamburger.classList.add('open');
-      hamburger.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeMenu() {
+<script>
+(function() {
+  'use strict';
+
+  // ── NAV SCROLL GLASSMORPHISM ──
+  var nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── HAMBURGER MENU ──
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', function() {
+    var open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link').forEach(function(link) {
+    link.addEventListener('click', function() {
       mobileMenu.classList.remove('open');
       hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
-      setTimeout(function () { mobileMenu.style.display = 'none'; }, 320);
-    }
-    hamburger.addEventListener('click', function () {
-      if (mobileMenu.classList.contains('open')) { closeMenu(); } else { openMenu(); }
     });
-    mobileLinks.forEach(function (l) { l.addEventListener('click', closeMenu); });
+  });
 
-    /* ── FADE-IN (IntersectionObserver) ───────────── */
-    var fadeEls = document.querySelectorAll('.fade-in');
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            io.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-      fadeEls.forEach(function (el) { io.observe(el); });
-    } else {
-      fadeEls.forEach(function (el) { el.classList.add('visible'); });
+  // ── INTERSECTION OBSERVER ANIMATIONS ──
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(function(el) {
+    observer.observe(el);
+  });
+
+  // ── THREE.JS HERO ──
+  (function initThree() {
+    var canvas = document.getElementById('hero-canvas');
+    var fallback = document.getElementById('hero-fallback');
+
+    if (!window.THREE) { return; }
+
+    var renderer, scene, camera, animId;
+    var particles, helixParticles, ambientParticles;
+    var mouse = { x: 0, y: 0 };
+    var target = { x: 0, y: 0 };
+
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: true, powerPreference: 'low-power' });
+    } catch(e) {
+      canvas.style.display = 'none';
+      fallback.style.display = 'block';
+      return;
     }
 
-    /* ── THREE.JS MOLECULAR PARTICLE SYSTEM ──────── */
-    (function () {
-      var canvas = document.getElementById('three-canvas');
-      var fallback = document.getElementById('hero-fallback');
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    renderer.setPixelRatio(dpr);
+    renderer.setClearColor(0x000000, 0);
 
-      // WebGL check
-      try {
-        var testCtx = document.createElement('canvas').getContext('webgl') ||
-                      document.createElement('canvas').getContext('experimental-webgl');
-        if (!testCtx) { throw new Error('no webgl'); }
-      } catch (e) {
-        canvas.style.display = 'none';
-        fallback.style.display = 'block';
-        return;
-      }
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
+    camera.position.z = 60;
 
-      // Three.js check
-      if (typeof THREE === 'undefined') {
-        canvas.style.display = 'none';
-        fallback.style.display = 'block';
-        return;
-      }
+    // Build helix geometry
+    var HELIX_POINTS = 800;
+    var AMBIENT_POINTS = 600;
+    var TOTAL = HELIX_POINTS + AMBIENT_POINTS;
 
-      var scene = new THREE.Scene();
-      var dpr = Math.min(window.devicePixelRatio, 2);
-      var W = window.innerWidth, H = window.innerHeight;
+    var positions = new Float32Array(TOTAL * 3);
+    var colors = new Float32Array(TOTAL * 3);
+    var sizes = new Float32Array(TOTAL);
+    var velocities = new Float32Array(TOTAL * 3); // for ambient drift
 
-      var camera = new THREE.PerspectiveCamera(60, W / H, 0.1, 1000);
-      camera.position.z = 38;
+    // Helix strand data — two interleaved helices
+    var goldColor = new THREE.Color('#d4a843');
+    var tealColor = new THREE.Color('#2a9d8f');
+    var whiteColor = new THREE.Color('#e8e0d5');
 
-      var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: false });
-      renderer.setPixelRatio(dpr);
-      renderer.setSize(W, H);
-      renderer.setClearColor(0x0a0a0a, 1);
+    for (var i = 0; i < HELIX_POINTS; i++) {
+      var t = (i / HELIX_POINTS) * Math.PI * 10 - Math.PI * 5;
+      var radius = 8;
+      var strand = i % 2; // two strands
+      var phase = strand * Math.PI;
 
-      // --- Build protein-backbone + helix particle cloud ---
-      var PARTICLE_COUNT = 1800;
-      var positions = new Float32Array(PARTICLE_COUNT * 3);
-      var colors = new Float32Array(PARTICLE_COUNT * 3);
-      var sizes = new Float32Array(PARTICLE_COUNT);
+      var x = radius * Math.cos(t + phase);
+      var y = t * 2.4;
+      var z = radius * Math.sin(t + phase);
 
-      var goldR = 0xd4 / 255, goldG = 0xa8 / 255, goldB = 0x43 / 255;
-      var tealR = 0x2a / 255, tealG = 0x9d / 255, tealB = 0x8f / 255;
+      positions[i * 3 + 0] = x;
+      positions[i * 3 + 1] = y;
+      positions[i * 3 + 2] = z;
 
-      function randomGauss() {
-        var u = 0, v = 0;
-        while (u === 0) u = Math.random();
-        while (v === 0) v = Math.random();
-        return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
-      }
+      var col = strand === 0 ? goldColor : tealColor;
+      // Occasionally white backbone nodes
+      if (i % 18 === 0) col = whiteColor;
+      colors[i * 3 + 0] = col.r;
+      colors[i * 3 + 1] = col.g;
+      colors[i * 3 + 2] = col.b;
+      sizes[i] = i % 18 === 0 ? 3.2 : 1.6;
+    }
 
-      // Two intertwined helices + scattered background
-      for (var i = 0; i < PARTICLE_COUNT; i++) {
-        var t = (i / PARTICLE_COUNT) * Math.PI * 12;
-        var isHelix1 = i < PARTICLE_COUNT * 0.35;
-        var isHelix2 = i >= PARTICLE_COUNT * 0.35 && i < PARTICLE_COUNT * 0.65;
-        var x, y, z;
-        if (isHelix1) {
-          // Helix A — alpha helix trajectory
-          var tt = (i / (PARTICLE_COUNT * 0.35)) * Math.PI * 16;
-          x = Math.cos(tt) * 7 + randomGauss() * 0.4;
-          y = tt * 0.55 - 14 + randomGauss() * 0.4;
-          z = Math.sin(tt) * 7 + randomGauss() * 0.4;
-          colors[i * 3]     = goldR + (Math.random() - 0.5) * 0.12;
-          colors[i * 3 + 1] = goldG + (Math.random() - 0.5) * 0.12;
-          colors[i * 3 + 2] = goldB + (Math.random() - 0.5) * 0.12;
-          sizes[i] = 1.2 + Math.random() * 1.4;
-        } else if (isHelix2) {
-          // Helix B — complementary helix, phase shifted
-          var idx2 = i - PARTICLE_COUNT * 0.35;
-          var tt2 = (idx2 / (PARTICLE_COUNT * 0.3)) * Math.PI * 16;
-          x = Math.cos(tt2 + Math.PI) * 7 + randomGauss() * 0.4;
-          y = tt2 * 0.55 - 14 + randomGauss() * 0.4;
-          z = Math.sin(tt2 + Math.PI) * 7 + randomGauss() * 0.4;
-          colors[i * 3]     = tealR + (Math.random() - 0.5) * 0.1;
-          colors[i * 3 + 1] = tealG + (Math.random() - 0.5) * 0.1;
-          colors[i * 3 + 2] = tealB + (Math.random() - 0.5) * 0.1;
-          sizes[i] = 1.0 + Math.random() * 1.2;
-        } else {
-          // Background scatter — sparse cloud of atoms
-          var r = 12 + Math.random() * 14;
-          var theta = Math.random() * Math.PI * 2;
-          var phi = Math.acos(2 * Math.random() - 1);
-          x = r * Math.sin(phi) * Math.cos(theta);
-          y = r * Math.sin(phi) * Math.sin(theta);
-          z = r * Math.cos(phi);
-          var isGold = Math.random() > 0.5;
-          if (isGold) {
-            colors[i * 3] = goldR; colors[i * 3 + 1] = goldG; colors[i * 3 + 2] = goldB;
-          } else {
-            colors[i * 3] = tealR; colors[i * 3 + 1] = tealG; colors[i * 3 + 2] = tealB;
-          }
-          colors[i * 3]     *= 0.45 + Math.random() * 0.25;
-          colors[i * 3 + 1] *= 0.45 + Math.random() * 0.25;
-          colors[i * 3 + 2] *= 0.45 + Math.random() * 0.25;
-          sizes[i] = 0.5 + Math.random() * 0.9;
-        }
-        positions[i * 3]     = x;
-        positions[i * 3 + 1] = y;
-        positions[i * 3 + 2] = z;
-      }
+    // Ambient floating particles
+    for (var j = 0; j < AMBIENT_POINTS; j++) {
+      var idx = HELIX_POINTS + j;
+      var r = 35 + Math.random() * 20;
+      var theta = Math.random() * Math.PI * 2;
+      var phi = Math.acos(2 * Math.random() - 1);
 
-      var geometry = new THREE.BufferGeometry();
-      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-      geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+      positions[idx * 3 + 0] = r * Math.sin(phi) * Math.cos(theta);
+      positions[idx * 3 + 1] = r * Math.sin(phi) * Math.sin(theta) * 0.5;
+      positions[idx * 3 + 2] = r * Math.cos(phi) * 0.4;
 
-      // Custom glow shader
-      var vertexShader = [
+      var pick = Math.random();
+      var c = pick < 0.4 ? goldColor : (pick < 0.7 ? tealColor : whiteColor);
+      colors[idx * 3 + 0] = c.r * 0.5;
+      colors[idx * 3 + 1] = c.g * 0.5;
+      colors[idx * 3 + 2] = c.b * 0.5;
+      sizes[idx] = 0.6 + Math.random() * 0.8;
+
+      velocities[idx * 3 + 0] = (Math.random() - 0.5) * 0.01;
+      velocities[idx * 3 + 1] = (Math.random() - 0.5) * 0.008;
+      velocities[idx * 3 + 2] = (Math.random() - 0.5) * 0.006;
+    }
+
+    var geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+    var material = new THREE.ShaderMaterial({
+      uniforms: {
+        uTime: { value: 0 },
+        uMouse: { value: new THREE.Vector2(0, 0) },
+        uPixelRatio: { value: dpr }
+      },
+      vertexShader: [
         'attribute float size;',
         'attribute vec3 color;',
         'varying vec3 vColor;',
-        'varying float vSize;',
+        'uniform float uTime;',
+        'uniform vec2 uMouse;',
+        'uniform float uPixelRatio;',
         'void main() {',
         '  vColor = color;',
-        '  vSize = size;',
-        '  vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);',
-        '  gl_PointSize = size * (300.0 / -mvPosition.z);',
-        '  gl_Position = projectionMatrix * mvPosition;',
+        '  vec4 mvPos = modelViewMatrix * vec4(position, 1.0);',
+        '  vec4 proj = projectionMatrix * mvPos;',
+        '  vec2 screenPos = proj.xy / proj.w;',
+        '  float dist = length(screenPos - uMouse * 2.0);',
+        '  float repel = smoothstep(0.6, 0.0, dist) * 3.0;',
+        '  mvPos.xy += normalize(screenPos - uMouse * 2.0) * repel * 0.5;',
+        '  gl_Position = projectionMatrix * mvPos;',
+        '  gl_PointSize = size * uPixelRatio * (60.0 / -mvPos.z);',
         '}'
-      ].join('\n');
-
-      var fragmentShader = [
+      ].join('\n'),
+      fragmentShader: [
         'varying vec3 vColor;',
-        'varying float vSize;',
         'void main() {',
         '  float d = length(gl_PointCoord - vec2(0.5));',
-        '  if (d > 0.5) discard;',
-        '  float alpha = 1.0 - smoothstep(0.1, 0.5, d);',
-        '  float glow = exp(-d * 4.0) * 0.6;',
-        '  gl_FragColor = vec4(vColor + glow * vColor, alpha * 0.88);',
+        '  if(d > 0.5) discard;',
+        '  float alpha = smoothstep(0.5, 0.1, d);',
+        '  gl_FragColor = vec4(vColor, alpha * 0.9);',
         '}'
-      ].join('\n');
+      ].join('\n'),
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+      vertexColors: true
+    });
 
-      var material = new THREE.ShaderMaterial({
-        uniforms: {},
-        vertexShader: vertexShader,
-        fragmentShader: fragmentShader,
-        transparent: true,
-        depthWrite: false,
-        blending: THREE.AdditiveBlending,
-        vertexColors: true
+    particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+
+    // Mouse tracking
+    document.addEventListener('mousemove', function(e) {
+      target.x = (e.clientX / window.innerWidth) * 2 - 1;
+      target.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    }, { passive: true });
+
+    function resize() {
+      var hero = document.getElementById('hero');
+      var w = hero.clientWidth;
+      var h = hero.clientHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    var clock = { start: Date.now() };
+    var stopped = false;
+
+    function animate() {
+      if (stopped) return;
+      animId = requestAnimationFrame(animate);
+
+      var t = (Date.now() - clock.start) * 0.001;
+      mouse.x += (target.x - mouse.x) * 0.06;
+      mouse.y += (target.y - mouse.y) * 0.06;
+
+      // Slow ambient rotation of helix
+      particles.rotation.y = t * 0.08;
+      particles.rotation.x = Math.sin(t * 0.04) * 0.12;
+
+      material.uniforms.uTime.value = t;
+      material.uniforms.uMouse.value.set(mouse.x, mouse.y);
+
+      // Drift ambient particles
+      var pos = geometry.attributes.position.array;
+      for (var k = HELIX_POINTS; k < TOTAL; k++) {
+        pos[k*3+0] += velocities[k*3+0];
+        pos[k*3+1] += velocities[k*3+1];
+        pos[k*3+2] += velocities[k*3+2];
+        // Wrap
+        if (Math.abs(pos[k*3+0]) > 55) velocities[k*3+0] *= -1;
+        if (Math.abs(pos[k*3+1]) > 30) velocities[k*3+1] *= -1;
+        if (Math.abs(pos[k*3+2]) > 25) velocities[k*3+2] *= -1;
+      }
+      geometry.attributes.position.needsUpdate = true;
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Pause when hero out of view for perf
+    var heroObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        stopped = !e.isIntersecting;
+        if (!stopped) animate();
       });
-
-      var particles = new THREE.Points(geometry, material);
-      scene.add(particles);
-
-      // Mouse influence
-      var mouse = { x: 0, y: 0 };
-      var targetRotation = { x: 0, y: 0 };
-      var currentRotation = { x: 0, y: 0 };
-
-      document.addEventListener('mousemove', function (e) {
-        mouse.x = (e.clientX / window.innerWidth - 0.5) * 2;
-        mouse.y = -(e.clientY / window.innerHeight - 0.5) * 2;
-      }, { passive: true });
-
-      // Resize
-      window.addEventListener('resize', function () {
-        W = window.innerWidth; H = window.innerHeight;
-        camera.aspect = W / H;
-        camera.updateProjectionMatrix();
-        renderer.setSize(W, H);
-      }, { passive: true });
-
-      // Animation loop
-      var clock = new THREE.Clock();
-      var heroEl = document.getElementById('hero');
-      var animating = true;
-
-      // Stop rendering when hero is offscreen (perf)
-      if ('IntersectionObserver' in window) {
-        var heroIO = new IntersectionObserver(function (entries) {
-          animating = entries[0].isIntersecting;
-        }, { threshold: 0 });
-        heroIO.observe(heroEl);
-      }
-
-      function animate() {
-        requestAnimationFrame(animate);
-        if (!animating) return;
-
-        var elapsed = clock.getElapsedTime();
-
-        // Ambient slow rotation
-        targetRotation.y = elapsed * 0.04 + mouse.x * 0.25;
-        targetRotation.x = mouse.y * 0.12;
-
-        currentRotation.x += (targetRotation.x - currentRotation.x) * 0.04;
-        currentRotation.y += (targetRotation.y - currentRotation.y) * 0.04;
-
-        particles.rotation.x = currentRotation.x;
-        particles.rotation.y = currentRotation.y;
-
-        renderer.render(scene, camera);
-      }
-      animate();
-    })();
+    }, { threshold: 0 });
+    heroObserver.observe(document.getElementById('hero'));
 
   })();
-  </script>
+
+})();
+</script>
 </body>
 </html>
