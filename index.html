@@ -248,6 +248,39 @@ body.nav-open { overflow: hidden; }
 }
 .about-text p + p { margin-top: 28px; }
 
+.about-lead {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--white);
+  font-weight: 300;
+}
+
+.about-stats {
+  display: flex;
+  gap: 48px;
+  margin: 36px 0;
+  padding: 28px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.stat { display: flex; flex-direction: column; gap: 4px; }
+.stat-num {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.stat-label {
+  font-size: 0.72rem;
+  font-family: var(--sans);
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+}
+
 .about-footer {
   font-size: 0.85rem;
   color: var(--text-dim);
@@ -361,6 +394,22 @@ body.nav-open { overflow: hidden; }
   display: block;
 }
 .img-wrap:hover img { transform: scale(1.02); }
+
+.render-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 16px 14px 12px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.7);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.img-wrap:hover .render-label { opacity: 1; }
 
 .renders-footer {
   margin-top: 16px;
@@ -601,6 +650,10 @@ body.nav-open { overflow: hidden; }
     max-width: 280px;
     position: static;
   }
+  .about-stats {
+    gap: 32px;
+  }
+  .stat-num { font-size: 1.6rem; }
 
   .full-bleed-wrap .full-bleed { height: 45vh; }
   .full-bleed-wrap.short .full-bleed { height: 38vh; }
@@ -669,9 +722,14 @@ body.nav-open { overflow: hidden; }
       <img src="assets/headshot.jpg" alt="Jackie Ng, computational structural biologist and founder of AtomBios" loading="lazy">
     </div>
     <div class="about-text">
-      <p class="fade-up">Four pharma companies spent billions targeting the same pocket on a pain channel. Then someone solved the cryo-EM structure, and it turned out the drug binds 30 ångströms away from where every model predicted. That's the kind of problem I think about.</p>
-      <p class="fade-up" style="transition-delay:0.1s">I'm a DPhil researcher at the Hong Kong Polytechnic University. Computational structural biology — which really means I take the 3D coordinates from cryo-EM, run molecular dynamics, and figure out what actually happens when a drug candidate meets a protein. Not what the model predicts. What the physics says. I published my first paper on SARS-CoV-2 spike protein mechanisms in the Journal of Biological Chemistry as an undergraduate at HKUST.</p>
-      <p class="fade-up" style="transition-delay:0.2s">Outside the lab, I built AtomBios — because the teams actually making drugs shouldn't need six months of specialist setup to run a binding simulation. I've been selected by the Nobel Foundation, the Shaw Prize, and the Chinese Academy of Sciences. Won gold at Hong Kong's largest deep-tech competition. But the part that matters most is the work: reading structures that explain why things fail, and building tools so others can read them too.</p>
+      <p class="about-lead fade-up">Four pharma companies spent billions targeting the same pocket on a pain channel. Then someone solved the cryo-EM structure — and the drug actually binds 30 ångströms away from where every model predicted.</p>
+      <p class="fade-up" style="transition-delay:0.1s">That's the kind of problem I work on. DPhil researcher at Hong Kong Polytechnic University. I take 3D coordinates from cryo-EM and X-ray crystallography, run molecular dynamics, and figure out what actually happens when a drug candidate meets a protein. Not what the model predicts. What the physics says.</p>
+      <div class="about-stats fade-up" style="transition-delay:0.15s">
+        <div class="stat"><span class="stat-num">1st</span><span class="stat-label">author, J. Biol. Chem.</span></div>
+        <div class="stat"><span class="stat-num">4.0</span><span class="stat-label">GPA (of 4.3), HKUST</span></div>
+        <div class="stat"><span class="stat-num">7×</span><span class="stat-label">Dean's List</span></div>
+      </div>
+      <p class="fade-up" style="transition-delay:0.2s">Outside the lab, I built AtomBios — because the teams actually making drugs shouldn't need six months of specialist setup to run a binding simulation. Selected by the Nobel Foundation, the Shaw Prize, and the Chinese Academy of Sciences.</p>
       <p class="about-footer fade-up" style="transition-delay:0.3s">Right now: finishing my DPhil, getting AtomBios to its first pharma pilot, and talking about structures at conferences across Asia.</p>
     </div>
   </div>
@@ -679,7 +737,7 @@ body.nav-open { overflow: hidden; }
 
 <!-- FULL BLEED 1 -->
 <div class="full-bleed-wrap" role="img" aria-label="Viral capsid molecular render from the Protein Data Bank">
-  <img src="assets/render-capsid.jpg" alt="" class="full-bleed" loading="lazy">
+  <img src="assets/render-capsid-contour.jpg" alt="" class="full-bleed" loading="lazy">
 </div>
 
 <!-- WORK -->
@@ -701,17 +759,21 @@ body.nav-open { overflow: hidden; }
     <div class="render-row">
       <div class="img-wrap">
         <img src="assets/render-capsid.jpg" alt="Viral capsid structure rendered from PDB coordinates" loading="lazy">
+        <div class="render-label">Viral capsid · PDB render</div>
       </div>
       <div class="img-wrap">
-        <img src="assets/render-tim-structure.jpg" alt="TIM barrel protein structure rendered from PDB coordinates" loading="lazy">
+        <img src="assets/render-tim-structure.jpg" alt="TIM barrel protein — the most catalytically perfect enzyme known" loading="lazy">
+        <div class="render-label">TIM barrel · backbone trace</div>
       </div>
     </div>
     <div class="render-row row-2">
       <div class="img-wrap">
-        <img src="assets/render-tim-active-site.jpg" alt="TIM barrel active site close-up render" loading="lazy">
+        <img src="assets/render-tim-active-site.jpg" alt="TIM barrel active site — catalytic residues visible in the binding pocket" loading="lazy">
+        <div class="render-label">Active site · catalytic residues</div>
       </div>
       <div class="img-wrap">
-        <img src="assets/render-capsid-contour.jpg" alt="Viral capsid surface contour render" loading="lazy">
+        <img src="assets/render-capsid-contour.jpg" alt="Viral capsid surface contour — electrostatic potential mapped" loading="lazy">
+        <div class="render-label">Capsid · surface contour</div>
       </div>
     </div>
   </div>
@@ -721,8 +783,8 @@ body.nav-open { overflow: hidden; }
 </section>
 
 <!-- FULL BLEED 2 -->
-<div class="full-bleed-wrap short" role="img" aria-label="TIM barrel active site molecular render">
-  <img src="assets/render-tim-active-site.jpg" alt="" class="full-bleed" loading="lazy">
+<div class="full-bleed-wrap short" role="img" aria-label="Suzhou Rising Star award ceremony">
+  <img src="assets/suzhou-award-new.jpg" alt="" class="full-bleed" loading="lazy">
 </div>
 
 <!-- RECOGNITION -->
@@ -826,11 +888,7 @@ body.nav-open { overflow: hidden; }
       <span class="timeline-sep">·</span>
       <span class="timeline-title">Sing Tao — Profile Feature</span>
     </div>
-    <div class="timeline-item timeline-tier-2">
-      <span class="timeline-year">2024</span>
-      <span class="timeline-sep">·</span>
-      <span class="timeline-title">Tang et al., J. Biol. Chem. — <a href="https://www.jbc.org/article/S0021-9258(24)02042-X/fulltext" target="_blank" rel="noopener noreferrer">View paper</a></span>
-    </div>
+
   </div>
 </section>
 
@@ -838,8 +896,11 @@ body.nav-open { overflow: hidden; }
 <section id="contact" class="contact-section" aria-labelledby="contact-h">
   <span class="edu-label">Education</span>
   <p class="edu-line">DPhil, Biochemistry — The Hong Kong Polytechnic University, 2023–</p>
-  <p class="edu-line">BSc, First Class Honours — HKUST, 2022 · MCGA 4.006/4.3 · 7× Dean's List</p>
+  <p class="edu-line">BSc, First Class Honours — HKUST, 2022</p>
   <p class="edu-scholarships">PolyU RPg · MTR Corporate · D.H. Chen Foundation · Kitchell Award</p>
+
+  <span class="edu-label" style="margin-top: 28px">Publication</span>
+  <p class="edu-line">Tang et al. (2024) <a href="https://www.jbc.org/article/S0021-9258(24)02042-X/fulltext" target="_blank" rel="noopener noreferrer" style="color: var(--gold)">Journal of Biological Chemistry</a> — SARS-CoV-2 spike protein mechanisms</p>
 
   <hr class="contact-divider">
 
