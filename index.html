@@ -34,7 +34,7 @@
   --max-w: 1200px;
   --max-text: 620px;
   --pad-x: clamp(24px, 5vw, 80px);
-  --section-py: clamp(80px, 12vh, 160px);
+  --section-py: clamp(100px, 15vh, 200px);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -76,10 +76,11 @@ a { color: inherit; text-decoration: none; transition: color 0.3s; }
 
 .section-heading {
   font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 300;
-  line-height: 1.15;
+  line-height: 1.1;
   color: var(--white);
+  letter-spacing: -0.02em;
 }
 
 .body-text {
@@ -266,8 +267,8 @@ a { color: inherit; text-decoration: none; transition: color 0.3s; }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 64px;
+  grid-template-columns: 340px 1fr;
+  gap: 72px;
   align-items: start;
 }
 
@@ -303,7 +304,7 @@ a { color: inherit; text-decoration: none; transition: color 0.3s; }
 .full-bleed {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  height: 50vh;
+  height: 60vh;
   background-size: cover;
   background-position: center center;
   position: relative;
@@ -337,17 +338,19 @@ a { color: inherit; text-decoration: none; transition: color 0.3s; }
 }
 
 .pull-quote-wrap {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 64px;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 0 72px;
+  border-left: 3px solid var(--gold);
+  padding-left: 40px;
 }
 
 .pull-quote {
   font-family: var(--serif);
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   font-style: italic;
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.35;
   color: var(--white);
   border: none;
   padding: 0;
@@ -362,16 +365,16 @@ a { color: inherit; text-decoration: none; transition: color 0.3s; }
 }
 
 .atombios-body {
-  text-align: center;
+  text-align: left;
   max-width: var(--max-text);
-  margin: 0 auto;
+  margin: 0;
 }
 
 .atombios-body p + p { margin-top: 24px; }
 
 .demo-link {
   display: block;
-  text-align: center;
+  text-align: left;
   margin-top: 36px;
   font-size: 0.95rem;
   color: var(--gold);
@@ -406,7 +409,7 @@ a { color: inherit; text-decoration: none; transition: color 0.3s; }
 
 .render-row .img-hover img {
   width: 100%;
-  height: 260px;
+  height: clamp(280px, 35vh, 420px);
   object-fit: cover;
 }
 
@@ -474,7 +477,7 @@ a { color: inherit; text-decoration: none; transition: color 0.3s; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  min-height: 400px;
+  min-height: 500px;
 }
 
 .stage-right {
@@ -543,7 +546,7 @@ a { color: inherit; text-decoration: none; transition: color 0.3s; }
 
 .press-grid .img-hover img {
   width: 100%;
-  height: 240px;
+  height: clamp(240px, 30vh, 360px);
   object-fit: cover;
 }
 
@@ -638,7 +641,7 @@ a { color: inherit; text-decoration: none; transition: color 0.3s; }
   }
 
   .full-bleed {
-    height: 35vh;
+    height: 45vh;
   }
 
   .render-row {
@@ -770,8 +773,7 @@ a { color: inherit; text-decoration: none; transition: color 0.3s; }
 <section id="renders" class="renders-section">
   <div class="container">
     <div class="renders-header">
-      <h2 class="section-heading fade-up">What I see</h2>
-      <p class="renders-subline fade-up" style="transition-delay: 0.08s;">Atomic coordinates. Real structures from the Protein Data Bank. Not illustrations.</p>
+      <h2 class="section-heading fade-up">The work</h2>
     </div>
     <div class="render-grid">
       <div class="render-row fade-up" style="transition-delay: 0.16s;">
@@ -806,8 +808,7 @@ a { color: inherit; text-decoration: none; transition: color 0.3s; }
 <section id="stage" class="stage-section">
   <div class="container">
     <div class="stage-header">
-      <h2 class="section-heading fade-up">Places I've talked about this</h2>
-      <p class="fade-up" style="transition-delay: 0.08s; color: var(--text-muted);">Selections, awards, and the occasional gold medal.</p>
+      <h2 class="section-heading fade-up">On stage</h2>
     </div>
 
     <div class="stage-photo-grid fade-up" style="transition-delay: 0.16s;">
@@ -830,16 +831,12 @@ a { color: inherit; text-decoration: none; transition: color 0.3s; }
     </div>
 
     <div class="timeline">
-      <div class="timeline-item fade-up"><span class="timeline-year">2026</span><span class="timeline-sep">·</span><span class="timeline-title">Techathon+ 10th Anniversary — Gold Medal</span></div>
-      <div class="timeline-item fade-up" style="transition-delay: 0.04s;"><span class="timeline-year">2026</span><span class="timeline-sep">·</span><span class="timeline-title">赢在苏州 Win in Suzhou — Rising Star Award</span></div>
-      <div class="timeline-item fade-up" style="transition-delay: 0.08s;"><span class="timeline-year">2026</span><span class="timeline-sep">·</span><span class="timeline-title">GBA STEAM Excellence Award — Silver, Life &amp; Health</span></div>
-      <div class="timeline-item fade-up" style="transition-delay: 0.12s;"><span class="timeline-year">2025</span><span class="timeline-sep">·</span><span class="timeline-title">Nobel Laureate Meeting, Lindau — Selected Young Scientist</span></div>
-      <div class="timeline-item fade-up" style="transition-delay: 0.16s;"><span class="timeline-year">2025</span><span class="timeline-sep">·</span><span class="timeline-title">Shaw Prize Roundtable — Academic Representative</span></div>
-      <div class="timeline-item fade-up" style="transition-delay: 0.20s;"><span class="timeline-year">2025</span><span class="timeline-sep">·</span><span class="timeline-title">Chinese Academy of Sciences — Future Leader</span></div>
-      <div class="timeline-item fade-up" style="transition-delay: 0.24s;"><span class="timeline-year">2025</span><span class="timeline-sep">·</span><span class="timeline-title">ABCT RPg Symposium — Best Oral Presentation</span></div>
-      <div class="timeline-item fade-up" style="transition-delay: 0.28s;"><span class="timeline-year">2025</span><span class="timeline-sep">·</span><span class="timeline-title">HKSTP Ideation Programme — Conditional Funding Approved</span></div>
-      <div class="timeline-item fade-up" style="transition-delay: 0.32s;"><span class="timeline-year">2024</span><span class="timeline-sep">·</span><span class="timeline-title">Hong Kong Laureate Forum — Selected Young Scientist</span></div>
-      <div class="timeline-item fade-up" style="transition-delay: 0.36s;"><span class="timeline-year">2024</span><span class="timeline-sep">·</span><span class="timeline-title">ABCT Outstanding Postgraduate Student</span></div>
+      <div class="timeline-item fade-up"><span class="timeline-year">2025</span><span class="timeline-sep">·</span><span class="timeline-title">Nobel Laureate Meeting, Lindau — Selected Young Scientist</span></div>
+      <div class="timeline-item fade-up" style="transition-delay: 0.04s;"><span class="timeline-year">2025</span><span class="timeline-sep">·</span><span class="timeline-title">Shaw Prize Roundtable — Academic Representative</span></div>
+      <div class="timeline-item fade-up" style="transition-delay: 0.08s;"><span class="timeline-year">2025</span><span class="timeline-sep">·</span><span class="timeline-title">Chinese Academy of Sciences — Future Leader</span></div>
+      <div class="timeline-item fade-up" style="transition-delay: 0.12s;"><span class="timeline-year">2026</span><span class="timeline-sep">·</span><span class="timeline-title">Techathon+ Gold · 赢在苏州 Rising Star · GBA STEAM Silver</span></div>
+      <div class="timeline-item fade-up" style="transition-delay: 0.16s;"><span class="timeline-year">2025</span><span class="timeline-sep">·</span><span class="timeline-title">HKSTP Ideation Programme — Conditional Funding Approved</span></div>
+      <div class="timeline-item fade-up" style="transition-delay: 0.20s;"><span class="timeline-year">2024</span><span class="timeline-sep">·</span><span class="timeline-title">Hong Kong Laureate Forum — Selected Young Scientist</span></div>
     </div>
   </div>
 </section>
