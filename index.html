@@ -8,12 +8,47 @@
   <!-- OG Meta -->
   <meta property="og:title" content="Jackie Ng — Computational Biologist &amp; Founder" />
   <meta property="og:description" content="DPhil student at PolyU. Founder of AtomBios. Nobel Foundation Young Scientist 2025. Building molecular simulation tools for drug discovery." />
-  <meta property="og:image" content="assets/headshot.jpg" />
+  <meta property="og:image" content="assets/og-image.png" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Jackie Ng — Computational Biologist & Founder" />
   <meta name="twitter:description" content="DPhil student at PolyU. Founder of AtomBios. Nobel Foundation Young Scientist 2025." />
-  <meta name="twitter:image" content="assets/headshot.jpg" />
+  <meta name="twitter:image" content="assets/og-image.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jackie Ng",
+    "alternateName": "Ng Cheuk Hei",
+    "jobTitle": "Computational Biologist & Founder",
+    "description": "DPhil researcher in computational structural biology. Founder of AtomBios, a molecular simulation platform for drug discovery.",
+    "url": "https://grasswall.github.io/jackieng-profile",
+    "email": "jackie.ng@connect.polyu.hk",
+    "sameAs": [
+      "https://www.linkedin.com/in/jackie-ng-computational-bio/",
+      "https://www.instagram.com/jackieng_ch"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "AtomBios",
+      "description": "Computational biology platform for drug discovery"
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "The Hong Kong Polytechnic University" },
+      { "@type": "CollegeOrUniversity", "name": "The Hong Kong University of Science and Technology" }
+    ],
+    "award": [
+      "Nobel Foundation Young Scientist 2025",
+      "Shaw Prize Academic Representative 2025",
+      "CAS Future Leader 2025",
+      "Techathon+ Gold Medal 2026",
+      "GBA STEAM Silver Award 2026"
+    ],
+    "knowsAbout": ["computational biology", "structural biology", "drug discovery", "molecular dynamics", "cryo-EM"]
+  }
+  <\/script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -735,6 +770,34 @@
       .photo-grid .photo-card:last-child:nth-child(odd) { grid-column: auto; }
       .photo-grid-2x3 { grid-template-columns: 1fr; }
       .hero-h1 { font-size: 2.4rem; }
+      .work-grid { grid-template-columns: 1fr !important; }
+    }
+
+    /* ─── WORK GALLERY ──────────────────────────────────── */
+    .work-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 20px;
+    }
+
+    /* ─── CTA OUTLINE BUTTON ────────────────────────────── */
+    .cta-btn-outline {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid rgba(196,168,130,0.4);
+      color: var(--gold-light);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 16px 36px;
+      border-radius: var(--radius-pill);
+      transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+    }
+    .cta-btn-outline:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #fff;
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -745,6 +808,7 @@
   <nav id="nav" role="navigation" aria-label="Main navigation">
     <a href="#" class="nav-logo serif">Jackie Ng</a>
     <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
       <li><a href="#recognition">Recognition</a></li>
       <li><a href="#competitions">Competitions</a></li>
       <li><a href="#atombios">AtomBios</a></li>
@@ -758,6 +822,7 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <a href="#work" class="mobile-link">Work</a>
     <a href="#recognition"  class="mobile-link">Recognition</a>
     <a href="#competitions" class="mobile-link">Competitions</a>
     <a href="#atombios"     class="mobile-link">AtomBios</a>
@@ -795,6 +860,47 @@
         <p class="intro-para">
           That insight led me from a First Class Honours degree to founding AtomBios, winning a Techathon+ Gold Medal, and being selected by the Nobel Foundation — all while pursuing my DPhil.
         </p>
+        <div style="margin-top:36px;padding-top:28px;border-top:1px solid var(--border);text-align:left;max-width:580px;margin-left:auto;margin-right:auto;">
+          <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Currently</p>
+          <p style="font-size:0.92rem;color:var(--text-muted);line-height:1.7;">Finishing my DPhil in computational structural biology at PolyU. Building AtomBios toward its first pharma pilot. Speaking at drug discovery symposiums across Asia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WORK GALLERY ──────────────────────────── -->
+  <section id="work" class="section" style="background:var(--bg-dark);" aria-label="The work">
+    <div class="section-inner">
+      <div class="section-header fade-in">
+        <span class="section-tag" style="color:var(--gold-light);background:rgba(196,168,130,0.08);border-color:rgba(196,168,130,0.2);">The Work</span>
+        <h2 class="section-title" style="color:#fff;">What I see at the atomic scale</h2>
+        <p class="count-line" style="color:rgba(255,255,255,0.4);">Real molecular structures rendered from PDB data — the raw material of drug discovery</p>
+      </div>
+      <div class="photo-grid work-grid fade-in">
+        <div class="photo-card" style="aspect-ratio:1/1;">
+          <img src="assets/render-capsid.jpg" alt="Viral capsid — multi-subunit surface render" loading="lazy" />
+          <div class="photo-card-overlay">
+            <div class="photo-card-label">Viral capsid assembly<br>Surface representation</div>
+          </div>
+        </div>
+        <div class="photo-card" style="aspect-ratio:1/1;">
+          <img src="assets/render-capsid-contour.jpg" alt="Capsid symmetry — contour-line render" loading="lazy" />
+          <div class="photo-card-overlay">
+            <div class="photo-card-label">Icosahedral symmetry<br>Chain-colored surface with contour lines</div>
+          </div>
+        </div>
+        <div class="photo-card" style="aspect-ratio:1/1;">
+          <img src="assets/render-tim-structure.jpg" alt="TIM barrel enzyme — ribbon diagram" loading="lazy" />
+          <div class="photo-card-overlay">
+            <div class="photo-card-label">Triosephosphate isomerase<br>Dual-subunit ribbon diagram</div>
+          </div>
+        </div>
+        <div class="photo-card" style="aspect-ratio:1/1;">
+          <img src="assets/render-tim-active-site.jpg" alt="TIM active site — catalytic residues" loading="lazy" />
+          <div class="photo-card-overlay">
+            <div class="photo-card-label">Catalytic active site<br>Loop 6 closure mechanism</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -968,7 +1074,7 @@
           <a href="mailto:jackie.ng@connect.polyu.hk?subject=AtomBios Demo Request" class="btn-demo">Request Demo &rarr;</a>
         </div>
         <div class="atombios-img">
-          <img src="assets/gba-steam.png" alt="AtomBios molecular visualization" loading="lazy" />
+          <img src="assets/render-capsid.jpg" alt="AtomBios — molecular surface visualization from cryo-EM data" loading="lazy" />
         </div>
       </div>
     </div>
@@ -1015,9 +1121,9 @@
           </div>
         </div>
         <div class="photo-card">
-          <img src="assets/headshot.jpg" alt="Jackie Ng" loading="lazy" />
+          <img src="assets/rthk-podcast-closeup.jpg" alt="RTHK podcast recording" loading="lazy" />
           <div class="photo-card-overlay">
-            <div class="photo-card-label">Jackie Ng<br>Hong Kong</div>
+            <div class="photo-card-label">RTHK Podcast<br>2026</div>
           </div>
         </div>
       </div>
@@ -1110,44 +1216,11 @@
           <div class="item-badge"><span class="badge badge-first-class">First Class</span></div>
         </div>
         <div class="item-card">
-          <span class="item-year"></span>
+          <span class="item-year">—</span>
           <div class="item-content">
-            <div class="item-title">PolyU Research Postgraduate Scholarship</div>
-            <div class="item-sub">Full doctoral scholarship</div>
+            <div class="item-title">Scholarships &amp; Grants</div>
+            <div class="item-sub">PolyU Research Postgraduate Scholarship · MTR Corporate Scholarship · D.H. Chen Foundation Scholarship · Kitchell Undergraduate Research Award · UROP Support Grant (HK$18,960)</div>
           </div>
-          <div class="item-badge"><span class="badge badge-gold">Scholarship</span></div>
-        </div>
-        <div class="item-card">
-          <span class="item-year"></span>
-          <div class="item-content">
-            <div class="item-title">MTR Corporate Scholarship</div>
-            <div class="item-sub"></div>
-          </div>
-          <div class="item-badge"><span class="badge badge-gold">Scholarship</span></div>
-        </div>
-        <div class="item-card">
-          <span class="item-year"></span>
-          <div class="item-content">
-            <div class="item-title">D.H. Chen Foundation Scholarship</div>
-            <div class="item-sub"></div>
-          </div>
-          <div class="item-badge"><span class="badge badge-gold">Scholarship</span></div>
-        </div>
-        <div class="item-card">
-          <span class="item-year"></span>
-          <div class="item-content">
-            <div class="item-title">Kitchell Award</div>
-            <div class="item-sub"></div>
-          </div>
-          <div class="item-badge"><span class="badge badge-gold">Scholarship</span></div>
-        </div>
-        <div class="item-card">
-          <span class="item-year"></span>
-          <div class="item-content">
-            <div class="item-title">UROP Grant</div>
-            <div class="item-sub">HK$18,960 undergraduate research funding</div>
-          </div>
-          <div class="item-badge"><span class="badge badge-gold">Scholarship</span></div>
         </div>
       </div>
 
@@ -1164,11 +1237,15 @@
   <!-- ─── CTA ───────────────────────────────────── -->
   <section id="cta-section" class="dark-section" aria-label="Contact">
     <div class="section-inner">
-      <h2 class="cta-title fade-in">Let's build something</h2>
+      <h2 class="cta-title fade-in">Get in touch</h2>
       <p class="cta-subtitle fade-in">
-        Whether you're evaluating computational tools for drug discovery, scouting innovation talent, or exploring AtomBios for your team.
+        I'm looking for pharma teams to pilot AtomBios, conferences to speak at, and collaborators who think at the atomic scale.
       </p>
-      <a href="mailto:jackie.ng@connect.polyu.hk" class="cta-email-btn fade-in">jackie.ng@connect.polyu.hk</a>
+      <div class="fade-in" style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin-bottom:36px;">
+        <a href="mailto:jackie.ng@connect.polyu.hk?subject=AtomBios Demo Request" class="cta-email-btn">Request a Demo</a>
+        <a href="mailto:jackie.ng@connect.polyu.hk?subject=Speaking Invitation" class="cta-btn-outline">Invite to Speak</a>
+        <a href="mailto:jackie.ng@connect.polyu.hk?subject=Press Inquiry" class="cta-btn-outline">Press Inquiry</a>
+      </div>
       <div class="cta-socials fade-in">
         <a href="https://www.linkedin.com/in/jackie-ng-computational-bio/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://www.instagram.com/jackieng_ch" target="_blank" rel="noopener noreferrer">Instagram</a>
