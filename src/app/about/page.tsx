@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Education } from "@/components/Education";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "About — Jackie Ng",
@@ -39,11 +40,11 @@ export default function AboutPage() {
     <main className="min-h-screen bg-offwhite pt-32 pb-24">
       <div className="max-w-4xl mx-auto px-6">
         <SectionLabel label="About" />
-        <h1 className="font-heading text-5xl md:text-6xl text-navy mt-8 mb-12 leading-tight">
-          Where the atom meets<br />
-          the brain — bridging <em>molecular</em><br />
-          science and human impact.
-        </h1>
+        <TextReveal as="h1" className="font-heading text-5xl md:text-6xl text-navy mt-8 mb-12 leading-tight">
+          {`Where the atom meets
+the brain — bridging molecular
+science and human impact.`}
+        </TextReveal>
 
         <div className="grid md:grid-cols-2 gap-12 mb-24">
           <p className="text-slate leading-relaxed">

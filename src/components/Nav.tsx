@@ -63,7 +63,7 @@ export function Nav({ items }: NavProps) {
               <li key={item.href}>
                 <Link
                   href={href}
-                  className="text-sm tracking-wider text-offwhite/70 hover:text-gold transition-colors duration-200 uppercase font-medium"
+                  className="relative text-sm tracking-wider text-offwhite/70 hover:text-gold transition-colors duration-200 uppercase font-medium after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.label}
                 </Link>

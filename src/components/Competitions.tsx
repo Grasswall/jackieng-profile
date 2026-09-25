@@ -3,6 +3,7 @@
 import { Badge } from './ui/Badge'
 import { SectionLabel } from './ui/SectionLabel'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
+import { useCardTilt } from '@/hooks/useCardTilt'
 
 const basePath = '/jackieng-profile'
 
@@ -25,6 +26,21 @@ function badgeVariant(badge: CompetitionBadge) {
   if (badge === 'Gold Medal') return 'gold' as const
   if (badge === 'Rising Star') return 'gold' as const
   return 'outline' as const
+}
+
+function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
+  const { cardRef, handleMouseMove, handleMouseLeave } = useCardTilt(6)
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={className}
+      style={{ transition: 'transform 0.6s ease', transformStyle: 'preserve-3d' }}
+    >
+      {children}
+    </div>
+  )
 }
 
 function CompetitionCard({ item }: { item: CompetitionItem }) {
@@ -97,7 +113,9 @@ export function Competitions({ items }: CompetitionsProps) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((item) => (
-            <CompetitionCard key={item.title} item={item} />
+            <TiltCard key={item.title}>
+              <CompetitionCard item={item} />
+            </TiltCard>
           ))}
         </div>
       </div>

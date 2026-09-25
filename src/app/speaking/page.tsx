@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Media } from "@/components/Media";
 import { SectionLabel } from "@/components/ui/SectionLabel";
+import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "Speaking & Media — Jackie Ng",
@@ -31,9 +32,10 @@ export default function SpeakingPage() {
     <main className="min-h-screen bg-offwhite pt-32 pb-24">
       <div className="max-w-5xl mx-auto px-6">
         <SectionLabel label="Speaking & Media" />
-        <h1 className="font-heading text-5xl md:text-6xl text-navy mt-8 mb-16 leading-tight">
-          The science,<br />told <em>publicly</em>.
-        </h1>
+        <TextReveal as="h1" className="font-heading text-5xl md:text-6xl text-navy mt-8 mb-16 leading-tight">
+          {`The science,
+told publicly.`}
+        </TextReveal>
       </div>
 
       <Media cards={mediaCards} speaking={speakingList} />
