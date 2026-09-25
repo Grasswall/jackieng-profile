@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { LenisProvider } from "@/components/LenisProvider";
 import { meta, navigation } from "@/lib/data";
 
 const footerMeta = {
@@ -59,7 +60,9 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased bg-offwhite text-navy">
         <Nav items={navigation} />
-        {children}
+        <LenisProvider>
+          {children}
+        </LenisProvider>
         <Footer meta={footerMeta} />
       </body>
     </html>

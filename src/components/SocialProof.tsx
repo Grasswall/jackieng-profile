@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react'
 
+import { useScrollReveal } from '@/hooks/useScrollReveal'
+
 export interface StatItem {
   value: number
   suffix?: string
@@ -56,6 +58,7 @@ function StatCounter({ stat, active }: { stat: StatItem; active: boolean }) {
 export function SocialProof({ stats }: SocialProofProps) {
   const ref = useRef<HTMLElement | null>(null)
   const [active, setActive] = useState(false)
+  const revealRef = useScrollReveal({ stagger: 0.1 })
 
   useEffect(() => {
     const el = ref.current
@@ -80,10 +83,11 @@ export function SocialProof({ stats }: SocialProofProps) {
       className="bg-charcoal border-y border-white/10 py-12 md:py-16"
       aria-label="Key stats"
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div ref={revealRef} className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="flex flex-wrap items-stretch justify-center gap-0 divide-x divide-white/10">
           {stats.map((stat, i) => (
             <div
+              data-reveal
               key={i}
               className="flex-1 min-w-[120px] max-w-[200px] px-6 md:px-10 py-4"
             >

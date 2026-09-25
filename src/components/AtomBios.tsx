@@ -1,5 +1,8 @@
+'use client'
+
 import { Badge } from './ui/Badge'
 import { SectionLabel } from './ui/SectionLabel'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 const basePath = '/jackieng-profile'
 
@@ -26,41 +29,45 @@ export function AtomBios({
   programBadges,
   headshot,
 }: AtomBiosProps) {
+  const containerRef = useScrollReveal({ stagger: 0.12 })
+
   const headshotSrc = headshot
-    ? `${basePath}/assets/${headshot}`
+    ? headshot.startsWith('/')
+      ? headshot
+      : `${basePath}/assets/${headshot}`
     : `${basePath}/assets/headshot.jpg`
 
   return (
     <section
-      id="atombios"
-      className="bg-navy py-20 md:py-32 overflow-hidden"
       aria-labelledby="atombios-heading"
+      className="overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div ref={containerRef} className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: content */}
           <div>
             <SectionLabel label="AtomBios" className="mb-6" />
 
             <h2
+              data-reveal
               id="atombios-heading"
               className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-offwhite leading-tight mb-4"
             >
               {heading}
             </h2>
 
-            <p className="text-base md:text-lg text-gold/80 font-medium mb-4 leading-snug">
+            <p data-reveal className="text-base md:text-lg text-gold/80 font-medium mb-4 leading-snug">
               {tagline}
             </p>
 
-            <p className="text-sm md:text-base text-offwhite/60 leading-relaxed mb-10">
+            <p data-reveal className="text-sm md:text-base text-offwhite/60 leading-relaxed mb-10">
               {description}
             </p>
 
             {/* Three pillars */}
             <ul className="space-y-6 mb-10" role="list">
               {pillars.map((pillar) => (
-                <li key={pillar.title} className="flex items-start gap-4">
+                <li data-reveal key={pillar.title} className="flex items-start gap-4">
                   <span
                     className="text-2xl shrink-0 leading-none mt-0.5"
                     aria-hidden="true"
@@ -80,7 +87,7 @@ export function AtomBios({
             </ul>
 
             {/* Program badges */}
-            <div className="flex flex-wrap gap-2" role="list" aria-label="Programs">
+            <div data-reveal className="flex flex-wrap gap-2" role="list" aria-label="Programs">
               {programBadges.map((b) => (
                 <div key={b} role="listitem">
                   <Badge variant="muted">{b}</Badge>
@@ -90,7 +97,7 @@ export function AtomBios({
           </div>
 
           {/* Right: headshot */}
-          <div className="relative flex justify-center lg:justify-end">
+          <div data-reveal className="relative flex justify-center lg:justify-end">
             {/* Decorative bg ring */}
             <div
               className="absolute inset-0 rounded-full bg-gold/5 blur-3xl scale-75"
