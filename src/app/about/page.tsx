@@ -5,7 +5,7 @@ import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "About — Jackie Ng",
-  description: "From First Class Honours at HKUST to structural biology research at PolyU, founding AtomBios, and affiliations with the Nobel Foundation, Shaw Prize, and CAS.",
+  description: "Structural biologist turned biotech founder. Building at the intersection of atoms and algorithms.",
 };
 
 const educationItems = [
@@ -41,17 +41,17 @@ export default function AboutPage() {
       <div className="max-w-4xl mx-auto px-6">
         <SectionLabel label="About" />
         <TextReveal as="h1" className="font-heading text-5xl md:text-6xl text-navy mt-8 mb-12 leading-tight">
-          {`Where the atom meets
-the brain — bridging molecular
-science and human impact.`}
+          {`I build tools that turn
+atomic structures into
+drug discovery decisions.`}
         </TextReveal>
 
         <div className="grid md:grid-cols-2 gap-12 mb-24">
           <p className="text-slate leading-relaxed">
-            From First Class Honours at HKUST to published research in the Journal of Biological Chemistry, every step has been about turning atomic-scale insight into real-world tools. My MPhil at PolyU focuses on cryo-EM structural biology and computational drug discovery.
+            Most drug discovery teams can see the protein structure. They know the binding pocket. But they can&apos;t test what happens when a molecule actually docks &mdash; not without six months of specialist simulation setup. That&apos;s the problem I&apos;m solving.
           </p>
           <p className="text-slate leading-relaxed">
-            I founded AtomBios to bring molecular simulation to pharma speed — making the invisible architecture of life legible, actionable, and beautiful. Affiliated with the Nobel Foundation, the Shaw Prize, and the Chinese Academy of Sciences.
+            I founded AtomBios to compress that timeline from months to hours. Upload a structure, define a ligand, run molecular dynamics &mdash; a thousand binding modes tested before a single compound gets synthesised. The science comes from my cryo-EM research at PolyU. The platform comes from winning pitch competitions across Hong Kong, mainland China, and internationally.
           </p>
         </div>
 

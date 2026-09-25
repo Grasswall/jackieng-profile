@@ -10,10 +10,10 @@ import { meta } from "@/lib/data";
 
 const stats = [
   { label: "Nobel-tier affiliations", value: 3 },
-  { label: "Gold & Rising Star awards", value: 2 },
+  { label: "Startup competition wins", value: 6, suffix: "+" },
   { label: "Speaking engagements", value: 15, suffix: "+" },
-  { label: "JBC publication", value: 1 },
-  { label: "Years old", value: 25 },
+  { label: "Published in JBC", value: 1 },
+  { label: "Funding secured", value: 200, suffix: "k+" },
 ];
 
 const recognitionItems = [
@@ -65,9 +65,9 @@ const competitionItems = [
     badge: "Gold Medal" as const,
     badgeVariant: "gold" as const,
     context:
-      "Hong Kong's #1 deep-tech competition — 300+ teams, 10-year track record of producing funded startups.",
+      "Hong Kong's top deep-tech pitch competition. 300+ teams. 10-year track record of producing funded startups.",
     description:
-      "Gold Medal, 10th Anniversary edition, 2026. AtomBios beat competitors across AI, biotech, and hardware tracks.",
+      "Gold Medal, 10th Anniversary edition. AtomBios beat competitors across AI, biotech, and hardware to take the top prize.",
     photo: "/jackieng-profile/assets/techathon-new.jpg",
   },
   {
@@ -75,9 +75,9 @@ const competitionItems = [
     badge: "Rising Star Award" as const,
     badgeVariant: "gold" as const,
     context:
-      "Suzhou Municipal Government's global pitch competition — a gateway to mainland China's biotech ecosystem.",
+      "Suzhou Municipal Government's global pitch competition — the gateway to mainland China's biotech corridor.",
     description:
-      "新銳獎 Rising Star Award — top international entrant, Global Entrepreneurship Competition 2026.",
+      "新銳獎 Rising Star Award — top international entrant in a field of mainland and global founders.",
     photo: "/jackieng-profile/assets/suzhou-award-new.jpg",
   },
   {
@@ -85,9 +85,9 @@ const competitionItems = [
     badge: "Silver Award" as const,
     badgeVariant: "outline" as const,
     context:
-      "Greater Bay Area cross-border innovation award spanning 86 million people.",
+      "Cross-border innovation award spanning the 86-million-person Greater Bay Area.",
     description:
-      "8th GBA Digital Education STEAM Excellence Award — Postgraduate Life & Health category, 2026.",
+      "Silver in Postgraduate Life & Health. Competing against teams from Hong Kong, Shenzhen, Guangzhou, and Macau.",
     photo: "/jackieng-profile/assets/gba-steam.png",
   },
   {
@@ -95,9 +95,9 @@ const competitionItems = [
     badge: "Best Oral" as const,
     badgeVariant: "outline" as const,
     context:
-      "PolyU's competitive research postgraduate showcase — chosen from all biochemistry & structural biology postgrads.",
+      "PolyU's competitive research showcase — evaluated by faculty on science and delivery.",
     description:
-      "Best Oral Presentation — 6th PolyU ABCT Research Postgraduate Symposium, 2025.",
+      "Best Oral Presentation — 6th PolyU ABCT Research Postgraduate Symposium.",
     photo: "/jackieng-profile/assets/abct-new.jpg",
   },
 ];
@@ -232,7 +232,7 @@ export default function Home() {
       <div id="atombios" className="bg-navy py-32">
         <AtomBios
           heading="Molecular simulation at pharma speed."
-          tagline="Founded to make the invisible architecture of life legible, actionable, and beautiful."
+          tagline="Every drug team I talked to had the same problem. They could see the structure. They knew the pocket. But they couldn't test what happens when a molecule actually docks."
           description=""
           pillars={atomBiosPillars}
           programBadges={atomBiosBadges}

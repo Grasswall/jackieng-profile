@@ -72,12 +72,12 @@ export function Contact({ email, socialLinks, copyright }: ContactProps) {
             id="contact-heading"
             className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-offwhite leading-tight mb-6"
           >
-            Build something at the atomic scale.
+            Let&apos;s build at the atomic scale.
           </h2>
 
           <p data-reveal className="text-base md:text-lg text-offwhite/60 leading-relaxed mb-10">
-            Whether you&apos;re a researcher, investor, or builder — if you&apos;re
-            working at the frontier of molecular science, let&apos;s talk.
+            Looking for a speaker, a collaborator, or someone who can turn a
+            protein structure into a drug discovery platform — reach out.
           </p>
 
           {/* Email CTA */}

@@ -113,7 +113,7 @@ export function Hero() {
             ref={subtitleRef}
             className="text-lg md:text-xl text-gold/90 font-medium tracking-wide mb-6"
           >
-            Computational Biologist · Founder, AtomBios
+            Computational Structural Biologist · Biotech Founder
           </p>
 
           {/* Description */}
@@ -121,9 +121,10 @@ export function Hero() {
             ref={descRef}
             className="text-base md:text-lg text-offwhite/70 leading-relaxed mb-8 max-w-xl"
           >
-            From Nobel Foundation symposia and Shaw Prize ceremonies to CAS
-            Future Science Leader programmes — building the molecular simulation
-            platform that bridges atomic precision and pharma-grade speed.
+            I take cryo-EM structures and molecular dynamics and turn them into
+            drug discovery tools that actually work. Built AtomBios to close the
+            gap between what we can see at the atomic scale and what pharma can
+            act on.
           </p>
 
           {/* Pill badges */}

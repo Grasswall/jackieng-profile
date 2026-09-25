@@ -5,7 +5,7 @@ import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "Work — Jackie Ng",
-  description: "AtomBios: molecular simulation at pharma speed. Structural biology renders, publications, and molecular visualization work.",
+  description: "AtomBios: the simulation platform that turns cryo-EM structures into drug candidates. HKSTP incubated, competition-validated, investor-backed.",
 };
 
 const pillars = [
@@ -29,7 +29,7 @@ of atoms and algorithms.`}
 
       <AtomBios
         heading="Molecular simulation at pharma speed."
-        tagline="Founded to make the invisible architecture of life legible, actionable, and beautiful."
+        tagline="Every drug team I talked to had the same problem. They could see the structure. They knew the pocket. But they couldn't test what happens when a molecule actually docks."
         description=""
         pillars={pillars}
         programBadges={badges}
