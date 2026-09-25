@@ -5,7 +5,7 @@ import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "About — Jackie Ng",
-  description: "Structural biologist turned biotech founder. Building at the intersection of atoms and algorithms.",
+  description: "Cryo-EM structures. AI screening. AtomBios. One closed loop from atomic ground truth to clinical candidate.",
 };
 
 const educationItems = [
@@ -41,17 +41,18 @@ export default function AboutPage() {
       <div className="max-w-4xl mx-auto px-6">
         <SectionLabel label="About" />
         <TextReveal as="h1" className="font-heading text-5xl md:text-6xl text-navy mt-8 mb-12 leading-tight">
-          {`I build tools that turn
-atomic structures into
-drug discovery decisions.`}
+          {`Constraint satisfaction problems
+optimised by evolution.
+I decode them.
+Then I build tools around what I find.`}
         </TextReveal>
 
         <div className="grid md:grid-cols-2 gap-12 mb-24">
           <p className="text-slate leading-relaxed">
-            Most drug discovery teams can see the protein structure. They know the binding pocket. But they can&apos;t test what happens when a molecule actually docks &mdash; not without six months of specialist simulation setup. That&apos;s the problem I&apos;m solving.
+            Every protein is a compressed algorithm. Evolution ran the optimisation for billions of years — I use cryo-EM to read the output. Not a static picture: a conformational ensemble that shows which states the protein actually visits, which pockets open and close, and which binding modes are physically real versus theoretical.
           </p>
           <p className="text-slate leading-relaxed">
-            I founded AtomBios to compress that timeline from months to hours. Upload a structure, define a ligand, run molecular dynamics &mdash; a thousand binding modes tested before a single compound gets synthesised. The science comes from my cryo-EM research at PolyU. The platform comes from winning pitch competitions across Hong Kong, mainland China, and internationally.
+            That ground truth feeds the second loop: AI screening. LNP-drug compatibility, binding energy landscapes, candidate ranking — all computed before a single compound is synthesised. The third loop is AtomBios: the vehicle that takes what the algorithm finds and puts it into a drug team’s hands. Cryo-EM → AI screening → AtomBios. One closed loop.
           </p>
         </div>
 

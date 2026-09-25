@@ -5,13 +5,13 @@ import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "Work — Jackie Ng",
-  description: "AtomBios: the simulation platform that turns cryo-EM structures into drug candidates. HKSTP incubated, competition-validated, investor-backed.",
+  description: "AtomBios: explore a protein's energy landscape in hours instead of weeks. Built from cryo-EM ground truth, validated by AI screening.",
 };
 
 const pillars = [
-  { icon: "⬡", title: "Atomic Precision", description: "Structural simulation grounded in cryo-EM verified models — every binding pocket, every residue." },
-  { icon: "⚡", title: "Pharma Speed", description: "Compressing the drug discovery timeline from years to weeks with GPU-accelerated molecular dynamics." },
-  { icon: "◎", title: "Human Insight", description: "Translating atomic-scale data into decisions that clinicians, investors, and researchers can act on." },
+  { icon: "⬡", title: "Ground Truth First", description: "Every model starts from a cryo-EM structure we solved. No homology models, no assumptions — real atomic coordinates from real samples." },
+  { icon: "⚡", title: "Search, Not Screen", description: "Drug discovery reframed as a combinatorial search problem. LNP-drug compatibility tested across thousands of candidates before any wet experiment." },
+  { icon: "◎", title: "Decisions, Not Data", description: "The output is an actionable shortlist, not a raw simulation dump. Built for the scientists and investors who have to act on what the algorithm finds." },
 ];
 
 const badges = ["HKSTP Ideation Approved", "PolyU IEP Incubatee", "MicroFund 25/26", "JoinCap Investment Secured"];
@@ -22,14 +22,14 @@ export default function WorkPage() {
       <div className="max-w-5xl mx-auto px-6">
         <SectionLabel label="Work" />
         <TextReveal as="h1" className="font-heading text-5xl md:text-6xl text-navy mt-8 mb-16 leading-tight">
-          {`Building at the intersection
-of atoms and algorithms.`}
+          {`The algorithm is already in the molecule.
+I built tools to read it.`}
         </TextReveal>
       </div>
 
       <AtomBios
-        heading="Molecular simulation at pharma speed."
-        tagline="Every drug team I talked to had the same problem. They could see the structure. They knew the pocket. But they couldn't test what happens when a molecule actually docks."
+        heading="Explore a protein’s energy landscape in hours instead of weeks."
+        tagline="Every drug team I talked to had the same problem. They could see the structure. They knew the pocket. But they couldn't find out which molecule actually fits — not without months of specialist simulation setup."
         description=""
         pillars={pillars}
         programBadges={badges}

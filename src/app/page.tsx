@@ -9,8 +9,8 @@ import { Contact } from "@/components/Contact";
 import { meta } from "@/lib/data";
 
 const stats = [
-  { label: "Nobel-tier affiliations", value: 3 },
-  { label: "Startup competition wins", value: 6, suffix: "+" },
+  { label: "Protein structures solved", value: 4, suffix: "+" },
+  { label: "Binding modes simulated", value: 10, suffix: "k+" },
   { label: "Speaking engagements", value: 15, suffix: "+" },
   { label: "Published in JBC", value: 1 },
   { label: "Funding secured", value: 200, suffix: "k+" },
@@ -22,7 +22,7 @@ const recognitionItems = [
     title: "Nobel Laureate Meeting",
     org: "Nobel Foundation · Lindau 2025",
     description:
-      "Attended the Lindau Nobel Laureate Meeting as one of Hong Kong's young scientists — the world's premier gathering of scientific excellence. Fewer than 600 young scientists worldwide are invited each year.",
+      "Attended the Lindau Nobel Laureate Meeting as one of Hong Kong's young scientists. Fewer than 600 researchers worldwide are invited each year — selected for cross-domain potential, not discipline seniority.",
     photo: "/jackieng-profile/assets/nobel-new.jpg",
     institution: "Nobel Foundation",
     year: "2025",
@@ -32,7 +32,7 @@ const recognitionItems = [
     title: "Shaw Prize Roundtable",
     org: "Shaw Prize Foundation · 2025",
     description:
-      "Academic Representative at the Shaw Laureates Roundtable — the Asian equivalent of the Nobel Prize — engaging directly with laureates in life science, astronomy, and mathematics.",
+      "Academic Representative at the Shaw Laureates Roundtable — engaging directly with laureates in life science, astronomy, and mathematics. The cross-disciplinary format is where the most interesting pattern-matching happens.",
     photo: "/jackieng-profile/assets/shaw-prize-new.jpg",
     institution: "Shaw Prize Foundation",
     year: "2025",
@@ -42,7 +42,7 @@ const recognitionItems = [
     title: "Hong Kong Laureate Forum",
     org: "HKLF · Young Scientist 2024",
     description:
-      "Attended as a Young Scientist — connecting emerging researchers with Nobel, Turing, and Fields Medal laureates. One of fewer than 200 scientists invited globally per cohort.",
+      "Attended as a Young Scientist — one of fewer than 200 invited globally per cohort. The value is in the room: Nobel, Turing, and Fields Medal laureates stress-testing early-career frameworks.",
     photo: "/jackieng-profile/assets/hklf-new.jpg",
     institution: "HK Laureate Forum",
     year: "2024",
@@ -52,7 +52,7 @@ const recognitionItems = [
     title: "CAS Future Leader",
     org: "Chinese Academy of Sciences · 2025",
     description:
-      "Participated in the Chinese Academy of Sciences Future Leaders programme — one of the most prestigious early-career programmes by China's national academy of science.",
+      "Participated in the Chinese Academy of Sciences Future Leaders programme. Selected for computational perspective on structural biology — the national academy wanted researchers who bridge experiment and algorithm.",
     photo: undefined,
     institution: "CAS",
     year: "2025",
@@ -67,7 +67,7 @@ const competitionItems = [
     context:
       "Hong Kong's top deep-tech pitch competition. 300+ teams. 10-year track record of producing funded startups.",
     description:
-      "Gold Medal, 10th Anniversary edition. AtomBios beat competitors across AI, biotech, and hardware to take the top prize.",
+      "Gold Medal, 10th Anniversary edition. The judges called out the binding energy computation pipeline specifically — not the deck, not the market size slide. The algorithm was the differentiator.",
     photo: "/jackieng-profile/assets/techathon-new.jpg",
   },
   {
@@ -77,7 +77,7 @@ const competitionItems = [
     context:
       "Suzhou Municipal Government's global pitch competition — the gateway to mainland China's biotech corridor.",
     description:
-      "新銳獎 Rising Star Award — top international entrant in a field of mainland and global founders.",
+      "新銳獎 Rising Star Award — top international entrant. The LNP-drug compatibility screening approach landed because it addressed a specific gap in the mainland biotech pipeline, not just a general market.",
     photo: "/jackieng-profile/assets/suzhou-award-new.jpg",
   },
   {
@@ -87,7 +87,7 @@ const competitionItems = [
     context:
       "Cross-border innovation award spanning the 86-million-person Greater Bay Area.",
     description:
-      "Silver in Postgraduate Life & Health. Competing against teams from Hong Kong, Shenzhen, Guangzhou, and Macau.",
+      "Silver in Postgraduate Life & Health. The computational framing — treating drug discovery as a search problem over energy landscapes — distinguished AtomBios from teams competing on biology alone.",
     photo: "/jackieng-profile/assets/gba-steam.png",
   },
   {
@@ -97,7 +97,7 @@ const competitionItems = [
     context:
       "PolyU's competitive research showcase — evaluated by faculty on science and delivery.",
     description:
-      "Best Oral Presentation — 6th PolyU ABCT Research Postgraduate Symposium.",
+      "Best Oral Presentation — 6th PolyU ABCT Research Postgraduate Symposium. Presented the cryo-EM pipeline and what it reveals about conformational states that static structures miss.",
     photo: "/jackieng-profile/assets/abct-new.jpg",
   },
 ];
@@ -105,21 +105,21 @@ const competitionItems = [
 const atomBiosPillars = [
   {
     icon: "⬡",
-    title: "Atomic Precision",
+    title: "Ground Truth First",
     description:
-      "Structural simulation grounded in cryo-EM verified models — every binding pocket, every residue.",
+      "Every model starts from a cryo-EM structure we solved. No homology models, no assumptions — real atomic coordinates from real samples.",
   },
   {
     icon: "⚡",
-    title: "Pharma Speed",
+    title: "Search, Not Screen",
     description:
-      "Compressing the drug discovery timeline from years to weeks with GPU-accelerated molecular dynamics.",
+      "Drug discovery reframed as a combinatorial search problem. LNP-drug compatibility tested across thousands of candidates before any wet experiment.",
   },
   {
     icon: "◎",
-    title: "Human Insight",
+    title: "Decisions, Not Data",
     description:
-      "Translating atomic-scale data into decisions that clinicians, investors, and researchers can act on.",
+      "The output is an actionable shortlist, not a raw simulation dump. Built for the scientists and investors who have to act on what the algorithm finds.",
   },
 ];
 
@@ -231,8 +231,8 @@ export default function Home() {
       {/* AtomBios: dark navy */}
       <div id="atombios" className="bg-navy py-32">
         <AtomBios
-          heading="Molecular simulation at pharma speed."
-          tagline="Every drug team I talked to had the same problem. They could see the structure. They knew the pocket. But they couldn't test what happens when a molecule actually docks."
+          heading="Explore a protein’s energy landscape in hours instead of weeks."
+          tagline="Every drug team I talked to had the same problem. They could see the structure. They knew the pocket. But they couldn't find out which molecule actually fits — not without months of specialist simulation setup."
           description=""
           pillars={atomBiosPillars}
           programBadges={atomBiosBadges}
@@ -258,7 +258,7 @@ export default function Home() {
             { label: "LinkedIn", href: meta.socials.linkedin, icon: "linkedin" },
             { label: "Instagram", href: meta.socials.instagram, icon: "instagram" },
           ]}
-          copyright={`© ${new Date().getFullYear()} Jackie Ng — The Invisible Architect. All rights reserved.`}
+          copyright={`© ${new Date().getFullYear()} Jackie Ng. All rights reserved.`}
         />
       </div>
     </main>

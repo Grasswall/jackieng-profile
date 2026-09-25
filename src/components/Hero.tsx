@@ -96,7 +96,7 @@ export function Hero() {
           <div ref={labelRef} className="flex items-center gap-3 mb-6">
             <span className="h-px w-8 bg-gold shrink-0" />
             <span className="text-xs tracking-[0.25em] uppercase text-gold font-medium">
-              The Invisible Architect
+              Computational Structural Biologist
             </span>
           </div>
 
@@ -113,7 +113,7 @@ export function Hero() {
             ref={subtitleRef}
             className="text-lg md:text-xl text-gold/90 font-medium tracking-wide mb-6"
           >
-            Computational Structural Biologist · Biotech Founder
+            I see the algorithms running inside molecules.
           </p>
 
           {/* Description */}
@@ -121,10 +121,10 @@ export function Hero() {
             ref={descRef}
             className="text-base md:text-lg text-offwhite/70 leading-relaxed mb-8 max-w-xl"
           >
-            I take cryo-EM structures and molecular dynamics and turn them into
-            drug discovery tools that actually work. Built AtomBios to close the
-            gap between what we can see at the atomic scale and what pharma can
-            act on.
+            Cryo-EM gives me ground truth no one else has. AI screening turns
+            that ground truth into speed — thousands of binding modes tested
+            before a single compound gets synthesised. AtomBios puts what the
+            algorithm finds into the hands of the teams who can act on it.
           </p>
 
           {/* Pill badges */}
