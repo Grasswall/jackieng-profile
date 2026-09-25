@@ -19,8 +19,8 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        heading: ["Cormorant Garamond", "serif"],
-        body:    ["Inter", "sans-serif"],
+        heading: ['var(--font-cormorant)', 'Cormorant Garamond', 'serif'],
+        body:    ['var(--font-inter)', 'Inter', 'sans-serif'],
       },
     },
   },

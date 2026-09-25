@@ -2,6 +2,7 @@
 
 import { SectionLabel } from './ui/SectionLabel'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
+import { useCardTilt } from '@/hooks/useCardTilt'
 
 const basePath = '/jackieng-profile'
 
@@ -17,6 +18,21 @@ export interface RecognitionItem {
 
 interface RecognitionProps {
   items: RecognitionItem[]
+}
+
+function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
+  const { cardRef, handleMouseMove, handleMouseLeave } = useCardTilt(6)
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={className}
+      style={{ transition: 'transform 0.6s ease', transformStyle: 'preserve-3d' }}
+    >
+      {children}
+    </div>
+  )
 }
 
 function RecognitionCard({ item }: { item: RecognitionItem }) {
@@ -111,7 +127,9 @@ export function Recognition({ items }: RecognitionProps) {
           {/* Cards */}
           <div className="flex-1 min-w-0">
             {items.map((item) => (
-              <RecognitionCard key={item.title} item={item} />
+              <TiltCard key={item.title}>
+                <RecognitionCard item={item} />
+              </TiltCard>
             ))}
           </div>
         </div>
