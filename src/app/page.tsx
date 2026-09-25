@@ -210,28 +210,57 @@ const educationItems = [
 export default function Home() {
   return (
     <main>
+      {/* Hero: dark navy — handled by Hero component itself */}
       <Hero />
-      <SocialProof stats={stats} />
-      <Recognition items={recognitionItems} />
-      <Competitions items={competitionItems} />
-      <AtomBios
-        heading="Molecular simulation at pharma speed."
-        tagline="Founded to make the invisible architecture of life legible, actionable, and beautiful."
-        description=""
-        pillars={atomBiosPillars}
-        programBadges={atomBiosBadges}
-        headshot="/jackieng-profile/assets/headshot.jpg"
-      />
-      <Media cards={mediaCards} speaking={speakingList} />
-      <Education items={educationItems} />
-      <Contact
-        email={meta.email}
-        socialLinks={[
-          { label: "LinkedIn", href: meta.socials.linkedin, icon: "linkedin" },
-          { label: "Instagram", href: meta.socials.instagram, icon: "instagram" },
-        ]}
-        copyright={`© ${new Date().getFullYear()} Jackie Ng — The Invisible Architect. All rights reserved.`}
-      />
+
+      {/* SocialProof: dark charcoal */}
+      <div className="bg-charcoal">
+        <SocialProof stats={stats} />
+      </div>
+
+      {/* Recognition: light offwhite */}
+      <div id="recognition" className="bg-offwhite py-32">
+        <Recognition items={recognitionItems} />
+      </div>
+
+      {/* Competitions: light offwhite */}
+      <div id="competitions" className="bg-offwhite py-32">
+        <Competitions items={competitionItems} />
+      </div>
+
+      {/* AtomBios: dark navy */}
+      <div id="atombios" className="bg-navy py-32">
+        <AtomBios
+          heading="Molecular simulation at pharma speed."
+          tagline="Founded to make the invisible architecture of life legible, actionable, and beautiful."
+          description=""
+          pillars={atomBiosPillars}
+          programBadges={atomBiosBadges}
+          headshot="/jackieng-profile/assets/headshot.jpg"
+        />
+      </div>
+
+      {/* Media: light offwhite */}
+      <div id="media" className="bg-offwhite py-32">
+        <Media cards={mediaCards} speaking={speakingList} />
+      </div>
+
+      {/* Education: dark charcoal */}
+      <div id="education" className="bg-charcoal py-32">
+        <Education items={educationItems} />
+      </div>
+
+      {/* Contact: dark navy */}
+      <div id="contact" className="bg-navy">
+        <Contact
+          email={meta.email}
+          socialLinks={[
+            { label: "LinkedIn", href: meta.socials.linkedin, icon: "linkedin" },
+            { label: "Instagram", href: meta.socials.instagram, icon: "instagram" },
+          ]}
+          copyright={`© ${new Date().getFullYear()} Jackie Ng — The Invisible Architect. All rights reserved.`}
+        />
+      </div>
     </main>
   );
 }

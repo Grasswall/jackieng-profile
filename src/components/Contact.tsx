@@ -1,3 +1,7 @@
+'use client'
+
+import { useScrollReveal } from '@/hooks/useScrollReveal'
+
 interface ContactSocialLink {
   label: string
   href: string
@@ -46,16 +50,17 @@ const iconMap = {
 }
 
 export function Contact({ email, socialLinks, copyright }: ContactProps) {
+  const containerRef = useScrollReveal({ stagger: 0.1 })
+
   return (
     <section
-      id="contact"
-      className="bg-charcoal py-20 md:py-32 border-t border-white/10"
       aria-labelledby="contact-heading"
+      className="border-t border-white/10"
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div ref={containerRef} className="max-w-6xl mx-auto px-6 md:px-12 py-20 md:py-32">
         <div className="max-w-xl">
           {/* Section marker */}
-          <div className="flex items-center gap-3 mb-8">
+          <div data-reveal className="flex items-center gap-3 mb-8">
             <span className="h-px w-8 bg-gold shrink-0" />
             <span className="text-xs tracking-[0.25em] uppercase text-gold font-medium">
               Contact
@@ -63,19 +68,21 @@ export function Contact({ email, socialLinks, copyright }: ContactProps) {
           </div>
 
           <h2
+            data-reveal
             id="contact-heading"
             className="font-heading text-4xl md:text-5xl lg:text-6xl font-semibold text-offwhite leading-tight mb-6"
           >
             Build something at the atomic scale.
           </h2>
 
-          <p className="text-base md:text-lg text-offwhite/60 leading-relaxed mb-10">
+          <p data-reveal className="text-base md:text-lg text-offwhite/60 leading-relaxed mb-10">
             Whether you&apos;re a researcher, investor, or builder — if you&apos;re
             working at the frontier of molecular science, let&apos;s talk.
           </p>
 
           {/* Email CTA */}
           <a
+            data-reveal
             href={`mailto:${email}`}
             className="inline-flex items-center gap-3 text-lg md:text-xl text-gold hover:text-gold/80 transition-colors duration-200 font-medium group mb-10"
             aria-label={`Email ${email}`}
@@ -92,7 +99,7 @@ export function Contact({ email, socialLinks, copyright }: ContactProps) {
           </a>
 
           {/* Social row */}
-          <div className="flex items-center gap-5">
+          <div data-reveal className="flex items-center gap-5">
             {socialLinks.map((link) => {
               const Icon = iconMap[link.icon]
               return (

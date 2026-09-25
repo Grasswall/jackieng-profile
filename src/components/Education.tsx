@@ -1,5 +1,8 @@
+'use client'
+
 import { Badge } from './ui/Badge'
 import { SectionLabel } from './ui/SectionLabel'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export interface EducationItem {
   degree: string
@@ -17,7 +20,10 @@ interface EducationProps {
 
 function EducationCard({ item }: { item: EducationItem }) {
   return (
-    <article className="bg-charcoal rounded-xl border border-white/10 hover:border-gold/30 transition-all duration-300 p-8">
+    <article
+      data-reveal
+      className="bg-navy rounded-xl border border-white/10 hover:border-gold/30 transition-all duration-300 p-8"
+    >
       {/* Header row */}
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-6">
         <div>
@@ -60,16 +66,17 @@ function EducationCard({ item }: { item: EducationItem }) {
 }
 
 export function Education({ items }: EducationProps) {
+  const containerRef = useScrollReveal({ stagger: 0.15 })
+
   return (
     <section
-      id="education"
-      className="bg-navy py-20 md:py-32"
       aria-labelledby="education-heading"
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div ref={containerRef} className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="mb-12 md:mb-16">
           <SectionLabel label="Education" className="mb-6" />
           <h2
+            data-reveal
             id="education-heading"
             className="font-heading text-4xl md:text-5xl font-semibold text-offwhite max-w-lg leading-tight"
           >

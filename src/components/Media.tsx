@@ -1,5 +1,8 @@
+'use client'
+
 import { Badge } from './ui/Badge'
 import { SectionLabel } from './ui/SectionLabel'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 const basePath = '/jackieng-profile'
 
@@ -24,10 +27,17 @@ interface MediaProps {
 }
 
 function MediaCardLarge({ card }: { card: MediaCard }) {
-  const photoSrc = card.photo ? `${basePath}/assets/${card.photo}` : null
+  const photoSrc = card.photo
+    ? card.photo.startsWith('/')
+      ? card.photo
+      : `${basePath}/assets/${card.photo}`
+    : null
 
   return (
-    <article className="group relative rounded-xl overflow-hidden border border-white/10 hover:border-gold/30 transition-all duration-300 h-72 md:h-80">
+    <article
+      data-reveal
+      className="group relative rounded-xl overflow-hidden border border-white/10 hover:border-gold/30 transition-all duration-300 h-72 md:h-80"
+    >
       {photoSrc ? (
         <>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -65,10 +75,17 @@ function MediaCardLarge({ card }: { card: MediaCard }) {
 }
 
 function MediaCardRegular({ card }: { card: MediaCard }) {
-  const photoSrc = card.photo ? `${basePath}/assets/${card.photo}` : null
+  const photoSrc = card.photo
+    ? card.photo.startsWith('/')
+      ? card.photo
+      : `${basePath}/assets/${card.photo}`
+    : null
 
   return (
-    <article className="group bg-charcoal rounded-xl overflow-hidden border border-white/10 hover:border-gold/30 transition-all duration-300 flex flex-col">
+    <article
+      data-reveal
+      className="group bg-navy rounded-xl overflow-hidden border border-navy/20 hover:border-gold/30 transition-all duration-300 flex flex-col"
+    >
       {photoSrc && (
         <div className="h-40 overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -101,7 +118,10 @@ function MediaCardRegular({ card }: { card: MediaCard }) {
 
 function MediaCardTextOnly({ card }: { card: MediaCard }) {
   return (
-    <article className="bg-charcoal rounded-xl border border-white/10 hover:border-gold/30 transition-all duration-300 p-6 flex flex-col justify-between h-full">
+    <article
+      data-reveal
+      className="bg-navy rounded-xl border border-navy/20 hover:border-gold/30 transition-all duration-300 p-6 flex flex-col justify-between h-full"
+    >
       <div>
         {card.badge && (
           <div className="mb-3">
@@ -123,21 +143,21 @@ function MediaCardTextOnly({ card }: { card: MediaCard }) {
 }
 
 export function Media({ cards, speaking }: MediaProps) {
+  const containerRef = useScrollReveal({ stagger: 0.1 })
   const largeCards = cards.filter((c) => c.type === 'large')
   const otherCards = cards.filter((c) => c.type !== 'large')
 
   return (
     <section
-      id="media"
-      className="bg-navy py-20 md:py-32"
       aria-labelledby="media-heading"
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div ref={containerRef} className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="mb-12 md:mb-16">
           <SectionLabel label="Media & Speaking" className="mb-6" />
           <h2
+            data-reveal
             id="media-heading"
-            className="font-heading text-4xl md:text-5xl font-semibold text-offwhite max-w-xl leading-tight"
+            className="font-heading text-4xl md:text-5xl font-semibold text-navy max-w-xl leading-tight"
           >
             From the bench to the broadcast.
           </h2>
@@ -168,19 +188,20 @@ export function Media({ cards, speaking }: MediaProps) {
         {/* Speaking engagements */}
         {speaking.length > 0 && (
           <div>
-            <h3 className="text-xs tracking-widest uppercase text-offwhite/40 font-medium mb-6">
+            <h3 className="text-xs tracking-widest uppercase text-navy/40 font-medium mb-6">
               Speaking Engagements
             </h3>
-            <ul className="divide-y divide-white/10" role="list">
+            <ul className="divide-y divide-navy/10" role="list">
               {speaking.map((eng, i) => (
                 <li
+                  data-reveal
                   key={i}
                   className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 py-4"
                 >
                   <span className="text-sm font-medium text-gold/80 tracking-wide uppercase shrink-0">
                     {eng.org}
                   </span>
-                  <span className="text-sm text-offwhite/60 sm:text-right">
+                  <span className="text-sm text-navy/60 sm:text-right">
                     {eng.title}
                   </span>
                 </li>

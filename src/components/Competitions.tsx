@@ -1,5 +1,8 @@
+'use client'
+
 import { Badge } from './ui/Badge'
 import { SectionLabel } from './ui/SectionLabel'
+import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 const basePath = '/jackieng-profile'
 
@@ -10,6 +13,7 @@ export interface CompetitionItem {
   context: string
   description: string
   badge: CompetitionBadge
+  badgeVariant?: 'gold' | 'outline'
   photo?: string
 }
 
@@ -24,10 +28,17 @@ function badgeVariant(badge: CompetitionBadge) {
 }
 
 function CompetitionCard({ item }: { item: CompetitionItem }) {
-  const photoSrc = item.photo ? `${basePath}/assets/${item.photo}` : null
+  const photoSrc = item.photo
+    ? item.photo.startsWith('/')
+      ? item.photo
+      : `${basePath}/assets/${item.photo}`
+    : null
 
   return (
-    <article className="group bg-charcoal rounded-lg overflow-hidden border border-white/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/5 flex flex-col">
+    <article
+      data-reveal
+      className="group bg-navy rounded-lg overflow-hidden border border-navy/20 hover:border-gold/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/5 flex flex-col"
+    >
       {/* Photo */}
       {photoSrc ? (
         <div className="relative h-48 overflow-hidden">
@@ -37,15 +48,15 @@ function CompetitionCard({ item }: { item: CompetitionItem }) {
             alt={item.title}
             className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
           {/* Badge overlay */}
           <div className="absolute top-3 right-3">
-            <Badge variant={badgeVariant(item.badge)}>{item.badge}</Badge>
+            <Badge variant={item.badgeVariant ?? badgeVariant(item.badge)}>{item.badge}</Badge>
           </div>
         </div>
       ) : (
         <div className="relative h-16 bg-navy/60 flex items-start pt-4 px-6">
-          <Badge variant={badgeVariant(item.badge)}>{item.badge}</Badge>
+          <Badge variant={item.badgeVariant ?? badgeVariant(item.badge)}>{item.badge}</Badge>
         </div>
       )}
 
@@ -66,18 +77,19 @@ function CompetitionCard({ item }: { item: CompetitionItem }) {
 }
 
 export function Competitions({ items }: CompetitionsProps) {
+  const containerRef = useScrollReveal({ stagger: 0.12 })
+
   return (
     <section
-      id="competitions"
-      className="bg-charcoal py-20 md:py-32"
       aria-labelledby="competitions-heading"
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div ref={containerRef} className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="mb-12 md:mb-16">
           <SectionLabel label="Competitions" className="mb-6" />
           <h2
+            data-reveal
             id="competitions-heading"
-            className="font-heading text-4xl md:text-5xl font-semibold text-offwhite max-w-lg leading-tight"
+            className="font-heading text-4xl md:text-5xl font-semibold text-navy max-w-lg leading-tight"
           >
             Turning research into ventures that win.
           </h2>
