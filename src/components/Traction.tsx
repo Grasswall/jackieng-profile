@@ -11,7 +11,7 @@ function useReveal() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
+            entry.target.classList.add('visible');
             observer.unobserve(entry.target);
           }
         });
@@ -58,7 +58,7 @@ export function Traction() {
     <section
       id="traction"
       className="section"
-      style={{ background: '#111827' }}
+      style={{ background: 'var(--bg-subtle)' }}
       ref={sectionRef}
     >
       <div className="section-inner">
@@ -70,32 +70,38 @@ export function Traction() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '3rem',
             marginTop: '2.5rem',
           }}
         >
-          {/* Funding */}
-          <div className="reveal">
+          {/* Funding — hero stat */}
+          <div className="reveal" style={{ gridColumn: '1 / -1' }}>
             <h3
               style={{
-                color: '#22D3EE',
+                color: 'var(--accent-cyan)',
                 fontSize: '0.8rem',
                 fontWeight: 700,
                 letterSpacing: '0.05em',
-                marginBottom: '1rem',
+                marginBottom: '1.5rem',
                 textTransform: 'uppercase',
               }}
             >
               Funding
             </h3>
-            <div className="stat-grid">
-              {funding.map((item) => (
-                <div key={item.label}>
-                  <div className="stat-value mono">{item.value}</div>
-                  <div className="stat-label">{item.label}</div>
-                </div>
-              ))}
+            <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap', alignItems: 'baseline' }}>
+              <div>
+                <div style={{ fontSize: '3rem', fontWeight: 700, color: 'var(--text)', fontFamily: 'var(--font-mono)' }}>HK$7.3M+</div>
+                <div style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>Total Funded</div>
+              </div>
+              <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                {funding.slice(1).map((item) => (
+                  <div key={item.label}>
+                    <div className="mono" style={{ fontSize: '1.5rem', fontWeight: 600, color: 'var(--text)' }}>{item.value}</div>
+                    <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.25rem' }}>{item.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -103,7 +109,7 @@ export function Traction() {
           <div className="reveal">
             <h3
               style={{
-                color: '#22D3EE',
+                color: 'var(--accent-cyan)',
                 fontSize: '0.8rem',
                 fontWeight: 700,
                 letterSpacing: '0.05em',
@@ -116,15 +122,14 @@ export function Traction() {
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
                 gap: '0.75rem',
               }}
             >
-              {competitions.map((comp) => (
+              {competitions.slice(0, 3).map((comp) => (
                 <div key={comp.title} className="card" style={{ padding: '0.85rem' }}>
                   <p
                     style={{
-                      color: '#F8FAFC',
+                      color: 'var(--text)',
                       fontSize: '0.85rem',
                       fontWeight: 600,
                       marginBottom: '0.4rem',
@@ -138,13 +143,16 @@ export function Traction() {
                 </div>
               ))}
             </div>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginTop: '0.75rem' }}>
+              + 3 more pitch competition wins
+            </p>
           </div>
 
           {/* Press */}
           <div className="reveal">
             <h3
               style={{
-                color: '#22D3EE',
+                color: 'var(--accent-cyan)',
                 fontSize: '0.8rem',
                 fontWeight: 700,
                 letterSpacing: '0.05em',
@@ -168,14 +176,14 @@ export function Traction() {
                 <li
                   key={outlet}
                   style={{
-                    color: '#94A3B8',
+                    color: 'var(--text-muted)',
                     fontSize: '0.9rem',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.5rem',
                   }}
                 >
-                  <span style={{ color: '#22D3EE' }}>›</span>
+                  <span style={{ color: 'var(--accent-cyan)' }}>›</span>
                   {outlet}
                 </li>
               ))}
@@ -186,7 +194,7 @@ export function Traction() {
           <div className="reveal">
             <h3
               style={{
-                color: '#22D3EE',
+                color: 'var(--accent-cyan)',
                 fontSize: '0.8rem',
                 fontWeight: 700,
                 letterSpacing: '0.05em',
@@ -210,14 +218,14 @@ export function Traction() {
                 <li
                   key={program}
                   style={{
-                    color: '#94A3B8',
+                    color: 'var(--text-muted)',
                     fontSize: '0.9rem',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.5rem',
                   }}
                 >
-                  <span style={{ color: '#22D3EE' }}>›</span>
+                  <span style={{ color: 'var(--accent-cyan)' }}>›</span>
                   {program}
                 </li>
               ))}

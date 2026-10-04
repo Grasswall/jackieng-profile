@@ -10,7 +10,7 @@ export function Contact() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
+            entry.target.classList.add('visible')
           }
         })
       },
@@ -37,11 +37,12 @@ export function Contact() {
           Open to collaboration.
         </h2>
 
-        <div className="section-body">
+        <div>
           <div style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', 
             gap: '2rem',
+            marginTop: '2.5rem',
             marginBottom: '3rem'
           }}>
             <div>

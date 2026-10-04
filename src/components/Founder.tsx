@@ -12,7 +12,7 @@ function useReveal() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
+            entry.target.classList.add('visible');
             observer.unobserve(entry.target);
           }
         });
@@ -102,7 +102,7 @@ export function Founder() {
                     aspectRatio: '4 / 3',
                     borderRadius: '0.5rem',
                     overflow: 'hidden',
-                    border: '1px solid #1E293B',
+                    border: '1px solid var(--border)',
                   }}
                 >
                   <Image
@@ -115,7 +115,7 @@ export function Founder() {
                 </div>
                 <figcaption
                   style={{
-                    color: '#94A3B8',
+                    color: 'var(--text-muted)',
                     fontSize: '0.72rem',
                     lineHeight: '1.4',
                     textAlign: 'center',

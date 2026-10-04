@@ -10,7 +10,7 @@ export function Education() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
+            entry.target.classList.add('visible')
           }
         })
       },

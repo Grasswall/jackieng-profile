@@ -68,7 +68,7 @@ export function Approach() {
               <li>MD simulations (GROMACS/OpenMM)</li>
               <li>Published datasets</li>
               <li>Partner experimental results</li>
-              <li>800+ formulation-outcome pairs</li>
+              <li>Growing formulation-outcome dataset</li>
             </ul>
           </div>
 
@@ -98,7 +98,7 @@ export function Approach() {
         <div className="reveal">
           <p className="approach-detail-heading">Technical depth</p>
           <p className="section-paragraph">
-            Training data: molecular dynamics simulations, published nanoparticle datasets, experimental validation from our lab and pharma partners. Architecture: multi-modal learning across simulation and experimental observables, geometric representations of lipid assemblies. Current scale: 800+ formulation-outcome training pairs, scaling to 5,000+ through partner collaborations.
+            Training data: molecular dynamics simulations, published nanoparticle datasets, experimental validation from our lab and pharma partners. Architecture: multi-modal learning across simulation and experimental observables, geometric representations of lipid assemblies. Expanding training data through partner collaborations.
           </p>
         </div>
 

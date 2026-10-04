@@ -11,7 +11,7 @@ function useReveal() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
+            entry.target.classList.add('visible');
             observer.unobserve(entry.target);
           }
         });
@@ -41,8 +41,7 @@ const statusCards = [
 
 // nm sizes for proportional circles
 const particles = [
-  { nm: 12, label: '~12nm — Antibody', color: '#475569' },
-  { nm: 20, label: '20nm — AtomBios', color: '#22D3EE' },
+  { nm: 20, label: '20nm — AtomBios', color: 'var(--accent-cyan)' },
   { nm: 80, label: '80-100nm — Conventional LNP', color: '#64748B' },
   { nm: 100, label: '~100nm — Viral Vector', color: '#334155' },
 ];
@@ -72,7 +71,7 @@ function SizeComparison() {
               x={cx}
               y={svgHeight - 8}
               textAnchor="middle"
-              fill="#94A3B8"
+              fill="var(--text-muted)"
               fontSize="9"
               fontFamily="monospace"
             >
@@ -98,8 +97,8 @@ export function Platform() {
         <div className="reveal">
           <p className="section-label">03 — PROOF OF CONCEPT</p>
           <h2 className="section-heading">The 20nm Endosome Platform</h2>
-          <p className="section-body" style={{ color: '#94A3B8', marginTop: '0.5rem' }}>
-            First output from our computational design engine.
+          <p className="section-body" style={{ color: 'var(--text-muted)', marginTop: '0.5rem' }}>
+            Engineered from structural biology first principles.
           </p>
         </div>
 
@@ -116,9 +115,9 @@ export function Platform() {
           {/* Left column */}
           <div>
             <p className="section-body" style={{ marginBottom: '1.5rem' }}>
-              Our model predicted that ~20nm particles with endosome-mimetic composition would
-              outperform conventional LNPs. We synthesized the predicted formulation. Validated it
-              experimentally. It worked.
+              By understanding how endosomal sorting machinery works at the molecular level, we
+              engineered ~20nm particles with endosome-mimetic composition that outperform
+              conventional LNPs. Synthesized. Characterized. Validated.
             </p>
             <ul
               style={{
@@ -137,7 +136,7 @@ export function Platform() {
                 >
                   <span
                     style={{
-                      color: '#22D3EE',
+                      color: 'var(--accent-cyan)',
                       fontWeight: 700,
                       lineHeight: '1.6',
                       flexShrink: 0,
@@ -156,15 +155,15 @@ export function Platform() {
           {/* Right column — size comparison */}
           <div
             style={{
-              background: '#0F172A',
-              border: '1px solid #1E293B',
+              background: 'var(--card-bg)',
+              border: '1px solid var(--border)',
               borderRadius: '0.5rem',
               padding: '1.5rem',
             }}
           >
             <p
               className="mono"
-              style={{ color: '#94A3B8', fontSize: '0.7rem', marginBottom: '1rem', textAlign: 'center' }}
+              style={{ color: 'var(--text-muted)', fontSize: '0.7rem', marginBottom: '1rem', textAlign: 'center' }}
             >
               PARTICLE SIZE COMPARISON (to scale)
             </p>
@@ -179,7 +178,7 @@ export function Platform() {
         >
           {statusCards.map((card) => (
             <div key={card.title} className="card" style={{ textAlign: 'center' }}>
-              <p className="section-body" style={{ color: '#94A3B8', marginBottom: '0.5rem', fontSize: '0.8rem' }}>
+              <p className="section-body" style={{ color: 'var(--text-muted)', marginBottom: '0.5rem', fontSize: '0.8rem' }}>
                 {card.title}
               </p>
               <span className={`badge ${card.badge}`} style={{ fontSize: '0.85rem', fontWeight: 600 }}>
