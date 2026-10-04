@@ -1,26 +1,10 @@
-# Next.js
-node_modules/
-.next/
-out/
-*.tsbuildinfo
-
-# Env
-.env*.local
-
 # OS
 .DS_Store
 
 # Debug
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-# Images / video / data — never commit large binaries
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.webp
+# Large binaries — keep out of repo
 *.mp4
 *.mov
 *.pdb
