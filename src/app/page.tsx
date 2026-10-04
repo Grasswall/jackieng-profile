@@ -1,5 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { Problem } from "@/components/Problem";
+import { DeliveryGap } from "@/components/DeliveryGap";
 import { Approach } from "@/components/Approach";
 import { Platform } from "@/components/Platform";
 import { Roadmap } from "@/components/Roadmap";
@@ -13,6 +14,7 @@ export default function Home() {
     <main>
       <Hero />
       <Problem />
+      <DeliveryGap />
       <Approach />
       <Platform />
       <Roadmap />

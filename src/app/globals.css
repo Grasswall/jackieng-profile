@@ -29,6 +29,7 @@ html.lenis body {
   --crimson:           #DC2626;
   --crimson-hover:     #EF4444;
   --gold:              #D4A84C;
+  --accent-gold:       #D4A84C;
   --border:            #1E293B;
   --card-bg:           #0F172A;
 
@@ -704,10 +705,13 @@ a:hover {
 .section-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
 
 /* Section label (like "01 — THE PROBLEM") */
-.section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-cyan); margin-bottom: 1.5rem; }
+.section-label { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-cyan); margin-bottom: 0.75rem; }
 
 /* Section heading (v3 override — sans-serif, tighter) */
 .section-heading-v3 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.5rem; }
+
+/* Section heading — the big declarative headline */
+.section-heading { font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1rem; color: var(--text); }
 
 /* Body text */
 .section-body { font-size: 1.125rem; line-height: 1.75; color: var(--text-muted); max-width: 720px; }
