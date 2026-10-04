@@ -1,0 +1,72 @@
+[
+  {
+    "id": "nobel-lindau-2025",
+    "org": "Nobel Foundation",
+    "title": "Lindau Nobel Laureate Meeting 2025",
+    "year": 2025,
+    "location": "Lindau, Germany",
+    "type": "attendee",
+    "description": "Attended the Lindau Nobel Laureate Meeting as one of Hong Kong's young scientists — the world's premier gathering of scientific excellence. Fewer than 600 young scientists worldwide are invited each year.",
+    "image": "assets/nobel-new.jpg"
+  },
+  {
+    "id": "shaw-prize-roundtable-2025",
+    "org": "Shaw Prize Foundation",
+    "title": "Shaw Laureates Roundtable 2025",
+    "year": 2025,
+    "location": "Hong Kong",
+    "type": "speaker",
+    "description": "Academic Representative at the Shaw Laureates Roundtable — the Asian equivalent of the Nobel Prize — engaging directly with laureates in life science, astronomy, and mathematics.",
+    "image": "assets/shaw-prize-new.jpg"
+  },
+  {
+    "id": "max-planck-rpg-2025",
+    "org": "Max Planck Institute",
+    "title": "RPG Forum — Speaker 2025",
+    "year": 2025,
+    "location": "Germany",
+    "type": "speaker",
+    "description": "Attended as a Young Scientist — connecting emerging researchers with Nobel, Turing, and Fields Medal laureates. One of fewer than 200 scientists invited globally per cohort.",
+    "image": null
+  },
+  {
+    "id": "hk-jiangsu-2025",
+    "org": "HK-Jiangsu Symposium",
+    "title": "Drug Discovery Speaker 2025",
+    "year": 2025,
+    "location": "Hong Kong",
+    "type": "speaker",
+    "description": "Invited speaker on computational drug discovery at the Hong Kong–Jiangsu Symposium, bridging academia and industry in molecular simulation.",
+    "image": null
+  },
+  {
+    "id": "gba-em-forum-2025",
+    "org": "GBA EM Forum",
+    "title": "2nd GBA Cryo-EM Frontier Forum — Speaker 2025",
+    "year": 2025,
+    "location": "Greater Bay Area",
+    "type": "speaker",
+    "description": "Speaker at the 2nd Greater Bay Area Cryo-EM Frontier Forum, presenting on structural biology and molecular simulation approaches.",
+    "image": null
+  },
+  {
+    "id": "spsas-2025",
+    "org": "São Paulo Advanced Science School",
+    "title": "SPSAS Attendee 2025",
+    "year": 2025,
+    "location": "São Paulo, Brazil",
+    "type": "attendee",
+    "description": "Selected attendee at the São Paulo Advanced Science School, an elite international training programme for early-career researchers.",
+    "image": null
+  },
+  {
+    "id": "cas-future-leaders",
+    "org": "Chinese Academy of Sciences",
+    "title": "CAS Future Leaders Programme",
+    "year": 2025,
+    "location": "China",
+    "type": "attendee",
+    "description": "Participated in the Chinese Academy of Sciences Future Leaders programme — one of the most prestigious early-career programmes by China's national academy of science, with over 60,000 researchers.",
+    "image": null
+  }
+]
