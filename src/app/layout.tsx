@@ -1,20 +1,10 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { LenisProvider } from "@/components/LenisProvider";
 import { meta, navigation } from "@/lib/data";
-
-const footerMeta = {
-  email: meta.email,
-  copyright: `© ${new Date().getFullYear()} Jackie Ng — The Invisible Architect. All rights reserved.`,
-  socialLinks: [
-    { label: "LinkedIn", href: meta.socials.linkedin, icon: "linkedin" as const },
-    { label: "Instagram", href: meta.socials.instagram, icon: "instagram" as const },
-    { label: "GitHub", href: meta.socials.github, icon: "github" as const },
-  ],
-};
 
 const inter = Inter({
   subsets: ['latin'],
@@ -22,18 +12,11 @@ const inter = Inter({
   display: 'swap',
 })
 
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-cormorant',
-  display: 'swap',
-})
-
 export const metadata: Metadata = {
-  title: "Jackie Ng — The Invisible Architect",
+  title: "Jackie Ng — Computational Structural Biologist",
   description: meta.description,
   openGraph: {
-    title: "Jackie Ng — The Invisible Architect",
+    title: "Jackie Ng — Computational Structural Biologist",
     description: meta.description,
     url: meta.siteUrl,
     siteName: "Jackie Ng",
@@ -41,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jackie Ng — The Invisible Architect",
+    title: "Jackie Ng — Computational Structural Biologist",
     description: meta.description,
   },
 };
@@ -52,9 +35,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
+    <html lang="en" className={inter.variable}>
       <head>
-        <meta name="theme-color" content="#0A1828" />
         <link rel="canonical" href={meta.siteUrl} />
         <script
           type="application/ld+json"
@@ -66,18 +48,19 @@ export default function RootLayout({
               jobTitle: meta.title,
               description: meta.description,
               url: meta.siteUrl,
-              sameAs: [meta.socials.linkedin, meta.socials.instagram],
+              email: meta.email,
+              sameAs: [meta.socials.linkedin],
               worksFor: { "@type": "Organization", name: "AtomBios" },
             }),
           }}
         />
       </head>
-      <body className="font-body antialiased bg-offwhite text-navy">
+      <body style={{ fontFamily: 'var(--font-inter, Inter, system-ui, sans-serif)' }}>
         <Nav items={navigation} />
         <LenisProvider>
           {children}
         </LenisProvider>
-        <Footer meta={footerMeta} />
+        <Footer />
       </body>
     </html>
   );

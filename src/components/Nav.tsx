@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 
 export interface NavItem {
   label: string
@@ -12,19 +11,9 @@ interface NavProps {
   items: NavItem[]
 }
 
-const basePath = '/jackieng-profile'
-
 export function Nav({ items }: NavProps) {
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', handler, { passive: true })
-    return () => window.removeEventListener('scroll', handler)
-  }, [])
-
-  // Close mobile menu on route change / click-outside
   useEffect(() => {
     const close = () => setOpen(false)
     window.addEventListener('hashchange', close)
@@ -32,102 +21,47 @@ export function Nav({ items }: NavProps) {
   }, [])
 
   return (
-    <header
-      className={[
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled
-          ? 'bg-navy/95 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20'
-          : 'bg-transparent',
-      ].join(' ')}
-    >
-      <nav
-        className="max-w-6xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20"
-        aria-label="Main navigation"
-      >
-        {/* Logo */}
-        <Link
-          href={basePath}
-          className="text-offwhite font-heading text-2xl font-semibold tracking-tight hover:text-gold transition-colors duration-200"
-          aria-label="Jackie Ng — home"
-        >
-          JN.
-        </Link>
+    <nav className="site-nav" aria-label="Main navigation">
+      <div className="site-nav__inner">
+        <a href="#" className="site-nav__name">Jackie Ng</a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8" role="list">
-          {items.map((item) => {
-            const href = item.href.startsWith('/')
-              ? `${basePath}${item.href}`
-              : item.href
-            return (
-              <li key={item.href}>
-                <Link
-                  href={href}
-                  className="relative text-sm tracking-wider text-offwhite/70 hover:text-gold transition-colors duration-200 uppercase font-medium after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            )
-          })}
+        <ul className="site-nav__links" role="list">
+          {items.map((item) => (
+            <li key={item.href}>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))}
         </ul>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2 -mr-2 text-offwhite focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded"
+          className="md-hidden"
+          style={{
+            display: 'none',
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '0.5rem',
+            color: 'var(--text)',
+          }}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          <span
-            className={[
-              'block h-px w-6 bg-current transition-transform duration-300 origin-center',
-              open ? 'translate-y-[7px] rotate-45' : '',
-            ].join(' ')}
-          />
-          <span
-            className={[
-              'block h-px w-6 bg-current transition-opacity duration-300',
-              open ? 'opacity-0' : '',
-            ].join(' ')}
-          />
-          <span
-            className={[
-              'block h-px w-6 bg-current transition-transform duration-300 origin-center',
-              open ? '-translate-y-[7px] -rotate-45' : '',
-            ].join(' ')}
-          />
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            {open ? (
+              <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            ) : (
+              <>
+                <line x1="3" y1="6" x2="17" y2="6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="3" y1="10" x2="17" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                <line x1="3" y1="14" x2="17" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </>
+            )}
+          </svg>
         </button>
-      </nav>
-
-      {/* Mobile menu drawer */}
-      <div
-        className={[
-          'md:hidden overflow-hidden transition-all duration-300',
-          open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0',
-          'bg-navy/98 backdrop-blur-md border-b border-white/10',
-        ].join(' ')}
-        aria-hidden={!open}
-      >
-        <ul className="flex flex-col px-6 py-4 gap-4" role="list">
-          {items.map((item) => {
-            const href = item.href.startsWith('/')
-              ? `${basePath}${item.href}`
-              : item.href
-            return (
-              <li key={item.href}>
-                <Link
-                  href={href}
-                  className="block text-base tracking-wider text-offwhite/80 hover:text-gold transition-colors duration-200 uppercase font-medium py-1"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
       </div>
-    </header>
+    </nav>
   )
 }
