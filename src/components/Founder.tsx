@@ -28,19 +28,19 @@ function useReveal() {
 
 const photos = [
   {
-    src: '/jackieng-profile/assets/nobel-new.jpg',
+    src: '/assets/nobel-new.jpg',
     caption: 'Lindau Nobel Laureate Meeting, 2025',
   },
   {
-    src: '/jackieng-profile/assets/shaw-prize-new.jpg',
+    src: '/assets/shaw-prize-new.jpg',
     caption: 'Shaw Prize Science Forum, 2025',
   },
   {
-    src: '/jackieng-profile/assets/abct-new.jpg',
+    src: '/assets/abct-new.jpg',
     caption: 'CAS Future Leader, 2025',
   },
   {
-    src: '/jackieng-profile/assets/hklf-new.jpg',
+    src: '/assets/hklf-new.jpg',
     caption: 'Young Scientist Award, HKLF 2024',
   },
 ];
