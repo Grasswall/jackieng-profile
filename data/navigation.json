@@ -1,7 +1,8 @@
 [
-  {"label": "Recognition", "href": "#recognition"},
-  {"label": "AtomBios",    "href": "#atombios"},
-  {"label": "Competitions","href": "#competitions"},
-  {"label": "Press",       "href": "#press"},
-  {"label": "Contact",     "href": "#contact"}
+  { "label": "Problem", "href": "#problem" },
+  { "label": "Approach", "href": "#approach" },
+  { "label": "Platform", "href": "#platform" },
+  { "label": "Founder", "href": "#founder" },
+  { "label": "Traction", "href": "#traction" },
+  { "label": "Contact", "href": "#contact" }
 ]

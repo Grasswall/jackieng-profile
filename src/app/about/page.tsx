@@ -3,31 +3,8 @@ import { Education } from "@/components/Education";
 
 export const metadata: Metadata = {
   title: "About — Jackie Ng",
-  description: "Cryo-EM structures. AI screening. AtomBios. One closed loop from atomic ground truth to clinical candidate.",
+  description: "Structural biologist and founder building the first foundation model for rational drug delivery design.",
 };
-
-const educationItems = [
-  {
-    degree: "MPhil",
-    field: "Biochemistry",
-    institution: "Hong Kong Polytechnic University",
-    years: "2023–present",
-    highlights: [
-      "Computational structural biology, cryo-EM, binding free energy calculation",
-      "Research Postgraduate Scholarship + HK$25k Conference Grant",
-    ],
-  },
-  {
-    degree: "BSc",
-    field: "Biochemistry & Cell Biology",
-    institution: "Hong Kong University of Science and Technology",
-    years: "2019–2023",
-    highlights: [
-      "First Class Honours · GPA 4.0 / 4.3 · Dean's List ×7",
-      "MTR Corporation Scholarship, D.H. Chen Foundation Scholarship",
-    ],
-  },
-];
 
 export default function AboutPage() {
   return (
@@ -55,7 +32,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <Education items={educationItems} />
+      <Education />
     </main>
   );
 }

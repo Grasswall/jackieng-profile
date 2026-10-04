@@ -1,61 +1,70 @@
-"use client";
+'use client'
 
-import { useEffect, useRef } from "react";
-import { MoleculeHero } from "./MoleculeHero";
+import { useEffect, useRef } from 'react'
+import dynamic from 'next/dynamic'
 
-interface HeroProps {
-  atomBiosId: string;
-}
+// Lazy-load Three.js scene
+const NanoparticleScene = dynamic(() => import('./NanoparticleScene'), {
+  ssr: false,
+  loading: () => <div className="hero-bg-fallback" />
+})
 
-export function Hero({ atomBiosId }: HeroProps) {
-  const contentRef = useRef<HTMLDivElement>(null);
+export function Hero() {
+  const contentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (motionQuery.matches) return;
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    if (motionQuery.matches) return
 
-    async function init() {
-      const { gsap } = await import("gsap");
-      const el = contentRef.current;
-      if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
 
-      const children = Array.from(el.children);
-      gsap.fromTo(
-        children,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          stagger: 0.15,
-          ease: "power3.out",
-          delay: 0.3,
+    const el = contentRef.current
+    if (el) {
+      const children = Array.from(el.children)
+      children.forEach((child) => {
+        if (child instanceof HTMLElement) {
+          observer.observe(child)
         }
-      );
+      })
     }
-    init();
-  }, []);
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section className="hero-section" aria-label="Introduction">
-      {/* Three.js molecular visualization */}
-      <div className="hero-canvas-container" aria-hidden="true">
-        <MoleculeHero className="w-full h-full" />
-      </div>
-
-      {/* Hero content */}
+    <section id="hero" className="hero-section">
+      <NanoparticleScene />
       <div className="hero-content" ref={contentRef}>
-        <h1 className="hero-headline">
-          I see the algorithms running inside molecules.
+        <h1 className="reveal hero-headline">
+          The first foundation model for rational drug delivery design.
         </h1>
-        <p className="hero-subheader">
-          Lindau Nobel Laureate 2025 &nbsp;·&nbsp; Shaw Prize Forum 2025 &nbsp;·&nbsp;
-          CAS Future Leader 2025 &nbsp;·&nbsp; AtomBios Founder
+        <p className="reveal hero-subheader">
+          The best drugs already exist. They just can&apos;t get where they need to go.
         </p>
-        <a href={`#${atomBiosId}`} className="hero-cta">
-          About AtomBios
-        </a>
+        <p className="reveal hero-credential">
+          AtomBios · 20nm Endosome Platform · HKSTP Incu-Bio
+        </p>
+        <p className="reveal hero-recognition">
+          Lindau 2025 · Shaw Prize Forum 2025 · CAS Future Leader
+        </p>
+        <div className="reveal hero-cta-row">
+          <a href="#platform" className="btn-primary">
+            See the Platform
+          </a>
+          <a href="#contact" className="btn-outline">
+            Partner With Us
+          </a>
+        </div>
       </div>
     </section>
-  );
+  )
 }

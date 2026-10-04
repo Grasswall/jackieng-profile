@@ -13,19 +13,19 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Jackie Ng — Computational Structural Biologist & Founder",
-  description: "I see the algorithms running inside molecules. Lindau Nobel 2025 · Shaw Prize Forum 2025 · CAS Future Leader · AtomBios Founder.",
+  title: "Jackie Ng — Building the Foundation Model for Drug Delivery",
+  description: "The best drugs already exist. They just can't get where they need to go. AtomBios · 20nm Endosome Platform · HKSTP Incu-Bio.",
   openGraph: {
-    title: "Jackie Ng — Computational Structural Biologist & Founder",
-    description: "I see the algorithms running inside molecules. Lindau Nobel 2025 · Shaw Prize Forum 2025 · CAS Future Leader · AtomBios Founder.",
+    title: "Jackie Ng — Building the Foundation Model for Drug Delivery",
+    description: "The best drugs already exist. They just can't get where they need to go. AtomBios · 20nm Endosome Platform · HKSTP Incu-Bio.",
     url: meta.siteUrl,
     siteName: "Jackie Ng",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jackie Ng — Computational Structural Biologist & Founder",
-    description: "I see the algorithms running inside molecules.",
+    title: "Jackie Ng — Building the Foundation Model for Drug Delivery",
+    description: "The best drugs already exist. They just can't get where they need to go. AtomBios · 20nm Endosome Platform · HKSTP Incu-Bio.",
   },
 };
 
@@ -45,8 +45,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: meta.name,
-              jobTitle: "Founder & CEO, AtomBios",
-              description: "Computational structural biologist building the future of drug discovery.",
+              jobTitle: "Founder & CEO, AtomBios — Drug Delivery Platform",
+              description: "Structural biologist and founder building the first foundation model for rational drug delivery design.",
               url: meta.siteUrl,
               email: meta.email,
               sameAs: [meta.socials.linkedin],

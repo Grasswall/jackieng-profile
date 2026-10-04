@@ -1,82 +1,86 @@
-"use client";
+'use client'
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react'
 
-export interface EducationItem {
-  degree: string;
-  field?: string;
-  institution: string;
-  years: string;
-  highlights?: string[];
-}
-
-interface EducationProps {
-  items: EducationItem[];
-}
-
-export function Education({ items }: EducationProps) {
-  const containerRef = useRef<HTMLElement>(null);
+export function Education() {
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (motionQuery.matches) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
 
-    async function init() {
-      const gsap = (await import("gsap")).gsap;
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
-
-      const section = containerRef.current;
-      if (!section) return;
-
-      const items = section.querySelectorAll(".education-item");
-      gsap.fromTo(
-        items,
-        { opacity: 0, x: -30 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 75%",
-          },
-        }
-      );
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
     }
 
-    init();
-  }, []);
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <section
-      ref={containerRef}
+      ref={sectionRef}
       id="education"
-      className="education-section"
+      className="section reveal"
       aria-labelledby="education-heading"
     >
-      <div className="container">
+      <div className="section-inner">
+        <p className="section-label">07 — EDUCATION</p>
         <h2 className="section-heading" id="education-heading">
-          Education
+          Academic foundation.
         </h2>
-        <ol className="education-timeline" role="list">
-          {items.map((item, idx) => (
-            <li key={idx} className="education-item">
-              <span className="education-period">{item.years}</span>
-              <h3 className="education-degree">
-                {item.degree}
-                {item.field && `, ${item.field}`}
+
+        <div className="section-body">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+            {/* Card 1 */}
+            <div className="card">
+              <h3 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '0.5rem', color: 'var(--text)' }}>
+                PhD, Applied Biology & Chemical Technology
               </h3>
-              <p className="education-school">{item.institution}</p>
-              {item.highlights && (
-                <p className="education-note">{item.highlights.join(" · ")}</p>
-              )}
-            </li>
-          ))}
-        </ol>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
+                The Hong Kong Polytechnic University
+              </p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '1rem' }}>
+                2023 – Present
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <span className="badge badge-cyan">Outstanding Postgraduate Student Award (2024)</span>
+                <span className="badge badge-cyan">Best Oral Presentation (2025)</span>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="card">
+              <h3 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '0.5rem', color: 'var(--text)' }}>
+                BSc, Biochemistry & Cell Biology
+              </h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+                (International Research Enrichment)
+              </p>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
+                Hong Kong University of Science and Technology
+              </p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', marginBottom: '1rem' }}>
+                2018 – 2022
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <span className="badge badge-cyan">First Class Honours (GPA 4.0/4.3)</span>
+                <span className="badge badge-cyan">Dean&apos;s List ×7</span>
+                <span className="badge badge-cyan">D.H. Chen Foundation Scholarship</span>
+                <span className="badge badge-cyan">MTR Corporate Scholarship</span>
+                <span className="badge badge-cyan">Kitchell Undergraduate Research Award</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-  );
+  )
 }

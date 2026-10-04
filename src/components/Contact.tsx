@@ -1,90 +1,118 @@
-"use client";
+'use client'
 
-import { useEffect, useRef } from "react";
-import { meta } from "@/lib/data";
+import { useEffect, useRef } from 'react'
 
 export function Contact() {
-  const containerRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (motionQuery.matches) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
 
-    async function init() {
-      const gsap = (await import("gsap")).gsap;
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
-
-      const section = containerRef.current;
-      if (!section) return;
-
-      const children = section.querySelectorAll(".contact-intro, .contact-links");
-      gsap.fromTo(
-        children,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 75%",
-          },
-        }
-      );
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
     }
 
-    init();
-  }, []);
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <section
-      ref={containerRef}
+      ref={sectionRef}
       id="contact"
-      className="contact-section"
+      className="section reveal"
       aria-labelledby="contact-heading"
     >
-      <div className="container">
+      <div className="section-inner">
+        <p className="section-label">08 — CONTACT</p>
         <h2 className="section-heading" id="contact-heading">
-          Contact
+          Open to collaboration.
         </h2>
-        <p className="contact-intro">
-          Investor conversations, research collaborations, speaking engagements.
-        </p>
-        <div className="contact-links">
-          <a href={`mailto:${meta.email}`} className="contact-email">
-            {meta.email}
-          </a>
-          <nav className="contact-social" aria-label="Social links">
-            <a
-              href={meta.socials.linkedin}
-              target="_blank"
+
+        <div className="section-body">
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', 
+            gap: '2rem',
+            marginBottom: '3rem'
+          }}>
+            <div>
+              <h3 style={{ 
+                fontSize: '1rem', 
+                fontWeight: 600, 
+                marginBottom: '0.75rem', 
+                color: 'var(--accent-cyan)' 
+              }}>
+                AI Researchers
+              </h3>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                Model development, architecture improvements, multi-modal learning for molecular systems.
+              </p>
+            </div>
+
+            <div>
+              <h3 style={{ 
+                fontSize: '1rem', 
+                fontWeight: 600, 
+                marginBottom: '0.75rem', 
+                color: 'var(--accent-cyan)' 
+              }}>
+                Pharma Partners
+              </h3>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                Training data contribution, pilot validation studies, early access to our design service.
+              </p>
+            </div>
+
+            <div>
+              <h3 style={{ 
+                fontSize: '1rem', 
+                fontWeight: 600, 
+                marginBottom: '0.75rem', 
+                color: 'var(--accent-cyan)' 
+              }}>
+                Investors
+              </h3>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>
+                Scaling the platform, expanding training data, building the team.
+              </p>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
+            <a 
+              href="mailto:jackieng@atombios.com" 
+              className="btn btn-primary"
+            >
+              jackieng@atombios.com
+            </a>
+            <a 
+              href="https://linkedin.com/in/jackiengcc" 
+              target="_blank" 
               rel="noopener noreferrer"
-              aria-label="LinkedIn profile"
+              className="btn btn-outline"
             >
               LinkedIn
             </a>
-            <a
-              href="https://scholar.google.com/citations?user=YOUR_ID"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Google Scholar profile"
-            >
-              Google Scholar
-            </a>
-            <a
-              href="https://twitter.com/jackieng"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter profile"
-            >
-              Twitter
-            </a>
-          </nav>
+          </div>
+
+          <p style={{ 
+            marginTop: '1.5rem', 
+            color: 'var(--text-muted)', 
+            fontSize: '0.875rem' 
+          }}>
+            Responding within 24 hours.
+          </p>
         </div>
       </div>
     </section>
-  );
+  )
 }
