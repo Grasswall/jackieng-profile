@@ -171,6 +171,51 @@ export function Platform() {
           </div>
         </div>
 
+        {/* Structural biology proof */}
+        <div
+          className="reveal"
+          style={{
+            marginTop: '3rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '1.5rem',
+            flexWrap: 'wrap',
+          }}
+        >
+          <img
+            src="/jackieng-profile/assets/render-tim-active-site.jpg"
+            alt="TIM enzyme active site — Jackie's structural biology work"
+            style={{
+              maxWidth: '320px',
+              width: '100%',
+              height: 'auto',
+              borderRadius: '0.5rem',
+              border: '1px solid var(--border)',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+            }}
+          />
+          <div style={{ maxWidth: '360px' }}>
+            <p
+              className="mono"
+              style={{
+                color: 'var(--accent-cyan)',
+                fontSize: '0.7rem',
+                marginBottom: '0.5rem',
+                letterSpacing: '0.05em',
+              }}
+            >
+              STRUCTURAL BIOLOGY FOUNDATION
+            </p>
+            <p className="section-body" style={{ color: 'var(--text-muted)' }}>
+              The platform was engineered from first principles by understanding endosomal sorting
+              machinery at the molecular level — catalytic loops, binding pockets, conformational
+              states. This is Jackie&apos;s TIM work: the structural biology training that enabled the
+              delivery breakthrough.
+            </p>
+          </div>
+        </div>
+
         {/* Status cards */}
         <div
           className="reveal card-grid"
