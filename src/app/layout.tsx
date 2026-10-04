@@ -35,8 +35,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} dark`} style={{ colorScheme: 'dark' }}>
       <head>
+        <meta name="color-scheme" content="dark light" />
         <link rel="canonical" href={meta.siteUrl} />
         <script
           type="application/ld+json"
