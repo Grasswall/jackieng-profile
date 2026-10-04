@@ -1,42 +1,54 @@
-'use client'
+"use client";
 
-import { useEffect, useRef } from 'react'
-
-const basePath = '/jackieng-profile'
+import { useEffect, useRef } from "react";
 
 export interface CompetitionItem {
-  title: string
-  badge: string
-  description: string
-  photo?: string
+  title: string;
+  badge: string;
+  description: string;
+  photo?: string;
 }
 
 interface CompetitionsProps {
-  items: CompetitionItem[]
+  items: CompetitionItem[];
 }
 
 export function Competitions({ items }: CompetitionsProps) {
-  const containerRef = useRef<HTMLElement>(null)
+  const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return
-    const elements = containerRef.current.querySelectorAll('.fade-up')
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    )
+    async function init() {
+      const gsap = (await import("gsap")).gsap;
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
 
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+      const section = containerRef.current;
+      if (!section) return;
+
+      const cards = section.querySelectorAll(".comp-card");
+      gsap.fromTo(
+        cards,
+        { opacity: 0, y: 40, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.5,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 75%",
+          },
+        }
+      );
+    }
+
+    init();
+  }, []);
 
   return (
     <section
@@ -46,43 +58,19 @@ export function Competitions({ items }: CompetitionsProps) {
       aria-labelledby="competitions-heading"
     >
       <div className="container">
-        <h2 className="section-heading fade-up" id="competitions-heading">Competitions</h2>
+        <h2 className="section-heading" id="competitions-heading">
+          Competitions
+        </h2>
         <div className="competitions-grid">
-          {items.map((item) => {
-            const photoSrc = item.photo
-              ? item.photo.startsWith('/')
-                ? item.photo
-                : `${basePath}/assets/${item.photo}`
-              : null
-            const hasPhoto = Boolean(photoSrc)
-
-            return (
-              <article
-                key={item.title}
-                className={`comp-card fade-up${hasPhoto ? '' : ' comp-card--no-img'}`}
-              >
-                {hasPhoto && (
-                  <div className="comp-card__img-wrap">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={photoSrc!}
-                      alt={item.title}
-                      loading="lazy"
-                      width={480}
-                      height={320}
-                    />
-                  </div>
-                )}
-                <div className="comp-card__body">
-                  <span className="comp-card__award">{item.badge}</span>
-                  <h3 className="comp-card__title">{item.title}</h3>
-                  <p className="comp-card__detail">{item.description}</p>
-                </div>
-              </article>
-            )
-          })}
+          {items.map((item) => (
+            <article key={item.title} className="comp-card">
+              <span className="comp-badge">{item.badge}</span>
+              <h3 className="comp-title">{item.title}</h3>
+              <p className="comp-description">{item.description}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

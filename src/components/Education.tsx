@@ -1,41 +1,54 @@
-'use client'
+"use client";
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
 
 export interface EducationItem {
-  degree: string
-  field?: string
-  institution: string
-  years: string
-  highlights?: string[]
+  degree: string;
+  field?: string;
+  institution: string;
+  years: string;
+  highlights?: string[];
 }
 
 interface EducationProps {
-  items: EducationItem[]
+  items: EducationItem[];
 }
 
 export function Education({ items }: EducationProps) {
-  const containerRef = useRef<HTMLElement>(null)
+  const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return
-    const elements = containerRef.current.querySelectorAll('.fade-up')
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    )
+    async function init() {
+      const gsap = (await import("gsap")).gsap;
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
 
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+      const section = containerRef.current;
+      if (!section) return;
+
+      const items = section.querySelectorAll(".education-item");
+      gsap.fromTo(
+        items,
+        { opacity: 0, x: -30 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 75%",
+          },
+        }
+      );
+    }
+
+    init();
+  }, []);
 
   return (
     <section
@@ -45,28 +58,25 @@ export function Education({ items }: EducationProps) {
       aria-labelledby="education-heading"
     >
       <div className="container">
-        <h2 className="section-heading fade-up" id="education-heading">Education</h2>
+        <h2 className="section-heading" id="education-heading">
+          Education
+        </h2>
         <ol className="education-timeline" role="list">
           {items.map((item, idx) => (
-            <li key={idx} className="education-item fade-up">
-              <div className="education-item__marker" aria-hidden="true" />
-              <div>
-                <span className="education-item__period">{item.years}</span>
-                <h3 className="education-item__degree">
-                  {item.degree}
-                  {item.field && `, ${item.field}`}
-                </h3>
-                <p className="education-item__school">{item.institution}</p>
-                {item.highlights && (
-                  <p className="education-item__note">
-                    {item.highlights.join(' · ')}
-                  </p>
-                )}
-              </div>
+            <li key={idx} className="education-item">
+              <span className="education-period">{item.years}</span>
+              <h3 className="education-degree">
+                {item.degree}
+                {item.field && `, ${item.field}`}
+              </h3>
+              <p className="education-school">{item.institution}</p>
+              {item.highlights && (
+                <p className="education-note">{item.highlights.join(" · ")}</p>
+              )}
             </li>
           ))}
         </ol>
       </div>
     </section>
-  )
+  );
 }

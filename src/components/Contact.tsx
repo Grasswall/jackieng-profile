@@ -1,30 +1,43 @@
-'use client'
+"use client";
 
-import { useEffect, useRef } from 'react'
-import { meta } from '@/lib/data'
+import { useEffect, useRef } from "react";
+import { meta } from "@/lib/data";
 
 export function Contact() {
-  const containerRef = useRef<HTMLElement>(null)
+  const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return
-    const elements = containerRef.current.querySelectorAll('.fade-up')
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    )
+    async function init() {
+      const gsap = (await import("gsap")).gsap;
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
 
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+      const section = containerRef.current;
+      if (!section) return;
+
+      const children = section.querySelectorAll(".contact-intro, .contact-links");
+      gsap.fromTo(
+        children,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 75%",
+          },
+        }
+      );
+    }
+
+    init();
+  }, []);
 
   return (
     <section
@@ -34,15 +47,17 @@ export function Contact() {
       aria-labelledby="contact-heading"
     >
       <div className="container">
-        <h2 className="section-heading fade-up" id="contact-heading">Contact</h2>
-        <p className="contact__intro fade-up">
-          Research collaborations, media, and speaking enquiries welcome.
+        <h2 className="section-heading" id="contact-heading">
+          Contact
+        </h2>
+        <p className="contact-intro">
+          Investor conversations, research collaborations, speaking engagements.
         </p>
-        <div className="contact__links fade-up">
-          <a href={`mailto:${meta.email}`} className="contact__email">
+        <div className="contact-links">
+          <a href={`mailto:${meta.email}`} className="contact-email">
             {meta.email}
           </a>
-          <nav className="contact__social" aria-label="Social links">
+          <nav className="contact-social" aria-label="Social links">
             <a
               href={meta.socials.linkedin}
               target="_blank"
@@ -52,7 +67,7 @@ export function Contact() {
               LinkedIn
             </a>
             <a
-              href="https://scholar.google.com"
+              href="https://scholar.google.com/citations?user=YOUR_ID"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Google Scholar profile"
@@ -60,16 +75,16 @@ export function Contact() {
               Google Scholar
             </a>
             <a
-              href="https://atombios.com"
+              href="https://twitter.com/jackieng"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="AtomBios website"
+              aria-label="Twitter profile"
             >
-              AtomBios
+              Twitter
             </a>
           </nav>
         </div>
       </div>
     </section>
-  )
+  );
 }

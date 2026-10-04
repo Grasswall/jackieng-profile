@@ -1,44 +1,78 @@
-'use client'
+"use client";
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
 
-const basePath = '/jackieng-profile'
+const basePath = "/jackieng-profile";
 
 export interface RecognitionItem {
-  index: string
-  title: string
-  org: string
-  year: string
-  description: string
-  photo?: string
+  index: string;
+  title: string;
+  org: string;
+  year: string;
+  description: string;
+  photo?: string;
 }
 
 interface RecognitionProps {
-  items: RecognitionItem[]
+  items: RecognitionItem[];
 }
 
 export function Recognition({ items }: RecognitionProps) {
-  const containerRef = useRef<HTMLElement>(null)
+  const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return
-    const elements = containerRef.current.querySelectorAll('.fade-up')
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-            observer.unobserve(entry.target)
+    async function init() {
+      const gsap = (await import("gsap")).gsap;
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
+
+      const section = containerRef.current;
+      if (!section) return;
+
+      const cards = section.querySelectorAll(".recognition-card");
+      cards.forEach((card) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 60, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
           }
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    )
+        );
 
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+        // Parallax image on scroll
+        const img = card.querySelector(".recognition-image");
+        if (img) {
+          gsap.to(img, {
+            y: -20,
+            ease: "none",
+            scrollTrigger: {
+              trigger: card,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1,
+            },
+          });
+        }
+      });
+    }
+
+    init();
+  }, []);
+
+  // Filter out items with photos
+  const itemsWithPhotos = items.filter((item) => item.photo);
 
   return (
     <section
@@ -48,40 +82,39 @@ export function Recognition({ items }: RecognitionProps) {
       aria-labelledby="recognition-heading"
     >
       <div className="container">
-        <h2 className="section-heading fade-up" id="recognition-heading">Recognition</h2>
-        <ul className="recognition-list" role="list">
-          {items.map((item) => {
+        <h2 className="section-heading" id="recognition-heading">
+          Recognition
+        </h2>
+        <div className="recognition-timeline">
+          {itemsWithPhotos.map((item) => {
             const photoSrc = item.photo
-              ? item.photo.startsWith('/')
+              ? item.photo.startsWith("/")
                 ? item.photo
                 : `${basePath}/assets/${item.photo}`
-              : null
+              : null;
 
             return (
-              <li key={item.title} className="recognition-item fade-up">
+              <article key={item.title} className="recognition-card">
                 {photoSrc && (
-                  <div className="recognition-item__img-wrap">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <div className="recognition-image">
                     <img
                       src={photoSrc}
                       alt={`${item.org} — ${item.title}`}
                       loading="lazy"
-                      width={600}
-                      height={400}
                     />
                   </div>
                 )}
-                <div>
-                  <span className="recognition-item__year">{item.year}</span>
-                  <h3 className="recognition-item__title">{item.title}</h3>
-                  <p className="recognition-item__org">{item.org}</p>
-                  <p className="recognition-item__detail">{item.description}</p>
+                <div className="recognition-content">
+                  <span className="recognition-year">{item.year}</span>
+                  <h3 className="recognition-title">{item.title}</h3>
+                  <p className="recognition-org">{item.org}</p>
+                  <p className="recognition-description">{item.description}</p>
                 </div>
-              </li>
-            )
+              </article>
+            );
           })}
-        </ul>
+        </div>
       </div>
     </section>
-  )
+  );
 }

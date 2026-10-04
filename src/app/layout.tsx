@@ -13,19 +13,19 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Jackie Ng — Computational Structural Biologist",
-  description: meta.description,
+  title: "Jackie Ng — Computational Structural Biologist & Founder",
+  description: "I see the algorithms running inside molecules. Lindau Nobel 2025 · Shaw Prize Forum 2025 · CAS Future Leader · AtomBios Founder.",
   openGraph: {
-    title: "Jackie Ng — Computational Structural Biologist",
-    description: meta.description,
+    title: "Jackie Ng — Computational Structural Biologist & Founder",
+    description: "I see the algorithms running inside molecules. Lindau Nobel 2025 · Shaw Prize Forum 2025 · CAS Future Leader · AtomBios Founder.",
     url: meta.siteUrl,
     siteName: "Jackie Ng",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jackie Ng — Computational Structural Biologist",
-    description: meta.description,
+    title: "Jackie Ng — Computational Structural Biologist & Founder",
+    description: "I see the algorithms running inside molecules.",
   },
 };
 
@@ -45,8 +45,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: meta.name,
-              jobTitle: meta.title,
-              description: meta.description,
+              jobTitle: "Founder & CEO, AtomBios",
+              description: "Computational structural biologist building the future of drug discovery.",
               url: meta.siteUrl,
               email: meta.email,
               sameAs: [meta.socials.linkedin],

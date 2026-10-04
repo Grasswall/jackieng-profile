@@ -1,47 +1,74 @@
-'use client'
+"use client";
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
 
-const basePath = '/jackieng-profile'
-
-export interface AtomBiosPillar {
-  icon: string
-  title: string
-  description: string
-}
+const basePath = "/jackieng-profile";
 
 export interface AtomBiosProps {
-  headshot?: string
+  headshot?: string;
 }
 
 export function AtomBios({ headshot }: AtomBiosProps) {
-  const containerRef = useRef<HTMLElement>(null)
+  const containerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return
-    const elements = containerRef.current.querySelectorAll('.fade-up')
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (motionQuery.matches) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-            observer.unobserve(entry.target)
+    async function init() {
+      const gsap = (await import("gsap")).gsap;
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      gsap.registerPlugin(ScrollTrigger);
+
+      const section = containerRef.current;
+      if (!section) return;
+
+      const content = section.querySelector(".atombios-content");
+      const headshot = section.querySelector(".atombios-headshot-wrap");
+
+      if (content) {
+        gsap.fromTo(
+          content,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: content,
+              start: "top 80%",
+            },
           }
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    )
+        );
+      }
 
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+      if (headshot) {
+        gsap.fromTo(
+          headshot,
+          { opacity: 0, scale: 0.9 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: "back.out(1.2)",
+            scrollTrigger: {
+              trigger: headshot,
+              start: "top 85%",
+            },
+          }
+        );
+      }
+    }
+
+    init();
+  }, []);
 
   const headshotSrc = headshot
-    ? headshot.startsWith('/')
+    ? headshot.startsWith("/")
       ? headshot
       : `${basePath}/assets/${headshot}`
-    : `${basePath}/assets/headshot.jpg`
+    : `${basePath}/assets/headshot.jpg`;
 
   return (
     <section
@@ -51,39 +78,58 @@ export function AtomBios({ headshot }: AtomBiosProps) {
       aria-labelledby="atombios-heading"
     >
       <div className="container">
-        <div className="atombios-inner">
-          <div className="atombios__text fade-up">
-            <h2 className="section-heading" id="atombios-heading">AtomBios</h2>
-            <p className="atombios__lead">
-              Making molecular structure accessible to researchers and clinicians.
+        <div className="atombios-grid">
+          <div className="atombios-content">
+            <h2 id="atombios-heading">AtomBios</h2>
+            <p>
+              Drug development is slow and expensive because we still don&apos;t fully understand
+              how proteins work. Decades of structural biology research have given us
+              atomic-resolution snapshots of molecular machines, but translating those
+              structures into therapies remains a bottleneck.
             </p>
             <p>
-              AtomBios is a deep-tech startup built on the insight that computational
-              structural biology produces powerful predictions that most researchers
-              can&apos;t easily interpret or act on. AtomBios bridges that gap —
-              translating structure into actionable insight.
+              AtomBios is built on a simple premise: <strong>if you understand a protein&apos;s
+              structure, you understand how to modulate it.</strong> We use computational
+              structural biology and machine learning to predict binding sites, conformational
+              dynamics, and small-molecule interactions at atomic resolution — before
+              expensive wet-lab experiments.
             </p>
+
+            <h3>Problem</h3>
             <p>
-              Supported by HKSTP Ideation and PolyU IEP Year 12, AtomBios operates at the
-              intersection of structural biology, machine learning, and clinical translation.
+              Drug candidates fail in late-stage trials not because the target is wrong,
+              but because the interaction wasn&apos;t fully understood at the molecular level.
+              Structural prediction tools exist, but turning predictions into actionable
+              drug design insights is still a specialized, manual process.
             </p>
-            <a href="mailto:jackieng@atombios.com" className="atombios__cta-link">
-              Get in touch about AtomBios →
-            </a>
+
+            <h3>Solution</h3>
+            <p>
+              AtomBios automates the workflow from structure prediction to binding site
+              identification, giving researchers and pharma partners the molecular clarity
+              they need to design better candidates faster.
+            </p>
+
+            <h3>Current Milestone</h3>
+            <p>
+              Supported by <strong>HKSTP Ideation Programme</strong> and{" "}
+              <strong>PolyU Innovation &amp; Entrepreneurship Programme (Year 12)</strong>.
+              We&apos;re working with early academic and industry partners to validate our
+              first modules on high-value therapeutic targets.
+            </p>
           </div>
 
-          <div className="atombios__headshot fade-up">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+          <div className="atombios-headshot-wrap">
             <img
               src={headshotSrc}
-              alt="Jackie Ng"
-              width={320}
-              height={320}
+              alt="Jackie Ng, Founder & CEO of AtomBios"
+              className="atombios-headshot"
               loading="lazy"
             />
+            <p className="atombios-title">Jackie Ng<br />Founder &amp; CEO</p>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

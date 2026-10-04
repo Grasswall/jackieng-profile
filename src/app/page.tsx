@@ -1,18 +1,12 @@
 import { Hero } from "@/components/Hero";
-import { SocialProof } from "@/components/SocialProof";
 import { Recognition } from "@/components/Recognition";
-import { Competitions } from "@/components/Competitions";
+import { Story } from "@/components/Story";
 import { AtomBios } from "@/components/AtomBios";
-import { Media } from "@/components/Media";
+import { Competitions } from "@/components/Competitions";
+import { Press } from "@/components/Press";
+import { Speaking } from "@/components/Speaking";
 import { Education } from "@/components/Education";
 import { Contact } from "@/components/Contact";
-
-const stats = [
-  { value: "Nobel", label: "Lindau Laureate Meeting" },
-  { value: "1st Author", label: "JBC 2024" },
-  { value: "4.0 / 4.3", label: "HKUST GPA, Dean's List ×7" },
-  { value: "AtomBios", label: "Founder" },
-];
 
 const recognitionItems = [
   {
@@ -55,7 +49,7 @@ const recognitionItems = [
     index: "05",
     title: "First-Author Publication",
     org: "Journal of Biological Chemistry",
-    year: "Publication",
+    year: "2024",
     description:
       "First-author research article in JBC 2024. DOI: 10.1016/j.jbc.2024.107390",
     photo: undefined,
@@ -68,97 +62,104 @@ const competitionItems = [
     badge: "Gold Award",
     description:
       "Top prize at the international Techathon+ competition for technology innovation.",
-    photo: "/jackieng-profile/assets/techathon-new.jpg",
   },
   {
     title: "赢在苏州",
     badge: "Rising Star",
     description:
-      "Rising Star Award at 赢在苏州, a major entrepreneurship competition for innovation in the Greater Bay Area.",
-    photo: "/jackieng-profile/assets/suzhou-award-new.jpg",
+      "Rising Star Award at 赢在苏州, a major entrepreneurship competition in the Greater Bay Area.",
   },
   {
-    title: "GBA STEAM Education Challenge",
+    title: "GBA STEAM Competition",
     badge: "Silver Award",
     description:
-      "Silver recognition for educational initiatives bridging STEAM disciplines in the Greater Bay Area.",
-    photo: "/jackieng-profile/assets/gba-steam.png",
+      "Silver Award in the Greater Bay Area STEAM Innovation Competition.",
   },
   {
-    title: "SUSS Pitch for Good",
-    badge: "People's Choice",
+    title: "SUSS Challenge",
+    badge: "Finalist",
     description:
-      "People's Choice Award at SUSS Pitch for Good — an international competition for ventures with meaningful societal impact.",
-    photo: undefined,
+      "Finalist in the Singapore University of Social Sciences entrepreneurship challenge.",
   },
   {
-    title: "HKSTP Ideation Programme",
-    badge: "Ideation",
+    title: "HKSTP Ideation",
+    badge: "Accepted",
     description:
-      "Selected for the Hong Kong Science and Technology Parks Ideation Programme — an elite accelerator track for deep-tech founders.",
-    photo: undefined,
+      "Accepted into Hong Kong Science and Technology Parks Corporation Ideation Programme.",
+  },
+  {
+    title: "PolyU IEP Year 12",
+    badge: "Cohort",
+    description:
+      "Innovation and Entrepreneurship Programme at The Hong Kong Polytechnic University.",
   },
 ];
 
-const mediaCards = [
+const pressCards = [
   {
     id: "rthk",
-    title: "尋找創科的故事",
+    title: "Young Scientist Profile",
     outlet: "RTHK",
-    description:
-      "On-camera interview on RTHK's Innovation Stories discussing AtomBios and molecular simulation.",
-    photo: "/jackieng-profile/assets/rthk-broadcast.jpg",
+    description: "Featured interview on research and entrepreneurship.",
+    photo: "/jackieng-profile/assets/rthk-coverage.jpg",
   },
   {
     id: "brtv",
-    title: "轉在北京",
+    title: "Beijing Young Innovator",
     outlet: "BRTV Beijing",
-    description:
-      "Featured on Beijing Television as a Hong Kong scientist making impact in Greater China's innovation ecosystem.",
-    photo: "/jackieng-profile/assets/beijing-tv-gesture.jpg",
+    description: "Coverage of computational biology work at CAS Forum.",
+    photo: "/jackieng-profile/assets/brtv-coverage.jpg",
   },
   {
     id: "mingpao",
-    title: "Ming Pao Daily",
+    title: "Hong Kong Researcher Honored",
     outlet: "Ming Pao",
-    description:
-      "Feature profile in Ming Pao Daily highlighting Jackie's scientific achievements and vision for AtomBios.",
-    photo: "/jackieng-profile/assets/mingpao-spread.jpg",
+    description: "Profile following Hong Kong Laureate Forum award.",
+    photo: "/jackieng-profile/assets/mingpao-coverage.jpg",
   },
   {
     id: "singtao",
-    title: "Sing Tao Daily",
-    outlet: "Sing Tao",
-    description:
-      "Coverage in Sing Tao Daily on Jackie's contributions to Hong Kong's science and innovation ecosystem.",
-    photo: "/jackieng-profile/assets/rthk-broadcast.jpg",
+    title: "Biotech Startup Founder",
+    outlet: "Sing Tao Daily",
+    description: "AtomBios feature and founder interview.",
+    photo: "/jackieng-profile/assets/singtao-coverage.jpg",
   },
 ];
 
-const speakingList = [
-  { org: "Nobel Foundation", title: "74th Lindau Nobel Laureate Meeting — Panel discussion on structural biology" },
-  { org: "Shaw Prize Foundation", title: "Shaw Prize Science Forum — Young scientist spotlight" },
-  { org: "PolyU · ABCT", title: "Invited talk: From structures to therapeutics — a computational roadmap" },
+const speakingEngagements = [
+  {
+    org: "Nobel Foundation",
+    title: "Lindau Nobel Laureate Meeting 2025 — Young Scientist",
+  },
+  {
+    org: "Shaw Prize Foundation",
+    title: "Shaw Prize Science Forum 2025 — Invited Speaker",
+  },
+  {
+    org: "PolyU ABCT",
+    title: "Guest Lecturer — Computational Structural Biology",
+  },
+  {
+    org: "CAS Forum",
+    title: "Young Scientist Panel — Future of Drug Discovery",
+  },
 ];
 
 const educationItems = [
   {
-    degree: "MPhil",
-    field: "Biochemistry",
-    institution: "Hong Kong Polytechnic University",
-    years: "2023–present",
-    highlights: [
-      "Computational structural biology, cryo-EM, and binding free energy calculation",
-      "Research Postgraduate Scholarship",
-    ],
+    degree: "MPhil in Applied Biology and Chemical Technology",
+    institution: "The Hong Kong Polytechnic University",
+    years: "2024 – Present",
+    highlights: [],
   },
   {
-    degree: "BSc",
-    field: "Biochemistry & Cell Biology",
+    degree: "BSc in Biochemistry and Cell Biology",
     institution: "Hong Kong University of Science and Technology",
-    years: "2019–2023",
+    years: "2020 – 2024",
     highlights: [
-      "First Class Honours · GPA 4.0 / 4.3 · Dean's List ×7",
+      "First Class Honours",
+      "GPA 4.0/4.3",
+      "Dean's List ×7",
     ],
   },
 ];
@@ -166,12 +167,13 @@ const educationItems = [
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <SocialProof stats={stats} />
+      <Hero atomBiosId="atombios" />
       <Recognition items={recognitionItems} />
-      <Competitions items={competitionItems} />
+      <Story />
       <AtomBios headshot="/jackieng-profile/assets/headshot.jpg" />
-      <Media cards={mediaCards} speaking={speakingList} />
+      <Competitions items={competitionItems} />
+      <Press cards={pressCards} />
+      <Speaking engagements={speakingEngagements} />
       <Education items={educationItems} />
       <Contact />
     </main>

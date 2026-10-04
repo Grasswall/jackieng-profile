@@ -1,6 +1,7 @@
 [
-  {"label": "About",    "href": "/about"},
-  {"label": "Work",     "href": "/work"},
-  {"label": "Speaking", "href": "/speaking"},
-  {"label": "Contact",  "href": "#contact"}
+  {"label": "Recognition", "href": "#recognition"},
+  {"label": "AtomBios",    "href": "#atombios"},
+  {"label": "Competitions","href": "#competitions"},
+  {"label": "Press",       "href": "#press"},
+  {"label": "Contact",     "href": "#contact"}
 ]
