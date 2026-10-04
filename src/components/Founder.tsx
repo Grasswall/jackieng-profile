@@ -26,21 +26,23 @@ function useReveal() {
   return ref;
 }
 
+const basePath = '/jackieng-profile';
+
 const photos = [
   {
-    src: '/assets/nobel-new.jpg',
+    src: `${basePath}/assets/nobel-new.jpg`,
     caption: 'Lindau Nobel Laureate Meeting, 2025',
   },
   {
-    src: '/assets/shaw-prize-new.jpg',
+    src: `${basePath}/assets/shaw-prize-new.jpg`,
     caption: 'Shaw Prize Science Forum, 2025',
   },
   {
-    src: '/assets/abct-new.jpg',
+    src: `${basePath}/assets/abct-new.jpg`,
     caption: 'CAS Future Leader, 2025',
   },
   {
-    src: '/assets/hklf-new.jpg',
+    src: `${basePath}/assets/hklf-new.jpg`,
     caption: 'Young Scientist Award, HKLF 2024',
   },
 ];
