@@ -21,7 +21,7 @@ html.lenis body {
   --bg:                #0B0E14;
   --bg-subtle:         #111827;
   --text:              #F8FAFC;
-  --text-muted:        #94A3B8;
+  --text-muted:        #A1B0C8;
   --accent:            #22D3EE;
   --accent-hover:      #06B6D4;
   --accent-cyan:       #22D3EE;
@@ -34,7 +34,7 @@ html.lenis body {
   --card-bg:           #0F172A;
 
   --max-w:        1200px;
-  --section-gap:  8rem;
+  --section-gap:  6rem;
   --nav-h:        4rem;
   --radius-sm:    0.25rem;
   --radius-md:    0.5rem;
@@ -123,14 +123,7 @@ a:hover {
 }
 
 /* ── Typography ───────────────────────────────────────────── */
-.section-heading {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 4rem;
-  color: var(--text);
-}
+/* section-heading defined in v3 section below */
 
 /* ── Nav ──────────────────────────────────────────────────── */
 .site-nav {
@@ -816,8 +809,8 @@ a:hover {
 .hero-headline {
   font-size: clamp(2.5rem, 7vw, 5.5rem);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
   color: var(--text);
   max-width: 20ch;
   margin-bottom: 1.5rem;
