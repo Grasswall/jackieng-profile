@@ -40,8 +40,40 @@ export default function NanoparticleScene() {
 
     // Create nanoparticles
     const particles: THREE.Mesh[] = []
-    const particleCount = 50
-    const geometry = new THREE.SphereGeometry(0.2, 16, 16)
+    const particleCount = 40
+    
+    // Central hero particle — the 20nm endosome
+    const heroGeometry = new THREE.SphereGeometry(2.5, 32, 32)
+    const heroMaterial = new THREE.MeshBasicMaterial({
+      color: 0x22d3ee,
+      transparent: true,
+      opacity: 0.15,
+    })
+    const heroParticle = new THREE.Mesh(heroGeometry, heroMaterial)
+    heroParticle.position.set(8, 0, 0)
+    scene.add(heroParticle)
+    
+    // Inner glow for hero particle
+    const innerGeo = new THREE.SphereGeometry(1.5, 32, 32)
+    const innerMat = new THREE.MeshBasicMaterial({
+      color: 0x22d3ee,
+      transparent: true,
+      opacity: 0.4,
+    })
+    const innerGlow = new THREE.Mesh(innerGeo, innerMat)
+    innerGlow.position.set(8, 0, 0)
+    scene.add(innerGlow)
+    
+    // Cargo dot inside hero
+    const cargoDot = new THREE.Mesh(
+      new THREE.SphereGeometry(0.4, 16, 16),
+      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.9 })
+    )
+    cargoDot.position.set(8, 0, 0)
+    scene.add(cargoDot)
+    
+    // Smaller orbiting particles
+    const geometry = new THREE.SphereGeometry(0.15, 12, 12)
     
     // Cyan glow material
     const material = new THREE.MeshBasicMaterial({
@@ -98,6 +130,12 @@ export default function NanoparticleScene() {
       camera.position.x = Math.sin(time * 0.05) * 2
       camera.position.y = Math.cos(time * 0.03) * 2
       camera.lookAt(0, 0, 0)
+
+      // Hero particle breathing
+      const heroScale = 1 + Math.sin(time * 0.5) * 0.08
+      heroParticle.scale.setScalar(heroScale)
+      ;(heroMaterial as THREE.MeshBasicMaterial).opacity = 0.12 + Math.sin(time * 0.3) * 0.05
+      ;(innerMat as THREE.MeshBasicMaterial).opacity = 0.35 + Math.sin(time * 0.7) * 0.1
 
       // Orbital motion for particles
       particles.forEach((particle) => {
