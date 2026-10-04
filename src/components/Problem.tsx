@@ -62,17 +62,17 @@ export function Problem() {
             <svg viewBox="0 0 400 300" className="problem-diagram" aria-label="Drug delivery failure visualization">
               {/* Payload */}
               <g>
-                <circle cx="60" cy="150" r="20" fill="#22d3ee" opacity="0.8" />
-                <text x="60" y="190" textAnchor="middle" fill="#f8fafc" fontSize="14" fontWeight="600">
+                <circle cx="60" cy="150" r="20" fill="var(--accent-cyan)" opacity="0.8" />
+                <text x="60" y="190" textAnchor="middle" fill="var(--text)" fontSize="14" fontWeight="600">
                   Payload
                 </text>
-                <text x="60" y="208" textAnchor="middle" fill="#94a3b8" fontSize="12">
+                <text x="60" y="208" textAnchor="middle" fill="var(--text-muted)" fontSize="12">
                   (proven)
                 </text>
               </g>
 
               {/* Arrow */}
-              <path d="M 90 150 L 130 150" stroke="#64748b" strokeWidth="2" markerEnd="url(#arrowhead)" />
+              <path d="M 90 150 L 130 150" stroke="var(--text-muted)" strokeWidth="2" markerEnd="url(#arrowhead)" />
 
               {/* Failed formulations grid */}
               <g>
@@ -83,36 +83,36 @@ export function Problem() {
                   const y = 90 + row * 20
                   return (
                     <g key={i}>
-                      <circle cx={x} cy={y} r="6" fill="none" stroke="#64748b" strokeWidth="1" opacity="0.4" />
+                      <circle cx={x} cy={y} r="6" fill="none" stroke="var(--text-muted)" strokeWidth="1" opacity="0.4" />
                       <path
                         d={`M ${x - 4} ${y - 4} L ${x + 4} ${y + 4} M ${x + 4} ${y - 4} L ${x - 4} ${y + 4}`}
-                        stroke="#ef4444"
+                        stroke="var(--crimson)"
                         strokeWidth="1.5"
                         opacity="0.6"
                       />
                     </g>
                   )
                 })}
-                <text x="230" y="225" textAnchor="middle" fill="#94a3b8" fontSize="12">
+                <text x="230" y="225" textAnchor="middle" fill="var(--text-muted)" fontSize="12">
                   Hundreds of failed formulations
                 </text>
               </g>
 
               {/* Rare success */}
               <g>
-                <circle cx="340" cy="150" r="16" fill="none" stroke="#22d3ee" strokeWidth="2" />
+                <circle cx="340" cy="150" r="16" fill="none" stroke="var(--accent-cyan)" strokeWidth="2" />
                 <path
                   d="M 332 150 L 338 156 L 348 144"
                   fill="none"
-                  stroke="#22d3ee"
+                  stroke="var(--accent-cyan)"
                   strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-                <text x="340" y="190" textAnchor="middle" fill="#22d3ee" fontSize="14" fontWeight="600">
+                <text x="340" y="190" textAnchor="middle" fill="var(--accent-cyan)" fontSize="14" fontWeight="600">
                   Rare
                 </text>
-                <text x="340" y="208" textAnchor="middle" fill="#22d3ee" fontSize="14" fontWeight="600">
+                <text x="340" y="208" textAnchor="middle" fill="var(--accent-cyan)" fontSize="14" fontWeight="600">
                   Success
                 </text>
               </g>
@@ -127,7 +127,7 @@ export function Problem() {
                   refY="3"
                   orient="auto"
                 >
-                  <polygon points="0 0, 10 3, 0 6" fill="#64748b" />
+                  <polygon points="0 0, 10 3, 0 6" fill="var(--text-muted)" />
                 </marker>
               </defs>
             </svg>

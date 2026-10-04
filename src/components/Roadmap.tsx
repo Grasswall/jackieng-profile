@@ -37,7 +37,7 @@ const phases = [
     label: 'Phase 2 — In Progress',
     title: 'Expand Training Data',
     description:
-      'Scaling from 800 to 5,000+ formulation-outcome training pairs through pharma partnerships. Publishing validation study.',
+      'Scaling formulation-outcome training data through pharma partnerships. Publishing validation study.',
     badge: { text: 'In Progress', class: 'badge-cyan' },
   },
   {
@@ -62,7 +62,7 @@ export function Roadmap() {
     <section
       id="roadmap"
       className="section"
-      style={{ background: '#111827' }}
+      style={{ background: 'var(--bg-subtle)' }}
       ref={sectionRef}
     >
       <div className="section-inner">
@@ -77,7 +77,7 @@ export function Roadmap() {
               <p
                 className="mono"
                 style={{
-                  color: '#22D3EE',
+                  color: 'var(--accent-cyan)',
                   fontSize: '0.7rem',
                   fontWeight: 600,
                   marginBottom: '0.5rem',
@@ -88,7 +88,7 @@ export function Roadmap() {
               </p>
               <h3
                 style={{
-                  color: '#F8FAFC',
+                  color: 'var(--text)',
                   fontSize: '1.2rem',
                   fontWeight: 600,
                   marginBottom: '0.5rem',
