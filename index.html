@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jackie Ng</title>
   <meta name="description" content="Jackie Ng — drug delivery researcher, structural biologist, founder of AtomBios">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Crimson+Pro:wght@300;600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,74 +15,175 @@
       box-sizing: border-box;
     }
     
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background: #fff;
-      padding: 2rem;
-      max-width: 720px;
+      font-family: 'Crimson Pro', serif;
+      line-height: 1.7;
+      color: #0a0a0a;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #1a1a2e 75%, #0a0a0a 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 30s ease infinite;
+      padding: 3rem 2rem;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 680px;
       margin: 0 auto;
+      background: rgba(255, 255, 255, 0.97);
+      padding: 4rem 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      border-radius: 2px;
+      animation: fadeInUp 0.8s ease-out;
     }
     
     h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
+      font-family: 'Space Mono', monospace;
+      font-size: 3.5rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
+      color: #0a0a0a;
+      animation: fadeInUp 0.8s ease-out 0.1s backwards;
     }
     
     .intro {
-      font-size: 1.125rem;
-      color: #4a4a4a;
-      margin-bottom: 3rem;
-      line-height: 1.5;
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: #2a2a2a;
+      margin-bottom: 3.5rem;
+      line-height: 1.6;
+      animation: fadeInUp 0.8s ease-out 0.2s backwards;
     }
     
     h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin: 3rem 0 1rem;
-      border-bottom: 1px solid #e0e0e0;
-      padding-bottom: 0.5rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin: 3rem 0 1.25rem;
+      color: #0a0a0a;
+      position: relative;
+      padding-left: 1.5rem;
+      animation: fadeInUp 0.8s ease-out 0.3s backwards;
+    }
+    
+    h2::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 20px;
+      background: #d63031;
     }
     
     ul {
       list-style: none;
+      animation: fadeInUp 0.8s ease-out 0.4s backwards;
     }
     
     li {
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
+      padding-left: 0;
+      font-size: 1.0625rem;
+      font-weight: 300;
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+    
+    li:hover {
+      transform: translateX(4px);
     }
     
     a {
-      color: #1a73e8;
+      color: #0a0a0a;
       text-decoration: none;
+      border-bottom: 1px solid #d63031;
+      transition: border-color 0.2s ease, color 0.2s ease;
+      font-weight: 600;
     }
     
     a:hover {
-      text-decoration: underline;
+      color: #d63031;
+      border-bottom-color: transparent;
     }
     
     .year {
-      color: #767676;
-      font-size: 0.9375rem;
+      font-family: 'Space Mono', monospace;
+      color: #888;
+      font-size: 0.875rem;
       display: inline-block;
       min-width: 3rem;
+      font-weight: 400;
+    }
+    
+    .note {
+      color: #5a5a5a;
+      font-size: 0.9375rem;
+      margin-top: 0.75rem;
+      font-style: italic;
+      padding-left: 0;
     }
     
     .contact {
       margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid #e0e0e0;
-      color: #4a4a4a;
+      padding-top: 2.5rem;
+      border-top: 2px solid #0a0a0a;
+      color: #2a2a2a;
+      animation: fadeInUp 0.8s ease-out 0.5s backwards;
     }
     
-    @media (max-width: 640px) {
+    .contact p {
+      margin-bottom: 0.5rem;
+      font-size: 1.0625rem;
+    }
+    
+    .contact a {
+      font-weight: 400;
+    }
+    
+    @media (max-width: 768px) {
       body {
-        padding: 1.5rem 1rem;
+        padding: 2rem 1rem;
       }
       
+      .container {
+        padding: 2.5rem 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .intro {
+        font-size: 1.125rem;
+      }
+      
+      h2 {
+        font-size: 0.8125rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
       h1 {
         font-size: 2rem;
       }
@@ -92,57 +196,59 @@
 </head>
 <body>
   
-  <h1>Jackie Ng</h1>
-  <p class="intro">I work on drug delivery. Specifically, designing nanoparticles that cross biological barriers.</p>
-  
-  <h2>Publications</h2>
-  <ul>
-    <li><span class="year">2024</span> <a href="https://doi.org/10.1016/j.jbc.2024.107390">SARS-CoV-2 spike receptor-binding domain</a> — <em>Journal of Biological Chemistry</em></li>
-  </ul>
-  
-  <h2>Platform</h2>
-  <ul>
-    <li><a href="https://www.atombios.com">AtomBios</a> — 20nm programmable nanoliposome for brain and tumor delivery (founder, 2024–present)</li>
-    <li>HK$7.3M funded (HKSTP Incu-Bio, GBA Youth Innovation, PolyU Micro Fund)</li>
-  </ul>
-  
-  <h2>Structural Work</h2>
-  <ul>
-    <li><em>E. coli</em> acetyl-CoA carboxylase (2.7 Å)</li>
-    <li><em>S. aureus</em> FtsZ</li>
-    <li>Hospital phage capsid</li>
-    <li>Bacterial flagella</li>
-    <li>HspX chaperone</li>
-    <li>Ubiquitin complexes</li>
-  </ul>
-  <p style="color: #767676; font-size: 0.9375rem; margin-top: 0.5rem;">Structures deposited to PDB. Manuscripts in preparation.</p>
-  
-  <h2>Recognition</h2>
-  <ul>
-    <li><span class="year">2025</span> Lindau Nobel Laureate Meeting (biochemistry)</li>
-    <li><span class="year">2025</span> Shaw Prize Forum (life science & medicine)</li>
-    <li><span class="year">2025</span> Best Oral Presentation — PolyU ABCT RPG Symposium</li>
-    <li><span class="year">2024</span> Outstanding Postgraduate Student — PolyU ABCT</li>
-    <li><span class="year">2024</span> Rising Star — 贏在蘇州 BioBay Seed Competition</li>
-    <li><span class="year">2024</span> CAS Future Leader (Chinese Academy of Sciences)</li>
-  </ul>
-  
-  <h2>Writing</h2>
-  <ul>
-    <li><a href="https://www.instagram.com/jackieng_ch/">The Invisible Architect</a> — molecular structures, drug mechanisms, delivery gaps</li>
-  </ul>
-  <p style="color: #767676; font-size: 0.9375rem; margin-top: 0.5rem;">Visual essays on structural biology and drug delivery. ~30 posts on PDB structures, clinical trial failures, and platform development.</p>
-  
-  <h2>Talks</h2>
-  <ul>
-    <li><span class="year">2026</span> RTHK — Hong Kong Tech Innovation Series</li>
-    <li><span class="year">2026</span> Beijing TV — 转在北京 (Startup Journey)</li>
-    <li><span class="year">2025</span> PolyU ABCT RPG Symposium</li>
-  </ul>
-  
-  <div class="contact">
-    <p><a href="mailto:jackie.ng@atombios.com">jackie.ng@atombios.com</a></p>
-    <p><a href="https://www.instagram.com/jackieng_ch/">Instagram</a> · <a href="https://www.linkedin.com/in/jackie-ng-atombios/">LinkedIn</a></p>
+  <div class="container">
+    <h1>Jackie Ng</h1>
+    <p class="intro">I work on drug delivery. Specifically, designing nanoparticles that cross biological barriers.</p>
+    
+    <h2>Publications</h2>
+    <ul>
+      <li><span class="year">2024</span> <a href="https://doi.org/10.1016/j.jbc.2024.107390">SARS-CoV-2 spike receptor-binding domain</a> — <em>Journal of Biological Chemistry</em></li>
+    </ul>
+    
+    <h2>Platform</h2>
+    <ul>
+      <li><a href="https://www.atombios.com">AtomBios</a> — 20nm programmable nanoliposome for brain and tumor delivery (founder, 2024–present)</li>
+      <li>HK$7.3M funded (HKSTP Incu-Bio, GBA Youth Innovation, PolyU Micro Fund)</li>
+    </ul>
+    
+    <h2>Structural Work</h2>
+    <ul>
+      <li><em>E. coli</em> acetyl-CoA carboxylase (2.7 Å)</li>
+      <li><em>S. aureus</em> FtsZ</li>
+      <li>Hospital phage capsid</li>
+      <li>Bacterial flagella</li>
+      <li>HspX chaperone</li>
+      <li>Ubiquitin complexes</li>
+    </ul>
+    <p class="note">Structures deposited to PDB. Manuscripts in preparation.</p>
+    
+    <h2>Recognition</h2>
+    <ul>
+      <li><span class="year">2025</span> Lindau Nobel Laureate Meeting (biochemistry)</li>
+      <li><span class="year">2025</span> Shaw Prize Forum (life science & medicine)</li>
+      <li><span class="year">2025</span> Best Oral Presentation — PolyU ABCT RPG Symposium</li>
+      <li><span class="year">2024</span> Outstanding Postgraduate Student — PolyU ABCT</li>
+      <li><span class="year">2024</span> Rising Star — 贏在蘇州 BioBay Seed Competition</li>
+      <li><span class="year">2024</span> CAS Future Leader (Chinese Academy of Sciences)</li>
+    </ul>
+    
+    <h2>Writing</h2>
+    <ul>
+      <li><a href="https://www.instagram.com/jackieng_ch/">The Invisible Architect</a> — molecular structures, drug mechanisms, delivery gaps</li>
+    </ul>
+    <p class="note">Visual essays on structural biology and drug delivery. ~30 posts on PDB structures, clinical trial failures, and platform development.</p>
+    
+    <h2>Talks</h2>
+    <ul>
+      <li><span class="year">2026</span> RTHK — Hong Kong Tech Innovation Series</li>
+      <li><span class="year">2026</span> Beijing TV — 转在北京 (Startup Journey)</li>
+      <li><span class="year">2025</span> PolyU ABCT RPG Symposium</li>
+    </ul>
+    
+    <div class="contact">
+      <p><a href="mailto:jackie.ng@atombios.com">jackie.ng@atombios.com</a></p>
+      <p><a href="https://www.instagram.com/jackieng_ch/">Instagram</a> · <a href="https://www.linkedin.com/in/jackie-ng-atombios/">LinkedIn</a></p>
+    </div>
   </div>
 
 </body>
