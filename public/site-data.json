@@ -1,0 +1,243 @@
+{
+  "hero": {
+    "name": "Jackie Ng",
+    "title": "AI-Directed Drug Delivery Design",
+    "tagline": "I use AI to predict which nanoparticle formulations will cross biological barriers—then validate them experimentally.",
+    "facts": [
+      "20nm BBB platform",
+      "8× transcytosis",
+      "HK$7.3M funded",
+      "HKSTP Incu-Bio"
+    ],
+    "elite": [
+      "Lindau 2025",
+      "Shaw Prize Forum",
+      "CAS Future Leader"
+    ]
+  },
+  "recognition": {
+    "scientific": [],
+    "entrepreneurial": [
+      {
+        "Date": "2025",
+        "Title": "ABCT RPG Symposium Best Oral Presentation",
+        "Category": "Academic-Awards",
+        "Type": "Award",
+        "Organization": "PolyU ABCT",
+        "Status": "Won",
+        "Result": "Won",
+        "Evidence": "Academic-Awards/2025-ABCT RPG Symposium Best Oral Presentation/ABCT_RPG_Best_Oral_2025.jpg; Academic-Awards/2025-ABCT RPG Symposium Best Oral Presentation/ABCT_RPG_Best_Oral_2025_2.jpg",
+        "URL": "",
+        "Verified Date": "",
+        "Posted on Brand?": "No",
+        "Notes": "6th ABCT RPG Symposium"
+      },
+      {
+        "Date": "2024",
+        "Title": "ABCT Outstanding Postgraduate Student Award",
+        "Category": "Academic-Awards",
+        "Type": "Award",
+        "Organization": "PolyU ABCT",
+        "Status": "Won",
+        "Result": "Won",
+        "Evidence": "Academic-Awards/2024-ABCT Outstanding Postgraduate Student Award/ABCT_Outstanding_PG_2024.jpg",
+        "URL": "",
+        "Verified Date": "",
+        "Posted on Brand?": "No",
+        "Notes": ""
+      },
+      {
+        "Date": "2023",
+        "Title": "PolyU Research Postgraduate Scholarship + HK$25k Conference Grant",
+        "Category": "Academic-Awards",
+        "Type": "Award",
+        "Organization": "PolyU",
+        "Status": "Won",
+        "Result": "Awarded",
+        "Evidence": "Evidence pending",
+        "URL": "",
+        "Verified Date": "",
+        "Posted on Brand?": "No",
+        "Notes": ""
+      },
+      {
+        "Date": "2023",
+        "Title": "Selected Young Scientist — Hong Kong Laureate Forum",
+        "Category": "Academic-Awards",
+        "Type": "Award",
+        "Organization": "HKLF",
+        "Status": "Selected",
+        "Result": "Selected",
+        "Evidence": "Academic-Awards/2023-Selected Young Scientist — Hong Kong Laureate Forum/Hong Kong Laureate Forum.pdf",
+        "URL": "https://www.hklaureateforum.org/",
+        "Verified Date": "2026-07-12",
+        "Posted on Brand?": "No",
+        "Notes": "HKLF 2024 photos available"
+      },
+      {
+        "Date": "2018-2022",
+        "Title": "7× Dean's List",
+        "Category": "Academic-Awards",
+        "Type": "Award",
+        "Organization": "HKUST",
+        "Status": "Achieved",
+        "Result": "Achieved",
+        "Evidence": "Evidence pending",
+        "URL": "",
+        "Verified Date": "",
+        "Posted on Brand?": "No",
+        "Notes": "Across 7 semesters"
+      },
+      {
+        "Date": "2022-06",
+        "Title": "BSc First Class Honours — MCGA 4.006",
+        "Category": "Academic-Awards",
+        "Type": "Award",
+        "Organization": "HKUST",
+        "Status": "Achieved",
+        "Result": "Achieved",
+        "Evidence": "Academic-Awards/2022-06-BSc First Class Honours — MCGA 4.006/HKUST Diploma.pdf",
+        "URL": "",
+        "Verified Date": "2026-07-12",
+        "Posted on Brand?": "No",
+        "Notes": ""
+      },
+      {
+        "Date": "2021",
+        "Title": "D.H. Chen Foundation Scholarship",
+        "Category": "Scholarships",
+        "Type": "Award",
+        "Organization": "D.H. Chen Foundation",
+        "Status": "Won",
+        "Result": "Awarded",
+        "Evidence": "Scholarships/2021-D.H. Chen Foundation Scholarship/D H Chen Life Science Scholarship 2019.pdf",
+        "URL": "",
+        "Verified Date": "2026-07-12",
+        "Posted on Brand?": "No",
+        "Notes": ""
+      },
+      {
+        "Date": "2021",
+        "Title": "MTR Corporate Scholarship",
+        "Category": "Scholarships",
+        "Type": "Award",
+        "Organization": "MTR Corporation",
+        "Status": "Won",
+        "Result": "Awarded",
+        "Evidence": "Scholarships/2021-MTR Corporate Scholarship/MTR Corporation scholarship 2020.pdf",
+        "URL": "",
+        "Verified Date": "2026-07-12",
+        "Posted on Brand?": "No",
+        "Notes": ""
+      }
+    ],
+    "media": []
+  },
+  "education": [
+    {
+      "degree": "PhD, Applied Biology & Chemical Technology",
+      "institution": "The Hong Kong Polytechnic University",
+      "dates": "2023–present",
+      "honors": [
+        {
+          "name": "Outstanding Postgraduate Student Award, ABCT",
+          "date": 2024,
+          "evidence": "folder: 2024 ABCT Xmas + Best RPG"
+        },
+        {
+          "name": "Best Oral Presentation, ABCT RPG Symposium",
+          "date": 2025,
+          "evidence": "folder: 2025 6th ABCT RPG Symposium"
+        }
+      ]
+    },
+    {
+      "degree": "BSc, Biochemistry & Cell Biology (International Research Enrichment)",
+      "institution": "HKUST",
+      "dates": "2018–2022",
+      "honors": [
+        {
+          "name": "First Class Honours (MCGA 4.006)",
+          "date": 2022,
+          "evidence": "proof: Achievements/Academic-Awards/2022-06-BSc First Class Honours"
+        },
+        {
+          "name": "Dean's List ×7",
+          "date": "2018-2022"
+        }
+      ],
+      "scholarships": [
+        {
+          "name": "D.H. Chen Foundation Scholarship",
+          "evidence": "proof: Achievements/Scholarships/2021-D.H. Chen Foundation Scholarship"
+        },
+        {
+          "name": "MTR Corporate Scholarship",
+          "evidence": "proof: Achievements/Scholarships/2021-MTR Corporate Scholarship"
+        },
+        {
+          "name": "AEON Credit Service Scholarship",
+          "evidence": "proof: Achievements/Scholarships/2021-AEON Credit Service Scholarship"
+        },
+        {
+          "name": "Kitchell Undergraduate Research Award",
+          "evidence": "proof: Achievements/Scholarships/2021-Mr Amin & Lillian Kitchell Undergraduate Research Award"
+        },
+        {
+          "name": "UROP Support Grant (HK$18,960)",
+          "evidence": "proof: Achievements/Scholarships/2021-UROP Support Grant"
+        }
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "title": "JBC 2024 — SARS-CoV-2 spike RBD",
+      "context": "Undergraduate research at HKUST",
+      "status": "VERIFIED",
+      "evidence": "doi:10.1016/j.jbc.2024.107390"
+    },
+    {
+      "title": "E. coli acetyl-CoA carboxylase complex",
+      "description": "Novel mega-complex discovery, 2.7 Å resolution",
+      "status": "IN_PROGRESS",
+      "evidence": "Jackie verbal confirmation 2026-10-26",
+      "notes": "First atomic-resolution structure of this metabolic drug target"
+    },
+    {
+      "title": "Ub complex",
+      "description": "Mega-complex discovery",
+      "status": "IN_PROGRESS",
+      "evidence": "Jackie verbal confirmation 2026-10-26"
+    },
+    {
+      "title": "S. aureus FtsZ",
+      "description": "Mega-complex discovery",
+      "status": "IN_PROGRESS",
+      "evidence": "Jackie verbal confirmation 2026-10-26"
+    },
+    {
+      "title": "Hospital phage",
+      "description": "Mega-complex discovery",
+      "status": "IN_PROGRESS",
+      "evidence": "Jackie verbal confirmation 2026-10-26"
+    },
+    {
+      "title": "Bacterial flagella",
+      "description": "Mega-complex discovery",
+      "status": "IN_PROGRESS",
+      "evidence": "Jackie verbal confirmation 2026-10-26"
+    },
+    {
+      "title": "HspX",
+      "description": "Mega-complex discovery",
+      "status": "IN_PROGRESS",
+      "evidence": "Jackie verbal confirmation 2026-10-26"
+    }
+  ],
+  "gallery": [],
+  "molecular_images": {
+    "platform": "/home/jackie/.openclaw/workspaces/brand/pipeline/packages/alphagenome-sickle-cell/hero.png",
+    "structure": null
+  }
+}

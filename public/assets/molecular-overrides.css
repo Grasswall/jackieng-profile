@@ -1,0 +1,27 @@
+/* Update molecular breaks with real images */
+.molecular-break--1 .molecular-break__inner {
+  background: var(--bg-dark) url('../assets/images/molecular-1.png') center / cover no-repeat;
+}
+
+.molecular-break--2 .molecular-break__inner {
+  background: var(--bg-dark) url('../assets/images/molecular-2.png') center / cover no-repeat;
+}
+
+/* Add overlay for better caption readability */
+.molecular-break__inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+    rgba(10, 10, 10, 0.6) 0%, 
+    rgba(10, 10, 10, 0.8) 100%);
+  z-index: 1;
+}
+
+.molecular-break__caption {
+  position: relative;
+  z-index: 2;
+}
