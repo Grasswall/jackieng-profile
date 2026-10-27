@@ -8,7 +8,7 @@ import { meta, navigation } from "@/lib/data";
 
 const footerMeta = {
   email: meta.email,
-  copyright: `© ${new Date().getFullYear()} Jackie Ng — The Invisible Architect. All rights reserved.`,
+  copyright: `© ${new Date().getFullYear()} Jackie Ng. All rights reserved.`,
   socialLinks: [
     { label: "LinkedIn", href: meta.socials.linkedin, icon: "linkedin" as const },
     { label: "Instagram", href: meta.socials.instagram, icon: "instagram" as const },
@@ -30,10 +30,10 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: "Jackie Ng — The Invisible Architect",
+  title: "Jackie Ng — Drug Delivery Engineer",
   description: meta.description,
   openGraph: {
-    title: "Jackie Ng — The Invisible Architect",
+    title: "Jackie Ng — Drug Delivery Engineer",
     description: meta.description,
     url: meta.siteUrl,
     siteName: "Jackie Ng",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jackie Ng — The Invisible Architect",
+    title: "Jackie Ng — Drug Delivery Engineer",
     description: meta.description,
   },
 };
