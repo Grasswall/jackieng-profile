@@ -3,276 +3,699 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jackie Ng — AI-Directed Drug Delivery Design</title>
-  <meta name="description" content="I use AI to predict which nanoparticle formulations will cross biological barriers—then validate them experimentally. 20nm BBB platform, HK$7.3M funded, HKSTP Incu-Bio.">
+  <title>Jackie Ng — Drug Delivery Engineer</title>
+  <meta name="description" content="The best drugs already exist. They just can't get where they need to go. I build 20nm nanoparticle systems that cross the blood-brain barrier 8× better than conventional delivery.">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="Jackie Ng — AI-Directed Drug Delivery Design">
-  <meta property="og:description" content="I use AI to predict which nanoparticle formulations will cross biological barriers—then validate them experimentally.">
+  <meta property="og:title" content="Jackie Ng — Drug Delivery Engineer">
+  <meta property="og:description" content="20nm BBB platform · 8× transcytosis · HK$7.3M funded · Lindau 2025 · Shaw Prize Forum">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jackieng.com">
+  <meta property="og:url" content="https://grasswall.github.io/jackieng-profile/">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles-v2.css">
+  <style>
+    /* ── Reset & Base ────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    :root {
+      --bg-dark: #0F172A;
+      --bg-darker: #0B0E14;
+      --bg-card: #1E293B;
+      --text-primary: #F8FAFC;
+      --text-muted: #94A3B8;
+      --border: #334155;
+      --accent-cyan: #22D3EE;
+      --accent-orange: #F97316;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+    
+    body {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+    
+    a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+    
+    a:hover {
+      color: var(--accent-orange);
+    }
+    
+    /* ── Layout ──────────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .container-narrow {
+      max-width: 800px;
+    }
+    
+    section {
+      padding: 5rem 0;
+    }
+    
+    /* ── Navigation ──────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 4rem;
+    }
+    
+    nav .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    nav .logo {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+    
+    nav .links {
+      display: flex;
+      gap: 0.25rem;
+    }
+    
+    nav .links a {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.375rem;
+      transition: color 200ms ease, background 200ms ease;
+    }
+    
+    nav .links a:hover {
+      color: var(--text-primary);
+      background: var(--bg-card);
+    }
+    
+    /* ── Hero ────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-darker);
+      padding-top: 4rem;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(247, 115, 22, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero .subtitle {
+      font-size: clamp(1.125rem, 3vw, 1.5rem);
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 42ch;
+      line-height: 1.5;
+    }
+    
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .badge {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      padding: 0.625rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      background: var(--bg-card);
+    }
+    
+    .hero-elite {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--accent-cyan);
+      letter-spacing: 0.02em;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    
+    /* ── Section Heading ─────────────────────────────────────── */
+    .section-heading {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 3rem;
+      color: var(--text-primary);
+    }
+    
+    .section-intro {
+      font-size: 1.125rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+      max-width: 42ch;
+      line-height: 1.6;
+    }
+    
+    /* ── Story Section ───────────────────────────────────────── */
+    .story-section {
+      background: var(--bg-dark);
+    }
+    
+    .story-block {
+      margin-bottom: 4rem;
+    }
+    
+    .story-block:last-child {
+      margin-bottom: 0;
+    }
+    
+    .story-block h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+    
+    .story-block p {
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    
+    .story-block ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 1.5rem;
+    }
+    
+    .story-block ul li {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.75rem;
+    }
+    
+    .story-block ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+    
+    .story-block .highlight {
+      display: inline-block;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      background: rgba(34, 211, 238, 0.1);
+      padding: 0.125rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+    
+    /* ── Validation Grid ─────────────────────────────────────── */
+    .validation-section {
+      background: var(--bg-darker);
+    }
+    
+    .validation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .validation-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 2rem;
+      transition: transform 200ms ease, border-color 200ms ease;
+    }
+    
+    .validation-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-cyan);
+    }
+    
+    .validation-card h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--accent-cyan);
+      margin-bottom: 1rem;
+    }
+    
+    .validation-card ul {
+      list-style: none;
+    }
+    
+    .validation-card li {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+    
+    .validation-card li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+      font-weight: 700;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+    
+    /* ── Work Gallery ────────────────────────────────────────── */
+    .work-section {
+      background: var(--bg-dark);
+    }
+    
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    
+    .work-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      transition: transform 200ms ease, border-color 200ms ease;
+    }
+    
+    .work-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-cyan);
+    }
+    
+    .work-card-image {
+      aspect-ratio: 16/9;
+      background: var(--bg-darker);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: var(--accent-cyan);
+      opacity: 0.3;
+    }
+    
+    .work-card-content {
+      padding: 1.5rem;
+    }
+    
+    .work-card h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .work-card p {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+    
+    /* ── Contact ─────────────────────────────────────────────── */
+    .contact-section {
+      background: var(--bg-darker);
+      text-align: center;
+    }
+    
+    .contact-section .section-heading {
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-section .section-intro {
+      margin: 0 auto 3rem;
+      max-width: 50ch;
+    }
+    
+    .contact-cta {
+      display: inline-block;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--bg-darker);
+      background: var(--accent-orange);
+      padding: 1rem 2.5rem;
+      border-radius: 0.75rem;
+      transition: transform 200ms ease, background 200ms ease;
+    }
+    
+    .contact-cta:hover {
+      background: var(--accent-cyan);
+      transform: translateY(-2px);
+      color: var(--bg-darker);
+    }
+    
+    .contact-roles {
+      margin-top: 3rem;
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    
+    /* ── Footer ──────────────────────────────────────────────── */
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg-dark);
+    }
+    
+    footer p {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    
+    /* ── Responsive ──────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      section {
+        padding: 3rem 0;
+      }
+      
+      nav .links {
+        display: none;
+      }
+      
+      .hero-badges {
+        gap: 0.5rem;
+      }
+      
+      .badge {
+        font-size: 0.8125rem;
+        padding: 0.5rem 0.75rem;
+      }
+      
+      .validation-grid,
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav__inner container">
-      <a href="#" class="nav__name">Jackie Ng</a>
-      <div class="nav__links">
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">Jackie Ng</a>
+      <div class="links">
+        <a href="#story">Story</a>
+        <a href="#validation">Validation</a>
         <a href="#work">Work</a>
-        <a href="#recognition">Recognition</a>
-        <a href="#writing">Writing</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero (Dark) -->
-  <section class="hero hero--dark">
-    <div class="hero__inner container">
-      <div class="hero__content">
-        <h1 class="hero__name fade-up">Jackie Ng</h1>
-        <p class="hero__title fade-up">AI-Directed Drug Delivery Design</p>
-        <p class="hero__tagline fade-up">
-          I use AI to predict which nanoparticle formulations will cross biological barriers—then validate them experimentally.
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>The best drugs already exist. They just can't get where they need to go.</h1>
+        <p class="subtitle">
+          I build 20nm nanoparticle systems that cross the blood-brain barrier 8× better than conventional delivery.
         </p>
         
-        <div class="hero__facts fade-up">
-          <span>20nm BBB platform</span>
-          <span>8× transcytosis</span>
-          <span>HK$7.3M funded</span>
-          <span>HKSTP Incu-Bio</span>
+        <div class="hero-badges">
+          <span class="badge">20nm BBB platform</span>
+          <span class="badge">8× transcytosis</span>
+          <span class="badge">HK$7.3M funded</span>
+          <span class="badge">HKSTP Incu-Bio</span>
         </div>
         
-        <div class="hero__elite fade-up">
-          Lindau 2025 · Shaw Prize Forum · CAS Future Leader
+        <div class="hero-elite">
+          Lindau Nobel Laureate Meeting 2025 · Shaw Prize Forum 2025 · CAS Future Leader
         </div>
       </div>
-      
-      <div class="hero__visual">
-        <!-- Molecular render background (low opacity) -->
-        <!-- Will be added via CSS or img tag -->
-      </div>
     </div>
   </section>
 
-  <!-- Work (Light) -->
-  <section id="work" class="work">
-    <div class="container">
-      <h2 class="section-heading fade-up">Work</h2>
+  <!-- Story -->
+  <section id="story" class="story-section">
+    <div class="container container-narrow">
+      <h2 class="section-heading">How I got here</h2>
       
-      <div class="work__section fade-up">
-        <h3 class="work__subtitle">Platform</h3>
-        <h4 class="work__platform-name">20nm Programmable Nanoliposome Delivery System</h4>
-        
-        <ul class="work__list">
-          <li>4-5× smaller than conventional LNPs (20nm vs 80-100nm)</li>
-          <li>8× blood-brain barrier transcytosis efficiency</li>
-          <li>3.2-fold brain accumulation (p&lt;0.01)</li>
-          <li>Enhanced tumor penetration (size-dependent EPR effect)</li>
-          <li>Reduced immunogenicity (below immune surveillance thresholds)</li>
+      <div class="story-block">
+        <h3>The Problem</h3>
+        <p>
+          More than 99% of drugs injected into the bloodstream never reach their target. They get trapped in endosomes, blocked by the blood-brain barrier, or cleared before they can act. 
+        </p>
+        <p>
+          Conventional lipid nanoparticles (LNPs) are 80-100nm — too large for efficient transcytosis, too visible to immune surveillance. The drug isn't the problem. <span class="highlight">The delivery system is.</span>
+        </p>
+      </div>
+      
+      <div class="story-block">
+        <h3>The Insight</h3>
+        <p>
+          I started in structural biology — cryo-EM, PDB deposits, molecular mechanisms. But I kept seeing the same pattern: we understand the target, we have the molecule, and it still doesn't work in vivo.
+        </p>
+        <p>
+          So I pivoted. Not to better drugs, but to <span class="highlight">better delivery</span>. I used structural biology insights into endosomal sorting, AI-directed formulation optimization, and first-principles engineering to build a 20nm programmable nanoliposome platform.
+        </p>
+      </div>
+      
+      <div class="story-block">
+        <h3>The Platform</h3>
+        <p>
+          4-5× smaller than conventional LNPs. Below immune surveillance thresholds. Optimized for transcytosis.
+        </p>
+        <ul>
+          <li><strong>8× blood-brain barrier transcytosis efficiency</strong> (vs. conventional LNPs)</li>
+          <li><strong>3.2-fold brain accumulation</strong> (p&lt;0.01)</li>
+          <li><strong>Enhanced tumor penetration</strong> via size-dependent EPR effect</li>
+          <li><strong>Reduced immunogenicity</strong> below immune surveillance thresholds</li>
         </ul>
-        
-        <p class="work__detail">
-          <strong>Design approach:</strong> AI models predicted optimal size, surface chemistry, and lipid composition for BBB crossing. Structural biology insights into endosomal sorting guided targeting strategy. Computational fluid dynamics (CFD) simulated nanoparticle behavior at biological interfaces.
-        </p>
-        
-        <p class="work__detail">
-          <strong>Characterization:</strong> DLS, zeta potential, encapsulation efficiency, stability (thermal, pH, serum), in vivo PK/PD (brain accumulation, biodistribution).
-        </p>
-        
-        <p class="work__detail">
-          <strong>Validation:</strong> HK$7.3M funded · HKSTP Incu-Bio (national selection, 1/1000 acceptance) · Early pharma partnerships
-        </p>
-      </div>
-      
-      <div class="work__section fade-up">
-        <h3 class="work__subtitle">AI-Directed LNP Design</h3>
-        <p class="work__detail">
-          Designed and validated lipid nanoparticle (LNP) formulations using AI-directed predictions. Predicted optimal lipid ratios for specific delivery targets. Experimentally validated predictions (DLS, zeta potential, encapsulation efficiency, cellular uptake). Models accurately predicted in vivo performance.
-        </p>
-      </div>
-      
-      <div class="work__section fade-up">
-        <h3 class="work__subtitle">Technical Foundation</h3>
-        <ul class="work__list">
-          <li><strong>Structural biology:</strong> Cryo-EM structures (E. coli acetyl-CoA carboxylase 2.7 Å, S. aureus FtsZ, bacterial flagella, HspX, Ub complex) deposited in PDB/EMDB</li>
-          <li><strong>Computational methods:</strong> Molecular dynamics (MD), computational fluid dynamics (CFD), formulation optimization algorithms</li>
-          <li><strong>Wet-lab validation:</strong> Full analytical characterization pipeline (DLS, zeta, encapsulation, stability, PK/PD)</li>
-        </ul>
-      </div>
-      
-      <div class="work__section fade-up">
-        <h3 class="work__subtitle">Publication</h3>
-        <p class="work__detail">
-          <a href="https://doi.org/10.1016/j.jbc.2024.107390" target="_blank" rel="noopener">Journal of Biological Chemistry (2024)</a> — doi:10.1016/j.jbc.2024.107390
+        <p style="margin-top: 1.5rem;">
+          Validated through DLS, zeta potential, encapsulation efficiency, in vivo PK/PD (brain accumulation, biodistribution). AI models predicted optimal size, surface chemistry, and lipid composition for BBB crossing. CFD simulations modeled nanoparticle behavior at biological interfaces.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Molecular Break 1 (Dark) -->
-  <section class="molecular-break molecular-break--1">
-    <div class="molecular-break__inner">
-      <!-- Full-bleed molecular render -->
-      <div class="molecular-break__caption">
-        20nm nanoliposome platform visualization
-      </div>
-    </div>
-  </section>
-
-  <!-- Recognition (Light) -->
-  <section id="recognition" class="recognition">
+  <!-- Validation -->
+  <section id="validation" class="validation-section">
     <div class="container">
-      <h2 class="section-heading fade-up">Recognition</h2>
+      <h2 class="section-heading">Validation</h2>
       
-      <div class="recognition__grid">
-        <div class="recognition__category fade-up">
-          <h3 class="recognition__category-name">Scientific Elite</h3>
-          <ul class="recognition__list">
+      <div class="validation-grid">
+        <div class="validation-card">
+          <h4>Elite Scientific Access</h4>
+          <ul>
             <li>Lindau Nobel Laureate Meeting 2025</li>
             <li>Shaw Prize Forum 2025</li>
             <li>Chinese Academy of Sciences Future Leader</li>
+            <li>Hong Kong Laureate Forum 2024</li>
+            <li>São Paulo Advanced Science School</li>
           </ul>
         </div>
         
-        <div class="recognition__category fade-up">
-          <h3 class="recognition__category-name">Platform Validation</h3>
-          <ul class="recognition__list">
-            <li>HKSTP Incu-Bio (HK$6M, national competition)</li>
+        <div class="validation-card">
+          <h4>Platform Validation</h4>
+          <ul>
+            <li>HKSTP Incu-Bio (HK$6M, 1/1000 acceptance)</li>
+            <li>HK$7.3M total funding secured</li>
             <li>北大滙豐-劍橋嘉治 Hong Kong Champion</li>
             <li>贏在蘇州 Rising Star Award</li>
+            <li>SUSS Pitch for Good — People's Choice Award (Singapore)</li>
             <li>Techathon+ Gold Medal</li>
-            <li>GBA Youth Innovation & Entrepreneurship (Champion)</li>
           </ul>
         </div>
         
-        <div class="recognition__category fade-up">
-          <h3 class="recognition__category-name">Media</h3>
-          <ul class="recognition__list">
-            <li>RTHK 尋找創科的故事</li>
-            <li>BRTV 轉在北京</li>
-            <li>Ming Pao, Sing Tao, HK01</li>
+        <div class="validation-card">
+          <h4>Media & Speaking</h4>
+          <ul>
+            <li>RTHK 尋找創科的故事 (featured)</li>
+            <li>BRTV 轉在北京 (featured)</li>
+            <li>Ming Pao, Sing Tao, HK01 coverage</li>
+            <li>Max Planck Institute RPG Forum — Speaker</li>
+            <li>HK-Jiangsu Symposium on Drug Discovery — Speaker</li>
+            <li>Shaw Laureates Roundtable — Academic Representative</li>
           </ul>
         </div>
         
-        <div class="recognition__category fade-up">
-          <h3 class="recognition__category-name">Education</h3>
-          <p class="recognition__detail">
-            <strong>PolyU</strong> — DPhil (Doctor of Philosophy), Drug Delivery & Structural Biology<br>
-            <strong>HKUST</strong> — BSc Biochemistry, First Class Honours, 4.0/4.3 GPA, Dean's List ×7
-          </p>
+        <div class="validation-card">
+          <h4>Technical Foundation</h4>
+          <ul>
+            <li>DPhil (Doctor of Philosophy), PolyU — Drug Delivery & Structural Biology</li>
+            <li>BSc Biochemistry, HKUST — First Class Honours, 4.0/4.3 GPA, 7× Dean's List</li>
+            <li>J. Biological Chemistry (2024) — doi:10.1016/j.jbc.2024.107390</li>
+            <li>Cryo-EM structures deposited in PDB/EMDB</li>
+            <li>ABCT RPG Symposium Best Oral Presentation 2025</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Molecular Break 2 (Dark) -->
-  <section class="molecular-break molecular-break--2">
-    <div class="molecular-break__inner">
-      <!-- Full-bleed cryo-EM structure -->
-      <div class="molecular-break__caption">
-        Cryo-EM structure: E. coli acetyl-CoA carboxylase (2.7 Å)
-      </div>
-    </div>
-  </section>
-
-  <!-- Writing (Light) -->
-  <section id="writing" class="writing">
+  <!-- Work -->
+  <section id="work" class="work-section">
     <div class="container">
-      <h2 class="section-heading fade-up">Writing</h2>
-      <p class="writing__intro fade-up">
-        I translate complex molecular mechanisms and computational approaches for technical and non-technical audiences.
+      <h2 class="section-heading">Selected Work</h2>
+      <p class="section-intro">
+        I translate molecular mechanisms and computational approaches for technical and non-technical audiences.
       </p>
       
-      <div class="writing__grid">
-        <!-- Gallery items will be populated from gallery.json -->
-        <div class="writing__item fade-up">
-          <div class="writing__thumb">
-            <img src="placeholder.jpg" alt="Post thumbnail">
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-card-image">🧬</div>
+          <div class="work-card-content">
+            <h4>THE GAP: Endosomal Escape</h4>
+            <p>Why 99% of drugs never reach their target — and how 20nm nanoparticles change the math.</p>
           </div>
-          <h3 class="writing__title">THE GAP: Endosomal Escape</h3>
         </div>
         
-        <div class="writing__item fade-up">
-          <div class="writing__thumb">
-            <img src="placeholder.jpg" alt="Post thumbnail">
+        <div class="work-card">
+          <div class="work-card-image">🎯</div>
+          <div class="work-card-content">
+            <h4>KRAS: Undruggable → Druggable</h4>
+            <p>How structural biology and AI-directed drug design cracked the "undruggable" oncogene.</p>
           </div>
-          <h3 class="writing__title">KRAS: Undruggable → Druggable</h3>
         </div>
         
-        <div class="writing__item fade-up">
-          <div class="writing__thumb">
-            <img src="placeholder.jpg" alt="Post thumbnail">
+        <div class="work-card">
+          <div class="work-card-image">⚛️</div>
+          <div class="work-card-content">
+            <h4>Arms Race: 3-Drug Resistance</h4>
+            <p>CFD simulations of drug unbinding dynamics and resistance mechanisms in cancer therapy.</p>
           </div>
-          <h3 class="writing__title">CFD: Molecular Unbinding Simulation</h3>
-        </div>
-        
-        <div class="writing__item fade-up">
-          <div class="writing__thumb">
-            <img src="placeholder.jpg" alt="Post thumbnail">
-          </div>
-          <h3 class="writing__title">Arms Race: 3-Drug Resistance</h3>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact (Light) -->
-  <section id="contact" class="contact">
+  <!-- Contact -->
+  <section id="contact" class="contact-section">
     <div class="container">
-      <h2 class="section-heading fade-up">Open to Opportunities</h2>
+      <h2 class="section-heading">Let's work together</h2>
+      <p class="section-intro">
+        I'm open to senior drug delivery roles, AI for therapeutics positions, platform engineering opportunities, and technical consulting.
+      </p>
       
-      <div class="contact__grid">
-        <div class="contact__column fade-up">
-          <h3 class="contact__subhead">Ideal Roles</h3>
-          <ul class="contact__list">
-            <li>Drug delivery / formulation scientist (Senior, Principal level)</li>
-            <li>AI for therapeutics positions</li>
-            <li>Platform engineering (biotech, pharma R&D)</li>
-            <li>Technical consulting / advising</li>
-          </ul>
-        </div>
-        
-        <div class="contact__column fade-up">
-          <h3 class="contact__subhead">Especially Interested In</h3>
-          <ul class="contact__list">
-            <li>CNS drug delivery (BBB penetration, brain targeting)</li>
-            <li>Solid tumor targeting (EPR, penetration, retention)</li>
-            <li>mRNA/siRNA therapeutics (beyond liver)</li>
-            <li>AI for formulation design</li>
-          </ul>
-        </div>
-        
-        <div class="contact__column fade-up">
-          <h3 class="contact__subhead">Also Open To</h3>
-          <ul class="contact__list">
-            <li>VC technical advising (AI × biology, deep-tech biotech)</li>
-            <li>Research collaborations (academic, industry partnerships)</li>
-            <li>Speaking engagements</li>
-          </ul>
-        </div>
-      </div>
+      <a href="mailto:jackie.ng@atombios.com" class="contact-cta">Get in touch</a>
       
-      <div class="contact__email-wrap fade-up">
-        <a href="mailto:jackie.ng@atombios.com" class="contact__email">jackie.ng@atombios.com</a>
+      <div class="contact-roles">
+        Especially interested in CNS drug delivery, solid tumor targeting, mRNA/siRNA therapeutics beyond liver, and AI for formulation design.
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer>
     <div class="container">
       <p>&copy; 2026 Jackie Ng. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="main-v2.js"></script>
+  <script>
+    // Simple scroll reveal for fade-up animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.story-block, .validation-card, .work-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(2rem)';
+      el.style.transition = 'opacity 600ms ease, transform 600ms ease';
+      observer.observe(el);
+    });
+  </script>
+
 </body>
 </html>
