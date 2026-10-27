@@ -6,27 +6,28 @@ const storyBlocks = [
   {
     title: 'The Problem',
     content: [
-      'More than 99% of drugs injected into the bloodstream never reach their target. They get trapped in endosomes, blocked by the blood-brain barrier, or cleared before they can act.',
-      'Conventional lipid nanoparticles (LNPs) are 80-100nm — too large for efficient transcytosis, too visible to immune surveillance. The drug isn\'t\'t the problem. The delivery system is.',
+      '99% of systemically delivered drugs fail to reach the brain. The blood-brain barrier blocks large molecules, traps conventional LNPs in endosomes, and clears therapeutics before they act.',
+      'Standard lipid nanoparticles (80-100nm) are too large for efficient transcytosis and too visible to immune surveillance. CNS delivery remains the hardest problem in drug development.',
     ],
   },
   {
     title: 'The Insight',
     content: [
-      'I started in structural biology — cryo-EM, PDB deposits, molecular mechanisms. But I kept seeing the same pattern: we understand the target, we have the molecule, and it still doesn\'t work in vivo.',
-      'So I pivoted. Not to better drugs, but to better delivery. I used structural biology insights into endosomal sorting, AI-directed formulation optimization, and first-principles engineering to build a 20nm programmable nanoliposome platform.',
+      'I started in structural biology — depositing novel cryo-EM structures, understanding protein mechanisms at atomic resolution. But the pattern was clear: exceptional CNS therapeutics fail because they can\'t cross the blood-brain barrier.',
+      'So I pivoted to brain delivery engineering. I applied structural biology insights into endosomal transcytosis, designed 20nm nanoparticles small enough to evade immune surveillance, and validated 8× BBB crossing vs. conventional LNPs.',
     ],
   },
   {
     title: 'The Platform',
     content: [
-      '4-5× smaller than conventional LNPs. Below immune surveillance thresholds. Optimized for transcytosis.',
+      '20nm — 4-5× smaller than conventional LNPs. Below immune surveillance thresholds. Optimized for blood-brain barrier transcytosis.',
+      'Research direction: AI-guided formulation design via protein corona engineering. The corona determines biodistribution more than synthetic surface properties — understanding it mechanistically could enable programmable organ targeting beyond the brain.',
     ],
     list: [
-      '8× blood-brain barrier transcytosis efficiency (vs. conventional LNPs)',
-      '3.2-fold brain accumulation (p<0.01)',
-      'Enhanced penetration via size-dependent EPR effect',
-      'Reduced immunogenicity below surveillance thresholds',
+      '8× blood-brain barrier transcytosis vs. conventional LNPs (validated)',
+      '3.2-fold brain accumulation in vivo (p<0.01)',
+      'Validated by Sirnaomics partnership (~$100M market cap)',
+      'HK$7.05M funded (HKSTP Incu-Bio, PolyU IEP)',
     ],
   },
 ]

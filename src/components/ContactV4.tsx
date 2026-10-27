@@ -71,7 +71,7 @@ export function ContactV4({ email, socialLinks, copyright }: ContactProps) {
           data-reveal
           className="text-lg text-[#94A3B8] font-light leading-[1.6] mb-12 max-w-[50ch] mx-auto"
         >
-          I&apos;m open to senior drug delivery roles, AI for therapeutics positions, platform engineering opportunities, and technical consulting.
+          I&apos;m open to brain/CNS delivery roles, AI for therapeutics positions, platform engineering opportunities, and technical consulting.
         </p>
 
         {/* Email CTA */}

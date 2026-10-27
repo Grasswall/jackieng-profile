@@ -6,14 +6,14 @@ import { gsap } from '@/lib/gsapConfig'
 import { Badge } from './ui/Badge'
 
 const heroBadges = [
-  '20nm BBB platform',
-  '8× transcytosis',
-  'HK$7.05M funded',
-  'HKSTP Incu-Bio',
+  'BBB-Targeted Delivery',
+  '20nm Platform',
+  '8× Transcytosis',
+  'HK$7.05M Funded',
 ]
 
 const eliteBadges = [
-  'Lindau Nobel Laureate Meeting 2025',
+  'Lindau Nobel 2025',
   'Shaw Prize Forum 2025',
   'CAS Future Leader',
 ]
@@ -82,14 +82,14 @@ export function HeroV4() {
             ref={headingRef}
             className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight mb-6 bg-gradient-to-br from-[#F8FAFC] to-[#94A3B8] bg-clip-text text-transparent"
           >
-            The best drugs already exist. They just can&apos;t get where they need to go.
+            Brain delivery scientist
           </h1>
 
           <p
             ref={subtitleRef}
             className="text-xl md:text-2xl text-[#94A3B8] font-light leading-[1.5] mb-10 max-w-[42ch]"
           >
-            I build 20nm nanoparticle systems that cross the blood-brain barrier 8× better than conventional delivery.
+            Engineering 20nm nanoparticles that cross the blood-brain barrier. 8× transcytosis, 3.2-fold brain accumulation. Researching AI-guided formulation design via protein corona engineering.
           </p>
 
           {/* Platform badges */}

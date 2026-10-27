@@ -1,5 +1,6 @@
 import { HeroV4 } from "@/components/HeroV4";
 import { StoryV4 } from "@/components/StoryV4";
+import { ResearchDirections } from "@/components/ResearchDirections";
 import { ValidationV4 } from "@/components/ValidationV4";
 import { SelectedWorkV4 } from "@/components/SelectedWorkV4";
 import { ContactV4 } from "@/components/ContactV4";
@@ -14,13 +15,16 @@ export default function Home() {
       {/* Story: dark navy */}
       <StoryV4 />
 
-      {/* Validation: dark charcoal */}
+      {/* Research Directions: dark charcoal */}
+      <ResearchDirections />
+
+      {/* Validation: dark navy */}
       <ValidationV4 />
 
-      {/* Selected Work: dark navy */}
+      {/* Selected Work: dark charcoal */}
       <SelectedWorkV4 />
 
-      {/* Contact: dark charcoal */}
+      {/* Contact: dark navy */}
       <ContactV4
         email={meta.email}
         socialLinks={[
