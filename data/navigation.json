@@ -1,8 +1,6 @@
 [
-  { "label": "Problem", "href": "#problem" },
-  { "label": "Approach", "href": "#approach" },
-  { "label": "Platform", "href": "#platform" },
-  { "label": "Founder", "href": "#founder" },
-  { "label": "Traction", "href": "#traction" },
-  { "label": "Contact", "href": "#contact" }
+  {"label": "About",    "href": "/about"},
+  {"label": "Work",     "href": "/work"},
+  {"label": "Speaking", "href": "/speaking"},
+  {"label": "Contact",  "href": "#contact"}
 ]
