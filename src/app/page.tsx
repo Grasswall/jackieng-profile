@@ -1,5 +1,8 @@
 import { HeroV4 } from "@/components/HeroV4";
 import { StoryV4 } from "@/components/StoryV4";
+import { SizeComparison } from "@/components/interactive/SizeComparison";
+import { InVivoProofs } from "@/components/interactive/InVivoProofs";
+import { MLPredictor } from "@/components/interactive/MLPredictor";
 import { ResearchDirections } from "@/components/ResearchDirections";
 import { ValidationV4 } from "@/components/ValidationV4";
 import { SelectedWorkV4 } from "@/components/SelectedWorkV4";
@@ -14,6 +17,15 @@ export default function Home() {
 
       {/* Story: dark navy */}
       <StoryV4 />
+
+      {/* Size Comparison: dark navy */}
+      <SizeComparison />
+
+      {/* In Vivo Proofs: dark charcoal */}
+      <InVivoProofs />
+
+      {/* ML Predictor: dark charcoal */}
+      <MLPredictor />
 
       {/* Research Directions: dark charcoal */}
       <ResearchDirections />
