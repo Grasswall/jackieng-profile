@@ -82,6 +82,18 @@ const wins: GalleryItem[] = [
     caption: 'Techathon+ 10th Anniversary — Gold Medal, 2026',
     span: 'col-span-2 row-span-1 md:col-span-1',
   },
+  {
+    src: `${basePath}/images/gallery/china-resource-1.jpg`,
+    alt: 'China Resources and HKSTP event',
+    caption: 'China Resources × HKSTP, 2026',
+    span: 'col-span-2 row-span-1',
+  },
+  {
+    src: `${basePath}/images/gallery/gba-hyab-1.jpg`,
+    alt: 'GBA HYAB donor visit',
+    caption: 'GBA HYAB Donor Visit, 2026',
+    span: 'col-span-1 row-span-2',
+  },
 ]
 
 const allItems = [...items, ...wins]
@@ -164,10 +176,10 @@ export function PhotoGallery() {
 
           <div data-reveal>
             <h3 className="text-2xl md:text-3xl font-semibold text-[#F8FAFC] mb-2">
-              Competitions
+              Competitions and programmes
             </h3>
             <p className="text-[#94A3B8] mb-6">
-              Pitch competitions and awards from 2026.
+              Pitch competitions, awards and programme events from 2026.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] gap-3">
               {wins.map((item, i) => (
