@@ -6,6 +6,7 @@ import { PhotoGallery } from "@/components/interactive/PhotoGallery";
 import { InVivoProofs } from "@/components/interactive/InVivoProofs";
 import { CoronaClasses } from "@/components/interactive/CoronaClasses";
 import { SimulatedPredictor } from "@/components/interactive/SimulatedPredictor";
+import { StructuralBridge } from "@/components/interactive/StructuralBridge";
 import { ResearchDirections } from "@/components/ResearchDirections";
 import { ValidationV4 } from "@/components/ValidationV4";
 import { SelectedWorkV4 } from "@/components/SelectedWorkV4";
@@ -33,7 +34,10 @@ export default function Home() {
       {/* Protein corona cryo-EM 2D classes */}
       <CoronaClasses />
 
-      {/* Live simulation */}
+      {/* Bridge: cryo-EM corona to the simulated model */}
+      <StructuralBridge />
+
+      {/* Simulation (pre-rendered Manim) */}
       <SimulatedPredictor />
 
       {/* Photo gallery */}

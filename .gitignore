@@ -34,3 +34,8 @@ yarn-error.log*
 !public/images/corona/*.png
 !public/images/corona/*.jpg
 !public/images/corona/*.mp4
+
+# Exception: pre-rendered Manim ML visualization used by SimulatedPredictor
+!public/videos/ml-viz/
+!public/videos/ml-viz/*.mp4
+!public/videos/ml-viz/*.jpg
