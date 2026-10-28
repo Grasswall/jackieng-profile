@@ -1,5 +1,5 @@
 import { HeroV4 } from "@/components/HeroV4";
-import { StoryV4 } from "@/components/StoryV4";
+import { StoryStage } from "@/components/StoryStage";
 import { ProofStrip } from "@/components/ProofStrip";
 import { Vision } from "@/components/Vision";
 import { Flow } from "@/components/interactive/Flow";
@@ -13,7 +13,7 @@ export default function Home() {
     <main>
       <HeroV4 />
       <ProofStrip />
-      <StoryV4 />
+      <StoryStage />
       {/* One guided flow: cryo-EM -> 3D -> ML -> output */}
       <Flow />
       <Vision />
