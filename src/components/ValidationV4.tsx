@@ -15,8 +15,6 @@ const tracks: { title: string; color: string; entries: Entry[] }[] = [
       { year: '2025', label: 'Lindau Nobel Laureate Meeting' },
       { year: '2025', label: 'Shaw Prize Forum' },
       { year: '', label: 'CAS Future Leader' },
-      { year: '2024', label: 'Hong Kong Laureate Forum' },
-      { year: '', label: 'São Paulo Advanced Science School' },
     ],
   },
   {
@@ -25,10 +23,7 @@ const tracks: { title: string; color: string; entries: Entry[] }[] = [
     entries: [
       { year: '', label: 'HK$7.05M total funding secured' },
       { year: '', label: 'HKSTP Incu-Bio, HK$6M' },
-      { year: '', label: '北大滙豐-劍橋嘉治 Hong Kong Champion' },
       { year: '', label: '贏在蘇州 Rising Star Award' },
-      { year: '', label: "SUSS Pitch for Good — People's Choice" },
-      { year: '', label: 'Techathon+ Gold Medal' },
     ],
   },
   {
@@ -36,10 +31,7 @@ const tracks: { title: string; color: string; entries: Entry[] }[] = [
     color: '#A78BFA',
     entries: [
       { year: '', label: 'RTHK 尋找創科的故事 — featured' },
-      { year: '', label: 'BRTV 轉在北京 — featured' },
-      { year: '', label: 'Ming Pao, Sing Tao, HK01 coverage' },
       { year: '', label: 'Max Planck Institute RPG Forum — speaker' },
-      { year: '', label: 'HK-Jiangsu Symposium on Drug Discovery — speaker' },
       { year: '', label: 'Shaw Laureates Roundtable — academic representative' },
     ],
   },
@@ -49,8 +41,6 @@ const tracks: { title: string; color: string; entries: Entry[] }[] = [
     entries: [
       { year: '2023–', label: 'PhD, PolyU — Drug Delivery & Structural Biology' },
       { year: '2024', label: 'J. Biological Chemistry — doi:10.1016/j.jbc.2024.107390' },
-      { year: '2025', label: 'ABCT RPG Symposium — Best Oral Presentation' },
-      { year: '', label: 'BSc Biochemistry, HKUST — First Class Honours, 4.0/4.3 GPA' },
       { year: '', label: 'Cryo-EM structures deposited in PDB/EMDB' },
     ],
   },
@@ -73,7 +63,7 @@ export function ValidationV4() {
           Validation
         </h2>
         <p className="text-lg text-[#94A3B8] font-light leading-[1.6] mb-16 max-w-[52ch]">
-          Access, funding and wins, media and speaking, and training. Years appear only where the source gives one.
+          The short list. Full record on request.
         </p>
 
         <div ref={containerRef} className="grid md:grid-cols-2 gap-x-16 gap-y-16">
