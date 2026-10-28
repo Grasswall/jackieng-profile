@@ -5,7 +5,7 @@ import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "About — Jackie Ng",
-  description: "Structural biologist turned brain-delivery scientist. Building 20nm nanoparticles that cross the blood-brain barrier.",
+  description: "Structural biologist building ML for drug delivery. Building 20nm nanoparticles that cross the blood-brain barrier.",
 };
 
 const educationItems = [

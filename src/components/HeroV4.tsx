@@ -89,14 +89,14 @@ export function HeroV4() {
             <span className="block text-xl md:text-2xl font-light normal-case tracking-normal text-[#94A3B8] mb-2">
               Jackie Ng, founder of AtomBios
             </span>
-            <span className="text-[#F97316]">Brain</span> delivery scientist
+            <span className="text-[#F97316]">Structural ML</span> scientist
           </h1>
 
           <p
             ref={subtitleRef}
             className="text-lg md:text-xl text-[#94A3B8] font-light leading-[1.5] mb-8 max-w-[42ch]"
           >
-            Structural biologist turned delivery scientist. 20nm nanoparticles that cross the blood-brain barrier: 8× transcytosis, 3.2-fold brain accumulation. Next: corona-programmable delivery.
+            Structural biologist building ML for drug delivery. 20nm nanoparticles that cross the blood-brain barrier: 8× transcytosis, 3.2-fold brain accumulation. Next: corona-programmable delivery.
           </p>
 
           <a
