@@ -57,19 +57,49 @@ const items: GalleryItem[] = [
   },
 ]
 
+const wins: GalleryItem[] = [
+  {
+    src: `${basePath}/images/gallery/champion-1.jpg`,
+    alt: 'PHBS-CJBS Global Pitch Competition final round',
+    caption: 'PHBS-CJBS Global Pitch Competition, Final Round, 2026',
+    span: 'col-span-2 row-span-1',
+  },
+  {
+    src: `${basePath}/images/gallery/champion-2.jpg`,
+    alt: 'PHBS-CJBS Global Pitch Competition final round',
+    caption: 'PHBS-CJBS Global Pitch Competition, Final Round, 2026',
+    span: 'col-span-1 row-span-1',
+  },
+  {
+    src: `${basePath}/images/gallery/suss-1.jpg`,
+    alt: "SUSS Pitch for Good award event",
+    caption: "SUSS Pitch for Good — People's Choice Award, 2026",
+    span: 'col-span-1 row-span-1',
+  },
+  {
+    src: `${basePath}/images/gallery/techathon-1.jpg`,
+    alt: 'Techathon+ 10th Anniversary award event',
+    caption: 'Techathon+ 10th Anniversary — Gold Medal, 2026',
+    span: 'col-span-2 row-span-1 md:col-span-1',
+  },
+]
+
+const allItems = [...items, ...wins]
+
 export function PhotoGallery() {
   const containerRef = useScrollReveal()
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   const close = useCallback(() => setLightboxIndex(null), [])
   const next = useCallback(
-    () => setLightboxIndex((i) => (i === null ? null : (i + 1) % items.length)),
+    () =>
+      setLightboxIndex((i) => (i === null ? null : (i + 1) % allItems.length)),
     []
   )
   const prev = useCallback(
     () =>
       setLightboxIndex((i) =>
-        i === null ? null : (i - 1 + items.length) % items.length
+        i === null ? null : (i - 1 + allItems.length) % allItems.length
       ),
     []
   )
@@ -131,6 +161,37 @@ export function PhotoGallery() {
               </button>
             ))}
           </div>
+
+          <div data-reveal>
+            <h3 className="text-2xl md:text-3xl font-semibold text-[#F8FAFC] mb-2">
+              Competitions
+            </h3>
+            <p className="text-[#94A3B8] mb-6">
+              Pitch competitions and awards from 2026.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] gap-3">
+              {wins.map((item, i) => (
+                <button
+                  key={item.src}
+                  onClick={() => setLightboxIndex(items.length + i)}
+                  className={`relative overflow-hidden rounded-xl group focus:outline-none focus:ring-2 focus:ring-[#22D3EE] ${item.span}`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0E14]/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <span className="text-sm text-[#F8FAFC] font-medium text-left">
+                      {item.caption}
+                    </span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -178,12 +239,12 @@ export function PhotoGallery() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={items[lightboxIndex].src}
-              alt={items[lightboxIndex].alt}
+              src={allItems[lightboxIndex].src}
+              alt={allItems[lightboxIndex].alt}
               className="max-w-full max-h-[75vh] object-contain rounded-lg"
             />
             <figcaption className="mt-4 text-[#94A3B8] text-sm">
-              {items[lightboxIndex].caption}
+              {allItems[lightboxIndex].caption}
             </figcaption>
           </figure>
         </div>
