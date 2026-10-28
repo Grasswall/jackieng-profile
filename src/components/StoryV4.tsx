@@ -51,7 +51,7 @@ export function StoryV4() {
 
         <div ref={containerRef} className="space-y-16">
           {storyBlocks.map((block, idx) => (
-            <div key={idx} className="opacity-0 translate-y-8" data-reveal>
+            <div key={idx} data-reveal>
               <h3 className="text-2xl font-semibold tracking-tight text-[#F8FAFC] mb-4">
                 {block.title}
               </h3>

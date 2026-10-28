@@ -49,7 +49,7 @@ export function ResearchDirections() {
           {directions.map((item, idx) => (
             <div
               key={idx}
-              className="opacity-0 translate-y-8 border border-[#1E293B] bg-[#0F172A]/60 backdrop-blur-sm rounded-2xl p-8 hover:border-[#334155] transition-colors duration-300"
+              className="border border-[#1E293B] bg-[#0F172A]/60 backdrop-blur-sm rounded-2xl p-8 hover:border-[#334155] transition-colors duration-300"
               data-reveal
             >
               <div className="flex items-start justify-between gap-4 mb-3">

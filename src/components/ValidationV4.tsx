@@ -78,7 +78,7 @@ export function ValidationV4() {
 
         <div ref={containerRef} className="grid md:grid-cols-2 gap-x-16 gap-y-16">
           {tracks.map((track) => (
-            <div key={track.title} data-reveal className="opacity-0 translate-y-8">
+            <div key={track.title} data-reveal>
               <h3
                 className="text-sm font-semibold tracking-[0.08em] uppercase mb-6"
                 style={{ color: track.color }}
