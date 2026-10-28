@@ -42,6 +42,9 @@ export function StructuralBridge() {
               rules, and the link between the two is the question I want to
               answer with real data.
             </p>
+            <div className="text-xs text-[#64748B] uppercase tracking-wide mb-2">
+              Model inputs
+            </div>
             <ul className="flex flex-wrap gap-2" aria-label="Model inputs">
               {inputs.map((i) => (
                 <li
