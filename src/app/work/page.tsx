@@ -5,13 +5,13 @@ import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "Work — Jackie Ng",
-  description: "AtomBios: the simulation platform that turns cryo-EM structures into drug candidates. HKSTP incubated, competition-validated, investor-backed.",
+  description: "AtomBios: 20nm nanoparticles engineered to cross the blood-brain barrier. HKSTP incubated, competition-validated, investor-backed.",
 };
 
 const pillars = [
-  { icon: "⬡", title: "Atomic Precision", description: "Structural simulation grounded in cryo-EM verified models — every binding pocket, every residue." },
-  { icon: "⚡", title: "Pharma Speed", description: "Compressing the drug discovery timeline from years to weeks with GPU-accelerated molecular dynamics." },
-  { icon: "◎", title: "Human Insight", description: "Translating atomic-scale data into decisions that clinicians, investors, and researchers can act on." },
+  { icon: "⬡", title: "20nm Platform", description: "Nanoparticles 4-5× smaller than conventional LNPs, built from structural biology insight into endosomal transcytosis." },
+  { icon: "⚡", title: "Validated In Vivo", description: "8× blood-brain barrier transcytosis and 3.2-fold brain accumulation versus conventional LNPs." },
+  { icon: "◎", title: "Pharma Partnership", description: "Working with Sirnaomics to move the platform from bench validation toward clinical application." },
 ];
 
 const badges = ["HKSTP Ideation Approved", "PolyU IEP Incubatee", "MicroFund 25/26", "JoinCap Investment Secured"];
@@ -22,14 +22,14 @@ export default function WorkPage() {
       <div className="max-w-5xl mx-auto px-6">
         <SectionLabel label="Work" />
         <TextReveal as="h1" className="font-heading text-5xl md:text-6xl text-navy mt-8 mb-16 leading-tight">
-          {`Building at the intersection
-of atoms and algorithms.`}
+          {`Small enough to cross,
+proven that it works.`}
         </TextReveal>
       </div>
 
       <AtomBios
-        heading="Molecular simulation at pharma speed."
-        tagline="Every drug team I talked to had the same problem. They could see the structure. They knew the pocket. But they couldn't test what happens when a molecule actually docks."
+        heading="Nanoparticles that reach the brain."
+        tagline="Conventional LNPs are too large to cross the blood-brain barrier efficiently. The 20nm platform is built from structural biology insight into endosomal transcytosis, not trial-and-error lipid screening."
         description=""
         pillars={pillars}
         programBadges={badges}

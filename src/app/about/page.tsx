@@ -5,21 +5,21 @@ import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "About — Jackie Ng",
-  description: "Structural biologist turned biotech founder. Building at the intersection of atoms and algorithms.",
+  description: "Structural biologist turned brain-delivery scientist. Building 20nm nanoparticles that cross the blood-brain barrier.",
 };
 
 const educationItems = [
   {
-    degree: "MPhil",
+    degree: "PhD",
     field: "Biochemistry",
     institution: "The Hong Kong Polytechnic University",
     years: "2023–present",
     highlights: [
-      "Cryo-EM structural biology & computational drug discovery",
+      "Cryo-EM structural biology, pivoted to blood-brain barrier delivery",
       "Research Postgraduate Scholarship + HK$25k Conference Grant",
       "YDC Youth Ambassadors Programme",
     ],
-    tags: ["Cryo-EM", "Drug Discovery", "Best Oral Presentation"],
+    tags: ["Cryo-EM", "BBB Delivery", "Best Oral Presentation"],
   },
   {
     degree: "BSc",
@@ -41,17 +41,17 @@ export default function AboutPage() {
       <div className="max-w-4xl mx-auto px-6">
         <SectionLabel label="About" />
         <TextReveal as="h1" className="font-heading text-5xl md:text-6xl text-navy mt-8 mb-12 leading-tight">
-          {`I build tools that turn
-atomic structures into
-drug discovery decisions.`}
+          {`I build nanoparticles
+that cross the barrier
+most drugs never reach.`}
         </TextReveal>
 
         <div className="grid md:grid-cols-2 gap-12 mb-24">
           <p className="text-slate leading-relaxed">
-            Most drug discovery teams can see the protein structure. They know the binding pocket. But they can&apos;t test what happens when a molecule actually docks &mdash; not without six months of specialist simulation setup. That&apos;s the problem I&apos;m solving.
+            The blood-brain barrier blocks most nanoparticle formulations. Conventional LNPs are too large for efficient transcytosis and too visible to immune surveillance &mdash; so CNS therapeutics that work in a dish keep failing to reach the patients who need them.
           </p>
           <p className="text-slate leading-relaxed">
-            I founded AtomBios to compress that timeline from months to hours. Upload a structure, define a ligand, run molecular dynamics &mdash; a thousand binding modes tested before a single compound gets synthesised. The science comes from my cryo-EM research at PolyU. The platform comes from winning pitch competitions across Hong Kong, mainland China, and internationally.
+            I started in structural biology, depositing cryo-EM structures at atomic resolution at PolyU. Watching exceptional CNS therapeutics fail for the same reason, again and again, is why I pivoted to delivery. AtomBios&apos;s 20nm platform is the result: validated 8&times; BBB transcytosis and 3.2-fold brain accumulation versus conventional LNPs.
           </p>
         </div>
 
