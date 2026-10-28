@@ -18,11 +18,6 @@ const storyBlocks = [
     content:
       '20nm nanoparticles, 4-5× smaller than conventional LNPs, built from structural biology insight into endosomal transcytosis. Validated 8× BBB crossing and 3.2-fold brain accumulation vs. conventional LNPs.',
   },
-  {
-    title: "What's Next",
-    content:
-      'Research direction: programming protein corona composition (not avoiding it) to steer where a particle ends up, with AI-guided formulation design to cut discovery time. Early stage, not yet validated.',
-  },
 ]
 
 export function StoryV4() {
