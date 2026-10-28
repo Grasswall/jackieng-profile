@@ -99,6 +99,13 @@ export function HeroV4() {
             Engineering 20nm nanoparticles that cross the blood-brain barrier. 8× transcytosis, 3.2-fold brain accumulation. Researching AI-guided formulation design via protein corona engineering.
           </p>
 
+          <a
+            href="mailto:jackie.ng@atombios.com"
+            className="inline-block mb-8 px-6 py-3 rounded-full bg-[#F97316] text-[#0B0E14] font-semibold hover:bg-[#FB923C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
+          >
+            Get in touch
+          </a>
+
           {/* Platform badges */}
           <div
             ref={badgesRef}

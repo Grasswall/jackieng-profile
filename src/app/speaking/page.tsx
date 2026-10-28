@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 };
 
 const mediaCards = [
-  { id: "rthk", type: "large" as const, outlet: "RTHK · Hong Kong Public Broadcaster", title: "尋找創科的故事", description: "On-camera interview on RTHK's Innovation Stories — Hong Kong's equivalent of the BBC — sharing the story behind AtomBios and molecular simulation.", photo: "/jackieng-profile/assets/rthk-broadcast.jpg", badge: "Live TV" },
+  { id: "rthk", type: "large" as const, outlet: "RTHK · Hong Kong Public Broadcaster", title: "尋找創科的故事", description: "On-camera interview on RTHK's Innovation Stories — Hong Kong's equivalent of the BBC — sharing the story behind AtomBios.", photo: "/jackieng-profile/assets/rthk-broadcast.jpg", badge: "Live TV" },
   { id: "brtv", type: "large" as const, outlet: "BRTV · Beijing Television", title: "轉在北京", description: "Featured on Beijing Television — mainland China's national coverage — as a Hong Kong scientist making impact in Greater China's innovation ecosystem.", photo: "/jackieng-profile/assets/beijing-tv-speaking.jpg", badge: "National TV" },
-  { id: "mingpao", type: "regular" as const, outlet: "Ming Pao · Sing Tao", title: "Print Interviews", description: "Published interviews in Hong Kong's leading Chinese-language newspapers on computational drug discovery and the intersection of science and entrepreneurship.", photo: "/jackieng-profile/assets/mingpao-spread.jpg" },
+  { id: "mingpao", type: "regular" as const, outlet: "Ming Pao · Sing Tao", title: "Print Interviews", description: "Published interviews in Hong Kong's leading Chinese-language newspapers on science and entrepreneurship.", photo: "/jackieng-profile/assets/mingpao-spread.jpg" },
   { id: "jbc", type: "text-only" as const, outlet: "J. Biological Chemistry", title: "Published Research", description: "Tang et al. — Novel host cell factors interacting with SARS-CoV-2 spike protein RBD.", badge: "Peer-reviewed · JBC" },
 ];
 
