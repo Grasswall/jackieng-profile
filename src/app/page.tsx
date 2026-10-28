@@ -4,7 +4,7 @@ import { StatsStrip } from "@/components/interactive/StatsStrip";
 import { SizeComparison } from "@/components/interactive/SizeComparison";
 import { PhotoGallery } from "@/components/interactive/PhotoGallery";
 import { InVivoProofs } from "@/components/interactive/InVivoProofs";
-import { MLPredictor } from "@/components/interactive/MLPredictor";
+import { CoronaClasses } from "@/components/interactive/CoronaClasses";
 import { SimulatedPredictor } from "@/components/interactive/SimulatedPredictor";
 import { ResearchDirections } from "@/components/ResearchDirections";
 import { ValidationV4 } from "@/components/ValidationV4";
@@ -30,8 +30,8 @@ export default function Home() {
       {/* In Vivo Proofs: dark charcoal */}
       <InVivoProofs />
 
-      {/* ML Predictor: dark charcoal */}
-      <MLPredictor />
+      {/* Protein corona cryo-EM 2D classes */}
+      <CoronaClasses />
 
       {/* Live simulation */}
       <SimulatedPredictor />
