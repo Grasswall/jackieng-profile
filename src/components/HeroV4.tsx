@@ -76,7 +76,7 @@ export function HeroV4() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-24">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-24 grid lg:grid-cols-[1fr_340px] gap-12 items-center">
         <div className="max-w-3xl">
           <h1
             ref={headingRef}
@@ -113,6 +113,24 @@ export function HeroV4() {
           >
             {eliteBadges.join(' · ')}
           </div>
+        </div>
+
+        {/* Portrait */}
+        <div className="relative mx-auto lg:mx-0 w-64 lg:w-full">
+          <div
+            className="absolute -inset-3 rounded-3xl opacity-60 blur-2xl"
+            style={{
+              background:
+                'linear-gradient(135deg, rgba(34,211,238,0.35), rgba(249,115,22,0.25))',
+            }}
+            aria-hidden="true"
+          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/jackieng-profile/images/gallery/headshot.jpg"
+            alt="Jackie Ng, founder of AtomBios"
+            className="relative w-full aspect-[4/5] object-cover object-top rounded-2xl border border-[#334155]"
+          />
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { HeroV4 } from "@/components/HeroV4";
 import { StoryV4 } from "@/components/StoryV4";
+import { StatsStrip } from "@/components/interactive/StatsStrip";
 import { SizeComparison } from "@/components/interactive/SizeComparison";
 import { PhotoGallery } from "@/components/interactive/PhotoGallery";
 import { InVivoProofs } from "@/components/interactive/InVivoProofs";
@@ -15,6 +16,9 @@ export default function Home() {
     <main>
       {/* Hero: dark charcoal with radial gradients */}
       <HeroV4 />
+
+      {/* Key figures */}
+      <StatsStrip />
 
       {/* Story: dark navy */}
       <StoryV4 />
