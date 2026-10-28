@@ -96,9 +96,11 @@ export function CoronaClasses() {
           </div>
 
           <p data-reveal className="text-sm md:text-base text-[#CBD5E1]">
-            AtomBios LNP protein corona. cryoSPARC 2D classification, job J160,
-            iteration 20. Top {TILE_COUNT} of 200 classes shown by particle
-            count. 200 Å scale bar on the first tile. Video: cryo-EM density map with fitted atomic model.{' '}
+            The protein complex forming our LNP&apos;s protein corona, by cryo-EM.
+            2D classification (cryoSPARC job J160, iteration 20), top{' '}
+            {TILE_COUNT} of 200 classes shown by particle count, 200 Å scale
+            bar on first tile. Video: the reconstructed density map with
+            fitted atomic model, rotating.{' '}
             <a
               href={`${basePath}/images/corona/j160-all-classes.jpg`}
               className="text-[#22D3EE] underline underline-offset-4 hover:text-[#F8FAFC] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
