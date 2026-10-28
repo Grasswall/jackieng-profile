@@ -8,6 +8,7 @@ interface GalleryItem {
   alt: string
   caption: string
   span: string // tailwind grid span classes
+  pos?: string // CSS object-position for the crop
 }
 
 const basePath = '/jackieng-profile'
@@ -43,12 +44,6 @@ const items: GalleryItem[] = [
     caption: 'HKSTP Ecopreneur, 2025',
     span: 'col-span-1 row-span-1',
   },
-  {
-    src: `${basePath}/images/gallery/shaw-3.jpg`,
-    alt: 'Shaw Prize Forum 2025 round table',
-    caption: 'Shaw Prize Forum, round table, 2025',
-    span: 'col-span-2 row-span-1',
-  },
 ]
 
 const wins: GalleryItem[] = [
@@ -74,13 +69,14 @@ const wins: GalleryItem[] = [
     src: `${basePath}/images/gallery/techathon-1.jpg`,
     alt: 'Techathon+ 10th Anniversary award event',
     caption: 'Techathon+ 10th Anniversary — Gold Medal, 2026',
-    span: 'col-span-2 row-span-1 md:col-span-1',
+    span: 'col-span-2 row-span-2 md:col-span-3',
   },
   {
     src: `${basePath}/images/gallery/gba-hyab-1.jpg`,
     alt: 'GBA HYAB donor visit',
     caption: 'GBA HYAB Donor Visit, 2026',
-    span: 'col-span-1 row-span-2',
+    span: 'col-span-2 row-span-1 md:col-span-1 md:row-span-2',
+    pos: 'center top',
   },
 ]
 
@@ -138,7 +134,7 @@ export function PhotoGallery() {
 
           <div
             data-reveal
-            className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] gap-3"
+            className="grid grid-cols-2 md:grid-cols-4 grid-flow-dense auto-rows-[180px] gap-3"
           >
             {items.map((item, i) => (
               <button
@@ -150,6 +146,7 @@ export function PhotoGallery() {
                 <img
                   src={item.src}
                   alt={item.alt}
+                  style={item.pos ? { objectPosition: item.pos } : undefined}
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -169,7 +166,7 @@ export function PhotoGallery() {
             <p className="text-[#94A3B8] mb-6">
               Pitch competitions, awards and programme events from 2026.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[180px] gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-dense auto-rows-[180px] gap-3">
               {wins.map((item, i) => (
                 <button
                   key={item.src}
@@ -180,6 +177,7 @@ export function PhotoGallery() {
                   <img
                     src={item.src}
                     alt={item.alt}
+                    style={item.pos ? { objectPosition: item.pos } : undefined}
                     loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
