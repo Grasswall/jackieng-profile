@@ -13,7 +13,7 @@ interface Stat {
 
 // Only figures verified by Jackie (see BRAND_STATUS.md and data/meta.json).
 const stats: Stat[] = [
-  { value: 8, decimals: 0, suffix: '×', label: 'BBB transcytosis vs. conventional LNPs' },
+  { value: 8, decimals: 0, suffix: '×', label: 'BBB transcytosis' },
   { value: 3.2, decimals: 1, suffix: '-fold', label: 'Brain accumulation vs. conventional LNPs' },
   { value: 20, decimals: 0, suffix: ' nm', label: 'Nanoliposome platform size' },
   { value: 7.05, decimals: 2, prefix: 'HK$', suffix: 'M', label: 'Funding secured' },
