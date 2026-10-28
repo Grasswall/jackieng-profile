@@ -47,3 +47,10 @@ h1, h2, h3, h4, h5, h6 {
     scroll-behavior: auto !important;
   }
 }
+
+/* Display-only treatment: turns the white-background 3D render dark so it
+   matches the other pipeline frames. Hue-rotate keeps colours roughly
+   true to the original. The source video file is unchanged. */
+.invert-render {
+  filter: invert(1) hue-rotate(180deg);
+}

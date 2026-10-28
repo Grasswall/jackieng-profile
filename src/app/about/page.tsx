@@ -51,7 +51,7 @@ most drugs never reach.`}
             The blood-brain barrier blocks most nanoparticle formulations. Conventional LNPs are too large for efficient transcytosis and too visible to immune surveillance &mdash; so CNS therapeutics that work in a dish keep failing to reach the patients who need them.
           </p>
           <p className="text-slate leading-relaxed">
-            I started in structural biology, depositing cryo-EM structures at atomic resolution at PolyU. Watching exceptional CNS therapeutics fail for the same reason, again and again, is why I pivoted to delivery. AtomBios&apos;s 20nm platform is the result: validated 8&times; BBB transcytosis and 3.2-fold brain accumulation versus conventional LNPs.
+            I started in structural biology, solving cryo-EM structures at atomic resolution at PolyU, then moved into delivery. The AtomBios 20nm platform is where those two meet: 8&times; BBB transcytosis and 3.2-fold brain accumulation versus conventional LNPs.
           </p>
         </div>
 

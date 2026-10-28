@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const pillars = [
   { icon: "⬡", title: "20nm Platform", description: "Nanoparticles 4-5× smaller than conventional LNPs, built from structural biology insight into endosomal transcytosis." },
   { icon: "⚡", title: "Validated In Vivo", description: "8× blood-brain barrier transcytosis and 3.2-fold brain accumulation versus conventional LNPs." },
-  { icon: "◎", title: "Pharma Partnership", description: "Working with Sirnaomics to move the platform from bench validation toward clinical application." },
+  { icon: "◎", title: "Pharma Partnership", description: "Working with Sirnaomics." },
 ];
 
 const badges = ["HKSTP Ideation Approved", "PolyU IEP Incubatee", "MicroFund 25/26", "JoinCap Investment Secured"];
