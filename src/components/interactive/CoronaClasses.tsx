@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 const basePath = '/jackieng-profile'
@@ -19,6 +20,32 @@ const tiles = Array.from({ length: TILE_COUNT }, (_, i) => {
 
 export function CoronaClasses() {
   const containerRef = useScrollReveal()
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  // Play only while visible. Reduced-motion users get a paused video with controls.
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      v.pause()
+      v.controls = true
+      return
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          v.play().catch(() => {
+            v.controls = true
+          })
+        } else {
+          v.pause()
+        }
+      },
+      { threshold: 0.25 }
+    )
+    io.observe(v)
+    return () => io.disconnect()
+  }, [])
 
   return (
     <section
@@ -53,10 +80,25 @@ export function CoronaClasses() {
             ))}
           </div>
 
+          <div data-reveal className="max-w-xl mx-auto">
+            <video
+              ref={videoRef}
+              className="w-full rounded-md bg-white"
+              src={`${basePath}/images/corona/map-model.mp4`}
+              poster={`${basePath}/images/corona/map-model-poster.jpg`}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              aria-label="Rotating cryo-EM density map with fitted atomic model"
+            />
+          </div>
+
           <p data-reveal className="text-sm md:text-base text-[#CBD5E1]">
             AtomBios LNP protein corona. cryoSPARC 2D classification, job J160,
             iteration 20. Top {TILE_COUNT} of 200 classes shown by particle
-            count. 200 Å scale bar on the first tile.{' '}
+            count. 200 Å scale bar on the first tile. Video: cryo-EM density map with fitted atomic model.{' '}
             <a
               href={`${basePath}/images/corona/j160-all-classes.jpg`}
               className="text-[#22D3EE] underline underline-offset-4 hover:text-[#F8FAFC] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"

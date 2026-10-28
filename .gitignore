@@ -33,3 +33,4 @@ yarn-error.log*
 # Exception: corona cryo-EM 2D class tiles used by CoronaClasses
 !public/images/corona/*.png
 !public/images/corona/*.jpg
+!public/images/corona/*.mp4
