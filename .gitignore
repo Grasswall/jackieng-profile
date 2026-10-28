@@ -29,3 +29,7 @@ yarn-error.log*
 # Exception: compressed gallery photos used by PhotoGallery (about 1.3MB total)
 !public/images/gallery/
 !public/images/gallery/*.jpg
+
+# Exception: corona cryo-EM 2D class tiles used by CoronaClasses
+!public/images/corona/*.png
+!public/images/corona/*.jpg

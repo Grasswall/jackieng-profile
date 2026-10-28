@@ -12,7 +12,7 @@ const TILE_COUNT = 10
 const tiles = Array.from({ length: TILE_COUNT }, (_, i) => {
   const n = String(i + 1).padStart(2, '0')
   return {
-    src: `${basePath}/images/corona/class-${n}.webp`,
+    src: `${basePath}/images/corona/class-${n}.png`,
     alt: `Cryo-EM 2D class average ${i + 1} of ${TILE_COUNT}, with particle count and resolution label`,
   }
 })
@@ -58,7 +58,7 @@ export function CoronaClasses() {
             iteration 20. Top {TILE_COUNT} of 200 classes shown by particle
             count. 200 Å scale bar on the first tile.{' '}
             <a
-              href={`${basePath}/images/corona/j160-all-classes.webp`}
+              href={`${basePath}/images/corona/j160-all-classes.jpg`}
               className="text-[#22D3EE] underline underline-offset-4 hover:text-[#F8FAFC] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
             >
               All 200 classes
