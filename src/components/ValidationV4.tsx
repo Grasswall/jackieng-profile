@@ -2,47 +2,56 @@
 
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
-const validationCards = [
+interface Entry {
+  year: string
+  label: string
+}
+
+const tracks: { title: string; color: string; entries: Entry[] }[] = [
   {
-    title: 'Elite Scientific Access',
-    items: [
-      'Lindau Nobel Laureate Meeting 2025',
-      'Shaw Prize Forum 2025',
-      'Chinese Academy of Sciences Future Leader',
-      'Hong Kong Laureate Forum 2024',
-      'São Paulo Advanced Science School',
+    title: 'Elite scientific access',
+    color: '#22D3EE',
+    entries: [
+      { year: '2025', label: 'Lindau Nobel Laureate Meeting' },
+      { year: '2025', label: 'Shaw Prize Forum' },
+      { year: '', label: 'CAS Future Leader' },
+      { year: '2024', label: 'Hong Kong Laureate Forum' },
+      { year: '', label: 'São Paulo Advanced Science School' },
     ],
   },
   {
-    title: 'Platform Validation',
-    items: [
-      'HKSTP Incu-Bio (HK$6M)',
-      'HK$7.05M total funding secured',
-      '北大滙豐-劍橋嘉治 Hong Kong Champion',
-      '贏在蘇州 Rising Star Award',
-      'SUSS Pitch for Good — People\'s Choice Award (Singapore)',
-      'Techathon+ Gold Medal',
+    title: 'Platform & funding',
+    color: '#F97316',
+    entries: [
+      { year: '', label: 'HK$7.05M total funding secured' },
+      { year: '', label: 'HKSTP Incu-Bio, HK$6M' },
+      { year: '', label: '北大滙豐-劍橋嘉治 Hong Kong Champion' },
+      { year: '', label: '贏在蘇州 Rising Star Award' },
+      { year: '', label: "SUSS Pitch for Good — People's Choice" },
+      { year: '', label: 'Techathon+ Gold Medal' },
     ],
   },
   {
-    title: 'Media & Speaking',
-    items: [
-      'RTHK 尋找創科的故事 (featured)',
-      'BRTV 轉在北京 (featured)',
-      'Ming Pao, Sing Tao, HK01 coverage',
-      'Max Planck Institute RPG Forum — Speaker',
-      'HK-Jiangsu Symposium on Drug Discovery — Speaker',
-      'Shaw Laureates Roundtable — Academic Representative',
+    title: 'Media & speaking',
+    color: '#A78BFA',
+    entries: [
+      { year: '', label: 'RTHK 尋找創科的故事 — featured' },
+      { year: '', label: 'BRTV 轉在北京 — featured' },
+      { year: '', label: 'Ming Pao, Sing Tao, HK01 coverage' },
+      { year: '', label: 'Max Planck Institute RPG Forum — speaker' },
+      { year: '', label: 'HK-Jiangsu Symposium on Drug Discovery — speaker' },
+      { year: '', label: 'Shaw Laureates Roundtable — academic representative' },
     ],
   },
   {
-    title: 'Technical Foundation',
-    items: [
-      'PhD, PolyU — Drug Delivery & Structural Biology',
-      'BSc Biochemistry, HKUST — First Class Honours, 4.0/4.3 GPA, 7× Dean\'s List',
-      'J. Biological Chemistry (2024) — doi:10.1016/j.jbc.2024.107390',
-      'Cryo-EM structures deposited in PDB/EMDB',
-      'ABCT RPG Symposium Best Oral Presentation 2025',
+    title: 'Technical foundation',
+    color: '#34D399',
+    entries: [
+      { year: '2023–', label: 'PhD, PolyU — Drug Delivery & Structural Biology' },
+      { year: '2024', label: 'J. Biological Chemistry — doi:10.1016/j.jbc.2024.107390' },
+      { year: '2025', label: 'ABCT RPG Symposium — Best Oral Presentation' },
+      { year: '', label: 'BSc Biochemistry, HKUST — First Class Honours, 4.0/4.3 GPA' },
+      { year: '', label: 'Cryo-EM structures deposited in PDB/EMDB' },
     ],
   },
 ]
@@ -56,37 +65,45 @@ export function ValidationV4() {
       className="bg-[#0B0E14] py-20 md:py-32"
       aria-labelledby="validation-heading"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <h2
           id="validation-heading"
-          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#F8FAFC] leading-[1.15] mb-12"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#F8FAFC] leading-[1.15] mb-4"
         >
           Validation
         </h2>
+        <p className="text-lg text-[#94A3B8] font-light leading-[1.6] mb-16 max-w-[52ch]">
+          Access, funding and wins, media and speaking, and training. Years appear only where the source gives one.
+        </p>
 
-        <div
-          ref={containerRef}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-        >
-          {validationCards.map((card, idx) => (
-            <div
-              key={idx}
-              className="opacity-0 translate-y-8 bg-[#1E293B] border border-[#334155] rounded-xl p-8 transition-all duration-200 hover:-translate-y-1 hover:border-[#22D3EE]"
-              data-reveal
-            >
-              <h4 className="text-sm font-semibold tracking-[0.05em] uppercase text-[#22D3EE] mb-4">
-                {card.title}
-              </h4>
-              <ul className="space-y-3">
-                {card.items.map((item, iIdx) => (
-                  <li
-                    key={iIdx}
-                    className="text-[15px] leading-[1.6] text-[#94A3B8] pl-5 relative before:content-['·'] before:absolute before:left-0 before:text-[#22D3EE] before:font-bold before:text-2xl before:leading-none"
-                  >
-                    {item}
+        <div ref={containerRef} className="grid md:grid-cols-2 gap-x-16 gap-y-16">
+          {tracks.map((track) => (
+            <div key={track.title} data-reveal className="opacity-0 translate-y-8">
+              <h3
+                className="text-sm font-semibold tracking-[0.08em] uppercase mb-6"
+                style={{ color: track.color }}
+              >
+                {track.title}
+              </h3>
+              <ol className="relative border-l pl-6" style={{ borderColor: `${track.color}33` }}>
+                {track.entries.map((entry, i) => (
+                  <li key={i} className="relative pb-6 last:pb-0">
+                    <span
+                      className="absolute -left-[31px] top-1 w-2.5 h-2.5 rounded-full ring-4 ring-[#0B0E14]"
+                      style={{ backgroundColor: track.color }}
+                      aria-hidden="true"
+                    />
+                    {entry.year && (
+                      <span className="block text-xs font-mono text-[#64748B] mb-0.5">
+                        {entry.year}
+                      </span>
+                    )}
+                    <span className="text-[15px] leading-[1.5] text-[#E2E8F0]">
+                      {entry.label}
+                    </span>
                   </li>
                 ))}
-              </ul>
+              </ol>
             </div>
           ))}
         </div>

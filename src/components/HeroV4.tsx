@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import { gsap } from '@/lib/gsapConfig'
 import { Badge } from './ui/Badge'
+import { MoleculeBackdrop } from './interactive/MoleculeBackdrop'
 
 const heroBadges = [
   'BBB-Targeted Delivery',
@@ -75,6 +76,9 @@ export function HeroV4() {
         />
       </div>
 
+      {/* Real ApoE3 backbone (PDB 1LPE) rendered from published coordinates */}
+      <MoleculeBackdrop className="hidden lg:block absolute right-[2%] top-1/2 -translate-y-1/2 z-0 w-[48vw] max-w-[640px] h-[48vw] max-h-[640px] opacity-35 pointer-events-none" />
+
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-24 grid lg:grid-cols-[1fr_340px] gap-12 items-center">
         <div className="max-w-3xl">
@@ -133,6 +137,19 @@ export function HeroV4() {
           />
         </div>
       </div>
+
+      <p className="absolute bottom-4 right-6 md:right-12 z-10 text-[11px] text-[#64748B] max-w-[48ch] text-right">
+        Background: human apolipoprotein E3 N-terminal domain, C-alpha trace.{' '}
+        <a
+          href="https://www.rcsb.org/structure/1LPE"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-[#94A3B8]"
+        >
+          PDB 1LPE
+        </a>
+        , Wilson et al., Science 1991. Published structure, not from my own work.
+      </p>
     </section>
   )
 }

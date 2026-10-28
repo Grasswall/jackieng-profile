@@ -2,21 +2,18 @@
 
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
-const workCards = [
+const workItems = [
   {
-    emoji: '🧬',
     title: 'THE GAP: Endosomal Escape',
     description:
-      'Why 99% of drugs never reach their target — and how 20nm nanoparticles change the math.',
+      'Why 99% of drugs never reach their target, and how 20nm nanoparticles change the math.',
   },
   {
-    emoji: '🎯',
     title: 'KRAS: Undruggable → Druggable',
     description:
       'How structural biology and AI-directed drug design cracked the "undruggable" oncogene.',
   },
   {
-    emoji: '⚛️',
     title: 'Arms Race: 3-Drug Resistance',
     description:
       'CFD simulations of drug unbinding dynamics and resistance mechanisms in cancer therapy.',
@@ -32,36 +29,37 @@ export function SelectedWorkV4() {
       className="bg-[#0F172A] py-20 md:py-32"
       aria-labelledby="work-heading"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <h2
-          id="work-heading"
-          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#F8FAFC] leading-[1.15] mb-6"
-        >
-          Selected Work
-        </h2>
-        <p className="text-lg text-[#94A3B8] font-light leading-[1.6] mb-12 max-w-[42ch]">
-          I translate molecular mechanisms and computational approaches for technical and non-technical audiences.
-        </p>
+      <div className="max-w-6xl mx-auto px-6 md:px-12 grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
+        <div>
+          <h2
+            id="work-heading"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#F8FAFC] leading-[1.15] mb-6"
+          >
+            Selected Work
+          </h2>
+          <p className="text-lg text-[#94A3B8] font-light leading-[1.6] max-w-[36ch]">
+            I translate molecular mechanisms and computational approaches for
+            technical and non-technical audiences.
+          </p>
+        </div>
 
-        <div
-          ref={containerRef}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          {workCards.map((card, idx) => (
+        <div ref={containerRef} role="list" className="divide-y divide-[#1E293B] border-y border-[#1E293B]">
+          {workItems.map((item, idx) => (
             <div
-              key={idx}
-              className="opacity-0 translate-y-8 bg-[#1E293B] border border-[#334155] rounded-xl overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:border-[#22D3EE]"
+              key={item.title}
+              role="listitem"
               data-reveal
+              className="group grid grid-cols-[4.5rem_1fr] md:grid-cols-[6rem_1fr] items-baseline gap-4 py-8 transition-colors duration-200 hover:bg-[#1E293B]/40"
             >
-              <div className="aspect-video bg-[#0B0E14] flex items-center justify-center text-6xl opacity-30 text-[#22D3EE]">
-                {card.emoji}
-              </div>
-              <div className="p-6">
-                <h4 className="text-lg font-semibold tracking-tight text-[#F8FAFC] mb-2">
-                  {card.title}
-                </h4>
-                <p className="text-[15px] leading-[1.6] text-[#94A3B8]">
-                  {card.description}
+              <span className="font-mono text-5xl md:text-6xl font-bold leading-none bg-gradient-to-br from-[#22D3EE] to-[#F97316] bg-clip-text text-transparent opacity-80 group-hover:opacity-100">
+                {String(idx + 1).padStart(2, '0')}
+              </span>
+              <div>
+                <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-[#F8FAFC] mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-[15px] leading-[1.6] text-[#94A3B8] max-w-[56ch]">
+                  {item.description}
                 </p>
               </div>
             </div>
