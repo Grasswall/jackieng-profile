@@ -37,8 +37,6 @@ const particles: Particle[] = [
   },
 ]
 
-const BBB_PORE_SIZE = 8 // nm, tight junction effective size
-
 export function SizeComparison() {
   const containerRef = useScrollReveal()
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -74,21 +72,6 @@ export function SizeComparison() {
 
       const centerY = rect.height / 2
       const scale = 3 // pixels per nm
-
-      // Draw BBB pore reference line
-      ctx.strokeStyle = '#F97316'
-      ctx.lineWidth = 2
-      ctx.setLineDash([5, 5])
-      const poreY = centerY - BBB_PORE_SIZE * scale
-      ctx.beginPath()
-      ctx.moveTo(0, poreY)
-      ctx.lineTo(rect.width, poreY)
-      ctx.stroke()
-      ctx.setLineDash([])
-
-      ctx.fillStyle = '#F97316'
-      ctx.font = '12px Inter, sans-serif'
-      ctx.fillText('BBB pore size (~8nm)', 10, poreY - 10)
 
       // Draw particles
       const spacing = rect.width / (particles.length + 1)
@@ -157,10 +140,7 @@ export function SizeComparison() {
               Size Matters for BBB Crossing
             </h2>
             <p className="text-xl text-[#94A3B8] max-w-3xl">
-              Tight junctions at the blood-brain barrier limit transcytosis to
-              particles below ~10nm effective diameter. Conventional LNPs
-              (80-100nm) are trapped. Our 20nm platform is small enough to cross
-              while remaining stable.
+              Particle diameter of the 20nm platform next to reference carriers. Conventional LNPs are typically around 80nm.
             </p>
           </div>
 
@@ -238,10 +218,7 @@ export function SizeComparison() {
           >
             <p className="text-[15px] leading-[1.7] text-[#94A3B8]">
               <span className="font-semibold text-[#22D3EE]">Key insight:</span>{' '}
-              Size reduction from 80nm → 20nm enables 8× higher BBB transcytosis
-              and 3.2-fold brain accumulation (p&lt;0.01). Below immune
-              surveillance thresholds while maintaining stability and cargo
-              capacity.
+              The 20nm platform showed 8× higher BBB transcytosis and 3.2-fold brain accumulation (p&lt;0.01) versus conventional LNPs.
             </p>
           </div>
         </div>

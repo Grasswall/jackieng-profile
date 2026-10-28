@@ -1,6 +1,7 @@
 import { HeroV4 } from "@/components/HeroV4";
 import { StoryV4 } from "@/components/StoryV4";
 import { SizeComparison } from "@/components/interactive/SizeComparison";
+import { PhotoGallery } from "@/components/interactive/PhotoGallery";
 import { InVivoProofs } from "@/components/interactive/InVivoProofs";
 import { MLPredictor } from "@/components/interactive/MLPredictor";
 import { ResearchDirections } from "@/components/ResearchDirections";
@@ -26,6 +27,9 @@ export default function Home() {
 
       {/* ML Predictor: dark charcoal */}
       <MLPredictor />
+
+      {/* Photo gallery */}
+      <PhotoGallery />
 
       {/* Research Directions: dark charcoal */}
       <ResearchDirections />

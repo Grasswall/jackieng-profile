@@ -25,3 +25,7 @@ yarn-error.log*
 *.mov
 *.pdb
 *.cif
+
+# Exception: compressed gallery photos used by PhotoGallery (about 1.3MB total)
+!public/images/gallery/
+!public/images/gallery/*.jpg

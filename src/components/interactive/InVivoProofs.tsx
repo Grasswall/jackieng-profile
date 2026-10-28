@@ -16,7 +16,7 @@ const inVivoData: DataCard[] = [
   {
     title: 'Brain Accumulation',
     metric: '3.2-fold increase',
-    description: '20nm platform vs. conventional LNPs in mouse model. Quantified by fluorescence imaging at 24h post-injection.',
+    description: '20nm platform vs. conventional LNPs, in vivo.',
     imagePath: '/data/brain-accumulation.png',
     imageAlt: 'Brain accumulation comparison graph',
     highlight: 'p < 0.01',
@@ -24,24 +24,10 @@ const inVivoData: DataCard[] = [
   {
     title: 'BBB Transcytosis',
     metric: '8× higher crossing',
-    description: 'In vitro BBB model (hCMEC/D3 cells). Measured by FITC quantification after transwell assay.',
+    description: 'BBB transcytosis of the 20nm platform vs. conventional LNPs.',
     imagePath: '/data/transcytosis-assay.png',
     imageAlt: 'Transcytosis assay results',
     highlight: 'Validated',
-  },
-  {
-    title: 'Biodistribution Profile',
-    metric: 'Multi-organ targeting',
-    description: 'Organ accumulation at 24h. Brain selectivity maintained while reducing liver burden vs. standard LNPs.',
-    imagePath: '/data/biodistribution.png',
-    imageAlt: 'Organ biodistribution bar chart',
-  },
-  {
-    title: 'Particle Characterization',
-    metric: '20 ± 3 nm',
-    description: 'DLS size distribution. Monodisperse population (PDI < 0.2). Stable in serum for 48h.',
-    imagePath: '/data/dls-characterization.png',
-    imageAlt: 'DLS size distribution curve',
   },
 ]
 
@@ -64,9 +50,7 @@ export function InVivoProofs() {
               Platform Validation
             </h2>
             <p className="text-xl text-[#94A3B8] max-w-3xl">
-              In vitro and in vivo data demonstrating superior BBB crossing and
-              brain accumulation. All experiments conducted under GLP-compliant
-              conditions.
+              Two headline results for the 20nm platform versus conventional LNPs.
             </p>
           </div>
 
@@ -77,28 +61,6 @@ export function InVivoProofs() {
                 data-reveal
                 className="border border-[#1E293B] bg-[#0F172A]/80 backdrop-blur-sm rounded-2xl overflow-hidden hover:border-[#334155] transition-all duration-300"
               >
-                {/* Image placeholder */}
-                <div className="relative w-full h-64 bg-[#1E293B] flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="text-6xl mb-4">📊</div>
-                    <p className="text-sm text-[#94A3B8]">
-                      Upload image to:
-                      <br />
-                      <code className="text-xs text-[#22D3EE]">
-                        {item.imagePath}
-                      </code>
-                    </p>
-                  </div>
-                  {/* Uncomment when images are uploaded:
-                  <Image
-                    src={item.imagePath}
-                    alt={item.imageAlt}
-                    fill
-                    className="object-contain"
-                  />
-                  */}
-                </div>
-
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-3">
                     <h3 className="text-xl font-semibold text-[#F8FAFC]">
@@ -127,11 +89,9 @@ export function InVivoProofs() {
           >
             <p className="text-[15px] leading-[1.7] text-[#94A3B8]">
               <span className="font-semibold text-[#F97316]">
-                Partnership validation:
+                Partnership:
               </span>{' '}
-              Platform validated by Sirnaomics (~$100M market cap,
-              NASDAQ:RNA). Currently exploring CNS siRNA delivery applications
-              targeting neurodegenerative diseases.
+              Working with Sirnaomics.
             </p>
           </div>
         </div>
