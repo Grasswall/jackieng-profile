@@ -96,7 +96,7 @@ export function HeroV4() {
             ref={subtitleRef}
             className="text-lg md:text-xl text-[#94A3B8] font-light leading-[1.5] mb-8 max-w-[42ch]"
           >
-            Engineering 20nm nanoparticles that cross the blood-brain barrier. 8× transcytosis, 3.2-fold brain accumulation. Researching AI-guided formulation design via protein corona engineering.
+            Structural biologist turned delivery scientist. 20nm nanoparticles that cross the blood-brain barrier: 8× transcytosis, 3.2-fold brain accumulation. Next: corona-programmable delivery.
           </p>
 
           <a
