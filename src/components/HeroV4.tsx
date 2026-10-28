@@ -122,8 +122,8 @@ export function HeroV4() {
           </div>
         </div>
 
-        {/* Portrait */}
-        <div className="relative mx-auto lg:mx-0 w-64 lg:w-full">
+        {/* Hero shot: pitching AtomBios at WIN in Suzhou Global Finals, not a studio headshot */}
+        <div className="relative mx-auto lg:mx-0 w-full max-w-sm lg:max-w-none">
           <div
             className="absolute -inset-6 rounded-full opacity-70 blur-3xl"
             style={{
@@ -132,17 +132,19 @@ export function HeroV4() {
             }}
             aria-hidden="true"
           />
-          {/* Unframed portrait that fades into the page, no box */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/jackieng-profile/images/gallery/headshot.jpg"
-            alt="Jackie Ng, founder of AtomBios"
-            className="relative w-full aspect-[4/5] object-cover object-top"
+            src="/jackieng-profile/images/gallery/suzhou-pitch.jpg"
+            alt="Jackie Ng pitching AtomBios at the WIN in Suzhou Global Entrepreneurship Competition finals"
+            className="relative w-full aspect-[4/5] object-cover object-[50%_20%] rounded-2xl"
             style={{
-              WebkitMaskImage: 'linear-gradient(to bottom, #000 50%, transparent 92%)',
-              maskImage: 'linear-gradient(to bottom, #000 50%, transparent 92%)',
+              WebkitMaskImage: 'linear-gradient(to bottom, #000 55%, transparent 95%)',
+              maskImage: 'linear-gradient(to bottom, #000 55%, transparent 95%)',
             }}
           />
+          <p className="mt-3 text-[11px] text-[#64748B] text-center lg:text-left">
+            Pitching AtomBios, WIN in Suzhou Global Finals, 2026
+          </p>
         </div>
       </div>
 
