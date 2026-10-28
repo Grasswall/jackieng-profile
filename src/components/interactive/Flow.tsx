@@ -13,8 +13,8 @@ const tiles = [1, 2, 3, 4].map(
 const STEPS = [
   { title: 'Cryo-EM', caption: 'Real 2D class averages of the LNP corona protein complex (cryoSPARC J160).', sim: false },
   { title: '3D structure', caption: 'Reconstructed density map with fitted atomic model.', sim: false },
-  { title: 'ML model', caption: 'A small network trained on synthetic formulations. It learns my rules, not biology.', sim: true },
-  { title: 'Output', caption: 'Predicted brain-targeting probability across particle size and ApoE density. The model does not read the cryo-EM data yet.', sim: true },
+  { title: 'ML model', caption: 'A small network trained on synthetic formulations.', sim: true },
+  { title: 'Output', caption: 'Predicted brain-targeting probability across particle size and ApoE density. The model does not read the cryo-EM data.', sim: true },
 ]
 
 const WIDTH = 'min(56rem, calc((100vh - 20rem) * 16 / 9))'

@@ -60,7 +60,7 @@ export function Vision() {
     >
       <div className="max-w-5xl mx-auto px-6 md:px-12">
         <p data-text className="font-mono text-xs uppercase tracking-widest text-[#F97316] mb-6">
-          Vision · direction, not yet validated
+          Vision
         </p>
         <h2
           id="vision-heading"
@@ -77,7 +77,7 @@ export function Vision() {
           viewBox="0 0 600 420"
           className="mt-10 w-full h-auto max-w-2xl"
           role="img"
-          aria-label="One 20 nanometre particle with a solid line to the brain, which is measured, and dashed lines to lung, liver and spleen, which are the direction"
+          aria-label="One 20 nanometre particle with a solid line to the brain, which is measured, and dashed lines to lung, liver and spleen, which are next"
         >
           {TARGETS.map((t) =>
             t.proven ? (
@@ -105,7 +105,7 @@ export function Vision() {
         </svg>
 
         <p data-text className="mt-4 text-sm text-[#94A3B8]">
-          <span className="text-[#22D3EE]">Solid</span>: measured. <span className="text-[#F97316]">Dashed</span>: direction, not yet validated.
+          <span className="text-[#22D3EE]">Solid</span>: measured. <span className="text-[#F97316]">Dashed</span>: next.
         </p>
       </div>
     </section>
