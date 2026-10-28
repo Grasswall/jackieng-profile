@@ -11,12 +11,17 @@ const storyBlocks = [
   {
     title: 'The Insight',
     content:
-      'I started in structural biology, depositing cryo-EM structures at atomic resolution. Exceptional CNS therapeutics kept failing for the same reason: they couldn\u2019t cross the blood-brain barrier. So I pivoted to delivery.',
+      "I started in structural biology, depositing cryo-EM structures at atomic resolution. Exceptional CNS therapeutics kept failing for the same reason: they couldn't cross the blood-brain barrier. So I pivoted to delivery.",
   },
   {
     title: 'The Platform',
     content:
-      '20nm nanoparticles, 4-5\u00d7 smaller than conventional LNPs, built from structural biology insight into endosomal transcytosis. Validated 8\u00d7 BBB crossing and 3.2-fold brain accumulation vs. conventional LNPs.',
+      '20nm nanoparticles, 4-5× smaller than conventional LNPs, built from structural biology insight into endosomal transcytosis. Validated 8× BBB crossing and 3.2-fold brain accumulation vs. conventional LNPs.',
+  },
+  {
+    title: "What's Next",
+    content:
+      'Research direction: programming protein corona composition (not avoiding it) to steer where a particle ends up, with AI-guided formulation design to cut discovery time. Early stage, not yet validated.',
   },
 ]
 
