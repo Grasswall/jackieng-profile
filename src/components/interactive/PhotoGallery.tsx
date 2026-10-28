@@ -32,18 +32,6 @@ const items: GalleryItem[] = [
     caption: 'HKSTP Ecopreneur, 2025',
     span: 'col-span-1 row-span-1',
   },
-  {
-    src: `${basePath}/images/gallery/shaw-2.jpg`,
-    alt: 'Shaw Prize Forum 2025',
-    caption: 'Shaw Prize Forum, 2025',
-    span: 'col-span-2 row-span-1',
-  },
-  {
-    src: `${basePath}/images/gallery/hkstp-2.jpg`,
-    alt: 'HKSTP Ecopreneur event',
-    caption: 'HKSTP Ecopreneur, 2025',
-    span: 'col-span-1 row-span-1',
-  },
 ]
 
 const wins: GalleryItem[] = [
@@ -52,12 +40,6 @@ const wins: GalleryItem[] = [
     alt: 'PHBS-CJBS Global Pitch Competition final round',
     caption: 'PHBS-CJBS Global Pitch Competition, Final Round, 2026',
     span: 'col-span-2 row-span-1',
-  },
-  {
-    src: `${basePath}/images/gallery/champion-2.jpg`,
-    alt: 'PHBS-CJBS Global Pitch Competition final round',
-    caption: 'PHBS-CJBS Global Pitch Competition, Final Round, 2026',
-    span: 'col-span-1 row-span-1',
   },
   {
     src: `${basePath}/images/gallery/suss-1.jpg`,
@@ -69,14 +51,7 @@ const wins: GalleryItem[] = [
     src: `${basePath}/images/gallery/techathon-1.jpg`,
     alt: 'Techathon+ 10th Anniversary award event',
     caption: 'Techathon+ 10th Anniversary — Gold Medal, 2026',
-    span: 'col-span-2 row-span-2 md:col-span-3',
-  },
-  {
-    src: `${basePath}/images/gallery/gba-hyab-1.jpg`,
-    alt: 'GBA HYAB donor visit',
-    caption: 'GBA HYAB Donor Visit, 2026',
-    span: 'col-span-2 row-span-1 md:col-span-1 md:row-span-2',
-    pos: 'center top',
+    span: 'col-span-1 row-span-1',
   },
 ]
 
@@ -127,8 +102,7 @@ export function PhotoGallery() {
               Elite Access
             </h2>
             <p className="text-xl text-[#94A3B8] max-w-3xl">
-              Lindau Nobel Laureate Meeting, the Shaw Prize Forum, and
-              HKSTP — events I have attended.
+              Lindau, Shaw Prize Forum, and HKSTP.
             </p>
           </div>
 
@@ -164,7 +138,7 @@ export function PhotoGallery() {
               Competitions and programmes
             </h3>
             <p className="text-[#94A3B8] mb-6">
-              Pitch competitions, awards and programme events from 2026.
+              Wins from 2026.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 grid-flow-dense auto-rows-[180px] gap-3">
               {wins.map((item, i) => (
