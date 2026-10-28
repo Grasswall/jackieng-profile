@@ -80,36 +80,40 @@ export function HeroV4() {
       <MoleculeBackdrop className="hidden lg:block absolute right-[2%] top-1/2 -translate-y-1/2 z-0 w-[48vw] max-w-[640px] h-[48vw] max-h-[640px] opacity-35 pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-24 grid lg:grid-cols-[1fr_340px] gap-12 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 pt-20 pb-12 grid lg:grid-cols-[1fr_440px] gap-12 items-center">
         <div className="max-w-3xl">
           <h1
             ref={headingRef}
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase leading-[1.05] tracking-tight mb-4 text-[#F8FAFC]"
           >
-            <span className="block text-xl md:text-2xl font-light normal-case tracking-normal text-[#94A3B8] mb-2">
+            <span className="block text-xl md:text-2xl font-light normal-case tracking-normal text-[#CBD5E1] mb-4">
               Jackie Ng, founder of AtomBios
             </span>
             <span className="text-[#F97316]">Structural ML</span> scientist
           </h1>
 
+          <p className="text-2xl md:text-4xl font-bold tracking-tight text-[#F8FAFC] mb-5">
+            Let&apos;s program delivery.
+          </p>
+
           <p
             ref={subtitleRef}
             className="text-lg md:text-xl text-[#94A3B8] font-light leading-[1.5] mb-8 max-w-[42ch]"
           >
-            Structural biologist building ML for drug delivery. 20nm nanoparticles that cross the blood-brain barrier: 8× transcytosis, 3.2-fold brain accumulation. Next: corona-programmable delivery.
+            Structural biologist building ML for drug delivery. 20nm nanoparticles cross the blood-brain barrier: 8× transcytosis, 3.2-fold brain accumulation.
           </p>
 
           <a
-            href="mailto:jackie.ng@atombios.com"
-            className="inline-block mb-8 px-6 py-3 rounded-full bg-[#F97316] text-[#0B0E14] font-semibold hover:bg-[#FB923C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
+            href="mailto:jackie.ng@atombios.com?subject=Let%27s%20build%20delivery%20together"
+            className="inline-block mb-8 px-8 py-4 rounded-full bg-[#F97316] text-[#0B0E14] text-lg font-bold hover:bg-[#FB923C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#22D3EE]"
           >
-            Get in touch
+            Build with me
           </a>
 
           {/* Platform badges */}
           <div
             ref={badgesRef}
-            className="flex flex-wrap gap-4 mb-8"
+            className="flex flex-wrap gap-3 mb-6"
             role="list"
             aria-label="Platform metrics"
           >
@@ -123,7 +127,7 @@ export function HeroV4() {
           {/* Elite badges */}
           <div
             ref={eliteRef}
-            className="text-[15px] font-medium text-[#22D3EE] tracking-wide pt-8 border-t border-[#334155]"
+            className="text-[15px] font-medium text-[#22D3EE] tracking-wide pt-5 border-t border-[#334155]"
           >
             {eliteBadges.join(' · ')}
           </div>
