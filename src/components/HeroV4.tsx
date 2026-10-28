@@ -60,7 +60,7 @@ export function HeroV4() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-[#0B0E14] pt-20"
+      className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#0B0E14] pt-20"
       aria-label="Hero"
     >
       {/* Radial gradient background */}
@@ -84,14 +84,17 @@ export function HeroV4() {
         <div className="max-w-3xl">
           <h1
             ref={headingRef}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight mb-6 bg-gradient-to-br from-[#F8FAFC] to-[#94A3B8] bg-clip-text text-transparent"
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase leading-[1.05] tracking-tight mb-4 text-[#F8FAFC]"
           >
-            Brain delivery scientist
+            <span className="block text-xl md:text-2xl font-light normal-case tracking-normal text-[#94A3B8] mb-2">
+              Jackie Ng, founder of AtomBios
+            </span>
+            <span className="text-[#F97316]">Brain</span> delivery scientist
           </h1>
 
           <p
             ref={subtitleRef}
-            className="text-xl md:text-2xl text-[#94A3B8] font-light leading-[1.5] mb-10 max-w-[42ch]"
+            className="text-lg md:text-xl text-[#94A3B8] font-light leading-[1.5] mb-8 max-w-[42ch]"
           >
             Engineering 20nm nanoparticles that cross the blood-brain barrier. 8× transcytosis, 3.2-fold brain accumulation. Researching AI-guided formulation design via protein corona engineering.
           </p>
@@ -122,18 +125,23 @@ export function HeroV4() {
         {/* Portrait */}
         <div className="relative mx-auto lg:mx-0 w-64 lg:w-full">
           <div
-            className="absolute -inset-3 rounded-3xl opacity-60 blur-2xl"
+            className="absolute -inset-6 rounded-full opacity-70 blur-3xl"
             style={{
               background:
-                'linear-gradient(135deg, rgba(34,211,238,0.35), rgba(249,115,22,0.25))',
+                'radial-gradient(circle at 50% 60%, rgba(249,115,22,0.35), rgba(34,211,238,0.15) 60%, transparent 75%)',
             }}
             aria-hidden="true"
           />
+          {/* Unframed portrait that fades into the page, no box */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/jackieng-profile/images/gallery/headshot.jpg"
             alt="Jackie Ng, founder of AtomBios"
-            className="relative w-full aspect-[4/5] object-cover object-top rounded-2xl border border-[#334155]"
+            className="relative w-full aspect-[4/5] object-cover object-top"
+            style={{
+              WebkitMaskImage: 'linear-gradient(to bottom, #000 50%, transparent 92%)',
+              maskImage: 'linear-gradient(to bottom, #000 50%, transparent 92%)',
+            }}
           />
         </div>
       </div>

@@ -53,14 +53,7 @@ export default function Home() {
       <SelectedWorkV4 />
 
       {/* Contact: dark navy */}
-      <ContactV4
-        email={meta.email}
-        socialLinks={[
-          { label: "LinkedIn", href: meta.socials.linkedin, icon: "linkedin" },
-          { label: "Instagram", href: meta.socials.instagram, icon: "instagram" },
-        ]}
-        copyright={`© ${new Date().getFullYear()} Jackie Ng. All rights reserved.`}
-      />
+      <ContactV4 email={meta.email} />
     </main>
   );
 }

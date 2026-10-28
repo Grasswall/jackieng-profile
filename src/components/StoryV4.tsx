@@ -6,7 +6,7 @@ const storyBlocks = [
   {
     title: 'The Problem',
     content: [
-      '99% of systemically delivered drugs fail to reach the brain. The blood-brain barrier blocks large molecules, traps conventional LNPs in endosomes, and clears therapeutics before they act.',
+      'The blood-brain barrier blocks large molecules and keeps most nanoparticle formulations out of the brain.',
       'Standard lipid nanoparticles (80-100nm) are too large for efficient transcytosis and too visible to immune surveillance. CNS delivery remains the hardest problem in drug development.',
     ],
   },
@@ -26,7 +26,7 @@ const storyBlocks = [
     list: [
       '8× blood-brain barrier transcytosis vs. conventional LNPs (validated)',
       '3.2-fold brain accumulation in vivo (p<0.01)',
-      'Validated by Sirnaomics partnership (~$100M market cap)',
+      'Validated by Sirnaomics partnership',
       'HK$7.05M funded (HKSTP Incu-Bio, PolyU IEP)',
     ],
   },
@@ -38,13 +38,13 @@ export function StoryV4() {
   return (
     <section
       id="story"
-      className="bg-[#0F172A] py-20 md:py-32"
+      className="bg-[#F5F5F0] py-20 md:py-32"
       aria-labelledby="story-heading"
     >
       <div className="max-w-3xl mx-auto px-6 md:px-12">
         <h2
           id="story-heading"
-          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#F8FAFC] leading-[1.15] mb-12"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#0A1828] leading-[1.15] mb-12"
         >
           How I got here
         </h2>
@@ -52,25 +52,25 @@ export function StoryV4() {
         <div ref={containerRef} className="space-y-16">
           {storyBlocks.map((block, idx) => (
             <div key={idx} data-reveal>
-              <h3 className="text-2xl font-semibold tracking-tight text-[#F8FAFC] mb-4">
+              <h3 className="text-2xl font-semibold tracking-tight text-[#0A1828] mb-4">
                 {block.title}
               </h3>
               {block.content.map((para, pIdx) => (
                 <p
                   key={pIdx}
-                  className="text-[17px] leading-[1.7] text-[#94A3B8] mb-4"
+                  className="text-[17px] leading-[1.7] text-[#334155] mb-4"
                 >
                   {para.includes('The delivery system is.') ? (
                     <>
                       {para.split('The delivery system is.')[0]}
-                      <span className="inline-block font-semibold text-[#22D3EE] bg-[#22D3EE]/10 px-2 py-0.5 rounded">
+                      <span className="inline-block font-semibold text-[#0E7490] bg-[#0E7490]/10 px-2 py-0.5 rounded">
                         The delivery system is.
                       </span>
                     </>
                   ) : para.includes('better delivery') ? (
                     <>
                       {para.split('better delivery')[0]}
-                      <span className="inline-block font-semibold text-[#22D3EE] bg-[#22D3EE]/10 px-2 py-0.5 rounded">
+                      <span className="inline-block font-semibold text-[#0E7490] bg-[#0E7490]/10 px-2 py-0.5 rounded">
                         better delivery
                       </span>
                       {para.split('better delivery')[1]}
@@ -85,7 +85,7 @@ export function StoryV4() {
                   {block.list.map((item, lIdx) => (
                     <li
                       key={lIdx}
-                      className="text-[16px] leading-[1.6] text-[#94A3B8] pl-6 relative before:content-['→'] before:absolute before:left-0 before:text-[#22D3EE] before:font-semibold"
+                      className="text-[16px] leading-[1.6] text-[#334155] pl-6 relative before:content-['→'] before:absolute before:left-0 before:text-[#0E7490] before:font-semibold"
                     >
                       <strong className="font-medium">{item.split(' (')[0]}</strong>
                       {item.includes(' (') && ` (${item.split(' (')[1]}`}
