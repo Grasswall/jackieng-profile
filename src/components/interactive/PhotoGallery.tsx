@@ -35,13 +35,7 @@ const items: GalleryItem[] = [
     src: `${basePath}/images/gallery/shaw-2.jpg`,
     alt: 'Shaw Prize Forum 2025',
     caption: 'Shaw Prize Forum, 2025',
-    span: 'col-span-1 row-span-1',
-  },
-  {
-    src: `${basePath}/images/gallery/lindau-2.jpg`,
-    alt: 'Lindau Nobel Laureate Meeting 2025',
-    caption: 'Lindau Nobel Laureate Meeting, 2025',
-    span: 'col-span-1 row-span-1',
+    span: 'col-span-2 row-span-1',
   },
   {
     src: `${basePath}/images/gallery/hkstp-2.jpg`,
@@ -81,12 +75,6 @@ const wins: GalleryItem[] = [
     alt: 'Techathon+ 10th Anniversary award event',
     caption: 'Techathon+ 10th Anniversary — Gold Medal, 2026',
     span: 'col-span-2 row-span-1 md:col-span-1',
-  },
-  {
-    src: `${basePath}/images/gallery/china-resource-1.jpg`,
-    alt: 'China Resources and HKSTP event',
-    caption: 'China Resources × HKSTP, 2026',
-    span: 'col-span-2 row-span-1',
   },
   {
     src: `${basePath}/images/gallery/gba-hyab-1.jpg`,
