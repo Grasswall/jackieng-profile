@@ -219,8 +219,9 @@ export function MLPredictor() {
             data-reveal
             className="text-center text-sm text-[#94A3B8] max-w-3xl mx-auto"
           >
-            This section summarizes what others have published. It does not
-            show a trained model or data from the AtomBios platform.
+            This section summarizes what others have published. It contains no
+            data from the AtomBios platform. The simulation below trains a
+            model on synthetic data.
           </p>
         </div>
       </div>

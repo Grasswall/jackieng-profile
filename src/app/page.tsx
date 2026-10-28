@@ -5,6 +5,7 @@ import { SizeComparison } from "@/components/interactive/SizeComparison";
 import { PhotoGallery } from "@/components/interactive/PhotoGallery";
 import { InVivoProofs } from "@/components/interactive/InVivoProofs";
 import { MLPredictor } from "@/components/interactive/MLPredictor";
+import { SimulatedPredictor } from "@/components/interactive/SimulatedPredictor";
 import { ResearchDirections } from "@/components/ResearchDirections";
 import { ValidationV4 } from "@/components/ValidationV4";
 import { SelectedWorkV4 } from "@/components/SelectedWorkV4";
@@ -31,6 +32,9 @@ export default function Home() {
 
       {/* ML Predictor: dark charcoal */}
       <MLPredictor />
+
+      {/* Live simulation */}
+      <SimulatedPredictor />
 
       {/* Photo gallery */}
       <PhotoGallery />
