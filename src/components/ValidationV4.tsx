@@ -5,6 +5,7 @@ import { useScrollReveal } from '@/hooks/useScrollReveal'
 interface Entry {
   year: string
   label: string
+  href?: string
 }
 
 const tracks: { title: string; color: string; entries: Entry[] }[] = [
@@ -41,7 +42,16 @@ const tracks: { title: string; color: string; entries: Entry[] }[] = [
     entries: [
       { year: '2023–', label: 'PhD, PolyU — Drug Delivery & Structural Biology' },
       { year: '2024', label: 'J. Biological Chemistry — doi:10.1016/j.jbc.2024.107390' },
-      { year: '', label: 'Cryo-EM structures deposited in PDB/EMDB' },
+      {
+        year: '2026',
+        label: 'PDB 9X3T — Vibrio parahaemolyticus flagellar filament (cryo-EM)',
+        href: 'https://www.rcsb.org/structure/9X3T',
+      },
+      {
+        year: '2026',
+        label: 'PDB 9X3V — Vibrio cholerae flagellar filament (cryo-EM)',
+        href: 'https://www.rcsb.org/structure/9X3V',
+      },
     ],
   },
 ]
@@ -88,9 +98,20 @@ export function ValidationV4() {
                         {entry.year}
                       </span>
                     )}
-                    <span className="text-[15px] leading-[1.5] text-[#E2E8F0]">
-                      {entry.label}
-                    </span>
+                    {entry.href ? (
+                      <a
+                        href={entry.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[15px] leading-[1.5] text-[#E2E8F0] underline underline-offset-2 hover:text-[#F8FAFC]"
+                      >
+                        {entry.label}
+                      </a>
+                    ) : (
+                      <span className="text-[15px] leading-[1.5] text-[#E2E8F0]">
+                        {entry.label}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ol>
