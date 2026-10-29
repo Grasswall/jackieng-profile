@@ -2,10 +2,12 @@
 
 // One message, repeated everywhere: "20 nanometers to the brain."
 // Every figure below is verified (data/meta.json).
-const facts = [
-  { v: '2.7 Å', k: 'cryo-EM structure solved' },
-  { v: 'JBC', k: 'peer-reviewed, 2024' },
-  { v: '8×', k: 'transcytosis across the BBB' },
+// Four capabilities, each with its own evidence. The combination is the signal.
+const stack = [
+  { role: 'Bench', proof: '8× BBB transcytosis, measured' },
+  { role: 'Structure', proof: '5 cryo-EM structures solved, down to 2.7 Å' },
+  { role: 'Model', proof: 'ML-guided particle design' },
+  { role: 'Company', proof: 'AtomBios, HK$7.05M funded' },
 ]
 
 export function EditorialHero() {
@@ -16,7 +18,7 @@ export function EditorialHero() {
     >
       <div className="order-2 md:order-1 flex flex-col justify-center px-6 py-7 md:px-12 lg:px-16 md:py-16">
         <p className="font-body text-xs uppercase tracking-[0.14em] text-[#A5460A] mb-5">
-          Jackie Ng · Cryo-EM structural biologist · Founder, AtomBios
+          Jackie Ng · Founder-scientist, AtomBios
         </p>
 
         <h1 className="font-heading font-semibold text-[clamp(2.9rem,5.2vw,5.4rem)] leading-[0.96] tracking-tight mb-5 md:mb-6">
@@ -33,14 +35,14 @@ export function EditorialHero() {
         </h1>
 
         <p className="font-body text-lg md:text-xl leading-snug text-[#3A362E] max-w-[40ch] mb-6 md:mb-8">
-          I solve structures at atomic resolution, then use ML to design nanoparticles that cross the blood-brain barrier.
+          One scientist across the bench, the microscope, the model and the company.
         </p>
 
-        <dl className="font-body flex flex-wrap gap-x-8 gap-y-3 mb-6 md:mb-9">
-          {facts.map((f) => (
-            <div key={f.k} className="flex flex-col max-w-[11rem]">
-              <dd className="font-heading text-3xl font-semibold leading-none">{f.v}</dd>
-              <dt className="mt-1 text-xs text-[#5A5448] leading-snug">{f.k}</dt>
+        <dl className="font-body grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-4 mb-6 md:mb-9 border-t border-[#1C1A16]/20 pt-5 max-w-[46rem]">
+          {stack.map((s) => (
+            <div key={s.role} className="flex flex-col">
+              <dt className="font-heading text-xl font-semibold leading-none">{s.role}</dt>
+              <dd className="mt-1.5 text-xs text-[#5A5448] leading-snug">{s.proof}</dd>
             </div>
           ))}
         </dl>
@@ -63,7 +65,7 @@ export function EditorialHero() {
         </a>
       </div>
 
-      <figure className="order-1 md:order-2 relative m-0 aspect-[16/10] md:aspect-auto overflow-hidden bg-[#1C1A16]">
+      <figure className="order-1 md:order-2 relative m-0 aspect-[16/9] md:aspect-auto overflow-hidden bg-[#1C1A16]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/jackieng-profile/images/gallery/suzhou-pitch.jpg"
