@@ -250,7 +250,7 @@ export function EvidenceLayers() {
       style={{ height: `calc(100svh + ${(N - 1) * STICKY_RUN}svh)` }}
     >
       <div className="ev-sticky">
-        <h2 id="evidence-heading" className="sr-only">The evidence, in three layers</h2>
+        <h2 id="evidence-heading" className="sr-only">Evidence I can show</h2>
         <div ref={stage} className="ev-stage">
           {/* Layer 1: cryo-EM class averages */}
           <div ref={setLayer(0)} className="ev-layer ev0">

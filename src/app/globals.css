@@ -70,6 +70,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .ed-rise   { transform: translateY(105%); animation: ed-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 .ed-reveal { clip-path: inset(0 0 100% 0); animation: ed-reveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; }
+.hero-photo-quiet::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(10,24,40,.03) 20%, rgba(10,24,40,.16) 75%, rgba(10,24,40,.26)); }
 
 /* Route change and gallery image swap: opacity only, so content is never
    transformed or left hidden if the animation does not run. */

@@ -37,7 +37,7 @@ export function EditorialHero() {
       className="on-dark relative flex flex-col bg-deep text-cream pt-16 md:min-h-[100svh]"
     >
       {/* Photo: full bleed on desktop, stacked above the text on phones */}
-      <figure className="relative m-0 h-[56svh] min-h-[22rem] overflow-hidden bg-stage md:absolute md:inset-0 md:top-16 md:h-auto">
+      <figure className="hero-photo-quiet relative m-0 h-[56svh] min-h-[22rem] overflow-hidden bg-stage md:absolute md:inset-0 md:top-16 md:h-auto">
         <div
           ref={driftRef}
           className="absolute -inset-3 transition-transform duration-300 ease-out will-change-transform"
@@ -56,23 +56,23 @@ export function EditorialHero() {
 
       {/* Solid text plate. Photo legibility never depends on what is behind the words. */}
       <div className="relative z-10 bg-deep px-6 py-9 md:mt-auto md:w-[min(46rem,48%)] md:px-12 md:py-12 lg:px-14">
-        <p className="mb-4 text-base text-mist">Jackie Ng · structural biologist · founder of AtomBios</p>
+        <p className="mb-4 text-base text-mist">Founder-scientist · AtomBios · structural biology + drug delivery</p>
 
         <h1 className="mb-5 font-heading text-[clamp(2.25rem,4.6vw,4.6rem)] font-semibold leading-[1] tracking-tight text-balance md:mb-6">
           <span className="block overflow-hidden pb-[0.08em]">
             <span className="ed-rise block" style={{ animationDelay: '0.1s' }}>
-              Atomic insight.
+              Structural biology.
             </span>
           </span>
           <span className="block overflow-hidden pb-[0.08em]">
             <span className="ed-rise block" style={{ animationDelay: '0.25s' }}>
-              Real-world delivery.
+              ML-guided delivery.
             </span>
           </span>
         </h1>
 
         <p className="mb-7 max-w-[44ch] text-lg leading-snug text-cream md:text-xl">
-          I solve cryo-EM structures and apply molecular insight to drug delivery. Founder of AtomBios, with computational tools extending the experimental work.
+          I work across the bench, cryo-EM, the model and the company. Founder of AtomBios, applying structural insight and computation to drug delivery.
         </p>
 
         <dl className="mb-8 grid grid-cols-2 gap-x-6 gap-y-5 lg:grid-cols-4">
@@ -100,7 +100,7 @@ export function EditorialHero() {
             href="#flow"
             className="inline-flex min-h-11 items-center text-base text-cream underline decoration-signal decoration-2 underline-offset-[6px] transition-colors hover:text-signal"
           >
-            Explore the work
+            View the evidence
           </a>
         </div>
       </div>

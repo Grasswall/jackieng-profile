@@ -97,7 +97,7 @@ export function Flow() {
     >
       <div className="sticky top-0 flex h-screen flex-col items-center justify-center gap-3 px-6 pt-20 pb-3">
         <h2 id="flow-heading" className="text-center font-heading text-3xl font-semibold tracking-tight text-cream md:text-5xl">
-          How a 20 nm particle gets to the brain
+          From structure to a delivery platform
         </h2>
 
         <div

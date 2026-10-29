@@ -336,7 +336,7 @@ export function WorkIndex() {
 
         <div className="wi-hud">
           <p className="eyebrow wi-eyebrow">Work index</p>
-          <h2 id="index-heading">The work, mapped</h2>
+          <h2 id="index-heading">The range of the work</h2>
           <p className="wi-lede">Photos, structures and results on one map. Drag to move, click to fly in.</p>
           <div className="wi-ctl">
             <button type="button" onClick={() => api.current.overview()}>Overview</button>

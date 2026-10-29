@@ -14,10 +14,9 @@ export default function Home() {
   return (
     <main>
       <EditorialHero />
-      {/* One guided flow: cryo-EM -> 3D -> ML -> output */}
-      <Flow />
       <ProofStrip />
-      {/* Chapters: founder (lens) -> evidence (pinned layers) -> work map. Only Flow and Evidence pin. */}
+      {/* Capability proof first; motion chapters then make each claim inspectable. */}
+      <Flow />
       <FounderLens />
       <EvidenceLayers />
       <WorkIndex />
