@@ -6,9 +6,9 @@ import { gsap } from '@/lib/gsapConfig'
 
 // Four beats, one tagline per screen. Wording reuses copy already on the site.
 const BEATS = [
-  { line: 'I started with atoms.', sub: 'Cryo-EM structures, deposited in PDB and EMDB.', color: '#22D3EE' },
+  { line: 'I solve structures at atomic resolution.', sub: 'Cryo-EM, down to 2.7 Å. Then I ask what a particle needs to do.', color: '#22D3EE' },
   { line: 'The brain keeps most particles out.', sub: 'Conventional LNPs are 80-100 nm. Too large to cross.', color: '#22D3EE' },
-  { line: 'So I made them 20 nm.', sub: '4-5× smaller, built from structural insight into endosomal transcytosis.', color: '#22D3EE' },
+  { line: 'So I made them 20 nm.', sub: '4-5× smaller. Structure-guided, ML-assisted, built around endosomal transcytosis.', color: '#22D3EE' },
   { line: '8× crossing. 3.2× in the brain.', sub: 'Versus conventional LNPs.', color: '#22D3EE' },
 ]
 
