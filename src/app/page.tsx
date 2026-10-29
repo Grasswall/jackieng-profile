@@ -1,6 +1,7 @@
 import { EditorialHero } from "@/components/EditorialHero";
 import { StoryStage } from "@/components/StoryStage";
 import { ProofStrip } from "@/components/ProofStrip";
+import { Combination } from "@/components/Combination";
 import { Vision } from "@/components/Vision";
 import { Flow } from "@/components/interactive/Flow";
 import { PhotoGallery } from "@/components/interactive/PhotoGallery";
@@ -16,6 +17,7 @@ export default function Home() {
       <Flow />
       <ProofStrip />
       <StoryStage />
+      <Combination />
       <Vision />
       <PhotoGallery />
       <ValidationV4 />

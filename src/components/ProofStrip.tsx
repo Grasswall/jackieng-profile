@@ -4,10 +4,10 @@ import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 // Every figure here is verified (data/meta.json, cv/source.yaml).
 const proof = [
-  { value: '3.2×', label: 'brain accumulation vs. conventional LNPs' },
-  { value: 'JBC 2024', label: 'peer-reviewed publication' },
+  { value: 'JBC 2024', label: 'peer-reviewed, J. Biological Chemistry' },
   { value: 'Lindau 2025', label: 'Nobel Laureate Meeting' },
   { value: 'Shaw 2025', label: 'Laureates Roundtable, Academic Representative' },
+  { value: 'CAS', label: 'Future Leader' },
   { value: 'Cryo-EM Forum', label: 'speaker, Greater Bay Area 2025' },
 ]
 
