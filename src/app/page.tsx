@@ -1,8 +1,9 @@
 import { EditorialHero } from "@/components/EditorialHero";
-import { StoryStage } from "@/components/StoryStage";
 import { ProofStrip } from "@/components/ProofStrip";
-import { Combination } from "@/components/Combination";
 import { Vision } from "@/components/Vision";
+import { FounderLens } from "@/components/motion/FounderLens";
+import { EvidenceLayers } from "@/components/motion/EvidenceLayers";
+import { WorkIndex } from "@/components/motion/WorkIndex";
 import { Flow } from "@/components/interactive/Flow";
 import { PhotoGallery } from "@/components/interactive/PhotoGallery";
 import { ValidationV4 } from "@/components/ValidationV4";
@@ -16,8 +17,10 @@ export default function Home() {
       {/* One guided flow: cryo-EM -> 3D -> ML -> output */}
       <Flow />
       <ProofStrip />
-      <StoryStage />
-      <Combination />
+      {/* Chapters: founder (lens) -> evidence (pinned layers) -> work map. Only Flow and Evidence pin. */}
+      <FounderLens />
+      <EvidenceLayers />
+      <WorkIndex />
       <Vision />
       <PhotoGallery />
       <ValidationV4 />
