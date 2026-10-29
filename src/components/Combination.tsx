@@ -4,7 +4,7 @@ import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 // The moat: four skills in one person. Evidence lines are verified facts only.
 const SKILLS = [
-  { name: 'Wet lab', line: 'I run the bench work, from formulation to the 8× transcytosis result.' },
+  { name: 'Wet lab', line: 'I run the bench work behind the 8× transcytosis result.' },
   { name: 'Structural biology', line: 'I solved five cryo-EM structures myself, best at 2.7 Å.' },
   { name: 'Machine learning', line: 'I build the models that guide particle design.' },
   { name: 'Founder', line: 'I took the result into AtomBios, funded with HK$7.05M.' },
