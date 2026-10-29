@@ -8,7 +8,7 @@ const proof = [
   { value: 'HK$7.05M', label: 'funding secured' },
   { value: 'Lindau 2025', label: 'Nobel Laureate Meeting' },
   { value: 'Shaw 2025', label: 'Laureates Roundtable, Academic Representative' },
-  { value: 'Cryo-EM Forum', label: 'invited speaker, Greater Bay Area 2025' },
+  { value: 'Cryo-EM Forum', label: 'speaker, Greater Bay Area 2025' },
 ]
 
 export function ProofStrip() {
