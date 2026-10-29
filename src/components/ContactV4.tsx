@@ -21,14 +21,14 @@ export function ContactV4({ email }: ContactProps) {
           id="contact-heading"
           className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#F8FAFC] leading-[1.15] mb-6"
         >
-          Working on brain delivery? Talk to me.
+          Partner with me, or join the team.
         </h2>
 
         <p
           data-reveal
           className="text-lg text-[#94A3B8] font-light leading-[1.6] mb-12 max-w-[50ch] mx-auto"
         >
-          I&apos;m open to brain/CNS delivery roles, AI for therapeutics positions, platform engineering opportunities, and technical consulting.
+          Pharma and biotech teams with a payload stuck at the blood-brain barrier. Investors in CNS delivery. Scientists who work across the bench, structure and ML and want to build AtomBios with me.
         </p>
 
         {/* Email CTA */}
@@ -38,7 +38,7 @@ export function ContactV4({ email }: ContactProps) {
           className="inline-block text-xl font-semibold tracking-tight text-[#0B0E14] bg-[#F97316] hover:bg-[#22D3EE] px-10 py-4 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
           aria-label={`Email ${email}`}
         >
-          Get in touch
+          Email me
         </a>
 
         {/* Sub-CTA */}
@@ -46,7 +46,7 @@ export function ContactV4({ email }: ContactProps) {
           data-reveal
           className="mt-12 text-[15px] text-[#94A3B8] leading-[1.8]"
         >
-          Especially interested in CNS drug delivery, solid tumor targeting, mRNA/siRNA therapeutics beyond liver, and AI for formulation design.
+          CNS delivery. mRNA and siRNA beyond liver. ML for formulation design.
         </p>
 
       </div>
