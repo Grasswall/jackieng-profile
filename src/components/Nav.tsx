@@ -35,9 +35,8 @@ export function Nav({ items }: NavProps) {
     <header
       className={[
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled
-          ? 'bg-navy/95 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20'
-          : 'bg-transparent',
+        'bg-navy/95 backdrop-blur-md border-b border-white/10',
+        scrolled ? 'shadow-lg shadow-black/20' : '',
       ].join(' ')}
     >
       <nav

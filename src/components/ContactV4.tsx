@@ -21,7 +21,7 @@ export function ContactV4({ email }: ContactProps) {
           id="contact-heading"
           className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#F8FAFC] leading-[1.15] mb-6"
         >
-          Let&apos;s work together
+          Working on brain delivery? Talk to me.
         </h2>
 
         <p
