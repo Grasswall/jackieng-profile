@@ -3,9 +3,9 @@
 // One message, repeated everywhere: "20 nanometers to the brain."
 // Every figure below is verified (data/meta.json).
 const facts = [
+  { v: '2.7 Å', k: 'cryo-EM structure solved' },
+  { v: 'JBC', k: 'peer-reviewed, 2024' },
   { v: '8×', k: 'transcytosis across the BBB' },
-  { v: '3.2-fold', k: 'brain accumulation vs. conventional LNPs' },
-  { v: 'HK$7.05M', k: 'funding secured' },
 ]
 
 export function EditorialHero() {
@@ -16,7 +16,7 @@ export function EditorialHero() {
     >
       <div className="order-2 md:order-1 flex flex-col justify-center px-6 py-7 md:px-12 lg:px-16 md:py-16">
         <p className="font-body text-xs uppercase tracking-[0.14em] text-[#A5460A] mb-5">
-          Jackie Ng · Structural ML scientist · Founder, AtomBios
+          Jackie Ng · Cryo-EM structural biologist · Founder, AtomBios
         </p>
 
         <h1 className="font-heading font-semibold text-[clamp(2.9rem,5.2vw,5.4rem)] leading-[0.96] tracking-tight mb-5 md:mb-6">
@@ -32,8 +32,8 @@ export function EditorialHero() {
           </span>
         </h1>
 
-        <p className="font-body text-lg md:text-xl leading-snug text-[#3A362E] max-w-[34ch] mb-6 md:mb-8">
-          I engineer nanoparticles that cross the blood-brain barrier.
+        <p className="font-body text-lg md:text-xl leading-snug text-[#3A362E] max-w-[40ch] mb-6 md:mb-8">
+          I solve structures at atomic resolution, then use ML to design nanoparticles that cross the blood-brain barrier.
         </p>
 
         <dl className="font-body flex flex-wrap gap-x-8 gap-y-3 mb-6 md:mb-9">
