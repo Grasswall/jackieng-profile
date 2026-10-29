@@ -12,9 +12,19 @@ interface NavProps {
   items: NavItem[]
 }
 
+const basePath = '/jackieng-profile'
+
 export function Nav({ items }: NavProps) {
+  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', handler, { passive: true })
+    return () => window.removeEventListener('scroll', handler)
+  }, [])
+
+  // Close mobile menu on route change / click-outside
   useEffect(() => {
     const close = () => setOpen(false)
     window.addEventListener('hashchange', close)
@@ -22,33 +32,38 @@ export function Nav({ items }: NavProps) {
   }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
+    <header
+      className={[
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        scrolled
+          ? 'bg-navy/95 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20'
+          : 'bg-transparent',
+      ].join(' ')}
+    >
       <nav
-        className="flex items-start justify-between pointer-events-none"
-        style={{ padding: 'var(--margin)' }}
+        className="max-w-6xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20"
         aria-label="Main navigation"
       >
+        {/* Logo */}
         <Link
-          href="/"
-          className="pointer-events-auto text-[15px] font-medium text-white hover:text-accent transition-colors duration-200 px-2.5 py-1 -mx-2.5 -my-1 rounded-sm backdrop-blur-md"
-          style={{ backgroundColor: 'rgba(5, 15, 22, 0.92)' }}
+          href={basePath}
+          className="text-offwhite font-heading text-2xl font-semibold tracking-tight hover:text-gold transition-colors duration-200"
           aria-label="Jackie Ng — home"
         >
-          Jackie Ng
+          JN.
         </Link>
 
-        <ul
-          className="hidden md:flex items-center gap-6 pointer-events-auto px-3.5 py-1 rounded-sm backdrop-blur-md"
-          style={{ backgroundColor: 'rgba(5, 15, 22, 0.92)' }}
-          role="list"
-        >
+        {/* Desktop links */}
+        <ul className="hidden md:flex items-center gap-8" role="list">
           {items.map((item) => {
-            const href = item.href
+            const href = item.href.startsWith('/')
+              ? `${basePath}${item.href}`
+              : item.href
             return (
               <li key={item.href}>
                 <Link
                   href={href}
-                  className="link text-[15px] text-white hover:text-accent transition-colors duration-200"
+                  className="relative text-sm tracking-wider text-offwhite/70 hover:text-gold transition-colors duration-200 uppercase font-medium after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.label}
                 </Link>
@@ -57,35 +72,53 @@ export function Nav({ items }: NavProps) {
           })}
         </ul>
 
+        {/* Mobile hamburger */}
         <button
-          className="md:hidden pointer-events-auto p-2.5 -mr-2.5 -my-1.5 text-white rounded-sm backdrop-blur-md focus-visible:outline-none"
-          style={{ backgroundColor: 'rgba(5, 15, 22, 0.92)' }}
+          className="md:hidden flex flex-col gap-1.5 p-2 -mr-2 text-offwhite focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
-            {open ? (
-              <path d="M4 4 L18 18 M18 4 L4 18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-            ) : (
-              <path d="M3 6 H19 M3 11 H19 M3 16 H19" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-            )}
-          </svg>
+          <span
+            className={[
+              'block h-px w-6 bg-current transition-transform duration-300 origin-center',
+              open ? 'translate-y-[7px] rotate-45' : '',
+            ].join(' ')}
+          />
+          <span
+            className={[
+              'block h-px w-6 bg-current transition-opacity duration-300',
+              open ? 'opacity-0' : '',
+            ].join(' ')}
+          />
+          <span
+            className={[
+              'block h-px w-6 bg-current transition-transform duration-300 origin-center',
+              open ? '-translate-y-[7px] -rotate-45' : '',
+            ].join(' ')}
+          />
         </button>
       </nav>
 
+      {/* Mobile menu drawer */}
       <div
-        className={`md:hidden pointer-events-auto overflow-hidden transition-[max-height,opacity] duration-300 bg-bg ${open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+        className={[
+          'md:hidden overflow-hidden transition-all duration-300',
+          open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0',
+          'bg-navy/98 backdrop-blur-md border-b border-white/10',
+        ].join(' ')}
         aria-hidden={!open}
       >
         <ul className="flex flex-col px-6 py-4 gap-4" role="list">
           {items.map((item) => {
-            const href = item.href
+            const href = item.href.startsWith('/')
+              ? `${basePath}${item.href}`
+              : item.href
             return (
               <li key={item.href}>
                 <Link
                   href={href}
-                  className="block text-base text-ink hover:text-accent transition-colors duration-200 py-1"
+                  className="block text-base tracking-wider text-offwhite/80 hover:text-gold transition-colors duration-200 uppercase font-medium py-1"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}
