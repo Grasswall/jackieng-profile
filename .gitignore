@@ -39,3 +39,4 @@ yarn-error.log*
 !public/videos/ml-viz/
 !public/videos/ml-viz/*.mp4
 !public/videos/ml-viz/*.jpg
+.taste-skill/

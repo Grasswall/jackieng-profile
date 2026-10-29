@@ -9,18 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy:     "#0A1828",
-        gold:     "#BFA181",
-        offwhite: "#F5F5F0",
-        charcoal: "#1A1A2E",
-        slate:    "#6B7280",
+        bg: "var(--bg)",
+        surface: "var(--surface)",
+        ink: "var(--ink)",
+        muted: "var(--muted)",
+        accent: "var(--accent)",
+        "accent-ink": "var(--accent-ink)",
+        field1: "var(--field-1)",
+        "field1-ink": "var(--field-1-ink)",
         // Keep default shadcn-style CSS var colours so layout.tsx still works
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        heading: ['var(--font-cormorant)', 'Cormorant Garamond', 'serif'],
-        body:    ['var(--font-inter)', 'Inter', 'sans-serif'],
+        display: ['var(--font-display)', 'Erode', 'sans-serif'],
+        text: ['var(--font-text)', 'Erode', 'sans-serif'],
       },
     },
   },
