@@ -66,13 +66,13 @@ export function EditorialHero() {
           </span>
           <span className="block overflow-hidden pb-[0.08em]">
             <span className="ed-rise block" style={{ animationDelay: '0.25s' }}>
-              ML-guided delivery.
+              Drug delivery.
             </span>
           </span>
         </h1>
 
         <p className="mb-7 max-w-[44ch] text-lg leading-snug text-cream md:text-xl">
-          I work across the bench, cryo-EM, the model and the company. Founder of AtomBios, applying structural insight and computation to drug delivery.
+          I solve molecular structures and build delivery systems. Founder of AtomBios, bringing experimental science, computational tools and company-building experience to the same problem.
         </p>
 
         <dl className="mb-8 grid grid-cols-2 gap-x-6 gap-y-5 lg:grid-cols-4">
@@ -90,14 +90,14 @@ export function EditorialHero() {
               href="#contact"
               className="group inline-flex min-h-12 items-center gap-3 bg-cream px-6 text-base font-medium text-ink transition-colors hover:bg-signal active:scale-95"
             >
-              Discuss opportunities
+              Hire or collaborate
               <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current transition-transform group-hover:translate-x-1" strokeWidth="1.75" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
           </Magnetic>
           <a
-            href="#flow"
+            href="#unique-span"
             className="inline-flex min-h-11 items-center text-base text-cream underline decoration-signal decoration-2 underline-offset-[6px] transition-colors hover:text-signal"
           >
             View the evidence

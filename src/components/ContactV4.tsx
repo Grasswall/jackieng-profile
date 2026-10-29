@@ -45,16 +45,18 @@ export function ContactV4({ email }: ContactProps) {
           <div data-reveal className="mt-10">
             <Magnetic>
               <a
-                href={`mailto:${email}`}
+                href={`mailto:${email}?subject=Scientific%20role%20discussion`}
                 className="group inline-flex min-h-14 items-center gap-3 bg-ink px-8 text-xl font-medium text-cream transition-colors hover:bg-clay active:scale-95"
                 aria-label={`Email ${email}`}
               >
-                Discuss opportunities
+                Discuss a role
                 <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current transition-transform group-hover:translate-x-1" strokeWidth="1.75" aria-hidden="true">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
               </a>
             </Magnetic>
+            <a href={`mailto:${email}?subject=Research%20collaboration`} className="mt-5 block w-fit min-h-11 text-lg underline underline-offset-4">Propose a collaboration</a>
+            <a href={`mailto:${email}?subject=CV%20request`} className="mt-2 block w-fit min-h-11 text-base underline underline-offset-4">Request my CV</a>
             <p className="mt-4 text-base text-stone">{email}</p>
           </div>
 
