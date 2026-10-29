@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from 'next/font/google'
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { LenisProvider } from "@/components/LenisProvider";
+import { RevealController } from "@/components/RevealController";
 import { meta, navigation } from "@/lib/data";
 
 const footerMeta = {
@@ -15,19 +15,6 @@ const footerMeta = {
     { label: "GitHub", href: meta.socials.github, icon: "github" as const },
   ],
 };
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-cormorant',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   title: "Jackie Ng — Structural ML Scientist for Drug Delivery",
@@ -52,10 +39,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
+    <html lang="en">
       <head>
-        <meta name="theme-color" content="#0A1828" />
+        <meta name="theme-color" content="#ff7a1f" />
         <link rel="canonical" href={meta.siteUrl} />
+        <link rel="preconnect" href="https://api.fontshare.com" />
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=erode@400,401,500,600&display=swap"
+          rel="stylesheet"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -72,12 +69,13 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-body antialiased bg-offwhite text-navy">
+      <body className="font-text antialiased bg-bg text-ink" style={{ fontFamily: 'var(--font-text)' }}>
         <Nav items={navigation} />
         <LenisProvider>
           {children}
         </LenisProvider>
         <Footer meta={footerMeta} />
+        <RevealController />
       </body>
     </html>
   );
