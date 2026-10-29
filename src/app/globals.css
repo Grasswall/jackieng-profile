@@ -86,3 +86,40 @@ h1, h2, h3, h4, h5, h6 {
   .dim-siblings:hover > *:not(:hover) { opacity: 0.55; }
 }
 .dim-siblings:focus-within > *:not(:focus-within) { opacity: 0.55; }
+
+/* One scroll narrative, pairing contribution and evidence in the same frame. */
+.talent-scroll { height: 320vh; }
+.talent-stage { position: sticky; top: 0; height: 100svh; padding: 6rem 2rem 1.5rem; display: flex; flex-direction: column; justify-content: center; }
+.talent-intro, .talent-layers, .talent-scroll-hint { width: 100%; max-width: 76rem; margin-left: auto; margin-right: auto; }
+.talent-intro { margin-bottom: 1.4rem; color: #22D3EE; }
+.talent-layers { position: relative; height: min(65vh, 38rem); }
+.talent-layer { position: absolute; inset: 0; display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+.talent-layer { opacity: 0; visibility: hidden; transition: opacity .35s ease; }
+.talent-layer.is-active { opacity: 1; visibility: visible; }
+.talent-visual { position: relative; height: 100%; min-height: 0; background: #102237; overflow: hidden; }
+.talent-credit { position: absolute; bottom: 0; left: 0; right: 0; padding: .65rem 1rem; background: #0A1828e8; font-size: .7rem; }
+.talent-scroll-hint { margin-top: 1.5rem; }
+@media(max-width: 767px) {
+  .talent-stage { padding: 5.5rem 1.5rem 1rem; }
+  .talent-intro { margin-bottom: .7rem; font-size: .8rem; }
+  .talent-layers { height: calc(100svh - 10rem); }
+  .talent-layer { grid-template-columns: 1fr; grid-template-rows: minmax(0, .9fr) minmax(0, 1.1fr); gap: 1rem; }
+  .talent-caption h2 { font-size: clamp(1.8rem, 7.5vw, 2.7rem); }
+  .talent-caption p { margin-top: .65rem; font-size: .85rem; }
+  .talent-caption > p:first-child { margin-top: 0; margin-bottom: .5rem; }
+  .talent-scroll-hint { margin-top: .6rem; font-size: .65rem; }
+  .talent-visual > div { padding: 1rem; }
+  .talent-visual > div > p:first-child { margin-bottom: .5rem; }
+  .talent-visual .space-y-7 > :not([hidden]) ~ :not([hidden]) { margin-top: .5rem; }
+  .talent-visual .text-5xl { font-size: 2rem; margin-top: .2rem; }
+  .talent-visual .h-4 { height: .5rem; }
+  .talent-visual .text-xs { font-size: .6rem; margin-top: .5rem; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .talent-scroll { height: auto; }
+  .talent-stage { position: relative; height: auto; padding-top: 5rem; }
+  .talent-layers { height: auto; }
+  .talent-layer { position: relative; margin-bottom: 4rem; }
+  .talent-visual { min-height: 20rem; }
+  .talent-scroll-hint { display: none; }
+}

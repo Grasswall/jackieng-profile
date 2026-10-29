@@ -1,112 +1,67 @@
 'use client'
 
-import { useRef, useState } from 'react'
-import { useGSAP } from '@gsap/react'
-import { gsap } from '@/lib/gsapConfig'
+import { useEffect, useState } from 'react'
 
-// Four beats, one tagline per screen. Wording reuses copy already on the site.
-const BEATS = [
-  { line: 'I solve structures at atomic resolution.', sub: 'Cryo-EM, down to 2.7 Å. Then I ask what a particle needs to do.' },
-  { line: 'The brain keeps most particles out.', sub: 'Conventional LNPs are 80-100 nm. Too large to cross.' },
-  { line: 'So I made them 20 nm.', sub: '4-5× smaller. Structure-guided, ML-assisted, built around endosomal transcytosis.' },
-  { line: '8× crossing. 3.2× in the brain.', sub: 'Versus conventional LNPs.' },
+const beats = [
+  { name: 'Resolve', title: 'I solve molecular structures.', detail: 'Five cryo-EM structures solved. Best resolution: 2.7 Å. Structural research in progress.', contribution: 'Molecular architecture → biological interpretation' },
+  { name: 'Deliver', title: 'Then work on where medicines go.', detail: 'AtomBios: a 20 nm nanoparticle platform. 8× BBB transcytosis and 3.2-fold brain accumulation versus conventional LNPs.', contribution: 'Structural biology → nanoparticle delivery' },
+  { name: 'Build', title: 'And carry the work beyond the lab.', detail: 'Founder of AtomBios. HK$7.05M in funding, including HK$6M through HKSTP Incu-Bio. Working with Sirnaomics.', contribution: 'Scientific work → company building' },
 ]
 
 export function StoryStage() {
-  const root = useRef<HTMLElement>(null)
-  const tlRef = useRef<gsap.core.Timeline | null>(null)
   const [active, setActive] = useState(0)
-
-  useGSAP(
-    () => {
-      const q = gsap.utils.selector(root)
-      const beats = q('[data-beat]')
-      const ticks = q('[data-tick]')
-
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        // No pinning: show all beats as a plain stacked list.
-        gsap.set(q('[data-story-root]'), { height: 'auto' })
-        gsap.set(q('[data-story-stage]'), { position: 'relative', height: 'auto', paddingTop: '6rem', paddingBottom: '6rem' })
-        gsap.set(q('[data-beats]'), { height: 'auto', minHeight: 0 })
-        gsap.set(beats, { position: 'relative', marginBottom: '4rem' })
-        gsap.set(q('[data-ticks]'), { display: 'none' })
-        return
-      }
-
-      gsap.set(beats.slice(1), { opacity: 0, y: 24 })
-      gsap.set(ticks.slice(1), { opacity: 0.5 })
-
-      const tl = gsap.timeline({
-        defaults: { ease: 'power1.inOut' },
-        scrollTrigger: {
-          trigger: root.current,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.6,
-          onUpdate: () => setActive(Math.min(beats.length - 1, Math.round(tl.time()))),
-        },
-      })
-      for (let i = 1; i < beats.length; i++) {
-        const t = i - 0.3
-        tl.to(beats[i - 1], { opacity: 0, y: -24, duration: 0.3 }, t)
-        tl.to(ticks[i - 1], { opacity: 0.5, duration: 0.3 }, t)
-        tl.to(beats[i], { opacity: 1, y: 0, duration: 0.3 }, t + 0.1)
-        tl.to(ticks[i], { opacity: 1, duration: 0.3 }, t + 0.1)
-      }
-      tl.to({}, { duration: 0.6 }, beats.length - 1) // hold the last beat
-      tlRef.current = tl
-    },
-    { scope: root }
-  )
-
-  // Touch and keyboard fallback: jump straight to a beat.
-  const jump = (i: number) => {
-    const tl = tlRef.current
-    const st = tl?.scrollTrigger
-    if (!tl || !st) return
-    const y = st.start + (st.end - st.start) * (i / tl.duration())
-    window.scrollTo({ top: y, behavior: 'auto' })
-  }
+  useEffect(() => {
+    const update = () => {
+      const node = document.getElementById('story')
+      if (!node) return
+      const rect = node.getBoundingClientRect()
+      const range = Math.max(1, node.offsetHeight - window.innerHeight)
+      const progress = Math.max(0, Math.min(1, -rect.top / range))
+      setActive(Math.min(beats.length - 1, Math.floor(progress * beats.length)))
+    }
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update)
+    return () => { window.removeEventListener('scroll', update); window.removeEventListener('resize', update) }
+  }, [])
 
   return (
-    <section
-      ref={root}
-      id="story"
-      aria-labelledby="story-heading"
-      data-story-root
-      className="on-dark relative bg-deep text-cream"
-      style={{ height: '380vh' }}
-    >
-      <div data-story-stage className="sticky top-0 flex h-screen flex-col justify-center px-6 pt-20 md:px-12">
-        <h2 id="story-heading" className="sr-only">How I got here</h2>
-        <div className="mx-auto w-full max-w-6xl">
-          <div data-beats className="relative min-h-[23rem] md:min-h-[26rem]">
-            {BEATS.map((b, i) => (
-              <div key={b.line} data-beat className="absolute inset-0 flex flex-col justify-center">
-                <p className="font-heading text-xl text-signal">{i + 1} / {BEATS.length}</p>
-                <p className="mt-3 font-heading text-[2.6rem] font-semibold leading-[1.02] tracking-tight text-cream text-balance sm:text-6xl lg:text-[5.5rem]">
-                  {b.line}
-                </p>
-                <p className="mt-6 max-w-[44ch] text-lg leading-[1.55] text-mist md:text-xl">{b.sub}</p>
+    <section id="story" aria-label="The work and my contribution" className="talent-scroll on-dark bg-deep text-cream">
+      <div className="talent-stage">
+        <p className="talent-intro">The work. The contribution.</p>
+        <div className="talent-layers">
+          {beats.map((beat, i) => (
+            <article key={beat.name} data-evidence-layer className={`talent-layer ${active === i ? 'is-active' : ''}`} aria-hidden={active !== i}>
+              <div className="talent-visual">
+                {i === 0 && <>
+                  <video className="h-full w-full object-contain invert-render" src="/jackieng-profile/images/corona/map-model.mp4" poster="/jackieng-profile/images/corona/map-model-poster.jpg" autoPlay muted loop playsInline aria-label="Existing cryo-EM map and fitted atomic model render" />
+                  <span className="talent-credit">Cryo-EM density map + fitted model · existing research render</span>
+                </>}
+                {i === 1 && <div className="flex h-full flex-col justify-center px-7 md:px-14">
+                  <p className="mb-8 text-sm text-mist">Reported preclinical platform results</p>
+                  <div className="space-y-7">
+                    <div><p className="mb-2 text-sm">BBB transcytosis</p><div className="h-4 w-full bg-signal" /><p className="mt-2 font-heading text-5xl text-signal">8×</p></div>
+                    <div><p className="mb-2 text-sm">Brain accumulation</p><div className="h-4 w-[40%] bg-signal" /><p className="mt-2 font-heading text-5xl text-signal">3.2×</p></div>
+                  </div>
+                  <p className="mt-7 text-xs leading-relaxed text-mist">Each fold change is relative to conventional LNPs. Bars summarize reported ratios; they are not raw assay data or a comparison between endpoints.</p>
+                </div>}
+                {i === 2 && <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/jackieng-profile/images/gallery/suzhou-pitch.jpg" alt="Jackie presenting AtomBios at WIN in Suzhou" className="h-full w-full object-cover" />
+                  <span className="talent-credit">Presenting AtomBios · WIN in Suzhou</span>
+                </>}
               </div>
-            ))}
-          </div>
-          <div data-ticks className="mt-8 flex gap-1">
-            {BEATS.map((b, i) => (
-              <button
-                key={b.line}
-                type="button"
-                data-tick
-                onClick={() => jump(i)}
-                aria-label={`Go to part ${i + 1} of ${BEATS.length}`}
-                aria-current={active === i ? 'step' : undefined}
-                className="group flex h-11 w-14 items-center md:w-16"
-              >
-                <span className="block h-1 w-full bg-signal transition-transform group-hover:scale-y-[2.5]" />
-              </button>
-            ))}
-          </div>
+              <div className="talent-caption">
+                <p className="mb-4 text-sm uppercase tracking-[.16em] text-signal">{beat.name}</p>
+                <h2 className="font-heading text-[clamp(2.3rem,4.4vw,4.5rem)] font-semibold leading-[1.02] tracking-tight">{beat.title}</h2>
+                <p className="mt-5 max-w-[40ch] text-base leading-relaxed text-mist md:text-lg">{beat.detail}</p>
+                <p className="mt-6 border-t border-cream/25 pt-4 text-sm text-cream">{beat.contribution}</p>
+                <a href="/jackieng-profile/work/" className="mt-4 inline-flex min-h-11 items-center text-sm underline underline-offset-4">Inspect the work ↗</a>
+              </div>
+            </article>
+          ))}
         </div>
+        <p className="talent-scroll-hint text-xs text-mist">Keep scrolling · structure → delivery → execution</p>
       </div>
     </section>
   )
