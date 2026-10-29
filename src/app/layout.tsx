@@ -30,10 +30,10 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: "Jackie Ng — Structural Biologist and Founder, Brain Delivery with ML",
+  title: "Jackie Ng — Structural Biology & Drug Delivery",
   description: meta.description,
   openGraph: {
-    title: "Jackie Ng — Structural Biologist and Founder, Brain Delivery with ML",
+    title: "Jackie Ng — Structural Biology & Drug Delivery",
     description: meta.description,
     url: meta.siteUrl,
     siteName: "Jackie Ng",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jackie Ng — Structural Biologist and Founder, Brain Delivery with ML",
+    title: "Jackie Ng — Structural Biology & Drug Delivery",
     description: meta.description,
   },
 };

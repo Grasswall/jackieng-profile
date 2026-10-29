@@ -6,10 +6,10 @@ import { Magnetic } from '@/components/Magnetic'
 // Identity: structural biologist turned founder, using ML to discover the 20 nm BBB-crossing LNP.
 // Every figure below is verified (data/meta.json, cv/source.yaml).
 const proof = [
-  { v: '5', k: 'cryo-EM structures solved, best 2.7 Å' },
-  { v: '8×', k: 'blood-brain barrier transcytosis' },
-  { v: '3.2×', k: 'brain accumulation vs. conventional LNPs' },
-  { v: 'HK$7.05M', k: 'funding for AtomBios' },
+  { v: '5', k: 'cryo-EM structures solved · 2.7 Å best' },
+  { v: '20 nm', k: 'delivery platform built at AtomBios' },
+  { v: '8×', k: 'BBB transcytosis measured in vivo' },
+  { v: 'HK$7.05M', k: 'funding raised for AtomBios' },
 ]
 
 export function EditorialHero() {
@@ -56,23 +56,23 @@ export function EditorialHero() {
 
       {/* Solid text plate. Photo legibility never depends on what is behind the words. */}
       <div className="relative z-10 bg-deep px-6 py-9 md:mt-auto md:w-[min(46rem,48%)] md:px-12 md:py-12 lg:px-14">
-        <p className="mb-4 text-base text-mist">Jackie Ng, founder of AtomBios</p>
+        <p className="mb-4 text-base text-mist">Jackie Ng · structural biologist · founder of AtomBios</p>
 
         <h1 className="mb-5 font-heading text-[clamp(2.25rem,4.6vw,4.6rem)] font-semibold leading-[1] tracking-tight text-balance md:mb-6">
           <span className="block overflow-hidden pb-[0.08em]">
             <span className="ed-rise block" style={{ animationDelay: '0.1s' }}>
-              From atomic structure
+              Atomic insight.
             </span>
           </span>
           <span className="block overflow-hidden pb-[0.08em]">
             <span className="ed-rise block" style={{ animationDelay: '0.25s' }}>
-              to the brain.
+              Real-world delivery.
             </span>
           </span>
         </h1>
 
         <p className="mb-7 max-w-[44ch] text-lg leading-snug text-cream md:text-xl">
-          Structural biologist turned founder. I use ML to discover the 20 nm lipid nanoparticle that crosses the blood-brain barrier.
+          I solve cryo-EM structures and apply molecular insight to drug delivery. Founder of AtomBios, with computational tools extending the experimental work.
         </p>
 
         <dl className="mb-8 grid grid-cols-2 gap-x-6 gap-y-5 lg:grid-cols-4">
@@ -90,7 +90,7 @@ export function EditorialHero() {
               href="#contact"
               className="group inline-flex min-h-12 items-center gap-3 bg-cream px-6 text-base font-medium text-ink transition-colors hover:bg-signal active:scale-95"
             >
-              Partner or join
+              Discuss opportunities
               <svg viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current transition-transform group-hover:translate-x-1" strokeWidth="1.75" aria-hidden="true">
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
@@ -100,7 +100,7 @@ export function EditorialHero() {
             href="#flow"
             className="inline-flex min-h-11 items-center text-base text-cream underline decoration-signal decoration-2 underline-offset-[6px] transition-colors hover:text-signal"
           >
-            See how the particle is made
+            Explore the work
           </a>
         </div>
       </div>

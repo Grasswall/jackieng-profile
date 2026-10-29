@@ -21,7 +21,7 @@ const SKILLS = [
   {
     id: 'ml',
     name: 'Machine learning',
-    line: 'I build the models that guide particle design.',
+    line: 'I explore machine learning for formulation design.',
     evidence: 'In the pipeline above, a small network trained on synthetic formulations. It is a simulation and is labelled as one.',
   },
   {
@@ -44,12 +44,12 @@ export function Combination() {
   return (
     <section id="combination" aria-labelledby="combo-heading" className="bg-cream py-20 text-ink md:py-32">
       <div ref={ref} className="mx-auto max-w-6xl px-6 md:px-12">
-        <p data-reveal className="mb-4 text-base text-stone">Why hire or back me</p>
+        <p data-reveal className="mb-4 text-base text-stone">What I bring to a team</p>
         <h2 data-reveal id="combo-heading" className="max-w-[16ch] font-heading text-5xl font-semibold leading-[1] tracking-tight text-balance md:text-7xl">
-          Four skills, one person.
+          Structure meets delivery.
         </h2>
         <p data-reveal className="mt-6 max-w-[52ch] text-lg leading-[1.6] text-stone md:text-xl">
-          Delivery work usually splits across a bench team, a structure team, a model team and a founder. Here it sits in one head, and it produced the 20 nm particle.
+          Structural biology is my foundation. Drug delivery is where I apply it. Computation extends the experimental work; building AtomBios adds experience turning research into a company.
         </p>
 
         <div data-reveal className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16">
@@ -111,7 +111,7 @@ export function Combination() {
                 all ? 'border-signal text-signal' : 'border-mist/40 text-mist',
               ].join(' ')}
             >
-              {all ? 'Together: the 20 nm particle.' : 'Add the rest to see what they made.'}
+              {all ? 'Structure, delivery, computation and execution.' : 'Explore the evidence across the profile.'}
             </p>
           </div>
         </div>

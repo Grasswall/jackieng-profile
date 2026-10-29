@@ -5,7 +5,7 @@ import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "About — Jackie Ng",
-  description: "Structural biologist building ML for drug delivery. Building 20nm nanoparticles that cross the blood-brain barrier.",
+  description: "Structural biologist and PhD student at PolyU, applying cryo-EM and computational tools to drug delivery. Founder of AtomBios.",
 };
 
 const educationItems = [
@@ -41,7 +41,7 @@ export default function AboutPage() {
       <div className="mx-auto max-w-6xl px-6 pb-20 md:px-12 md:pb-28">
         <SectionLabel label="About" />
         <TextReveal as="h1" className="mb-14 mt-8 max-w-[14ch] font-heading text-[2.6rem] font-semibold leading-[1.08] tracking-tight sm:text-6xl md:text-7xl">
-          {`I build nanoparticles\nthat cross the barrier\nmost drugs never reach.`}
+          {`Structural biology.\nDelivery in practice.`}
         </TextReveal>
 
         <div className="grid gap-10 md:grid-cols-2 md:gap-16">

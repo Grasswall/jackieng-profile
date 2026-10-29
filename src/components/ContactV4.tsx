@@ -35,11 +35,11 @@ export function ContactV4({ email }: ContactProps) {
             id="contact-heading"
             className="font-heading text-5xl font-semibold leading-[1] tracking-tight text-balance md:text-7xl"
           >
-            Partner with me, or join the team.
+            Let’s tackle hard biology.
           </h2>
 
           <p data-reveal className="mt-6 max-w-[50ch] text-lg leading-[1.6] text-stone md:text-xl">
-            Pharma and biotech teams with a payload stuck at the blood-brain barrier. Investors in CNS delivery. Scientists who work across the bench, structure and ML and want to build AtomBios with me.
+            For roles and research collaborations in structural biology, drug delivery and computational biology: let’s discuss the problem, the team and where I can contribute. For AtomBios partnerships, contact me here too.
           </p>
 
           <div data-reveal className="mt-10">
@@ -49,7 +49,7 @@ export function ContactV4({ email }: ContactProps) {
                 className="group inline-flex min-h-14 items-center gap-3 bg-ink px-8 text-xl font-medium text-cream transition-colors hover:bg-clay active:scale-95"
                 aria-label={`Email ${email}`}
               >
-                Email me
+                Discuss opportunities
                 <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current transition-transform group-hover:translate-x-1" strokeWidth="1.75" aria-hidden="true">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
@@ -59,7 +59,7 @@ export function ContactV4({ email }: ContactProps) {
           </div>
 
           <p data-reveal className="mt-10 text-lg leading-[1.8] text-ink">
-            CNS delivery. mRNA and siRNA beyond liver. ML for formulation design.
+            Cryo-EM and structural biology. Nanoparticle delivery. Computation grounded in experiments.
           </p>
         </div>
       </div>
