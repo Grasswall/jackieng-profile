@@ -18,12 +18,11 @@ const badges = ["HKSTP Ideation Approved", "PolyU IEP Incubatee", "MicroFund 25/
 
 export default function WorkPage() {
   return (
-    <main className="min-h-screen bg-offwhite pt-32 pb-24">
-      <div className="max-w-5xl mx-auto px-6">
+    <main className="min-h-screen bg-cream pt-28 text-ink md:pt-36">
+      <div className="mx-auto max-w-6xl px-6 md:px-12">
         <SectionLabel label="Work" />
-        <TextReveal as="h1" className="font-heading text-5xl md:text-6xl text-navy mt-8 mb-16 leading-tight">
-          {`Small enough to cross,
-proven that it works.`}
+        <TextReveal as="h1" className="mb-14 mt-8 max-w-[14ch] font-heading text-[2.6rem] font-semibold leading-[1.08] tracking-tight sm:text-6xl md:mb-20 md:text-7xl">
+          {`Small enough to cross,\nproven that it works.`}
         </TextReveal>
       </div>
 
@@ -36,14 +35,15 @@ proven that it works.`}
         headshot="/jackieng-profile/assets/headshot.jpg"
       />
 
-      <section className="max-w-5xl mx-auto px-6 py-24">
-        <SectionLabel label="Publication" />
-        <div className="mt-8 p-8 bg-navy rounded-2xl">
-          <p className="text-gold font-body text-sm tracking-wider uppercase mb-2">Journal of Biological Chemistry</p>
-          <h3 className="font-heading text-2xl text-offwhite mb-4">Published Research</h3>
-          <p className="text-slate leading-relaxed">
+      <section aria-labelledby="publication-heading" className="on-dark mt-20 bg-deep text-cream md:mt-28">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:px-12 md:py-24">
+          <SectionLabel label="Publication" lineColor="white" />
+          <p className="mt-8 text-base text-mist">Journal of Biological Chemistry</p>
+          <h2 id="publication-heading" className="mt-1 font-heading text-4xl font-semibold leading-tight md:text-6xl">
+            Published Research
+          </h2>
+          <p className="mt-5 max-w-[52ch] text-lg leading-[1.6] text-cream md:text-xl">
             Tang et al. — Novel host cell factors interacting with SARS-CoV-2 spike protein RBD.
-            One of the world&apos;s top-10 biochemistry journals by impact factor.
           </p>
         </div>
       </section>

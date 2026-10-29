@@ -1,6 +1,7 @@
 'use client'
 
 import { useScrollReveal } from '@/hooks/useScrollReveal'
+import { Magnetic } from '@/components/Magnetic'
 
 interface ContactProps {
   email: string
@@ -13,42 +14,54 @@ export function ContactV4({ email }: ContactProps) {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="bg-[#0B0E14] py-20 md:py-32 text-center"
+      className="bg-cream py-20 text-ink md:py-32"
     >
-      <div ref={containerRef} className="max-w-4xl mx-auto px-6 md:px-12">
-        <h2
-          data-reveal
-          id="contact-heading"
-          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#F8FAFC] leading-[1.15] mb-6"
-        >
-          Partner with me, or join the team.
-        </h2>
+      <div ref={containerRef} className="mx-auto grid max-w-6xl gap-12 px-6 md:px-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:items-center lg:gap-20">
+        <div data-reveal className="mx-auto w-full max-w-sm lg:max-w-none">
+          <div className="relative aspect-[4/5] overflow-hidden bg-ink">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/jackieng-profile/images/gallery/headshot.jpg"
+              alt="Jackie Ng"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover object-top"
+            />
+          </div>
+        </div>
 
-        <p
-          data-reveal
-          className="text-lg text-[#94A3B8] font-light leading-[1.6] mb-12 max-w-[50ch] mx-auto"
-        >
-          Pharma and biotech teams with a payload stuck at the blood-brain barrier. Investors in CNS delivery. Scientists who work across the bench, structure and ML and want to build AtomBios with me.
-        </p>
+        <div>
+          <h2
+            data-reveal
+            id="contact-heading"
+            className="font-heading text-5xl font-semibold leading-[1] tracking-tight text-balance md:text-7xl"
+          >
+            Partner with me, or join the team.
+          </h2>
 
-        {/* Email CTA */}
-        <a
-          data-reveal
-          href={`mailto:${email}`}
-          className="inline-block text-xl font-semibold tracking-tight text-[#0B0E14] bg-[#F97316] hover:bg-[#22D3EE] px-10 py-4 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
-          aria-label={`Email ${email}`}
-        >
-          Email me
-        </a>
+          <p data-reveal className="mt-6 max-w-[50ch] text-lg leading-[1.6] text-stone md:text-xl">
+            Pharma and biotech teams with a payload stuck at the blood-brain barrier. Investors in CNS delivery. Scientists who work across the bench, structure and ML and want to build AtomBios with me.
+          </p>
 
-        {/* Sub-CTA */}
-        <p
-          data-reveal
-          className="mt-12 text-[15px] text-[#94A3B8] leading-[1.8]"
-        >
-          CNS delivery. mRNA and siRNA beyond liver. ML for formulation design.
-        </p>
+          <div data-reveal className="mt-10">
+            <Magnetic>
+              <a
+                href={`mailto:${email}`}
+                className="group inline-flex min-h-14 items-center gap-3 bg-ink px-8 text-xl font-medium text-cream transition-colors hover:bg-clay active:scale-95"
+                aria-label={`Email ${email}`}
+              >
+                Email me
+                <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current transition-transform group-hover:translate-x-1" strokeWidth="1.75" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </Magnetic>
+            <p className="mt-4 text-base text-stone">{email}</p>
+          </div>
 
+          <p data-reveal className="mt-10 text-lg leading-[1.8] text-ink">
+            CNS delivery. mRNA and siRNA beyond liver. ML for formulation design.
+          </p>
+        </div>
       </div>
     </section>
   )

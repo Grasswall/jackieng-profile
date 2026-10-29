@@ -52,7 +52,7 @@ export function TextReveal({
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 85%',
-          toggleActions: 'play none none reverse',
+          once: true,
         },
       })
     } else {
@@ -72,6 +72,8 @@ export function TextReveal({
               {segment}
               {splitBy === 'words' && i < segments.length - 1 ? '\u00A0' : ''}
             </span>
+            {/* Whitespace between lines so text extraction and screen readers do not join words. */}
+            {splitBy === 'lines' && i < segments.length - 1 ? ' ' : null}
           </span>
         ))}
       </Tag>

@@ -72,7 +72,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-body antialiased bg-offwhite text-navy">
+      <body className="font-body antialiased bg-cream text-ink">
         <Nav items={navigation} />
         <LenisProvider>
           {children}

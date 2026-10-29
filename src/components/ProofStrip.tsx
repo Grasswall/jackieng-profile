@@ -15,24 +15,16 @@ export function ProofStrip() {
   const containerRef = useScrollReveal()
 
   return (
-    <section
-      aria-label="Key results"
-      className="bg-[#0B0E14] border-y border-[#1E293B] py-10 md:py-12"
-    >
-      <div
-        ref={containerRef}
-        className="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-2 md:grid-cols-5 gap-y-8 gap-x-6"
-      >
-        {proof.map((p) => (
-          <div key={p.value} data-reveal>
-            <div className="text-2xl md:text-3xl font-bold tracking-tight text-[#F8FAFC]">
-              {p.value}
-            </div>
-            <div className="mt-1 text-xs md:text-sm text-[#94A3B8] leading-snug">
-              {p.label}
-            </div>
-          </div>
-        ))}
+    <section aria-label="Key results" className="bg-cream py-14 text-ink md:py-20">
+      <div ref={containerRef} className="mx-auto max-w-6xl px-6 md:px-12">
+        <ul className="dim-siblings grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-8 gap-y-8">
+          {proof.map((p) => (
+            <li key={p.value} data-reveal className="border-l-4 border-ink pl-4 outline-offset-4" tabIndex={0}>
+              <p className="font-heading text-3xl font-semibold leading-none tracking-tight md:text-[2rem]">{p.value}</p>
+              <p className="mt-2 text-base leading-snug text-stone">{p.label}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )

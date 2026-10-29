@@ -37,26 +37,24 @@ const educationItems = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-offwhite pt-32 pb-24">
-      <div className="max-w-4xl mx-auto px-6">
+    <main className="min-h-screen bg-cream pt-28 text-ink md:pt-36">
+      <div className="mx-auto max-w-6xl px-6 pb-20 md:px-12 md:pb-28">
         <SectionLabel label="About" />
-        <TextReveal as="h1" className="font-heading text-5xl md:text-6xl text-navy mt-8 mb-12 leading-tight">
-          {`I build nanoparticles
-that cross the barrier
-most drugs never reach.`}
+        <TextReveal as="h1" className="mb-14 mt-8 max-w-[14ch] font-heading text-[2.6rem] font-semibold leading-[1.08] tracking-tight sm:text-6xl md:text-7xl">
+          {`I build nanoparticles\nthat cross the barrier\nmost drugs never reach.`}
         </TextReveal>
 
-        <div className="grid md:grid-cols-2 gap-12 mb-24">
-          <p className="text-slate leading-relaxed">
-            The blood-brain barrier blocks most nanoparticle formulations. Conventional LNPs are too large for efficient transcytosis and too visible to immune surveillance &mdash; so CNS therapeutics that work in a dish keep failing to reach the patients who need them.
+        <div className="grid gap-10 md:grid-cols-2 md:gap-16">
+          <p className="max-w-[52ch] text-lg leading-[1.65] text-ink md:text-xl">
+            The blood-brain barrier blocks most nanoparticle formulations. Conventional LNPs are too large for efficient transcytosis, so CNS therapeutics that work in a dish keep failing to reach the patients who need them.
           </p>
-          <p className="text-slate leading-relaxed">
+          <p className="max-w-[52ch] text-lg leading-[1.65] text-ink md:text-xl">
             I started in structural biology, solving cryo-EM structures at atomic resolution at PolyU, then moved into delivery. The AtomBios 20nm platform is where those two meet: 8&times; BBB transcytosis and 3.2-fold brain accumulation versus conventional LNPs.
           </p>
         </div>
-
-        <Education items={educationItems} />
       </div>
+
+      <Education items={educationItems} />
     </main>
   );
 }

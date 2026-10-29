@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export interface NavItem {
   label: string
@@ -12,119 +13,132 @@ interface NavProps {
   items: NavItem[]
 }
 
-const basePath = '/jackieng-profile'
-
+// next/link prepends the configured basePath itself, so hrefs here must stay
+// site-relative ("/about", "/#contact") and never include "/jackieng-profile".
 export function Nav({ items }: NavProps) {
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  const headerRef = useRef<HTMLElement>(null)
 
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', handler, { passive: true })
-    return () => window.removeEventListener('scroll', handler)
-  }, [])
+  const here = (pathname || '/').replace(/\/$/, '') || '/'
+  const isCurrent = (href: string) => !href.includes('#') && href === here
 
-  // Close mobile menu on route change / click-outside
+  // Close the menu after any navigation.
   useEffect(() => {
-    const close = () => setOpen(false)
-    window.addEventListener('hashchange', close)
-    return () => window.removeEventListener('hashchange', close)
-  }, [])
+    setOpen(false)
+  }, [pathname])
+
+  // Escape and outside-press close the open menu.
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setOpen(false)
+        buttonRef.current?.focus()
+      }
+    }
+    const onPointer = (e: PointerEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    document.addEventListener('pointerdown', onPointer)
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.removeEventListener('pointerdown', onPointer)
+    }
+  }, [open])
+
+  // A closed menu is removed from the tab order and the accessibility tree.
+  const menuGuard = (open ? {} : { inert: '' }) as Record<string, unknown>
 
   return (
-    <header
-      className={[
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        'bg-navy/95 backdrop-blur-md border-b border-white/10',
-        scrolled ? 'shadow-lg shadow-black/20' : '',
-      ].join(' ')}
-    >
+    <header ref={headerRef} className="on-dark fixed top-0 left-0 right-0 z-50 bg-deep text-cream">
       <nav
-        className="max-w-6xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20"
+        className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:px-12"
         aria-label="Main navigation"
       >
-        {/* Logo */}
         <Link
-          href={basePath}
-          className="text-offwhite font-heading text-2xl font-semibold tracking-tight hover:text-gold transition-colors duration-200"
-          aria-label="Jackie Ng — home"
+          href="/"
+          className="flex min-h-11 items-center font-heading text-3xl font-semibold tracking-tight text-cream hover:text-signal"
+          aria-label="Jackie Ng, home"
         >
           JN.
         </Link>
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-8" role="list">
-          {items.map((item) => {
-            const href = item.href.startsWith('/')
-              ? `${basePath}${item.href}`
-              : item.href
-            return (
-              <li key={item.href}>
-                <Link
-                  href={href}
-                  className="relative text-sm tracking-wider text-offwhite/70 hover:text-gold transition-colors duration-200 uppercase font-medium after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            )
-          })}
+        <ul className="hidden items-center gap-2 md:flex" role="list">
+          {items.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                aria-current={isCurrent(item.href) ? 'page' : undefined}
+                className={[
+                  'flex min-h-11 items-center px-3 text-base text-cream underline-offset-[10px] decoration-2 transition-colors hover:text-signal',
+                  isCurrent(item.href) ? 'underline decoration-signal' : '',
+                ].join(' ')}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
-        {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2 -mr-2 text-offwhite focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded"
+          ref={buttonRef}
+          type="button"
+          className="-mr-3 flex h-12 w-12 items-center justify-center text-cream md:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
+          aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
         >
-          <span
-            className={[
-              'block h-px w-6 bg-current transition-transform duration-300 origin-center',
-              open ? 'translate-y-[7px] rotate-45' : '',
-            ].join(' ')}
-          />
-          <span
-            className={[
-              'block h-px w-6 bg-current transition-opacity duration-300',
-              open ? 'opacity-0' : '',
-            ].join(' ')}
-          />
-          <span
-            className={[
-              'block h-px w-6 bg-current transition-transform duration-300 origin-center',
-              open ? '-translate-y-[7px] -rotate-45' : '',
-            ].join(' ')}
-          />
+          <span className="relative block h-4 w-6" aria-hidden="true">
+            <span
+              className={[
+                'absolute left-0 block h-0.5 w-6 bg-current transition-all duration-300',
+                open ? 'top-[7px] rotate-45' : 'top-0',
+              ].join(' ')}
+            />
+            <span
+              className={[
+                'absolute left-0 top-[7px] block h-0.5 w-6 bg-current transition-opacity duration-300',
+                open ? 'opacity-0' : '',
+              ].join(' ')}
+            />
+            <span
+              className={[
+                'absolute left-0 block h-0.5 w-6 bg-current transition-all duration-300',
+                open ? 'top-[7px] -rotate-45' : 'top-[14px]',
+              ].join(' ')}
+            />
+          </span>
         </button>
       </nav>
 
-      {/* Mobile menu drawer */}
       <div
+        id="mobile-menu"
+        {...menuGuard}
         className={[
-          'md:hidden overflow-hidden transition-all duration-300',
-          open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0',
-          'bg-navy/98 backdrop-blur-md border-b border-white/10',
+          'absolute left-0 right-0 top-full bg-deep md:hidden transition-[opacity,visibility] duration-200',
+          open ? 'visible opacity-100' : 'invisible opacity-0',
         ].join(' ')}
-        aria-hidden={!open}
       >
-        <ul className="flex flex-col px-6 py-4 gap-4" role="list">
-          {items.map((item) => {
-            const href = item.href.startsWith('/')
-              ? `${basePath}${item.href}`
-              : item.href
-            return (
-              <li key={item.href}>
-                <Link
-                  href={href}
-                  className="block text-base tracking-wider text-offwhite/80 hover:text-gold transition-colors duration-200 uppercase font-medium py-1"
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            )
-          })}
+        <ul className="flex flex-col px-6 pb-6 pt-2" role="list">
+          {items.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                aria-current={isCurrent(item.href) ? 'page' : undefined}
+                onClick={() => setOpen(false)}
+                className={[
+                  'flex min-h-14 items-center font-heading text-3xl text-cream hover:text-signal',
+                  isCurrent(item.href) ? 'underline decoration-signal decoration-2 underline-offset-8' : '',
+                ].join(' ')}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </header>

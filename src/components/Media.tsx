@@ -26,91 +26,35 @@ interface MediaProps {
   speaking: SpeakingEngagement[]
 }
 
-function MediaCardLarge({ card }: { card: MediaCard }) {
-  const photoSrc = card.photo
-    ? card.photo.startsWith('/')
-      ? card.photo
-      : `${basePath}/assets/${card.photo}`
-    : null
+function src(photo?: string) {
+  if (!photo) return null
+  return photo.startsWith('/') ? photo.replace(/^\/jackieng-profile/, basePath) : `${basePath}/assets/${photo}`
+}
 
+// Photo cards: the image is shown whole above a solid text plate, no overlay on the picture.
+function MediaCardPhoto({ card, tall }: { card: MediaCard; tall?: boolean }) {
+  const photoSrc = src(card.photo)
   return (
-    <article
-      data-reveal
-      className="group relative rounded-xl overflow-hidden border border-white/10 hover:border-gold/30 transition-all duration-300 h-72 md:h-80"
-    >
-      {photoSrc ? (
-        <>
+    <article data-reveal tabIndex={0} className="group flex flex-col bg-deep text-cream on-dark">
+      {photoSrc && (
+        <div className={['overflow-hidden bg-stage', tall ? 'aspect-[4/3]' : 'aspect-[3/2]'].join(' ')}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={photoSrc}
-            alt={`${card.outlet} — ${card.title}`}
-            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            alt={`${card.outlet}: ${card.title}`}
+            className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/40 to-transparent" />
-        </>
-      ) : (
-        <div className="absolute inset-0 bg-charcoal" />
+        </div>
       )}
-
-      <div className="absolute inset-0 flex flex-col justify-end p-6">
+      <div className="flex flex-1 flex-col p-6">
         {card.badge && (
           <div className="mb-3">
             <Badge variant="gold">{card.badge}</Badge>
           </div>
         )}
-        <p className="text-xs text-gold/70 tracking-widest uppercase font-medium mb-1">
-          {card.outlet}
-        </p>
-        <h3 className="font-heading text-xl md:text-2xl font-semibold text-offwhite leading-tight">
-          {card.title}
-        </h3>
-        {card.description && (
-          <p className="mt-2 text-sm text-offwhite/60 leading-relaxed line-clamp-2">
-            {card.description}
-          </p>
-        )}
-      </div>
-    </article>
-  )
-}
-
-function MediaCardRegular({ card }: { card: MediaCard }) {
-  const photoSrc = card.photo
-    ? card.photo.startsWith('/')
-      ? card.photo
-      : `${basePath}/assets/${card.photo}`
-    : null
-
-  return (
-    <article
-      data-reveal
-      className="group bg-navy rounded-xl overflow-hidden border border-navy/20 hover:border-gold/30 transition-all duration-300 flex flex-col"
-    >
-      {photoSrc && (
-        <div className="h-40 overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={photoSrc}
-            alt={`${card.outlet} — ${card.title}`}
-            className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
-      )}
-      <div className="p-5 flex flex-col flex-1">
-        {card.badge && (
-          <div className="mb-2">
-            <Badge variant="outline">{card.badge}</Badge>
-          </div>
-        )}
-        <p className="text-xs text-gold/70 tracking-widest uppercase font-medium mb-1">
-          {card.outlet}
-        </p>
-        <h3 className="font-heading text-lg font-semibold text-offwhite leading-snug mb-2">
-          {card.title}
-        </h3>
-        {card.description && (
-          <p className="text-sm text-offwhite/55 leading-relaxed">{card.description}</p>
-        )}
+        <p className="text-base text-mist">{card.outlet}</p>
+        <h3 className="mt-1 font-heading text-3xl font-semibold leading-tight">{card.title}</h3>
+        {card.description && <p className="mt-3 text-base leading-relaxed text-cream">{card.description}</p>}
       </div>
     </article>
   )
@@ -118,26 +62,15 @@ function MediaCardRegular({ card }: { card: MediaCard }) {
 
 function MediaCardTextOnly({ card }: { card: MediaCard }) {
   return (
-    <article
-      data-reveal
-      className="bg-navy rounded-xl border border-navy/20 hover:border-gold/30 transition-all duration-300 p-6 flex flex-col justify-between h-full"
-    >
-      <div>
-        {card.badge && (
-          <div className="mb-3">
-            <Badge variant="outline">{card.badge}</Badge>
-          </div>
-        )}
-        <p className="text-xs text-gold/70 tracking-widest uppercase font-medium mb-2">
-          {card.outlet}
-        </p>
-        <h3 className="font-heading text-xl font-semibold text-offwhite leading-snug mb-3">
-          {card.title}
-        </h3>
-        {card.description && (
-          <p className="text-sm text-offwhite/55 leading-relaxed">{card.description}</p>
-        )}
-      </div>
+    <article data-reveal tabIndex={0} className="on-dark flex h-full flex-col bg-deep p-6 text-cream">
+      {card.badge && (
+        <div className="mb-3">
+          <Badge variant="gold">{card.badge}</Badge>
+        </div>
+      )}
+      <p className="text-base text-mist">{card.outlet}</p>
+      <h3 className="mt-1 font-heading text-3xl font-semibold leading-tight">{card.title}</h3>
+      {card.description && <p className="mt-3 text-base leading-relaxed text-cream">{card.description}</p>}
     </article>
   )
 }
@@ -148,62 +81,52 @@ export function Media({ cards, speaking }: MediaProps) {
   const otherCards = cards.filter((c) => c.type !== 'large')
 
   return (
-    <section
-      aria-labelledby="media-heading"
-    >
-      <div ref={containerRef} className="max-w-6xl mx-auto px-6 md:px-12">
-        <div className="mb-12 md:mb-16">
+    <section aria-labelledby="media-heading">
+      <div ref={containerRef} className="mx-auto max-w-6xl px-6 md:px-12">
+        <div className="mb-10 md:mb-14">
           <SectionLabel label="Media & Speaking" className="mb-6" />
           <h2
             data-reveal
             id="media-heading"
-            className="font-heading text-4xl md:text-5xl font-semibold text-navy max-w-xl leading-tight"
+            className="max-w-[18ch] font-heading text-4xl font-semibold leading-[1.05] text-balance md:text-6xl"
           >
             From the bench to the broadcast.
           </h2>
         </div>
 
-        {/* Large feature cards */}
         {largeCards.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="dim-siblings mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
             {largeCards.map((card) => (
-              <MediaCardLarge key={card.id} card={card} />
+              <MediaCardPhoto key={card.id} card={card} tall />
             ))}
           </div>
         )}
 
-        {/* Regular / text-only cards */}
         {otherCards.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="dim-siblings mb-16 grid grid-cols-1 gap-6 md:grid-cols-2">
             {otherCards.map((card) =>
               card.type === 'text-only' ? (
                 <MediaCardTextOnly key={card.id} card={card} />
               ) : (
-                <MediaCardRegular key={card.id} card={card} />
+                <MediaCardPhoto key={card.id} card={card} />
               )
             )}
           </div>
         )}
 
-        {/* Speaking engagements */}
         {speaking.length > 0 && (
           <div>
-            <h3 className="text-xs tracking-widest uppercase text-navy/40 font-medium mb-6">
-              Speaking Engagements
-            </h3>
-            <ul className="divide-y divide-navy/10" role="list">
+            <h3 className="mb-4 font-heading text-4xl font-semibold">Speaking engagements</h3>
+            <ul className="dim-siblings border-t-2 border-ink" role="list">
               {speaking.map((eng, i) => (
                 <li
                   data-reveal
                   key={i}
-                  className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 py-4"
+                  tabIndex={0}
+                  className="grid gap-x-8 gap-y-1 border-b-2 border-ink/25 py-4 sm:grid-cols-[16rem_1fr]"
                 >
-                  <span className="text-sm font-medium text-gold/80 tracking-wide uppercase shrink-0">
-                    {eng.org}
-                  </span>
-                  <span className="text-sm text-navy/60 sm:text-right">
-                    {eng.title}
-                  </span>
+                  <span className="text-lg font-medium text-clay">{eng.org}</span>
+                  <span className="text-lg text-ink">{eng.title}</span>
                 </li>
               ))}
             </ul>

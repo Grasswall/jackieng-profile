@@ -19,21 +19,23 @@ export function useScrollReveal(options?: {
   useGSAP(
     () => {
       if (!containerRef.current) return
+      // Reduced motion: leave everything in its final, visible state.
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
       const elements = containerRef.current.querySelectorAll('[data-reveal]')
       if (elements.length === 0) return
 
       gsap.from(elements, {
-        y: options?.y ?? 60,
+        y: options?.y ?? 28,
         opacity: 0,
         duration: options?.duration ?? 0.8,
-        stagger: options?.stagger ?? 0.15,
+        stagger: options?.stagger ?? 0.12,
         delay: options?.delay ?? 0,
         ease: 'power3.out',
+        clearProps: 'opacity,transform',
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top 80%',
-          end: 'bottom 20%',
-          toggleActions: 'play none none reverse',
+          start: 'top 88%',
+          once: true,
         },
       })
     },

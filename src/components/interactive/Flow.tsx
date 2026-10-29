@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import { gsap } from '@/lib/gsapConfig'
 
@@ -18,7 +18,7 @@ const STEPS = [
   { title: 'Validation', caption: '8× BBB transcytosis. 3.2-fold brain accumulation vs. conventional LNPs, measured in vivo.', sim: false },
 ]
 
-const WIDTH = 'min(56rem, calc((100vh - 20rem) * 16 / 9))'
+const WIDTH = 'min(56rem, calc((100vh - 21rem) * 16 / 9))'
 const layer = 'absolute inset-0 flex items-center justify-center'
 
 function Video({ name, invert, label }: { name: string; invert?: boolean; label: string }) {
@@ -39,6 +39,8 @@ function Video({ name, invert, label }: { name: string; invert?: boolean; label:
 
 export function Flow() {
   const root = useRef<HTMLElement>(null)
+  const tlRef = useRef<gsap.core.Timeline | null>(null)
+  const [active, setActive] = useState(0)
 
   useGSAP(
     () => {
@@ -47,7 +49,7 @@ export function Flow() {
       const caps = q('[data-cap]')
       const dots = q('[data-dot]')
       gsap.set([...layers.slice(1), ...caps.slice(1)], { opacity: 0 })
-      gsap.set(dots.slice(1), { opacity: 0.5 })
+      gsap.set(dots.slice(1), { opacity: 0.6 })
       gsap.set(q('[data-fill]'), { clipPath: 'inset(0 100% 0 0)' })
 
       const steps = STEPS.length
@@ -59,6 +61,7 @@ export function Flow() {
           start: 'top top',
           end: 'bottom bottom',
           scrub: 0.6,
+          onUpdate: () => setActive(Math.min(steps - 1, Math.round(tl.time()))),
         },
       })
       tl.to(q('[data-fill]'), { clipPath: 'inset(0 0% 0 0)', ease: 'none', duration: span }, 0)
@@ -66,29 +69,39 @@ export function Flow() {
         const t = i - 0.35
         tl.to([layers[i - 1], caps[i - 1]], { opacity: 0, duration: 0.35 }, t)
         tl.to([layers[i], caps[i]], { opacity: 1, duration: 0.35 }, t)
-        tl.to(dots[i - 1], { opacity: 0.5, duration: 0.35 }, t)
+        tl.to(dots[i - 1], { opacity: 0.6, duration: 0.35 }, t)
         tl.to(dots[i], { opacity: 1, duration: 0.35 }, t)
       }
       tl.to({}, { duration: 0.6 }, span) // hold the last step before the page moves on
+      tlRef.current = tl
     },
     { scope: root }
   )
+
+  // Click, tap or keyboard on a step label scrolls the pinned stage to that step.
+  const jump = (i: number) => {
+    const tl = tlRef.current
+    const st = tl?.scrollTrigger
+    if (!tl || !st) return
+    const y = st.start + (st.end - st.start) * (i / tl.duration())
+    window.scrollTo({ top: y, behavior: 'auto' })
+  }
 
   return (
     <section
       ref={root}
       id="flow"
       aria-labelledby="flow-heading"
-      className="relative bg-[#0B0E14]"
+      className="on-dark relative bg-stage text-cream"
       style={{ height: `${STEPS.length * 105}vh` }}
     >
-      <div className="sticky top-0 flex h-screen flex-col items-center justify-center gap-4 px-6 pt-24 pb-4">
-        <h2 id="flow-heading" className="text-3xl md:text-4xl font-bold tracking-tight text-[#F8FAFC]">
+      <div className="sticky top-0 flex h-screen flex-col items-center justify-center gap-3 px-6 pt-20 pb-3">
+        <h2 id="flow-heading" className="text-center font-heading text-3xl font-semibold tracking-tight text-cream md:text-5xl">
           How a 20 nm particle gets to the brain
         </h2>
 
         <div
-          className="relative w-full aspect-video rounded-xl border border-[#1E293B] bg-[#0B0E14] overflow-hidden"
+          className="relative aspect-video w-full overflow-hidden bg-deep2"
           style={{ maxWidth: WIDTH }}
         >
           <div data-layer className={`${layer} p-6`}>
@@ -99,7 +112,7 @@ export function Flow() {
                   src={src}
                   alt={`Cryo-EM 2D class average ${i + 1}`}
                   decoding="async"
-                  className="w-full aspect-square object-cover rounded-md bg-[#111827]"
+                  className="aspect-square w-full bg-stage object-cover transition-transform duration-300 hover:scale-105"
                 />
               ))}
             </div>
@@ -112,56 +125,63 @@ export function Flow() {
           </div>
           <div data-layer className={`${layer} p-4 sm:p-6`}>
             <div className="w-full max-w-md space-y-2 sm:space-y-4">
-              <p className="text-center text-xs sm:text-sm text-[#94A3B8]">The particle the model proposes</p>
-              <div className="grid grid-cols-2 gap-2 sm:gap-3 font-mono text-xs sm:text-sm">
-                <div className="rounded-md border border-[#1E293B] px-3 py-2 sm:px-4 sm:py-3 text-[#E2E8F0]">Size <span className="block text-base sm:text-lg text-[#F97316]">20 nm</span></div>
-                <div className="rounded-md border border-[#1E293B] px-3 py-2 sm:px-4 sm:py-3 text-[#E2E8F0]">PEG <span className="block text-base sm:text-lg text-[#F97316]">shielded</span></div>
-                <div className="rounded-md border border-[#1E293B] px-3 py-2 sm:px-4 sm:py-3 text-[#E2E8F0]">SORT lipid <span className="block text-base sm:text-lg text-[#F97316]">set</span></div>
-                <div className="rounded-md border border-[#1E293B] px-3 py-2 sm:px-4 sm:py-3 text-[#E2E8F0]">ApoE density <span className="block text-base sm:text-lg text-[#F97316]">set</span></div>
+              <p className="text-center text-sm text-mist">The particle the model proposes</p>
+              <div className="grid grid-cols-2 gap-2 font-mono text-xs sm:gap-3 sm:text-sm">
+                <div className="bg-stage px-3 py-2 text-cream sm:px-4 sm:py-3">Size <span className="block text-base text-sim sm:text-lg">20 nm</span></div>
+                <div className="bg-stage px-3 py-2 text-cream sm:px-4 sm:py-3">PEG <span className="block text-base text-sim sm:text-lg">shielded</span></div>
+                <div className="bg-stage px-3 py-2 text-cream sm:px-4 sm:py-3">SORT lipid <span className="block text-base text-sim sm:text-lg">set</span></div>
+                <div className="bg-stage px-3 py-2 text-cream sm:px-4 sm:py-3">ApoE density <span className="block text-base text-sim sm:text-lg">set</span></div>
               </div>
             </div>
           </div>
           <div data-layer className={`${layer} p-6`}>
-            <div className="flex items-baseline gap-6 font-mono">
+            <div className="flex items-baseline gap-8 font-mono">
               <div className="text-center">
-                <div className="text-4xl font-bold text-[#22D3EE]">8×</div>
-                <div className="text-xs text-[#94A3B8] mt-1">BBB transcytosis</div>
+                <div className="text-5xl font-bold text-signal">8×</div>
+                <div className="mt-1 text-sm text-mist">BBB transcytosis</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-[#22D3EE]">3.2×</div>
-                <div className="text-xs text-[#94A3B8] mt-1">brain accumulation</div>
+                <div className="text-5xl font-bold text-signal">3.2×</div>
+                <div className="mt-1 text-sm text-mist">brain accumulation</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="relative w-full min-h-[6.5rem]" style={{ maxWidth: WIDTH }}>
+        <div className="relative min-h-[9.5rem] w-full sm:min-h-[6.5rem]" style={{ maxWidth: WIDTH }} aria-live="off">
           {STEPS.map((s) => (
             <div key={s.title} data-cap className="absolute inset-0">
               <div className="flex items-baseline gap-3">
-                <h3 className="text-lg font-semibold text-[#F8FAFC]">{s.title}</h3>
-                <span className="text-[11px] uppercase tracking-wide" style={{ color: s.sim ? '#F97316' : '#22D3EE' }}>
+                <h3 className="font-heading text-2xl font-semibold text-cream">{s.title}</h3>
+                <span className="text-sm font-medium" style={{ color: s.sim ? '#F97316' : '#22D3EE' }}>
                   {s.sim ? 'Simulation' : 'Experimental'}
                 </span>
               </div>
-              <p className="mt-1 text-sm text-[#94A3B8]">{s.caption}</p>
+              <p className="mt-1 text-[15px] leading-snug text-mist">{s.caption}</p>
             </div>
           ))}
         </div>
 
-        <div className="w-full" style={{ maxWidth: WIDTH }} aria-hidden="true">
-          <div className="relative h-px w-full bg-[#1E293B]">
-            <div
-              data-fill
-              className="absolute inset-0 h-px"
-              style={{ background: 'linear-gradient(to right, #22D3EE 0%, #22D3EE 40%, #F97316 48%, #F97316 68%, #22D3EE 76%, #22D3EE 100%)' }}
-            />
+        <div className="w-full" style={{ maxWidth: WIDTH }}>
+          <div className="relative h-1 w-full bg-deep2" aria-hidden="true">
+            <div data-fill className="absolute inset-0 h-1 bg-signal" />
           </div>
-          <div className="mt-2 flex justify-between gap-2 font-mono text-[10px] sm:text-[11px] text-[#F8FAFC] whitespace-nowrap">
-            {STEPS.map((s) => (
-              <span key={s.title} data-dot>{s.title}</span>
+          <ol className="mt-1 flex justify-between gap-1">
+            {STEPS.map((s, i) => (
+              <li key={s.title}>
+                <button
+                  type="button"
+                  data-dot
+                  onClick={() => jump(i)}
+                  aria-current={active === i ? 'step' : undefined}
+                  aria-label={`Jump to step ${i + 1}: ${s.title}${s.sim ? ', simulation' : ''}`}
+                  className="flex min-h-11 items-center px-1 font-mono text-xs text-cream hover:text-signal sm:text-sm"
+                >
+                  <span style={{ color: s.sim ? '#F97316' : undefined }}>{s.title}</span>
+                </button>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </div>
     </section>

@@ -8,10 +8,9 @@ interface Entry {
   href?: string
 }
 
-const tracks: { title: string; color: string; entries: Entry[] }[] = [
+const tracks: { title: string; entries: Entry[] }[] = [
   {
     title: 'Elite scientific access',
-    color: '#22D3EE',
     entries: [
       { year: '2025', label: 'Lindau Nobel Laureate Meeting' },
       { year: '2025', label: 'Shaw Prize Forum' },
@@ -20,7 +19,6 @@ const tracks: { title: string; color: string; entries: Entry[] }[] = [
   },
   {
     title: 'Platform & funding',
-    color: '#F97316',
     entries: [
       { year: '', label: 'HK$7.05M total funding secured' },
       { year: '', label: 'HKSTP Incu-Bio, HK$6M' },
@@ -29,7 +27,6 @@ const tracks: { title: string; color: string; entries: Entry[] }[] = [
   },
   {
     title: 'Media & speaking',
-    color: '#A78BFA',
     entries: [
       { year: '', label: 'RTHK 尋找創科的故事 — featured' },
       { year: '', label: 'Max Planck Institute RPG Forum — speaker' },
@@ -38,7 +35,6 @@ const tracks: { title: string; color: string; entries: Entry[] }[] = [
   },
   {
     title: 'Technical foundation',
-    color: '#34D399',
     entries: [
       { year: '2023–', label: 'PhD, PolyU — Drug Delivery & Structural Biology' },
       { year: '2024', label: 'J. Biological Chemistry — doi:10.1016/j.jbc.2024.107390' },
@@ -62,60 +58,52 @@ export function ValidationV4() {
   return (
     <section
       id="validation"
-      className="bg-[#0B0E14] py-20 md:py-32"
+      className="on-dark bg-deep py-20 text-cream md:py-32"
       aria-labelledby="validation-heading"
     >
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
-        <h2
-          id="validation-heading"
-          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#F8FAFC] leading-[1.15] mb-4"
-        >
-          Validation
-        </h2>
-        <p className="text-lg text-[#94A3B8] font-light leading-[1.6] mb-16 max-w-[52ch]">
-          The short list. Full record on request.
-        </p>
+      <div ref={containerRef} className="mx-auto max-w-6xl px-6 md:px-12">
+        <div data-reveal>
+          <h2
+            id="validation-heading"
+            className="font-heading text-5xl font-semibold leading-[1] tracking-tight md:text-7xl"
+          >
+            Validation
+          </h2>
+          <p className="mb-12 mt-4 max-w-[52ch] text-xl leading-[1.5] text-mist">
+            The short list. Full record on request.
+          </p>
+        </div>
 
-        <div ref={containerRef} className="grid md:grid-cols-2 gap-x-16 gap-y-16">
+        {/* Hover or keyboard focus on a row brings it forward; every row stays fully readable. */}
+        <div data-reveal className="dim-siblings border-t-2 border-cream">
           {tracks.map((track) => (
-            <div key={track.title} data-reveal>
-              <h3
-                className="text-sm font-semibold tracking-[0.08em] uppercase mb-6"
-                style={{ color: track.color }}
-              >
-                {track.title}
-              </h3>
-              <ol className="relative border-l pl-6" style={{ borderColor: `${track.color}33` }}>
+            <section
+              key={track.title}
+              tabIndex={0}
+              aria-label={track.title}
+              className="grid gap-x-12 gap-y-4 border-b-2 border-cream/40 py-8 md:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] md:py-10"
+            >
+              <h3 className="font-heading text-3xl font-semibold leading-tight md:text-4xl">{track.title}</h3>
+              <ul className="space-y-4" role="list">
                 {track.entries.map((entry, i) => (
-                  <li key={i} className="relative pb-6 last:pb-0">
-                    <span
-                      className="absolute -left-[31px] top-1 w-2.5 h-2.5 rounded-full ring-4 ring-[#0B0E14]"
-                      style={{ backgroundColor: track.color }}
-                      aria-hidden="true"
-                    />
-                    {entry.year && (
-                      <span className="block text-xs font-mono text-[#64748B] mb-0.5">
-                        {entry.year}
-                      </span>
-                    )}
+                  <li key={i} className="grid gap-x-6 sm:grid-cols-[5.5rem_1fr]">
+                    <span className="text-base text-mist">{entry.year || '\u00a0'}</span>
                     {entry.href ? (
                       <a
                         href={entry.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[15px] leading-[1.5] text-[#E2E8F0] underline underline-offset-2 hover:text-[#F8FAFC]"
+                        className="text-lg leading-snug text-cream underline decoration-signal decoration-2 underline-offset-[5px] hover:text-signal"
                       >
                         {entry.label}
                       </a>
                     ) : (
-                      <span className="text-[15px] leading-[1.5] text-[#E2E8F0]">
-                        {entry.label}
-                      </span>
+                      <span className="text-lg leading-snug text-cream">{entry.label}</span>
                     )}
                   </li>
                 ))}
-              </ol>
-            </div>
+              </ul>
+            </section>
           ))}
         </div>
       </div>

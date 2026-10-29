@@ -1,21 +1,9 @@
-'use client'
-import { AnimatePresence, motion } from 'framer-motion'
-import { usePathname } from 'next/navigation'
-
+// Route fade. Opacity only (no transform) so sticky and fixed children keep
+// working, and the page is never left invisible if the animation does not run.
 export default function Template({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname()
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={pathname}
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -12 }}
-        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-        style={{ minHeight: '100vh' }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div className="page-in" style={{ minHeight: '100vh' }}>
+      {children}
+    </div>
   )
 }

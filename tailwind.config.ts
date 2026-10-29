@@ -9,6 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Brand tokens (approved direction)
+        cream:    "#F4F1EA",
+        ink:      "#1C1A16",
+        stone:    "#5A5448",
+        deep:     "#0A1828",
+        deep2:    "#0E2036",
+        stage:    "#08131F",
+        mist:     "#A9B6C8",
+        signal:   "#22D3EE",
+        sim:      "#F97316",
+        clay:     "#A5460A",
         navy:     "#0A1828",
         gold:     "#BFA181",
         offwhite: "#F5F5F0",

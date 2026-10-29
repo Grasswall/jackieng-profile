@@ -1,7 +1,5 @@
 'use client'
 
-import { Badge } from './ui/Badge'
-import { SectionLabel } from './ui/SectionLabel'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export interface EducationItem {
@@ -18,75 +16,53 @@ interface EducationProps {
   items: EducationItem[]
 }
 
-function EducationCard({ item }: { item: EducationItem }) {
-  return (
-    <article
-      data-reveal
-      className="bg-navy rounded-xl border border-white/10 hover:border-gold/30 transition-all duration-300 p-8"
-    >
-      {/* Header row */}
-      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-6">
-        <div>
-          <p className="text-xs text-gold/70 tracking-widest uppercase font-medium mb-1">
-            {item.years}{item.location ? ` · ${item.location}` : ''}
-          </p>
-          <h3 className="font-heading text-2xl md:text-3xl font-semibold text-offwhite leading-tight">
-            {item.degree}
-          </h3>
-          <p className="text-base text-gold/80 font-medium mt-1">{item.field}</p>
-        </div>
-        <span className="text-sm text-offwhite/50 tracking-wide shrink-0 sm:text-right pt-1">
-          {item.institution}
-        </span>
-      </div>
-
-      {/* Divider */}
-      <div className="h-px bg-white/10 mb-6" />
-
-      {/* Highlights */}
-      <ul className="space-y-2 mb-6" role="list">
-        {item.highlights.map((h, i) => (
-          <li key={i} className="flex items-start gap-3 text-sm text-offwhite/60 leading-relaxed">
-            <span className="text-gold shrink-0 mt-0.5" aria-hidden="true">—</span>
-            <span>{h}</span>
-          </li>
-        ))}
-      </ul>
-
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2" role="list" aria-label="Tags">
-        {item.tags.map((tag) => (
-          <div key={tag} role="listitem">
-            <Badge variant="muted">{tag}</Badge>
-          </div>
-        ))}
-      </div>
-    </article>
-  )
-}
-
 export function Education({ items }: EducationProps) {
   const containerRef = useScrollReveal({ stagger: 0.15 })
 
   return (
-    <section
-      aria-labelledby="education-heading"
-    >
-      <div ref={containerRef} className="max-w-6xl mx-auto px-6 md:px-12">
-        <div className="mb-12 md:mb-16">
-          <SectionLabel label="Education" className="mb-6" />
-          <h2
-            data-reveal
-            id="education-heading"
-            className="font-heading text-4xl md:text-5xl font-semibold text-offwhite max-w-lg leading-tight"
-          >
-            Built on rigorous foundations.
-          </h2>
-        </div>
+    <section aria-labelledby="education-heading" className="on-dark bg-deep py-16 text-cream md:py-24">
+      <div ref={containerRef} className="mx-auto max-w-6xl px-6 md:px-12">
+        <h2
+          data-reveal
+          id="education-heading"
+          className="mb-10 max-w-[18ch] font-heading text-4xl font-semibold leading-tight text-balance md:mb-14 md:text-6xl"
+        >
+          Built on rigorous foundations.
+        </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="dim-siblings border-t-2 border-cream">
           {items.map((item) => (
-            <EducationCard key={item.degree + item.institution} item={item} />
+            <article
+              key={item.degree + item.institution}
+              data-reveal
+              tabIndex={0}
+              className="grid gap-x-12 gap-y-4 border-b-2 border-cream/40 py-8 md:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] md:py-10"
+            >
+              <div>
+                <p className="text-base text-mist">
+                  {item.years}
+                  {item.location ? ` · ${item.location}` : ''}
+                </p>
+                <h3 className="mt-1 font-heading text-4xl font-semibold leading-tight md:text-5xl">{item.degree}</h3>
+                <p className="mt-1 text-lg text-cream">{item.field}</p>
+                <p className="mt-1 text-base text-mist">{item.institution}</p>
+              </div>
+              <div>
+                <ul className="space-y-3" role="list">
+                  {item.highlights.map((h, i) => (
+                    <li key={i} className="flex gap-3 text-lg leading-snug">
+                      <span className="text-signal" aria-hidden="true">—</span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+                <ul className="mt-5 flex flex-wrap gap-2" role="list" aria-label="Tags">
+                  {item.tags.map((tag) => (
+                    <li key={tag} className="bg-deep2 px-3 py-1 text-sm text-cream">{tag}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
           ))}
         </div>
       </div>
