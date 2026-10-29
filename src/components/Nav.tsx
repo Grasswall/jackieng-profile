@@ -47,7 +47,10 @@ export function Nav({ items }: NavProps) {
         {/* Logo */}
         <Link
           href={basePath}
-          className="text-offwhite font-heading text-2xl font-semibold tracking-tight hover:text-gold transition-colors duration-200"
+          className={[
+            'font-heading text-2xl font-semibold tracking-tight hover:text-gold transition-colors duration-200',
+            scrolled || open ? 'text-offwhite' : 'text-[#1C1A16]',
+          ].join(' ')}
           aria-label="Jackie Ng — home"
         >
           JN.
@@ -63,7 +66,7 @@ export function Nav({ items }: NavProps) {
               <li key={item.href}>
                 <Link
                   href={href}
-                  className="relative text-sm tracking-wider text-offwhite/70 hover:text-gold transition-colors duration-200 uppercase font-medium after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+                  className={`relative text-sm tracking-wider ${scrolled ? 'text-offwhite/70' : 'text-[#1C1A16]/70'} hover:text-gold transition-colors duration-200 uppercase font-medium after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full`}
                 >
                   {item.label}
                 </Link>
@@ -74,7 +77,7 @@ export function Nav({ items }: NavProps) {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2 -mr-2 text-offwhite focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded"
+          className={`md:hidden flex flex-col gap-1.5 p-2 -mr-2 ${scrolled || open ? 'text-offwhite' : 'text-[#1C1A16]'} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded`}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
