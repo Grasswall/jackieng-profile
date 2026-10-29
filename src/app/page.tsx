@@ -1,4 +1,4 @@
-import { HeroV4 } from "@/components/HeroV4";
+import { EditorialHero } from "@/components/EditorialHero";
 import { StoryStage } from "@/components/StoryStage";
 import { ProofStrip } from "@/components/ProofStrip";
 import { Vision } from "@/components/Vision";
@@ -11,11 +11,11 @@ import { meta } from "@/lib/data";
 export default function Home() {
   return (
     <main>
-      <HeroV4 />
-      <ProofStrip />
-      <StoryStage />
+      <EditorialHero />
       {/* One guided flow: cryo-EM -> 3D -> ML -> output */}
       <Flow />
+      <ProofStrip />
+      <StoryStage />
       <Vision />
       <PhotoGallery />
       <ValidationV4 />
