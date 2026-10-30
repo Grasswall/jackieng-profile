@@ -47,6 +47,7 @@ const ITEMS: Item[] = [
   { id: 'x32', type: 'stat', x: 820, y: 1180, w: 320, h: 300, paper: true, stat: '3.2×', label: 'Brain accumulation', sub: 'vs conventional LNPs', title: '3.2× brain accumulation', kind: 'Delivery', text: '3.2-fold brain accumulation versus conventional LNPs. Working with Sirnaomics.' },
   { id: 'tech', type: 'img', src: g('techathon-1.jpg'), x: 1180, y: 1180, w: 450, h: 300, title: 'Techathon+ 10th Anniversary', kind: 'Gold Medal · 2026', text: 'Techathon+ 10th Anniversary, Gold Medal, 2026.' },
   { id: 'fund', type: 'stat', x: 1670, y: 1180, w: 360, h: 300, dark: true, stat: 'HK$7.05M', label: 'Funded', sub: 'HKSTP incubated', title: 'HK$7.05M funded', kind: 'Company', text: 'AtomBios: HKSTP incubated, competition-validated, investor-backed. HK$7.05M funded.' },
+  { id: 'suss', type: 'img', src: g('suss-1.jpg'), x: 1180, y: 1540, w: 450, h: 300, title: 'SUSS Pitch for Good', kind: 'People’s Choice Award · 2026', text: 'SUSS Pitch for Good — People’s Choice Award, 2026.' },
   { id: 'phd', type: 'stat', x: 2060, y: 1180, w: 360, h: 300, paper: true, stat: 'PhD', label: 'PolyU, 2023–', sub: 'Drug Delivery & Structural Biology', title: 'PhD, PolyU', kind: 'Training', text: 'PhD at PolyU in Drug Delivery & Structural Biology.' },
 ]
 

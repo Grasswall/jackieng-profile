@@ -97,7 +97,7 @@ export function EditorialHero() {
             </a>
           </Magnetic>
           <a
-            href="#unique-span"
+            href="#evidence"
             className="inline-flex min-h-11 items-center text-base text-cream underline decoration-signal decoration-2 underline-offset-[6px] transition-colors hover:text-signal"
           >
             View the evidence
