@@ -15,13 +15,20 @@ interface NavProps {
 
 // next/link prepends the configured basePath itself, so hrefs here must stay
 // site-relative ("/about", "/#contact") and never include "/jackieng-profile".
-export function Nav({ items }: NavProps) {
+export function Nav({ items: pageItems }: NavProps) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
   const buttonRef = useRef<HTMLButtonElement>(null)
   const headerRef = useRef<HTMLElement>(null)
 
   const here = (pathname || '/').replace(/\/$/, '') || '/'
+  const isHome = here === '/' || here === '/jackieng-profile'
+  const items = isHome ? [
+    { label: 'Founder', href: '/#founder' },
+    { label: 'Evidence', href: '/#evidence' },
+    { label: 'Work map', href: '/#work-index' },
+    { label: 'Contact', href: 'mailto:jackie.ng@atombios.com' },
+  ] : pageItems
   const isCurrent = (href: string) => !href.includes('#') && href === here
 
   // Close the menu after any navigation.
