@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(var(--cyan), var(--cyan)) center/1px 14px no-repeat, linear-gradient(var(--cyan), var(--cyan)) center/14px 1px no-repeat, radial-gradient(circle, rgba(10,24,40,0) 62%, rgba(10,24,40,.38) 100%); }
 .lens-hint { position: absolute; left: 50%; top: 5rem; transform: translateX(-50%); z-index: 5; font-size: 12px; letter-spacing: .06em;
   color: rgba(244,241,234,.9); background: rgba(10,24,40,.7); padding: 8px 14px; border-radius: 999px; pointer-events: none; white-space: nowrap; transition: opacity .4s; }
-.lens-head { position: absolute; left: clamp(20px, 4vw, 64px); bottom: clamp(28px, 6vh, 64px); width: min(46vw, 640px); z-index: 5; pointer-events: none; }
+.lens-head { position: absolute; left: clamp(20px, 4vw, 64px); bottom: clamp(96px, 12vh, 120px); width: min(46vw, 640px); z-index: 5; pointer-events: none; background: rgba(10,24,40,.9); padding: 18px; border-radius: 14px; }
 .lens-head .eyebrow { color: var(--cyan); }
 .lens-head h2 { font-weight: 500; font-size: clamp(42px, 6.2vw, 100px); line-height: .94; letter-spacing: -.015em; margin: 12px 0 14px; }
 .lens-sub { margin: 0; font-size: clamp(14px, 1.15vw, 17px); line-height: 1.5; color: rgba(244,241,234,.85); max-width: 44ch; }
