@@ -21,7 +21,7 @@ export function TrainedModel3D() {
   return (
     <section id="ml-model" aria-labelledby="ml-heading" className="on-dark bg-deep px-6 py-16 text-cream md:px-12 md:py-24">
       <div className="mx-auto max-w-6xl">
-        <p className="mb-4 text-sm text-orange-300">Trained demo · Synthetic data · Not experimental results</p>
+        <p className="mb-4 text-sm text-orange-300">Demo model · Synthetic data · Not experimental results · Not the AtomBios model</p>
         <h2 id="ml-heading" className="font-heading text-4xl leading-tight md:text-6xl">What the model learned, in 3D.</h2>
         <p className="mt-5 max-w-2xl text-base leading-relaxed text-cream/80">Particle size and ApoE density vary. Height shows the trained network’s predicted brain-targeting probability.</p>
         <video ref={ref} className="mt-8 aspect-video w-full rounded-xl bg-[#0B0E14]" src={`${BASE}/videos/ml-viz/decision-surface.mp4`} poster={`${BASE}/videos/ml-viz/decision-surface-poster.jpg`} controls loop muted playsInline preload="metadata" aria-label="3D decision surface from the trained synthetic-data network: particle size and ApoE density versus predicted brain-targeting probability" />

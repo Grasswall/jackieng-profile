@@ -25,9 +25,10 @@ export function Nav({ items: pageItems }: NavProps) {
   const isHome = here === '/' || here === '/jackieng-profile'
   const items = isHome ? [
     { label: 'Founder', href: '/#founder' },
+    { label: 'Proof', href: '/#proof' },
     { label: 'Evidence', href: '/#evidence' },
     { label: 'Work map', href: '/#work-index' },
-    { label: 'Contact', href: 'mailto:jackie.ng@atombios.com' },
+    { label: 'Contact', href: '/#contact' },
   ] : pageItems
   const isCurrent = (href: string) => !href.includes('#') && href === here
 
