@@ -1,4 +1,5 @@
 import { TalentSignal, ContactCta } from "@/components/TalentSignal";
+import { MediaProof } from "@/components/MediaProof";
 import { TrainedModel3D } from "@/components/TrainedModel3D";
 import { FounderLens } from "@/components/motion/FounderLens";
 import { EvidenceLayers } from "@/components/motion/EvidenceLayers";
@@ -13,6 +14,7 @@ export default function Home() {
       <TrainedModel3D />
       <EvidenceLayers />
       <WorkIndex />
+      <MediaProof />
       <ContactCta />
     </main>
   );

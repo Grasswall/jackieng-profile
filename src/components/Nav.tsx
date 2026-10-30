@@ -27,6 +27,7 @@ export function Nav({ items: pageItems }: NavProps) {
     { label: 'Founder', href: '/#founder' },
     { label: 'Proof', href: '/#proof' },
     { label: 'Evidence', href: '/#evidence' },
+    { label: 'Media', href: '/#media' },
     { label: 'Work map', href: '/#work-index' },
     { label: 'Contact', href: '/#contact' },
   ] : pageItems
