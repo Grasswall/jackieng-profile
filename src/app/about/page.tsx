@@ -5,7 +5,7 @@ import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "About — Jackie Ng",
-  description: "Structural biologist and PhD student at PolyU, applying cryo-EM and computational tools to drug delivery. Founder of AtomBios.",
+  description: "Structural biologist and PhD student at PolyU, solving cryo-EM structures and training ML models for lipid nanoparticle design. Founder of AtomBios.",
 };
 
 const educationItems = [
@@ -49,7 +49,7 @@ export default function AboutPage() {
             The blood-brain barrier blocks most nanoparticle formulations. Conventional LNPs are too large for efficient transcytosis, so CNS therapeutics that work in a dish keep failing to reach the patients who need them.
           </p>
           <p className="max-w-[52ch] text-lg leading-[1.65] text-ink md:text-xl">
-            I started in structural biology, solving cryo-EM structures at atomic resolution at PolyU, then moved into delivery. The AtomBios 20nm platform is where those two meet: 8&times; BBB transcytosis and 3.2-fold brain accumulation versus conventional LNPs.
+            I started in structural biology, solving cryo-EM structures at atomic resolution at PolyU, then moved into delivery. I train machine-learning models for lipid nanoparticle design at AtomBios. The AtomBios 20nm platform is where those two meet: 8&times; BBB transcytosis and 3.2-fold brain accumulation versus conventional LNPs.
           </p>
         </div>
       </div>

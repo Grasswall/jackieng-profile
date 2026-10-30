@@ -5,7 +5,7 @@ import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "Work — Jackie Ng",
-  description: "AtomBios: 20nm nanoparticles engineered to cross the blood-brain barrier. HKSTP incubated, competition-validated, investor-backed.",
+  description: "My work at AtomBios: cryo-EM structural biology, training ML models for LNP design, and a 20nm brain-delivery platform.",
 };
 
 const pillars = [
@@ -28,7 +28,7 @@ export default function WorkPage() {
 
       <section aria-labelledby="contribution-heading" className="mx-auto max-w-6xl px-6 pb-16 md:px-12">
         <h2 id="contribution-heading" className="font-heading text-4xl font-semibold md:text-5xl">The work behind the profile.</h2>
-        <div className="mt-8 grid gap-8 md:grid-cols-3">
+        <div className="mt-8 grid gap-8 md:grid-cols-2">
           <article className="border-t border-ink/30 pt-5">
             <p className="text-sm text-stone">01 · Structural biology</p>
             <h3 className="mt-3 font-heading text-3xl">Five structures solved.</h3>
@@ -36,13 +36,18 @@ export default function WorkPage() {
             <p className="mt-4 text-sm text-stone">Cryo-EM projects are in progress; these are not five published papers.</p>
           </article>
           <article className="border-t border-ink/30 pt-5">
-            <p className="text-sm text-stone">02 · Drug delivery</p>
+            <p className="text-sm text-stone">02 · Machine learning</p>
+            <h3 className="mt-3 font-heading text-3xl">I train the models.</h3>
+            <p className="mt-4 leading-relaxed">I train machine-learning models for lipid nanoparticle design at AtomBios. This is my hands-on contribution, alongside structural biology and experimental delivery work.</p>
+          </article>
+          <article className="border-t border-ink/30 pt-5">
+            <p className="text-sm text-stone">03 · Drug delivery</p>
             <h3 className="mt-3 font-heading text-3xl">A 20 nm platform.</h3>
             <p className="mt-4 leading-relaxed">At AtomBios, my delivery work connects molecular insight with nanoparticle formulation. The platform reports 8× BBB transcytosis and 3.2-fold brain accumulation versus conventional LNPs.</p>
             <p className="mt-4 text-sm text-stone">Platform results describe preclinical delivery performance.</p>
           </article>
           <article className="border-t border-ink/30 pt-5">
-            <p className="text-sm text-stone">03 · Company building</p>
+            <p className="text-sm text-stone">04 · Company building</p>
             <h3 className="mt-3 font-heading text-3xl">Research into AtomBios.</h3>
             <p className="mt-4 leading-relaxed">As founder, I carry the scientific story into funding, partnerships and pitching. AtomBios has HK$7.05M in funding, including HK$6M through HKSTP Incu-Bio.</p>
             <a href="mailto:jackie.ng@atombios.com?subject=Research%20experience%20and%20CV" className="mt-4 inline-flex min-h-11 items-center underline underline-offset-4">Request my CV and discuss the work ↗</a>
