@@ -1,3 +1,4 @@
+import { TalentSignal, ContactCta } from "@/components/TalentSignal";
 import { TrainedModel3D } from "@/components/TrainedModel3D";
 import { FounderLens } from "@/components/motion/FounderLens";
 import { EvidenceLayers } from "@/components/motion/EvidenceLayers";
@@ -8,9 +9,11 @@ export default function Home() {
     <main id="motion-portfolio" className="pt-16">
       <h1 className="sr-only">Jackie Ng — structural biologist training ML for LNP design, founder of AtomBios</h1>
       <FounderLens />
+      <TalentSignal />
       <TrainedModel3D />
       <EvidenceLayers />
       <WorkIndex />
+      <ContactCta />
     </main>
   );
 }
