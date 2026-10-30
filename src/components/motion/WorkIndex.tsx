@@ -29,6 +29,7 @@ const c = (n: string) => `${BASE}/images/corona/class-${n}.png`
 const CLS_TEXT = 'Real 2D class average of the LNP corona protein complex (cryoSPARC J160).'
 
 const ITEMS: Item[] = [
+  { id: 'ml', type: 'stat', x: 2060, y: 1520, w: 500, h: 300, dark: true, stat: 'ML', label: 'I train the models', sub: 'Lipid nanoparticle design', title: 'ML training for LNP design', kind: 'My contribution', text: 'I train machine-learning models for lipid nanoparticle design at AtomBios. Model architecture, training data and evaluation results are not disclosed on this page.' },
   { id: 'suzhou', type: 'img', src: g('suzhou-pitch.jpg'), x: 120, y: 160, w: 760, h: 515, title: 'WIN in Suzhou Global Finals', kind: 'Pitch · 2026', text: 'Pitching AtomBios at the WIN in Suzhou Global Entrepreneurship Competition finals.' },
   { id: 'lindau', type: 'img', src: g('lindau-1.jpg'), x: 920, y: 100, w: 330, h: 440, title: 'Lindau Nobel Laureate Meeting', kind: '2025', text: 'Lindau Nobel Laureate Meeting, 2025.' },
   { id: 'shaw', type: 'img', src: g('shaw-1.jpg'), x: 920, y: 580, w: 440, h: 248, title: 'Shaw Prize Forum', kind: '2025', text: 'Laureates Roundtable at the Shaw Prize Forum, Academic Representative, 2025.' },
@@ -338,7 +339,7 @@ export function WorkIndex() {
         <div className="wi-hud">
           <p className="eyebrow wi-eyebrow">Work index</p>
           <h2 id="index-heading">The range of the work</h2>
-          <p className="wi-lede">Photos, structures and results on one map. Drag to move, click to fly in.</p>
+          <p className="wi-lede">Model training, structures and delivery results. Drag to explore; select a work item for my contribution.</p>
           <div className="wi-ctl">
             <button type="button" onClick={() => api.current.overview()}>Overview</button>
             <button type="button" aria-label="Zoom in" onClick={() => api.current.zoom(1.3)}>+</button>

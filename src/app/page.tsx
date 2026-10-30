@@ -5,7 +5,7 @@ import { WorkIndex } from "@/components/motion/WorkIndex";
 export default function Home() {
   return (
     <main id="motion-portfolio" className="pt-16">
-      <h1 className="sr-only">Jackie Ng — structural biologist and founder of AtomBios</h1>
+      <h1 className="sr-only">Jackie Ng — structural biologist training ML for LNP design, founder of AtomBios</h1>
       <FounderLens />
       <EvidenceLayers />
       <WorkIndex />
