@@ -242,9 +242,9 @@ export function FounderLens() {
         </div>
         <div ref={hintRef} className="lens-hint">Drag the lens across the photo</div>
         <div className="lens-head">
-          <p className="eyebrow">Jackie Ng · Structural biologist · Founder</p>
+          <p className="eyebrow">Jackie Ng · Structural biologist · ML practitioner · Founder</p>
           <h2 id="founder-heading">I train ML for LNP design.</h2>
-          <p className="lens-sub">I solve cryo-EM structures and train machine-learning models for lipid nanoparticle design at AtomBios.</p>
+          <p className="lens-sub">I solve cryo-EM structures, train machine-learning models and apply both to lipid nanoparticle design at AtomBios.</p>
         </div>
       </div>
       <div className="lens-side">

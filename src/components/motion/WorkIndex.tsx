@@ -339,7 +339,7 @@ export function WorkIndex() {
         <div className="wi-hud">
           <p className="eyebrow wi-eyebrow">Work index</p>
           <h2 id="index-heading">The range of the work</h2>
-          <p className="wi-lede">Model training, structures and delivery results. Drag to explore; select a work item for my contribution.</p>
+          <p className="wi-lede">Structures, model training and delivery results. Drag to explore; select an item to see my contribution.</p>
           <div className="wi-ctl">
             <button type="button" onClick={() => api.current.overview()}>Overview</button>
             <button type="button" aria-label="Zoom in" onClick={() => api.current.zoom(1.3)}>+</button>

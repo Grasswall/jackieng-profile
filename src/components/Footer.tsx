@@ -46,7 +46,7 @@ const iconMap = {
 
 export function Footer({ meta }: FooterProps) {
   return (
-    <footer className="on-dark bg-deep text-cream">
+    <footer id="contact" className="on-dark scroll-mt-16 bg-deep text-cream">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-14 md:flex-row md:items-center md:justify-between md:px-12">
         <div>
           <p className="font-heading text-4xl font-semibold tracking-tight">JN.</p>
