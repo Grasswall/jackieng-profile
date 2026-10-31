@@ -277,7 +277,7 @@ export function EvidenceLayers() {
               <p className="eyebrow">Evidence · Cryo-EM</p>
               <h3>Real 2D class averages.</h3>
               <p>
-                Class averages of the LNP corona protein complex (cryoSPARC J160). Separately: five cryo-EM structures solved, best at 2.7 Å.
+                Real class averages of the LNP corona protein complex. Separately: five cryo-EM structures solved, best at 2.7 Å.
               </p>
             </div>
           </div>
@@ -303,7 +303,7 @@ export function EvidenceLayers() {
             <div className="ev-cap ev-light">
               <p className="eyebrow ev-eyebrow-light">Evidence · Structure</p>
               <h3>The structure, in three dimensions.</h3>
-              <p>Rotating cryo-EM density map with fitted atomic model. Existing research render.</p>
+              <p>Rotating cryo-EM density map with fitted atomic model. A direct view of the structural work.</p>
             </div>
           </div>
 
@@ -313,7 +313,7 @@ export function EvidenceLayers() {
             <div className="ev-cap ev-dark">
               <p className="eyebrow">Reported results · 20 nm platform</p>
               <h3>Measured against conventional LNPs.</h3>
-              <p>Preclinical results for the AtomBios platform, each versus conventional LNPs. Working with Sirnaomics.</p>
+              <p>Team preclinical results for the AtomBios platform, each versus conventional LNPs. Not clinical efficacy.</p>
             </div>
             <div className="ev-stats ev-dark">
               <div><b>8×</b><span>BBB transcytosis</span></div>

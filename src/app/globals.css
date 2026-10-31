@@ -254,7 +254,8 @@ h1, h2, h3, h4, h5, h6 {
   .lens-hint { top: 4.5rem; font-size: 11px; }
   .lens-head { left: 16px; right: 16px; width: auto; bottom: 14px; }
   .lens-head h2 { font-size: clamp(34px, 10.5vw, 52px); margin: 6px 0 0; }
-  .lens-head .eyebrow, .lens-sub { display: none; }
+  .lens-head .eyebrow { display: block; font-size: 10px; line-height: 1.5; }
+  .lens-sub { display: block; font-size: 13px; margin-top: 10px; line-height: 1.45; }
   .lens-side { position: static; width: auto; padding: 12px; gap: 8px; }
   .lens-card { min-height: 0; padding: 14px 16px; display: grid; grid-template-columns: auto 1fr; column-gap: 16px; align-items: center; }
   .lens-card .eyebrow { grid-column: 1 / -1; }

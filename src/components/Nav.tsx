@@ -25,9 +25,7 @@ export function Nav({ items: pageItems }: NavProps) {
   const isHome = here === '/' || here === '/jackieng-profile'
   const items = isHome ? [
     { label: 'Founder', href: '/#founder' },
-    { label: 'Proof', href: '/#proof' },
     { label: 'Evidence', href: '/#evidence' },
-    { label: 'Media', href: '/#media' },
     { label: 'Work map', href: '/#work-index' },
     { label: 'Contact', href: '/#contact' },
   ] : pageItems
