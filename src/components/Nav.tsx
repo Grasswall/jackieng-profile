@@ -24,10 +24,8 @@ export function Nav({ items: pageItems }: NavProps) {
   const here = (pathname || '/').replace(/\/$/, '') || '/'
   const isHome = here === '/' || here === '/jackieng-profile'
   const items = isHome ? [
-    { label: 'Overview', href: '/#founder' },
-    { label: 'Research fit', href: '/#work-index' },
-    { label: 'Evidence', href: '/#evidence' },
-    { label: 'ML & data', href: '/#ml-pipeline' },
+    { label: 'Work', href: '/#work-index' },
+    { label: 'Research & ML', href: '/research' },
     { label: 'Accolades', href: '/#proof' },
     { label: 'Contact', href: '/#contact' },
   ] : pageItems
