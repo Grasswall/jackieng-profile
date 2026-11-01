@@ -1,18 +1,51 @@
-import { FounderLens } from "@/components/motion/FounderLens";
-import { EvidenceLayers } from "@/components/motion/EvidenceLayers";
-import { ResearchFit } from "@/components/ResearchFit";
-import { Accolades } from "@/components/Accolades";
-import { MLPipeline } from "@/components/MLPipeline";
+import Link from 'next/link'
+import { Accolades } from '@/components/Accolades'
+import './compact-home.css'
 
 export default function Home() {
   return (
-    <main id="motion-portfolio" className="pt-16">
-      <h1 className="sr-only">Jackie Ng — structural biologist, ML practitioner and founder of AtomBios</h1>
-      <FounderLens />
-      <ResearchFit />
-      <EvidenceLayers />
-      <MLPipeline />
-      <Accolades />
+    <main className="compact-home pt-16">
+      <section id="founder" className="compact-intro" aria-labelledby="intro-heading">
+        <div className="compact-intro-copy">
+          <p className="compact-kicker">Jackie Ng · PhD student, PolyU</p>
+          <h1 id="intro-heading">Cryo-EM structural biologist.<br /><span>ML for drug delivery.</span></h1>
+          <p className="compact-lead">I solve molecular structures and train machine-learning models for lipid nanoparticle design at AtomBios.</p>
+          <div className="compact-actions"><a className="compact-button" href="mailto:jackie.ng@atombios.com?subject=Research%20role%20or%20collaboration">Discuss a role or collaboration ↗</a><a className="compact-link" href="mailto:jackie.ng@atombios.com?subject=CV%20request">Request my CV ↗</a></div>
+          <p className="compact-context">Structural biology first. Computational capability alongside it.</p>
+        </div>
+        <figure className="compact-structure">
+          <video controls muted loop playsInline preload="metadata" poster="/jackieng-profile/images/corona/map-model-poster.jpg" aria-label="Cryo-EM density map with fitted atomic model">
+            <source src="/jackieng-profile/images/corona/map-model.mp4" type="video/mp4" />
+          </video>
+          <figcaption>Cryo-EM density map + fitted atomic model</figcaption>
+        </figure>
+        <div className="compact-proofline">
+          <p><strong>5 structures solved</strong><span>Best resolution 2.7 Å · publication in progress</span></p>
+          <p><strong>Public structural records</strong><span><a href="https://www.rcsb.org/structure/9X3T">9X3T ↗</a> · <a href="https://www.rcsb.org/structure/9X3V">9X3V ↗</a> · separate from the 2.7 Å result</span></p>
+          <p><strong>JBC · 2024</strong><span><a href="https://doi.org/10.1016/j.jbc.2024.107390">Co-authored research ↗</a></span></p>
+        </div>
+      </section>
+      <section id="work-index" className="compact-work" aria-labelledby="work-heading">
+        <div className="compact-section-head"><h2 id="work-heading">Where I apply it.</h2><Link className="compact-link" href="/research">Explore the research ↗</Link></div>
+        <div className="compact-work-grid">
+          <article className="compact-project compact-ml">
+            <div className="compact-project-copy"><p className="compact-kicker">Computational work</p><h3>Train models for LNP design.</h3><p>My contribution at AtomBios. The public demo makes the data → model → output inspectable.</p><Link className="compact-link" href="/research#ml-pipeline">Open the ML pipeline ↗</Link></div>
+            <div className="compact-mini-pipeline" aria-label="Public synthetic demo: formulation features to neural network to four organ classes">
+              <div><strong>Inputs</strong><span>Size · SORT<br />ApoE · PEG</span></div><b aria-hidden="true">→</b><div className="compact-nodes"><strong>7 → 16 → 4</strong><span>Neural network</span></div><b aria-hidden="true">→</b><div><strong>Output</strong><span>4 organ<br />classes</span></div>
+            </div>
+            <p className="compact-caption">Synthetic demo, not the private AtomBios model or experimental validation.</p>
+          </article>
+          <article className="compact-project compact-company">
+            <div className="compact-project-copy"><p className="compact-kicker">Application · founder</p><h3>Build around brain delivery.</h3><p>At AtomBios, the research has a concrete focus: lipid nanoparticles for brain delivery.</p><Link className="compact-link" href="/work">The company &amp; team results ↗</Link></div>
+            <figure>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/jackieng-profile/images/gallery/suzhou-pitch.jpg" alt="AtomBios presentation at the Suzhou competition" loading="lazy" width="640" height="420" />
+              <figcaption>HK$7.05M in company funding · not a personal grant</figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
+      <Accolades compact />
     </main>
-  );
+  )
 }
