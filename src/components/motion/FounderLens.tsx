@@ -12,7 +12,7 @@ const PHOTO = `${BASE}/images/gallery/suzhou-pitch.jpg`
 const SPOTS = [
   { label: 'Company', u: 0.355, v: 0.195, eyebrow: 'The company', stat: 'HK$7.05M', unit: 'funded', note: 'AtomBios, HKSTP incubated. Pitched at the WIN in Suzhou Global Finals, 2026.' },
   { label: 'Barrier', u: 0.65, v: 0.46, eyebrow: 'The barrier on the slide', stat: '8×', unit: 'higher BBB crossing', note: 'With 20 nm particles, versus conventional LNPs. The blood-brain barrier blocks most nanoparticle formulations.' },
-  { label: 'Particle', u: 0.583, v: 0.365, eyebrow: 'The particle', stat: '3.2×', unit: 'brain accumulation', note: 'Versus conventional LNPs, which at 80–100 nm are too large for efficient transcytosis.' },
+  { label: 'Particle', u: 0.583, v: 0.365, eyebrow: 'The particle', stat: '3.2×', unit: 'brain accumulation', note: 'Team preclinical measurement versus conventional LNPs; not a patient outcome.' },
   { label: 'Founder', u: 0.55, v: 0.43, eyebrow: 'The founder', stat: '2.7 Å', unit: 'best of five cryo-EM structures', note: 'I solve cryo-EM structures and train ML models for LNP design. Structural biologist, PolyU PhD student and founder of AtomBios.' },
 ] as const
 
@@ -242,9 +242,10 @@ export function FounderLens() {
         </div>
         <div ref={hintRef} className="lens-hint">Drag the lens across the photo</div>
         <div className="lens-head">
-          <p className="eyebrow">Jackie Ng · Structural biologist · ML practitioner · Founder</p>
-          <h2 id="founder-heading">I train ML for LNP design.</h2>
-          <p className="lens-sub">I solve cryo-EM structures, train machine-learning models and apply both to lipid nanoparticle design at AtomBios.</p>
+          <p className="eyebrow">Jackie Ng · Structural biologist · ML for LNP design</p>
+          <h2 id="founder-heading" style={{ fontSize: 'clamp(36px, 4.5vw, 68px)' }}>Structural biology at the core. ML for LNP design.</h2>
+          <p className="lens-sub">I solve cryo-EM structures and train ML for LNP design—bringing molecular structure, formulation and delivery into one research practice.</p>
+          <div className="pointer-events-auto mt-4 flex flex-wrap gap-3"><a href="mailto:jackie.ng@atombios.com?subject=Hiring%20Jackie%20Ng" className="inline-flex min-h-11 items-center bg-cream px-5 text-sm font-semibold text-deep">Hire me</a><a href="mailto:jackie.ng@atombios.com?subject=Research%20collaboration" className="inline-flex min-h-11 items-center border border-cream/70 px-5 text-sm font-semibold text-cream">Discuss a collaboration</a></div>
         </div>
       </div>
       <div className="lens-side">

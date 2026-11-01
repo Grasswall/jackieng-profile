@@ -24,10 +24,11 @@ export function Nav({ items: pageItems }: NavProps) {
   const here = (pathname || '/').replace(/\/$/, '') || '/'
   const isHome = here === '/' || here === '/jackieng-profile'
   const items = isHome ? [
-    { label: 'Founder', href: '/#founder' },
-    { label: 'Accolades', href: '/#proof' },
+    { label: 'Overview', href: '/#founder' },
+    { label: 'Research fit', href: '/#work-index' },
     { label: 'Evidence', href: '/#evidence' },
-    { label: 'Work', href: '/#work-index' },
+    { label: 'ML & data', href: '/#ml-pipeline' },
+    { label: 'Accolades', href: '/#proof' },
     { label: 'Contact', href: '/#contact' },
   ] : pageItems
   const isCurrent = (href: string) => !href.includes('#') && href === here
