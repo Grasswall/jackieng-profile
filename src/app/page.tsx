@@ -1,5 +1,4 @@
-import { DiscoveryPipeline } from '@/components/DiscoveryPipeline'
-import { StructuralWork } from '@/components/StructuralWork'
+import { TechnicalTranslation } from '@/components/TechnicalTranslation'
 import { Accolades } from '@/components/Accolades'
 import { DossierHero, LiteratureNote, Opportunity } from '@/components/ResearchDossier'
 import './dossier.css'
@@ -7,8 +6,7 @@ import './dossier.css'
 export default function Home() {
   return <main className="talent-dossier">
     <DossierHero />
-    <StructuralWork />
-    <DiscoveryPipeline />
+    <TechnicalTranslation />
     <LiteratureNote />
     <Accolades curated />
     <Opportunity />

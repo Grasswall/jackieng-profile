@@ -4,18 +4,18 @@ const BASE = '/jackieng-profile'
 export function DossierHero() {
   return <section id="founder" className="dossier-hero" aria-labelledby="dossier-title">
     <div className="dossier-intro">
-      <p className="dossier-identity">Jackie Ng · Structural biologist</p>
-      <h1 id="dossier-title">I solve structures.<br /><em>I build models.</em></h1>
-      <p className="dossier-lede">Cryo-EM is my foundation. At AtomBios, I train machine-learning models for lipid nanoparticle design.</p>
+      <p className="dossier-identity">Jackie Ng · Technical translator</p>
+      <h1 id="dossier-title">Biology into data.<br /><em>Data into design.</em></h1>
+      <p className="dossier-lede">I translate structural biology into data collection and model architecture for protein ML design in drug delivery. At AtomBios, I work across the biological question and the computational implementation.</p>
       <p className="dossier-affiliation">PhD student, PolyU · Founder, AtomBios</p>
       <div className="dossier-actions">
         <a className="dossier-primary" href={`mailto:${meta.email}?subject=Research%20opportunity`}>Discuss a role or collaboration ↗</a>
-        <a href="#discovery">See the work ↓</a>
+        <a href="#translation">See the work ↓</a>
       </div>
     </div>
     <figure className="dossier-visual">
-      <video src={`${BASE}/images/corona/map-model.mp4`} poster={`${BASE}/images/corona/map-model-poster.jpg`} autoPlay loop muted playsInline preload="metadata" aria-label="Cryo-EM density map with a fitted atomic model" />
-      <figcaption>My structural work · density map + fitted model</figcaption>
+      <video src={`${BASE}/videos/structural-work/ecacc-single-blender.mp4`} poster={`${BASE}/videos/structural-work/ecacc-single-blender.jpg`} loop muted playsInline controls preload="none" aria-label="EcAcc single-ring research model rendered in Blender, colored by sequence group" />
+      <figcaption>My EcAcc model · Blender render · colour groups chains with matching model sequences</figcaption>
     </figure>
     <div className="dossier-evidence" aria-label="Research evidence">
       <p><strong>2.7 Å</strong><span>Best structural resolution<br />Publication in progress</span></p>
@@ -33,8 +33,8 @@ export function LiteratureNote() {
 export function Opportunity() {
   return <section id="opportunity" className="dossier-opportunity" aria-labelledby="opportunity-title">
     <p className="dossier-label">Hire · collaborate</p>
-    <h2 id="opportunity-title">Put structural insight<br />to work.</h2>
-    <div className="dossier-opportunity-bottom"><p>Building a team in structural biology or computational drug delivery? Let’s discuss the research problem—and where I can contribute.</p><a className="dossier-primary" href={`mailto:${meta.email}?subject=Structural%20biology%20%2F%20delivery%20collaboration`}>Start a conversation ↗</a></div>
+    <h2 id="opportunity-title">Make the biology<br />computable.</h2>
+    <div className="dossier-opportunity-bottom"><p>Working on protein ML or drug delivery? I contribute at the interface: biological framing, data collection, model architecture and hands-on structural work.</p><a className="dossier-primary" href={`mailto:${meta.email}?subject=Structural%20biology%20%2F%20delivery%20collaboration`}>Start a conversation ↗</a></div>
     <a className="dossier-email" href={`mailto:${meta.email}`}>{meta.email}</a>
   </section>
 }

@@ -5,7 +5,7 @@ import { TextReveal } from "@/components/TextReveal";
 
 export const metadata: Metadata = {
   title: "About — Jackie Ng",
-  description: "Structural biologist and PhD student at PolyU, solving cryo-EM structures and training ML models for lipid nanoparticle design. Founder of AtomBios.",
+  description: "Technical translator connecting structural biology, data collection and architecture design for protein ML in drug delivery. PhD student at PolyU and founder of AtomBios.",
 };
 
 const educationItems = [
@@ -46,10 +46,10 @@ export default function AboutPage() {
 
         <div className="grid gap-10 md:grid-cols-2 md:gap-16">
           <p className="max-w-[52ch] text-lg leading-[1.65] text-ink md:text-xl">
-            I solve structures and build models. My foundation is experimental structural biology: resolving molecular architecture with cryo-EM and interpreting the resulting models.
+            I am a technical translator. Experimental structural biology is my foundation: resolving molecular architecture with cryo-EM and interpreting the resulting models. That background informs the biological questions I bring to computational design.
           </p>
           <p className="max-w-[52ch] text-lg leading-[1.65] text-ink md:text-xl">
-            I am a PhD student at PolyU and founder of AtomBios, where I train machine-learning models for lipid nanoparticle design. I am interested in research roles and collaborations that combine structural biology with computational approaches to drug delivery.
+            I am a PhD student at PolyU and founder of AtomBios, where my work includes data collection and model architecture for protein ML design in drug delivery. I am interested in research roles and collaborations that combine structural biology with computational approaches to drug delivery.
           </p>
         </div>
       </div>
