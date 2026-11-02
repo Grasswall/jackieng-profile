@@ -7,11 +7,9 @@ import './ResearchScroll.css'
 const BASE = '/jackieng-profile'
 const SCENES = [
   { name: 'Cryo-EM', title: 'See the molecular evidence.', tag: 'Experimental', caption: 'LNP corona protein complex · cryo-EM class averages.', kind: 'classes' },
-  { name: 'Structure', title: 'Resolve the structure.', tag: 'My structural work', caption: 'Five structures solved · best 2.7 Å, publication in progress. Shown: corona density map + fitted model.', kind: 'structure' },
-  { name: 'Questions', title: 'Structure shapes the question.', tag: 'Research connection', caption: 'Which formulation choices might change delivery? The demo uses formulation variables—not features extracted from this cryo-EM map.', kind: 'bridge' },
+  { name: 'Structure', title: 'Resolve the structure.', tag: 'My structural work', caption: 'My work spans cryo-EM reconstruction and atomic modelling. Shown: corona density map with a fitted model; separate from my best 2.7 Å result.', kind: 'structure' },
   { name: 'Model', title: 'Train the model.', tag: 'Simulation · synthetic data', caption: 'I train models for LNP design. This public 7–16–4 network illustrates the computation; it is not the private AtomBios model.', kind: 'network' },
   { name: 'Landscape', title: 'Explore what to test.', tag: 'Simulation · synthetic data', caption: 'Size × ApoE density → predicted brain probability. A two-input projection, with SORT and PEG fixed.', kind: 'surface' },
-  { name: 'Delivery', title: 'Measure delivery.', tag: 'Experimental · team results', caption: 'AtomBios preclinical measurements versus conventional LNPs. Separate from the public synthetic demo; not patient outcomes.', kind: 'results' },
 ] as const
 function Movie({ name, label, dark = false }: { name: string; label: string; dark?: boolean }) {
   return <video className={dark ? 'research-map' : undefined} src={`${BASE}/${name}.mp4`} poster={`${BASE}/${name}-poster.jpg`} autoPlay loop muted playsInline preload="metadata" aria-label={label} />
@@ -60,22 +58,20 @@ export function DiscoveryPipeline() {
   }
   return <section ref={root} id="discovery" className="research-scroll" style={{ '--scene-count': SCENES.length } as React.CSSProperties} aria-labelledby="research-heading" data-research-scroll="structure-to-delivery">
     <div className="research-sticky">
-      <div className="research-opening"><h2 id="research-heading">Structure to delivery.</h2><p>Cryo-EM is my foundation. ML extends what I can test.</p></div>
+      <div className="research-opening"><h2 id="research-heading">From molecular detail<br />to testable questions.</h2><p>Experimental structure. Computational implementation.</p></div>
       <div className="research-frame">
         {SCENES.map((s,i)=><div id={`research-scene-${i}`} key={s.kind} data-layer data-scene={s.kind} className="research-layer" aria-hidden={!reduced && active!==i}>
           <h3 className="research-fallback-title">{s.title}</h3>
           {s.kind==='classes' && <div className="research-classes">{[1,2,3,4].map(n=><img key={n} src={`${BASE}/images/corona/class-0${n}.png`} width="512" height="512" alt={`Cryo-EM class average ${n}`} />)}</div>}
           {s.kind==='structure' && <Movie name="images/corona/map-model" dark label="Experimental cryo-EM density map and fitted atomic model" />}
-          {s.kind==='bridge' && <div className="research-bridge"><span>Structure</span><svg viewBox="0 0 400 40" aria-hidden="true"><path d="M2 20H390M374 6l16 14-16 14" fill="none" stroke="currentColor" strokeWidth="3" /></svg><span>Design questions</span><p>Particle size · lipid composition<br />ApoE density · PEG shielding</p></div>}
           {s.kind==='network' && <Movie name="videos/ml-viz/network-forward" label="Synthetic-trained model forward pass: formulation inputs to organ probabilities" />}
           {s.kind==='surface' && <Movie name="videos/ml-viz/decision-surface" label="3D prediction landscape of the trained synthetic demo over size and ApoE density" />}
-          {s.kind==='results' && <div className="research-results"><div><strong>8×</strong><span>BBB transcytosis</span></div><div><strong>3.2×</strong><span>Brain accumulation</span></div></div>}
           <p className="research-fallback-caption">{s.tag} · {s.caption}</p>
         </div>)}
       </div>
       <div className="research-captions" aria-live="off">{SCENES.map(s=><div data-cap key={s.kind}><div className="research-cap-title"><h3>{s.title}</h3><span className={s.tag.startsWith('Simulation') ? 'research-simulation' : undefined}>{s.tag}</span></div><p>{s.caption}</p></div>)}</div>
       <div className="research-progress"><div className="research-track" aria-hidden="true"><span data-fill /></div><ol>{SCENES.map((s,i)=><li key={s.kind}><button data-dot type="button" onClick={()=>jump(i)} aria-current={active===i?'step':undefined}>{s.name}</button></li>)}</ol></div>
-      <div className="research-close"><span>Experimental evidence → design questions → computational illustration → team measurements.</span><Link href="/research#ml-pipeline">Inspect the public model ↗</Link></div>
+      <div className="research-close"><span>Structure and computation are distinct bodies of work.</span><Link href="/research">Inspect the research &amp; demo ↗</Link></div>
     </div>
   </section>
 }

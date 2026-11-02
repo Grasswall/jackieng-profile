@@ -24,9 +24,9 @@ export function Nav({ items: pageItems }: NavProps) {
   const here = (pathname || '/').replace(/\/$/, '') || '/'
   const isHome = here === '/' || here === '/jackieng-profile'
   const items = isHome ? [
-    { label: 'Structure → delivery', href: '/#discovery' },
+    { label: 'Research', href: '/#discovery' },
     { label: 'Accolades', href: '/#proof' },
-    { label: 'Contact', href: '/#contact' },
+    { label: 'Hire / collaborate', href: '/#opportunity' },
   ] : pageItems
   const isCurrent = (href: string) => !href.includes('#') && href === here
 

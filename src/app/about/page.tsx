@@ -46,10 +46,10 @@ export default function AboutPage() {
 
         <div className="grid gap-10 md:grid-cols-2 md:gap-16">
           <p className="max-w-[52ch] text-lg leading-[1.65] text-ink md:text-xl">
-            The blood-brain barrier blocks most nanoparticle formulations. Conventional LNPs are too large for efficient transcytosis, so CNS therapeutics that work in a dish keep failing to reach the patients who need them.
+            I solve structures and build models. My foundation is experimental structural biology: resolving molecular architecture with cryo-EM and interpreting the resulting models.
           </p>
           <p className="max-w-[52ch] text-lg leading-[1.65] text-ink md:text-xl">
-            I started in structural biology, solving cryo-EM structures at atomic resolution at PolyU, then moved into delivery. I train machine-learning models for lipid nanoparticle design at AtomBios. The AtomBios 20nm platform is where those two meet: 8&times; BBB transcytosis and 3.2-fold brain accumulation versus conventional LNPs.
+            I am a PhD student at PolyU and founder of AtomBios, where I train machine-learning models for lipid nanoparticle design. I am interested in research roles and collaborations that combine structural biology with computational approaches to drug delivery.
           </p>
         </div>
       </div>
