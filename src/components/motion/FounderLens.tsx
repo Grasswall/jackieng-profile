@@ -203,9 +203,8 @@ export function FounderLens() {
   return (
     <section id="founder" aria-labelledby="founder-heading" className="chapter lens on-dark scroll-mt-16">
         <div className="lens-head">
-          <p className="eyebrow">Jackie Ng · Structural biologist · ML for LNP design</p>
-          <h2 id="founder-heading" style={{ fontSize: 'clamp(36px, 4.5vw, 68px)' }}>I solve structures. I train models for delivery.</h2>
-          <p className="lens-sub">Cryo-EM structural biologist · PolyU PhD student · AtomBios founder.</p>
+          <h1 id="founder-heading" style={{ fontSize: 'clamp(36px, 4.5vw, 68px)' }}>Cryo-EM. ML for delivery.</h1>
+          <p className="lens-sub">Jackie Ng · Structural biologist, PolyU PhD student and AtomBios founder.</p>
           <div className="pointer-events-auto mt-4 flex flex-wrap gap-3"><a href="mailto:jackie.ng@atombios.com?subject=Hiring%20Jackie%20Ng" className="inline-flex min-h-11 items-center bg-cream px-5 text-sm font-semibold text-deep">Hire me</a><a href="mailto:jackie.ng@atombios.com?subject=Research%20collaboration" className="inline-flex min-h-11 items-center border border-cream/70 px-5 text-sm font-semibold text-cream">Discuss a collaboration</a></div>
         </div>
       <div className="lens-stage">
@@ -261,7 +260,6 @@ export function FounderLens() {
         <div className="lens-pager" role="group" aria-label="Points on the photo">
           {SPOTS.map((sp, i) => (
             <button key={sp.label} type="button" aria-pressed={active === i} onClick={() => api.current.select(i, true)}>
-              <span>{i + 1}</span>
               {sp.label}
             </button>
           ))}

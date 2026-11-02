@@ -7,7 +7,6 @@ import './visual-discovery.css'
 export default function Home() {
   return (
     <main className="compact-home pt-16">
-      <h1 className="sr-only">Jackie Ng · Cryo-EM structural biologist · ML for drug delivery</h1>
       <FounderLens />
       <section className="visual-proof-strip" aria-label="Structural research records">
 
