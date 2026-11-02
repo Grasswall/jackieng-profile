@@ -24,7 +24,7 @@ export function Nav({ items: pageItems }: NavProps) {
   const here = (pathname || '/').replace(/\/$/, '') || '/'
   const isHome = here === '/' || here === '/jackieng-profile'
   const items = isHome ? [
-    { label: 'Research', href: '/#discovery' },
+    { label: 'Research', href: '/research' },
     { label: 'Accolades', href: '/#proof' },
     { label: 'Hire / collaborate', href: '/#opportunity' },
   ] : pageItems

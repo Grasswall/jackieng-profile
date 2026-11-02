@@ -4,9 +4,9 @@ const BASE = '/jackieng-profile'
 export function DossierHero() {
   return <section id="founder" className="dossier-hero" aria-labelledby="dossier-title">
     <div className="dossier-intro">
-      <p className="dossier-identity">Jackie Ng · Technical translator</p>
-      <h1 id="dossier-title">Biology into data.<br /><em>Data into design.</em></h1>
-      <p className="dossier-lede">I translate structural biology into data collection and model architecture for protein ML design in drug delivery. At AtomBios, I work across the biological question and the computational implementation.</p>
+      <p className="dossier-identity">Jackie Ng · Structural biologist & technical translator</p>
+      <h1 id="dossier-title">I turn structural insight<br /><em>into model design.</em></h1>
+      <p className="dossier-lede">I connect biological questions, data collection and model architecture for protein ML in drug delivery. My foundation is hands-on cryo-EM and atomic model building; AtomBios is where I pursue the application.</p>
       <p className="dossier-affiliation">PhD student, PolyU · Founder, AtomBios</p>
       <div className="dossier-actions">
         <a className="dossier-primary" href={`mailto:${meta.email}?subject=Research%20opportunity`}>Discuss a role or collaboration ↗</a>
@@ -34,7 +34,7 @@ export function Opportunity() {
   return <section id="opportunity" className="dossier-opportunity" aria-labelledby="opportunity-title">
     <p className="dossier-label">Hire · collaborate</p>
     <h2 id="opportunity-title">Make the biology<br />computable.</h2>
-    <div className="dossier-opportunity-bottom"><p>Working on protein ML or drug delivery? I contribute at the interface: biological framing, data collection, model architecture and hands-on structural work.</p><a className="dossier-primary" href={`mailto:${meta.email}?subject=Structural%20biology%20%2F%20delivery%20collaboration`}>Start a conversation ↗</a></div>
+    <div className="dossier-opportunity-bottom"><p>For research teams connecting molecular structure and machine learning: I bring hands-on structural work, biological framing, data collection and model-architecture design. Drug delivery is my application focus.</p><a className="dossier-primary" href={`mailto:${meta.email}?subject=Structural%20biology%20%2F%20delivery%20collaboration`}>Start a conversation ↗</a></div>
     <a className="dossier-email" href={`mailto:${meta.email}`}>{meta.email}</a>
   </section>
 }

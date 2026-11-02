@@ -49,7 +49,7 @@ export default function AboutPage() {
             I am a technical translator. Experimental structural biology is my foundation: resolving molecular architecture with cryo-EM and interpreting the resulting models. That background informs the biological questions I bring to computational design.
           </p>
           <p className="max-w-[52ch] text-lg leading-[1.65] text-ink md:text-xl">
-            I am a PhD student at PolyU and founder of AtomBios, where my work includes data collection and model architecture for protein ML design in drug delivery. I am interested in research roles and collaborations that combine structural biology with computational approaches to drug delivery.
+            I am a PhD student at PolyU and founder of AtomBios, where my work includes data collection and model architecture for protein ML design in drug delivery. I am interested in research roles and collaborations connecting structural biology and protein ML, with drug delivery as my application focus.
           </p>
         </div>
       </div>
