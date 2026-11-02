@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import { FounderLens } from '@/components/motion/FounderLens'
 import { EvidenceLayers } from '@/components/motion/EvidenceLayers'
+import { DiscoveryPipeline } from '@/components/DiscoveryPipeline'
 import { Accolades } from '@/components/Accolades'
 import './compact-home.css'
+import './visual-discovery.css'
 
 export default function Home() {
   return (
@@ -18,11 +20,12 @@ export default function Home() {
         </div>
       </section>
       <EvidenceLayers />
+      <DiscoveryPipeline />
       <section id="work-index" className="compact-work" aria-labelledby="work-heading">
         <div className="compact-section-head"><h2 id="work-heading">Where I apply it.</h2><Link className="compact-link" href="/research">Explore the research ↗</Link></div>
         <div className="compact-work-grid">
           <article className="compact-project compact-ml">
-            <div className="compact-project-copy"><p className="compact-kicker">Computational work</p><h3>Train models for LNP design.</h3><p>My contribution at AtomBios. The public demo makes the data → model → output inspectable.</p><Link className="compact-link" href="/research#ml-pipeline">Open the ML pipeline ↗</Link></div>
+            <div className="compact-project-copy"><p className="compact-kicker">Computational work</p><h3>Train models for LNP design.</h3><p>My contribution at AtomBios. The public demo makes the data → model → output inspectable.</p><Link className="compact-link" href="#discovery">Explore the visual pipeline ↗</Link></div>
             <div className="compact-mini-pipeline" aria-label="Public synthetic demo: formulation features to neural network to four organ classes">
               <div><strong>Inputs</strong><span>Size · SORT<br />ApoE · PEG</span></div><b aria-hidden="true">→</b><div className="compact-nodes"><strong>7 → 16 → 4</strong><span>Neural network</span></div><b aria-hidden="true">→</b><div><strong>Output</strong><span>4 organ<br />classes</span></div>
             </div>
