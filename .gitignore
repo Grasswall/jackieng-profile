@@ -39,3 +39,8 @@ yarn-error.log*
 !public/videos/ml-viz/
 !public/videos/ml-viz/*.mp4
 !public/videos/ml-viz/*.jpg
+
+# Rendered structural work only; coordinates remain excluded
+!public/videos/structural-work/
+!public/videos/structural-work/*.mp4
+!public/videos/structural-work/*.jpg

@@ -19,7 +19,7 @@ const ENTRIES = [
 ]
 const BASE = '/jackieng-profile/images/gallery/'
 const source = (image: string) => image.startsWith('/') ? image : BASE + image
-export function Accolades({ compact = false }: { compact?: boolean }) {
+export function Accolades({ compact = false, curated = false }: { compact?: boolean; curated?: boolean }) {
   const [selected, setSelected] = useState<number | null>(null)
   const dialog = useRef<HTMLDialogElement>(null)
   const trigger = useRef<HTMLButtonElement | null>(null)
@@ -27,6 +27,21 @@ export function Accolades({ compact = false }: { compact?: boolean }) {
     if (selected !== null) dialog.current?.showModal()
   }, [selected])
   const close = () => { dialog.current?.close(); setSelected(null); trigger.current?.focus() }
+  const featured = [3, 4, 0, 7]
+  const primary = curated ? featured : ENTRIES.map((_, i) => i)
+  const archive = ENTRIES.map((_, i) => i).filter(i => !featured.includes(i))
+  const renderEntry = (i: number) => {
+    const x = ENTRIES[i]
+    return <li key={x.name}>
+      <button type="button" className="group block w-full overflow-hidden bg-ink/5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4" aria-label={`Enlarge ${x.name} event photograph`} onClick={e => { trigger.current = e.currentTarget; setSelected(i) }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={source(x.image)} alt={`${x.name} · event photograph`} loading="lazy" width="640" height="480" className="aspect-[4/3] w-full object-contain transition-transform duration-300 motion-safe:group-hover:scale-[1.03]" />
+      </button>
+      <p className="photo-meta mt-4 flex justify-between gap-4 text-[10px] uppercase tracking-widest text-stone"><span>{x.category}</span><span>{x.year}</span></p>
+      <h3 className="mt-2 font-heading text-2xl">{x.name}</h3>
+      <p className="mt-1 text-sm leading-relaxed">{x.detail}</p>
+    </li>
+  }
   return (
     <section id="proof" aria-labelledby="accolades-heading" className={compact ? "compact-recognition scroll-mt-16 bg-cream px-6 py-7 text-ink md:px-12 md:py-8" : "scroll-mt-16 bg-cream px-6 py-14 text-ink md:px-12 md:py-20"}>
       <div className={compact ? "mx-auto max-w-[1056px]" : "mx-auto max-w-6xl"}>
@@ -35,17 +50,10 @@ export function Accolades({ compact = false }: { compact?: boolean }) {
           <h2 id="accolades-heading" className={compact ? "mt-2 font-heading text-3xl tracking-tight" : "mt-3 font-heading text-4xl tracking-tight md:text-5xl"}>Recognition &amp; media.</h2></div>
           <Link href="/speaking" className="inline-flex min-h-11 items-center text-sm underline underline-offset-4">Events &amp; media ↗</Link>
         </div>
-        <ul className={compact ? "compact-photo-list" : "mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"}>
-          {ENTRIES.map((x, i) => <li key={x.name}>
-            <button type="button" className="group block w-full overflow-hidden bg-ink/5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4" aria-label={`Enlarge ${x.name} event photograph`} onClick={e => { trigger.current = e.currentTarget; setSelected(i) }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={source(x.image)} alt={`${x.name} · event photograph`} loading="lazy" width="640" height="480" className="aspect-[4/3] w-full object-contain transition-transform duration-300 motion-safe:group-hover:scale-[1.03]" />
-            </button>
-            <p className="photo-meta mt-4 flex justify-between gap-4 text-[10px] uppercase tracking-widest text-stone"><span>{x.category}</span><span>{x.year}</span></p>
-            <h3 className="mt-2 font-heading text-2xl">{x.name}</h3>
-            <p className="mt-1 text-sm leading-relaxed">{x.detail}</p>
-          </li>)}
+        <ul className={curated ? "dossier-gallery" : compact ? "compact-photo-list" : "mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"}>
+          {primary.map(renderEntry)}
         </ul>
+        {curated && <details className="dossier-archive"><summary>More awards &amp; media</summary><ul className="dossier-gallery">{archive.map(renderEntry)}</ul></details>}
         {!compact && <p className="mt-8 text-xs text-stone">Event photographs document participation; award results and academic selections are identified separately.</p>}
       </div>
       <dialog ref={dialog} onCancel={() => setSelected(null)} onClick={e => { if (e.target === e.currentTarget) close() }} className="w-[min(94vw,70rem)] bg-cream p-4 text-ink backdrop:bg-black/85" aria-label="Event photograph">
