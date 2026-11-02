@@ -25,7 +25,7 @@ export function Nav({ items: pageItems }: NavProps) {
   const isHome = here === '/' || here === '/jackieng-profile'
   const items = isHome ? [
     { label: 'Work', href: '/#work-index' },
-    { label: 'Research & ML', href: '/research' },
+    { label: 'LNP pipeline', href: '/#discovery' },
     { label: 'Accolades', href: '/#proof' },
     { label: 'Contact', href: '/#contact' },
   ] : pageItems

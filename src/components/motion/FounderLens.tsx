@@ -202,6 +202,12 @@ export function FounderLens() {
 
   return (
     <section id="founder" aria-labelledby="founder-heading" className="chapter lens on-dark scroll-mt-16">
+        <div className="lens-head">
+          <p className="eyebrow">Jackie Ng · Structural biologist · ML for LNP design</p>
+          <h2 id="founder-heading" style={{ fontSize: 'clamp(36px, 4.5vw, 68px)' }}>Cryo-EM structures. ML for drug delivery.</h2>
+          <p className="lens-sub">I solve molecular structures and train models for LNP design at AtomBios.</p>
+          <div className="pointer-events-auto mt-4 flex flex-wrap gap-3"><a href="mailto:jackie.ng@atombios.com?subject=Hiring%20Jackie%20Ng" className="inline-flex min-h-11 items-center bg-cream px-5 text-sm font-semibold text-deep">Hire me</a><a href="mailto:jackie.ng@atombios.com?subject=Research%20collaboration" className="inline-flex min-h-11 items-center border border-cream/70 px-5 text-sm font-semibold text-cream">Discuss a collaboration</a></div>
+        </div>
       <div className="lens-stage">
         <div ref={boxRef} className="lens-box">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -241,12 +247,7 @@ export function FounderLens() {
           </div>
         </div>
         <div ref={hintRef} className="lens-hint">Drag the lens across the photo</div>
-        <div className="lens-head">
-          <p className="eyebrow">Jackie Ng · Structural biologist · ML for LNP design</p>
-          <h2 id="founder-heading" style={{ fontSize: 'clamp(36px, 4.5vw, 68px)' }}>Cryo-EM structures. ML for drug delivery.</h2>
-          <p className="lens-sub">I solve molecular structures and train models for LNP design at AtomBios.</p>
-          <div className="pointer-events-auto mt-4 flex flex-wrap gap-3"><a href="mailto:jackie.ng@atombios.com?subject=Hiring%20Jackie%20Ng" className="inline-flex min-h-11 items-center bg-cream px-5 text-sm font-semibold text-deep">Hire me</a><a href="mailto:jackie.ng@atombios.com?subject=Research%20collaboration" className="inline-flex min-h-11 items-center border border-cream/70 px-5 text-sm font-semibold text-cream">Discuss a collaboration</a></div>
-        </div>
+
       </div>
       <div className="lens-side">
         <div key={active} className="lens-card" aria-live="polite">
