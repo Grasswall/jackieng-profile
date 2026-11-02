@@ -7,6 +7,12 @@ const WORK = [
   { id: 'sa-ftsz', title: 'Sa FtsZ · WT assembly' },
   { id: 'hspx', title: 'HspX · pH7 model' },
 ]
+const MUTANTS = [
+  { id: 'ftsz-d91a', title: 'Sa FtsZ · D91A' },
+  { id: 'ftsz-e87a', title: 'Sa FtsZ · E87A' },
+  { id: 'ftsz-e90a-singlet', title: 'Sa FtsZ · E90A singlet' },
+  { id: 'ftsz-e90a-doublet', title: 'Sa FtsZ · E90A doublet' },
+]
 function ModelVideo({ id, title }: { id: string; title: string }) {
   const ref = useRef<HTMLVideoElement>(null)
   useEffect(() => {
@@ -34,5 +40,6 @@ export function StructuralWork() {
     <h2 id="structural-work-title">The models behind the work.</h2>
     <p className="structural-work-note">Rendered from my research models. Rotation shows structure, not molecular dynamics. Videos only; unpublished coordinates are not shared.</p>
     <div className="structural-work-grid">{WORK.map(x => <ModelVideo key={x.id} {...x} />)}</div>
+    <details className="dossier-archive structural-mutants"><summary>Explore FtsZ mutants · D91A, E87A &amp; E90A</summary><div className="structural-work-grid">{MUTANTS.map(x => <ModelVideo key={x.id} {...x} />)}</div></details>
   </section>
 }
