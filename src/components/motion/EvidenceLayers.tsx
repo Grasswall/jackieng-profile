@@ -277,7 +277,7 @@ export function EvidenceLayers() {
               <p className="eyebrow">Evidence · Cryo-EM</p>
               <h3>Real 2D class averages.</h3>
               <p>
-                Real class averages of the LNP corona protein complex. Separately: five cryo-EM structures solved, best at 2.7 Å.
+                LNP corona protein complex · experimental class averages.
               </p>
             </div>
           </div>
@@ -303,7 +303,7 @@ export function EvidenceLayers() {
             <div className="ev-cap ev-light">
               <p className="eyebrow ev-eyebrow-light">Evidence · Structure</p>
               <h3>The structure, in three dimensions.</h3>
-              <p>Rotating cryo-EM density map with fitted atomic model. A direct view of the structural work.</p>
+              <p>Cryo-EM density map + fitted atomic model.</p>
             </div>
           </div>
 
