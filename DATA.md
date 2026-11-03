@@ -1,78 +1,14 @@
-# Content Management
+# Content ownership
 
-All site content is managed through JSON files in `data/`. This is the single source of truth.
+- `data/meta.json`: name, email, social links, site description and headline reference.
+- `data/navigation.json`: navigation entries. Use root-relative route hrefs; Next adds the base path.
+- `data/achievements.json`: records available through `src/lib/data.ts`; selected recognition also has curated component copy.
+- `data/speaking.json`, `data/gallery.json`: existing records; do not assume every entry is automatically rendered.
+- `src/app/speaking/page.tsx`: currently owns the curated speaking/media cards and participation labels.
+- `src/app/about/page.tsx`: current education and biographical copy.
+- `src/components/Unified*.tsx` and `motion/FounderLens.tsx`: current section narratives and lens captions.
+- `public/data/protein-benchmark/metadata.json`, `model.json` and companion exports: reproducible public benchmark. Regenerate through `scripts/protein_benchmark/`; do not manually improve metrics.
+- `public/images/gallery/` and `public/videos/structural-work/`: existing approved assets; raw URLs include `/jackieng-profile` once.
 
-## Quick Reference
-
-### Add a competition or award
-
-Edit `data/achievements.json`. Add to the appropriate category array:
-
-```json
-{
-  "Date": "2026-09-01 00:00:00",
-  "Title": "Competition Name — Award Level",
-  "Organization": "Org Name",
-  "Status": "Won",
-  "Result": "Gold Medal"
-}
-```
-
-### Add a speaking engagement
-
-Edit `data/speaking.json`:
-
-```json
-{
-  "title": "Event Name",
-  "org": "Organization",
-  "date": "2026-09",
-  "role": "Speaker",
-  "description": "Short description of the talk or event.",
-  "photo": "/assets/event-photo.jpg"
-}
-```
-
-### Add a gallery item
-
-Edit `data/gallery.json`:
-
-```json
-{
-  "slug": "project-slug",
-  "image": "/assets/project-slug.png",
-  "title": "Project Title",
-  "caption": "One-line description"
-}
-```
-
-### Update site metadata
-
-Edit `data/meta.json` for name, title, tagline, email, social links, and site URL.
-
-### Add a photo
-
-1. Compress image (max 1920px wide, <300KB)
-2. Name descriptively: `event-name-year.jpg`
-3. Place in `public/assets/`
-4. Reference in data file as `/assets/event-name-year.jpg`
-
-## Categories in achievements.json
-
-- `Academic-Awards` — scholarships, grades, academic honors
-- `Competitions` — startup/innovation competitions
-- `Speaking-Conferences` — talks, forums, symposia
-- `Positions-Affiliations` — reviewer roles, board memberships
-- `Media` — press, TV, print coverage
-- `Publications` — papers, journal articles
-- `Scholarships` — financial awards
-
-## Automation
-
-`build_gallery.py` can auto-populate gallery.json from OneDrive brand folders:
-
-```bash
-python3 build_gallery.py
-```
-
-This scans `/home/jackie/OneDrive/Others/Brand/posted/` and `ready-to-post/` for hero frames.
+Verified identity and evidence rules: brand workspace `BRAND_IDENTITY.md` and `SOURCES.md`.
+No public coordinate downloads, no company-performance inference from GB1, no publication labels for in-progress projects.

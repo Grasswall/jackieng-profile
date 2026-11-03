@@ -10,10 +10,10 @@ const IH = 1356
 const PHOTO = `${BASE}/images/gallery/suzhou-pitch.jpg`
 
 const SPOTS = [
-  { label: 'ML work', u: 0.355, v: 0.195, eyebrow: 'My computational work', stat: 'ML', unit: 'I train models for LNP design', note: 'Hands-on model training at AtomBios. Private model details are not disclosed.' },
-  { label: 'Direction', u: 0.65, v: 0.46, eyebrow: 'Application direction', stat: 'Delivery', unit: 'Protein ML at AtomBios', note: 'Research direction, not a claim of validated delivery performance.' },
-  { label: 'Public study', u: 0.583, v: 0.365, eyebrow: 'Executable evidence', stat: 'GB1', unit: 'Public protein-fitness benchmark', note: 'Real experimental data, baseline comparison and held-out evaluation. Separate from the private AtomBios model.' },
-  { label: 'Structures', u: 0.55, v: 0.43, eyebrow: 'My structural work', stat: '2.7 Å', unit: 'Best structural resolution', note: 'Personal structural work · publication in progress.' },
+  { label: 'Foundation', u: 0.55, v: 0.43, eyebrow: 'Structural biology foundation', stat: '2.7 Å', unit: 'Best cryo-EM resolution', note: 'Personal cryo-EM structural work · publication in progress. Foundation skill, not delivery validation.' },
+  { label: 'Method', u: 0.583, v: 0.365, eyebrow: 'Public modelling study', stat: 'GB1', unit: 'Protein-fitness benchmark', note: 'Public AI-assisted study demonstrating ML method on protein fitness. Separate from AtomBios; not a delivery predictor.' },
+  { label: 'Direction', u: 0.65, v: 0.46, eyebrow: 'Research direction', stat: 'Delivery', unit: 'Protein interactions', note: 'Understanding protein interactions in drug delivery through AtomBios. Research direction, not demonstrated validation.' },
+  { label: 'Context', u: 0.355, v: 0.195, eyebrow: 'Personal context', stat: 'PolyU', unit: 'PhD student · Founder of AtomBios', note: 'Structural biology is my foundation. Protein interactions in delivery are the research direction I am pursuing.' },
 ] as const
 
 interface Layout {
@@ -32,7 +32,7 @@ export function FounderLens() {
   const lensImgRef = useRef<HTMLImageElement>(null)
   const hintRef = useRef<HTMLDivElement>(null)
   const api = useRef<{ select: (i: number, move: boolean) => void }>({ select: () => {} })
-  const [active, setActive] = useState(3)
+  const [active, setActive] = useState(0)
   const [dims, setDims] = useState<Layout | null>(null)
 
   useEffect(() => {
@@ -184,7 +184,7 @@ export function FounderLens() {
     const ro = new ResizeObserver(layout)
     ro.observe(box)
     layout()
-    select(3, true)
+    select(0, true)
 
     return () => {
       anim?.cancel()
@@ -201,70 +201,61 @@ export function FounderLens() {
   const s = SPOTS[active]
 
   return (
-    <section id="founder" aria-labelledby="founder-heading" className="chapter lens on-dark scroll-mt-16">
-        <div className="lens-head">
-          <h1 id="founder-heading" style={{ fontSize: 'clamp(36px, 4.5vw, 68px)' }}>I turn structural insight<br />into model design.</h1>
-          <p className="lens-sub">Jackie Ng · Structural biologist, PolyU PhD student and AtomBios founder.</p>
-          <div className="pointer-events-auto mt-4 flex flex-wrap gap-3"><a href="mailto:jackie.ng@atombios.com?subject=Hiring%20Jackie%20Ng" className="inline-flex min-h-11 items-center bg-cream px-5 text-sm font-semibold text-deep">Hire me</a><a href="mailto:jackie.ng@atombios.com?subject=Research%20collaboration" className="inline-flex min-h-11 items-center border border-cream/70 px-5 text-sm font-semibold text-cream">Discuss a collaboration</a></div>
-        </div>
-      <div className="lens-stage">
-        <div ref={boxRef} className="lens-box">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            ref={imgRef}
-            className="lens-img"
-            src={PHOTO}
-            width={IW}
-            height={IH}
-            alt="Jackie Ng pitching AtomBios at the WIN in Suzhou Global Entrepreneurship Competition finals, in front of a slide showing the blood-brain barrier problem"
-          />
-          <div className="lens-scrim" />
-          <div className="lens-fade" />
-          {dims &&
-            SPOTS.map((sp, i) => (
-              <button
-                key={sp.label}
-                type="button"
-                className="lens-spot"
-                aria-pressed={active === i}
-                aria-label={`${sp.label}: ${sp.stat} ${sp.unit}`}
-                style={{ left: dims.ox + sp.u * dims.dw, top: dims.oy + sp.v * dims.dh }}
-                onClick={() => api.current.select(i, true)}
-              >
-                <i />
-              </button>
-            ))}
-          <div
-            ref={lensRef}
-            className="lens-lens"
-            tabIndex={0}
-            role="group"
-            aria-label="Work lens. Drag it over the photo, or use the arrow keys."
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img ref={lensImgRef} src={PHOTO} alt="" />
-          </div>
-        </div>
-        <div ref={hintRef} className="lens-hint">Drag the lens across the photo</div>
-
-      </div>
-      <div className="lens-side">
-        <div key={active} className="lens-card" aria-live="polite">
-          <p className="eyebrow">{s.eyebrow}</p>
-          <div className="lens-sb">
-            <div className="lens-stat">{s.stat}</div>
-            <div className="lens-unit">{s.unit}</div>
-          </div>
-          <p className="lens-note">{s.note}</p>
-        </div>
-        <div className="lens-pager" role="group" aria-label="Points on the photo">
-          {SPOTS.map((sp, i) => (
-            <button key={sp.label} type="button" aria-pressed={active === i} onClick={() => api.current.select(i, true)}>
-              {sp.label}
+    <>
+      <div ref={boxRef} className="lens-box">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          ref={imgRef}
+          className="lens-img"
+          src={PHOTO}
+          width={IW}
+          height={IH}
+          alt="Jackie Ng pitching AtomBios at the WIN in Suzhou Global Entrepreneurship Competition finals, in front of a slide showing the blood-brain barrier problem"
+        />
+        <div className="lens-scrim" />
+        {dims &&
+          SPOTS.map((sp, i) => (
+            <button
+              key={sp.label}
+              type="button"
+              className="lens-spot"
+              aria-pressed={active === i}
+              aria-label={`${sp.label}: ${sp.stat} ${sp.unit}`}
+              style={{ left: dims.ox + sp.u * dims.dw, top: dims.oy + sp.v * dims.dh }}
+              onClick={() => api.current.select(i, true)}
+            >
+              <i />
             </button>
           ))}
+        <div
+          ref={lensRef}
+          className="lens-lens"
+          tabIndex={0}
+          role="group"
+          aria-label="Work lens. Drag it over the photo, or use the arrow keys."
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img ref={lensImgRef} src={PHOTO} alt="" />
+        </div>
+        <div ref={hintRef} className="lens-hint">Drag the lens across the photo</div>
+      </div>
+
+      <div className="lens-card-wrap">
+        <div key={active} className="lens-card" aria-live="polite">
+          <p className="eyebrow">{s.eyebrow}</p>
+          <div className="lens-stat">{s.stat}</div>
+          <div className="lens-unit">{s.unit}</div>
+          <p className="lens-note">{s.note}</p>
         </div>
       </div>
-    </section>
+
+      <div className="lens-pager" role="group" aria-label="Points on the photo">
+        {SPOTS.map((sp, i) => (
+          <button key={sp.label} type="button" aria-pressed={active === i} onClick={() => api.current.select(i, true)}>
+            {sp.label}
+          </button>
+        ))}
+      </div>
+    </>
   )
 }

@@ -27,7 +27,13 @@ jobs:
 
       - run: npm ci
 
+      - run: npm run lint
+
       - run: npm run build
+
+      - run: node --experimental-strip-types scripts/protein_benchmark/test-inference.mjs
+
+      - run: python3 scripts/check_export.py
 
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -13,29 +13,19 @@ interface NavProps {
   items: NavItem[]
 }
 
-// next/link prepends the configured basePath itself, so hrefs here must stay
-// site-relative ("/about", "/#contact") and never include "/jackieng-profile".
-export function Nav({ items: pageItems }: NavProps) {
+export function Nav({ items }: NavProps) {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
   const buttonRef = useRef<HTMLButtonElement>(null)
   const headerRef = useRef<HTMLElement>(null)
 
   const here = (pathname || '/').replace(/\/$/, '') || '/'
-  const isHome = here === '/' || here === '/jackieng-profile'
-  const items = isHome ? [
-    { label: 'Research', href: '/research' },
-    { label: 'Accolades', href: '/#proof' },
-    { label: 'Hire / collaborate', href: '/#opportunity' },
-  ] : pageItems
   const isCurrent = (href: string) => !href.includes('#') && href === here
 
-  // Close the menu after any navigation.
   useEffect(() => {
     setOpen(false)
   }, [pathname])
 
-  // Escape and outside-press close the open menu.
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => {
@@ -55,7 +45,6 @@ export function Nav({ items: pageItems }: NavProps) {
     }
   }, [open])
 
-  // A closed menu is removed from the tab order and the accessibility tree.
   const menuGuard = (open ? {} : { inert: '' }) as Record<string, unknown>
 
   return (
