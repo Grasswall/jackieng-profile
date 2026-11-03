@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import "./globals.css";
+import "./unified.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { LenisProvider } from "@/components/LenisProvider";
@@ -30,10 +31,10 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: "Jackie Ng — Structural Biology & Protein ML",
+  title: "Jackie Ng — The protein side of delivery",
   description: meta.description,
   openGraph: {
-    title: "Jackie Ng — Structural Biology & Protein ML",
+    title: "Jackie Ng — The protein side of delivery",
     description: meta.description,
     url: meta.siteUrl,
     siteName: "Jackie Ng",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jackie Ng — Structural Biology & Protein ML",
+    title: "Jackie Ng — The protein side of delivery",
     description: meta.description,
   },
 };

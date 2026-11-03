@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jackie Ng — personal research site
 
-## Getting Started
+Next.js App Router, TypeScript and static export to GitHub Pages.
+The deployable application is `src/`; only `out/` is published.
 
-First, run the development server:
+## Commands
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- `npm ci` — install the locked dependency versions.
+- `npm run dev` — development server.
+- `npm run lint` — check active source.
+- `npm run build` — production build and static export to `out/`.
+- `node --experimental-strip-types scripts/protein_benchmark/test-inference.mjs` — numerical parity checks.
+- `python3 scripts/check_export.py` — verify built links, anchors, assets and coordinate-file exclusion.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Source map
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/app/`: home, about, work, research, speaking and protein-benchmark routes.
+- `src/components/Unified*.tsx`: current homepage sections; `motion/FounderLens.tsx` owns the interactive magnifier.
+- `src/app/globals.css`: reset, fonts, Tailwind and reduced-motion base.
+- `src/app/unified.css`: shared editorial system; `protein-benchmark.css` styles the executable study.
+- `data/`: metadata, navigation and records. Some editorial copy remains in route/component files; it is not all JSON-driven.
+- `public/images/gallery/`, `public/videos/structural-work/`: approved existing media.
+- `public/data/protein-benchmark/`: public study exports, separate from AtomBios.
+- `docs/archive/`: historical guidance and unused components, excluded from lint/typechecking and never deployed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The governing identity is `/home/jackie/.openclaw/workspaces/brand/BRAND_IDENTITY.md`.
+Current status lives in that workspace's `BRAND_STATUS.md`; do not treat archive release notes as current.
+See `ARCHITECTURE.md`, `DATA.md` and `CONTRIBUTING.md` for maintenance.
 
-## Learn More
+## Preview and deploy
 
-To learn more about Next.js, take a look at the following resources:
+The base path is `/jackieng-profile` and routes have trailing slashes.
+To preview, symlink `out/` into a scratch parent as `jackieng-profile`, then serve that parent with `python3 -m http.server`.
+Do not use SPA fallback mode: it can return HTML for missing CSS or route files.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Work on a feature branch. After local checks, merge to `main` and push under Jackie's standing site authorization.
+GitHub Actions publishes `out/`; verify the exact commit's successful run and read back the live site before saying deployed.
+Never publish PDB/mmCIF coordinates or private evidence. Videos of structural work are allowed; third-party evidence remains attributed.
