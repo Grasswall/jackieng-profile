@@ -1,0 +1,20 @@
+.taste-restored .lens{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 340px;background:var(--taste-ink);color:var(--taste-ground)}
+.taste-restored .lens-head{position:static;grid-column:1/-1;width:100%;max-width:none;padding:32px var(--taste-margin);background:none;border-radius:0;pointer-events:auto}
+.taste-restored .lens-head h1{font-size:clamp(32px,4.4vw,64px)!important;line-height:1.05;margin:0 0 20px}
+.taste-restored .lens-sub{font-size:16px;color:var(--taste-ground);max-width:65ch}
+.taste-restored .lens-stage{height:480px;min-height:0}
+.taste-restored .lens-side{position:static;width:auto;padding:24px;justify-content:center;gap:24px}
+.taste-restored .lens-card{background:none;color:inherit;box-shadow:none;border-radius:0;padding:0;min-height:220px;animation:none;display:block}
+.taste-restored .lens-card .eyebrow{display:none}
+.taste-restored .lens-stat{font-size:48px;line-height:1.05;margin:0 0 16px}
+.taste-restored .lens-note{font-size:16px;color:inherit;margin-top:14px;line-height:1.5}
+.taste-restored .lens-pager{grid-template-columns:1fr 1fr}
+.taste-restored .lens-pager button{background:#172b35;border:0;border-radius:0;backdrop-filter:none;min-height:48px;font-size:14px;padding:8px}
+.taste-restored .lens-pager button[aria-pressed=true]{background:var(--taste-accent);color:var(--taste-ink)}
+.taste-restored .lens-hint{top:12px;font-size:14px;letter-spacing:0;border-radius:0;background:var(--taste-ink)}
+.taste-restored .lens-fade{display:none}
+.taste-restored .lens-scrim{background:rgba(10,24,40,.18)}
+.taste-restored .lens-lens{box-shadow:none;border:3px solid var(--taste-accent)}
+.taste-restored .lens-lens::after{display:none}
+.taste-restored .lens-spot::after{animation:none}
+@media(max-width:820px){.taste-restored .lens{display:block}.taste-restored .lens-head{padding:28px 20px}.taste-restored .lens-head h1{font-size:7.5vw!important}.taste-restored .lens-stage{height:380px;min-height:0}.taste-restored .lens-side{padding:24px 20px}.taste-restored .lens-card{min-height:180px}.taste-restored .lens-pager{grid-template-columns:repeat(4,minmax(0,1fr))}.taste-restored .lens-pager button{font-size:13px;padding:6px}.taste-restored .lens-stat{font-size:40px}}
