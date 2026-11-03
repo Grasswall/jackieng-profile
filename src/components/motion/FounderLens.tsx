@@ -11,9 +11,9 @@ const PHOTO = `${BASE}/images/gallery/suzhou-pitch.jpg`
 
 const SPOTS = [
   { label: 'ML work', u: 0.355, v: 0.195, eyebrow: 'My computational work', stat: 'ML', unit: 'I train models for LNP design', note: 'Hands-on model training at AtomBios. Private model details are not disclosed.' },
-  { label: 'Barrier', u: 0.65, v: 0.46, eyebrow: 'The barrier on the slide', stat: '8×', unit: 'higher BBB crossing', note: 'Team preclinical result versus conventional LNPs.' },
-  { label: 'Particle', u: 0.583, v: 0.365, eyebrow: 'The particle', stat: '3.2×', unit: 'brain accumulation', note: 'Team preclinical measurement versus conventional LNPs; not a patient outcome.' },
-  { label: 'Structures', u: 0.55, v: 0.43, eyebrow: 'My structural work', stat: '2.7 Å', unit: 'best of five cryo-EM structures', note: 'Five structures solved · publication in progress.' },
+  { label: 'Direction', u: 0.65, v: 0.46, eyebrow: 'Application direction', stat: 'Delivery', unit: 'Protein ML at AtomBios', note: 'Research direction, not a claim of validated delivery performance.' },
+  { label: 'Public study', u: 0.583, v: 0.365, eyebrow: 'Executable evidence', stat: 'GB1', unit: 'Public protein-fitness benchmark', note: 'Real experimental data, baseline comparison and held-out evaluation. Separate from the private AtomBios model.' },
+  { label: 'Structures', u: 0.55, v: 0.43, eyebrow: 'My structural work', stat: '2.7 Å', unit: 'Best structural resolution', note: 'Personal structural work · publication in progress.' },
 ] as const
 
 interface Layout {
@@ -203,7 +203,7 @@ export function FounderLens() {
   return (
     <section id="founder" aria-labelledby="founder-heading" className="chapter lens on-dark scroll-mt-16">
         <div className="lens-head">
-          <h1 id="founder-heading" style={{ fontSize: 'clamp(36px, 4.5vw, 68px)' }}>Cryo-EM. ML for delivery.</h1>
+          <h1 id="founder-heading" style={{ fontSize: 'clamp(36px, 4.5vw, 68px)' }}>I turn structural insight<br />into model design.</h1>
           <p className="lens-sub">Jackie Ng · Structural biologist, PolyU PhD student and AtomBios founder.</p>
           <div className="pointer-events-auto mt-4 flex flex-wrap gap-3"><a href="mailto:jackie.ng@atombios.com?subject=Hiring%20Jackie%20Ng" className="inline-flex min-h-11 items-center bg-cream px-5 text-sm font-semibold text-deep">Hire me</a><a href="mailto:jackie.ng@atombios.com?subject=Research%20collaboration" className="inline-flex min-h-11 items-center border border-cream/70 px-5 text-sm font-semibold text-cream">Discuss a collaboration</a></div>
         </div>
