@@ -6,10 +6,10 @@ import Link from 'next/link'
 import './ResearchScroll.css'
 const BASE = '/jackieng-profile'
 const SCENES = [
-  { name: 'Cryo-EM', title: 'See the molecular evidence.', tag: 'Experimental', caption: 'LNP corona protein complex · cryo-EM class averages.', kind: 'classes' },
-  { name: 'Structure', title: 'Resolve the structure.', tag: 'My structural work', caption: 'My work spans cryo-EM reconstruction and atomic modelling. Shown: corona density map with a fitted model; separate from my best 2.7 Å result.', kind: 'structure' },
-  { name: 'Model', title: 'Train the model.', tag: 'Simulation · synthetic data', caption: 'I train models for LNP design. This public 7–16–4 network illustrates the computation; it is not the private AtomBios model.', kind: 'network' },
-  { name: 'Landscape', title: 'Explore what to test.', tag: 'Simulation · synthetic data', caption: 'Size × ApoE density → predicted brain probability. A two-input projection, with SORT and PEG fixed.', kind: 'surface' },
+  { name: 'Cryo-EM', title: 'See the molecular evidence.', tag: 'Experimental image', caption: 'Cryo-EM class averages: the visual record comes before the model. Structure is not decoration; it changes what can be measured.', kind: 'classes' },
+  { name: 'Structure', title: 'Resolve the structure.', tag: 'My structural work', caption: 'My work spans cryo-EM reconstruction and atomic model building. Shown: a fitted density-map model; the full structural archive is separate.', kind: 'structure' },
+  { name: 'Model', title: 'Visualise the computation.', tag: 'Simulation · synthetic data', caption: 'Historical 7–16–4 formulation network: a synthetic-data demonstration, not the GB1 protein model or the private AtomBios model.', kind: 'network' },
+  { name: 'Landscape', title: 'Explore a prediction landscape.', tag: 'Historical simulation · synthetic', caption: 'A formulation simulation from the site archive. It is not protein ML, does not read the cryo-EM images and is not evidence of delivery efficacy.', kind: 'surface' },
 ] as const
 function Movie({ name, label, dark = false }: { name: string; label: string; dark?: boolean }) {
   return <video className={dark ? 'research-map' : undefined} src={`${BASE}/${name}.mp4`} poster={`${BASE}/${name}-poster.jpg`} autoPlay loop muted playsInline preload="metadata" aria-label={label} />
@@ -58,7 +58,7 @@ export function DiscoveryPipeline() {
   }
   return <section ref={root} id="discovery" className="research-scroll" style={{ '--scene-count': SCENES.length } as React.CSSProperties} aria-labelledby="research-heading" data-research-scroll="structure-to-delivery">
     <div className="research-sticky">
-      <div className="research-opening"><h2 id="research-heading">From molecular detail<br />to testable questions.</h2><p>Experimental structure. Computational implementation.</p></div>
+      <div className="research-opening"><h2 id="research-heading">From molecular detail<br />to testable questions.</h2><p>Experimental structure and computational illustration. Distinct sources, shown together.</p></div>
       <div className="research-frame">
         {SCENES.map((s,i)=><div id={`research-scene-${i}`} key={s.kind} data-layer data-scene={s.kind} className="research-layer" aria-hidden={!reduced && active!==i}>
           <h3 className="research-fallback-title">{s.title}</h3>
