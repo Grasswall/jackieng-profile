@@ -33,6 +33,7 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "Jackie Ng — The protein side of delivery",
   description: meta.description,
+  alternates: { canonical: meta.siteUrl },
   openGraph: {
     title: "Jackie Ng — The protein side of delivery",
     description: meta.description,
@@ -56,7 +57,6 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <head>
         <meta name="theme-color" content="#0A1828" />
-        <link rel="canonical" href={meta.siteUrl} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
