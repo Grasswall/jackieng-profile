@@ -130,7 +130,7 @@ export function FounderLens() {
     const onDown = (e: PointerEvent) => {
       if (e.button > 0) return
       const target = e.target as Element
-      if (target.closest('.lens-spot')) return
+      if (target.closest('.motion-lens-spot')) return
       const onLens = lens.contains(target)
       // Touch: only the lens itself drags, so the rest of the photo still scrolls the page.
       if (e.pointerType === 'touch' && !onLens) return
@@ -184,7 +184,7 @@ export function FounderLens() {
     const ro = new ResizeObserver(layout)
     ro.observe(box)
     layout()
-    select(0, true)
+    select(0, false)
 
     return () => {
       anim?.cancel()
@@ -201,61 +201,69 @@ export function FounderLens() {
   const s = SPOTS[active]
 
   return (
-    <>
-      <div ref={boxRef} className="lens-box">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          ref={imgRef}
-          className="lens-img"
-          src={PHOTO}
-          width={IW}
-          height={IH}
-          alt="Jackie Ng pitching AtomBios at the WIN in Suzhou Global Entrepreneurship Competition finals, in front of a slide showing the blood-brain barrier problem"
-        />
-        <div className="lens-scrim" />
-        {dims &&
-          SPOTS.map((sp, i) => (
-            <button
-              key={sp.label}
-              type="button"
-              className="lens-spot"
-              aria-pressed={active === i}
-              aria-label={`${sp.label}: ${sp.stat} ${sp.unit}`}
-              style={{ left: dims.ox + sp.u * dims.dw, top: dims.oy + sp.v * dims.dh }}
-              onClick={() => api.current.select(i, true)}
-            >
-              <i />
+    <section id="founder" aria-labelledby="founder-heading" className="chapter lens on-dark scroll-mt-16">
+      <div className="motion-lens-stage">
+        <div ref={boxRef} className="motion-lens-box">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            ref={imgRef}
+            className="motion-lens-img"
+            src={PHOTO}
+            width={IW}
+            height={IH}
+            alt="Jackie Ng pitching AtomBios at the WIN in Suzhou Global Entrepreneurship Competition finals, in front of a slide showing the blood-brain barrier problem"
+          />
+          <div className="motion-lens-scrim" />
+          <div className="motion-lens-fade" />
+          {dims &&
+            SPOTS.map((sp, i) => (
+              <button
+                key={sp.label}
+                type="button"
+                className="motion-lens-spot"
+                aria-pressed={active === i}
+                aria-label={`${sp.label}: ${sp.stat} ${sp.unit}`}
+                style={{ left: dims.ox + sp.u * dims.dw, top: dims.oy + sp.v * dims.dh }}
+                onClick={() => api.current.select(i, true)}
+              >
+                <i />
+              </button>
+            ))}
+          <div
+            ref={lensRef}
+            className="motion-lens-lens"
+            tabIndex={0}
+            role="group"
+            aria-label="Work lens. Drag it over the photo, or use the arrow keys."
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img ref={lensImgRef} src={PHOTO} alt="" />
+          </div>
+        </div>
+        <div ref={hintRef} className="motion-lens-hint">Drag the lens across the photo</div>
+        <div className="motion-lens-head">
+          <p className="eyebrow">The founder</p>
+          <h2 id="founder-heading">Jackie Ng</h2>
+          <p className="motion-lens-sub">Structural biologist · Founder of AtomBios</p>
+        </div>
+      </div>
+      <div className="motion-lens-side">
+        <div key={active} className="motion-lens-card" aria-live="polite">
+          <p className="eyebrow">{s.eyebrow}</p>
+          <div className="motion-lens-sb">
+            <div className="motion-lens-stat">{s.stat}</div>
+            <div className="motion-lens-unit">{s.unit}</div>
+          </div>
+          <p className="motion-lens-note">{s.note}</p>
+        </div>
+        <div className="motion-lens-pager" role="group" aria-label="Points on the photo">
+          {SPOTS.map((sp, i) => (
+            <button key={sp.label} type="button" aria-pressed={active === i} onClick={() => api.current.select(i, true)}>
+              {sp.label}
             </button>
           ))}
-        <div
-          ref={lensRef}
-          className="lens-lens"
-          tabIndex={0}
-          role="group"
-          aria-label="Work lens. Drag it over the photo, or use the arrow keys."
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img ref={lensImgRef} src={PHOTO} alt="" />
-        </div>
-        <div ref={hintRef} className="lens-hint">Drag the lens across the photo</div>
-      </div>
-
-      <div className="lens-card-wrap">
-        <div key={active} className="lens-card" aria-live="polite">
-          <p className="eyebrow">{s.eyebrow}</p>
-          <div className="lens-stat">{s.stat}</div>
-          <div className="lens-unit">{s.unit}</div>
-          <p className="lens-note">{s.note}</p>
         </div>
       </div>
-
-      <div className="lens-pager" role="group" aria-label="Points on the photo">
-        {SPOTS.map((sp, i) => (
-          <button key={sp.label} type="button" aria-pressed={active === i} onClick={() => api.current.select(i, true)}>
-            {sp.label}
-          </button>
-        ))}
-      </div>
-    </>
+    </section>
   )
 }

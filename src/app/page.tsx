@@ -1,20 +1,26 @@
-import { UnifiedHero } from '@/components/UnifiedHero'
-import { UnifiedResearchEvidence } from '@/components/UnifiedResearchEvidence'
-import { UnifiedStructuralWork } from '@/components/UnifiedStructuralWork'
-import { UnifiedBenchmark } from '@/components/UnifiedBenchmark'
-import { UnifiedProof } from '@/components/UnifiedProof'
-import { UnifiedContact } from '@/components/UnifiedContact'
-
+import Link from "next/link";
+import "./motion-portfolio.css";
+import { FounderLens } from "@/components/motion/FounderLens";
+import { EvidenceLayers } from "@/components/motion/EvidenceLayers";
+import { WorkIndex } from "@/components/motion/WorkIndex";
 
 export default function Home() {
   return (
-    <main className="unified-site" data-visual-release="taste-unified">
-      <UnifiedHero />
-      <UnifiedStructuralWork />
-      <UnifiedBenchmark />
-      <UnifiedResearchEvidence />
-      <UnifiedProof />
-      <UnifiedContact />
+    <main id="motion-portfolio" className="pt-16">
+      <h1 className="sr-only">Jackie Ng — structural biologist and founder of AtomBios</h1>
+      <FounderLens />
+      <EvidenceLayers />
+      <WorkIndex />
+      <section id="contact" className="unified-site !pt-0">
+        <div className="u-section u-section-navy">
+          <h2>Explore the work</h2>
+          <div className="u-link-row">
+            <Link href="/work">Structural work ↗</Link>
+            <Link href="/protein-benchmark">GB1 benchmark ↗</Link>
+            <a href="mailto:jackie.ng@atombios.com">Get in touch ↗</a>
+          </div>
+        </div>
+      </section>
     </main>
-  )
+  );
 }
