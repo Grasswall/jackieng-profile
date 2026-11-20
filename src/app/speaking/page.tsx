@@ -1,38 +1,32 @@
 import type { Metadata } from "next";
-import { Media } from "@/components/Media";
-import { UnifiedContact } from "@/components/UnifiedContact";
+import Link from "next/link";
+import { Media, type MediaEntry } from "@/components/Media";
+import entries from "../../../data/media.json";
+import meta from "../../../data/meta.json";
+import "./media.css";
 
+const title = "Media & Speaking — Jackie Ng";
+const description = "Explore Jackie Ng’s media coverage, research presentations and scientific exchange. Browse by type, year or topic, with links to published sources.";
+const url = `${meta.siteUrl}/speaking/`;
 export const metadata: Metadata = {
-  title: "Speaking & Media — Jackie Ng",
-  description: "Speaking engagements, media appearances, and public science communication. Scientific meeting participation, selected speaking engagements and RTHK, BRTV and print coverage.",
+  title, description,
+  alternates: { canonical: url },
+  openGraph: { title, description, url, type: "website" },
+  twitter: { card: "summary", title, description },
 };
-
-const mediaCards = [
-  { id: "rthk", type: "large" as const, outlet: "RTHK · Hong Kong Public Broadcaster", title: "尋找創科的故事", description: "On-camera interview on RTHK's Innovation Stories, sharing the story behind AtomBios.", photo: "/jackieng-profile/images/gallery/rthk-broadcast.jpg", badge: "TV interview" },
-  { id: "brtv", type: "large" as const, outlet: "BRTV · Beijing Television", title: "轉在北京", description: "Featured on Beijing Television.", photo: "/jackieng-profile/images/gallery/beijing-tv-speaking.jpg", badge: "TV feature" },
-  { id: "mingpao", type: "regular" as const, outlet: "Ming Pao · Sing Tao", title: "Print Interviews", description: "Published interviews in Ming Pao and Sing Tao on science and entrepreneurship.", photo: "/jackieng-profile/images/gallery/mingpao-spread.jpg" },
-  { id: "jbc", type: "text-only" as const, outlet: "J. Biological Chemistry", title: "Published Research", description: "Tang et al. — Novel host cell factors interacting with SARS-CoV-2 spike protein RBD.", badge: "Peer-reviewed · JBC" },
-];
-
-const speakingList = [
-  { org: "Lindau Nobel Laureate Meeting", title: "Selected participant · 2025" },
-  { org: "Shaw Prize Forum", title: "Academic representative · Laureates Roundtable 2025" },
-  { org: "Max Planck Institute", title: "RPG Forum — Speaker 2025" },
-  { org: "HK-Jiangsu Symposium", title: "Drug Discovery Speaker 2025" },
-  { org: "GBA EM Forum", title: "2nd GBA Cryo-EM Frontier Forum — Speaker 2025" },
-  { org: "São Paulo Advanced Science School", title: "SPSAS Attendee 2025" },
-  { org: "PolyU ABCT", title: "6th RPG Symposium — Best Oral Presentation 2025" },
-  { org: "HKSTP × Hang Seng", title: "Ecopreneur Programme — Speaker & Member 2025" },
-  { org: "iRecycle", title: "綠色採購交流分享會 — Guest Speaker 2026" },
-];
 
 export default function SpeakingPage() {
   return (
-    <main className="unified-site">
-      <header className="u-page-header"><h1>Science, in public.</h1><p>Speaking, media coverage and scientific participation. The roles are identified individually below.</p></header>
-
-      <Media cards={mediaCards} speaking={speakingList} />
-      <UnifiedContact />
+    <main className="media-page" id="media-page">
+      <header className="media-intro media-frame">
+        <h1>Media<br />& speaking.</h1>
+        <div className="media-intro-copy"><p>From the research bench to public conversations. Coverage, talks and scientific exchange with Jackie Ng.</p><a href="#archive" className="media-text-link">Explore the archive <span aria-hidden="true">↓</span></a></div>
+      </header>
+      <Media entries={entries as MediaEntry[]} />
+      <section id="press-contact" className="media-press-contact media-frame" aria-labelledby="press-contact-heading">
+        <div><h2 id="press-contact-heading">Press & invitations</h2><p>For an interview or a speaking invitation, get in touch with the topic, format and date.</p></div>
+        <div><a className="media-contact-link" href={`mailto:${meta.email}?subject=Media%20or%20speaking%20enquiry`}>{meta.email}</a><div className="media-contact-links"><Link href="/about" className="media-text-link">About Jackie <span aria-hidden="true">↗</span></Link><Link href="/work" className="media-text-link">Research & work <span aria-hidden="true">↗</span></Link></div></div>
+      </section>
     </main>
   );
 }

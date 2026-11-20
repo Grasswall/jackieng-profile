@@ -1,0 +1,171 @@
+[
+  {
+    "id": "hk01-2026",
+    "category": "coverage",
+    "outlet": "HK01",
+    "title": "Atom Bios at the Hong Kong regional final",
+    "date": "2026-10-09",
+    "year": 2026,
+    "role": "Organiser-associated coverage",
+    "description": "A report on the PKU HSBC–Cambridge Judge competition names Jackie Ng (吳卓禧) and Atom Bios, the tertiary-category champion in Hong Kong.",
+    "href": "https://www.hk01.com/企業創新/60394581/",
+    "linkLabel": "Read the report",
+    "sourceTitle": "HK01 competition report"
+  },
+  {
+    "id": "suss-2026",
+    "category": "coverage",
+    "outlet": "Singapore University of Social Sciences",
+    "title": "Pitch for Good: People’s Choice",
+    "date": "2026-08-26",
+    "year": 2026,
+    "role": "Organiser release",
+    "description": "SUSS names Atom Bios as the People’s Choice Award recipient at Pitch for Good 2026.",
+    "href": "https://www.suss.edu.sg/about-suss/media-centres/media-releases/suss-launches-good-incubator-to-nurture-entrepreneurs-building-ventures-for-social-good",
+    "linkLabel": "Read the release",
+    "sourceTitle": "SUSS launches GOOD Incubator",
+    "photo": "/jackieng-profile/images/gallery/suss-1.jpg",
+    "photoAlt": "Pitch for Good event photograph from Jackie’s existing gallery"
+  },
+  {
+    "id": "hkust-2026",
+    "category": "coverage",
+    "outlet": "HKUST Entrepreneurship Center",
+    "title": "Nanos at Techathon+",
+    "year": 2026,
+    "role": "University feature",
+    "description": "The university names Cheuk Hei NG as Nanos project lead and includes his comments on the team’s Techathon+ experience.",
+    "href": "https://ec.hkust.edu.hk/news/hkust-achieves-outstanding-success-techathon-2026",
+    "linkLabel": "Read the feature",
+    "sourceTitle": "HKUST Achieves Outstanding Success at Techathon 2026",
+    "photo": "/jackieng-profile/images/gallery/techathon-1.jpg",
+    "photoAlt": "Techathon+ event photograph from Jackie’s existing gallery"
+  },
+  {
+    "id": "sing-tao-2025",
+    "category": "coverage",
+    "outlet": "Sing Tao Headline",
+    "title": "Turning coffee by-products into new ventures",
+    "date": "2025-11-06",
+    "year": 2025,
+    "role": "Programme coverage · 社會資訊",
+    "description": "The Future Ecopreneur feature names Jackie (吳卓禧) and includes his account of developing ReCherish Beans and joining the Netherlands study tour.",
+    "href": "https://www.stheadline.com/ad-activity/3514993/恒生科技園和富跨界聯手培育未來綠色領袖-荷蘭考察團提升綠色創業技能",
+    "linkLabel": "Read the feature",
+    "sourceTitle": "恒生、科技園、和富跨界聯手培育未來綠色領袖 荷蘭考察團提升綠色創業技能"
+  },
+  {
+    "id": "hkstp-ecopreneur-2025",
+    "category": "coverage",
+    "outlet": "Hong Kong Science and Technology Parks",
+    "title": "Future Ecopreneur: the Netherlands study tour",
+    "date": "2025-11-06",
+    "year": 2025,
+    "role": "Organiser release",
+    "description": "HKSTP names Jackie among the programme’s entrepreneurs and reports his reflections on developing a circular-economy venture.",
+    "href": "https://www.hkstp.org/zh-hk/park-life/news-and-events/news/future_ecopreneur_eco_tour",
+    "linkLabel": "Read the release",
+    "sourceTitle": "恒生、科技園、和富跨界聯手培育未來綠色領袖"
+  },
+  {
+    "id": "bastillepost-2025",
+    "category": "coverage",
+    "outlet": "Bastille Post",
+    "title": "Young founders explore the circular economy",
+    "date": "2025-11-06",
+    "year": 2025,
+    "role": "Programme coverage",
+    "description": "Coverage of the same Future Ecopreneur study tour names Jackie and discusses the programme’s support for green entrepreneurship.",
+    "href": "https://www.bastillepost.com/hongkong/article/15401194-恒生、科技園及和富聯手培育綠色領袖-荷蘭考察團",
+    "linkLabel": "Read the report",
+    "sourceTitle": "恒生、科技園及和富聯手培育綠色領袖 荷蘭考察團"
+  },
+  {
+    "id": "max-planck-2025",
+    "category": "speaking",
+    "title": "RPg Forum",
+    "outlet": "Max Planck Institute",
+    "role": "Speaker",
+    "year": 2025
+  },
+  {
+    "id": "hk-jiangsu-2025",
+    "category": "speaking",
+    "title": "Drug Discovery Symposium",
+    "outlet": "Hong Kong–Jiangsu",
+    "role": "Speaker",
+    "year": 2025
+  },
+  {
+    "id": "gba-em-2025",
+    "category": "speaking",
+    "title": "2nd GBA Biological Electron Microscopy Frontier Forum",
+    "outlet": "GBA EM Forum",
+    "role": "Speaker",
+    "year": 2025
+  },
+  {
+    "id": "abct-2025",
+    "category": "speaking",
+    "title": "6th ABCT RPG Symposium",
+    "outlet": "The Hong Kong Polytechnic University",
+    "role": "Oral presenter · Best Oral Presentation",
+    "year": 2025
+  },
+  {
+    "id": "ecopreneur-2025",
+    "category": "speaking",
+    "title": "Ecopreneur Programme",
+    "outlet": "HKSTP × Hang Seng",
+    "role": "Speaker & member",
+    "year": 2025
+  },
+  {
+    "id": "lindau-2025",
+    "category": "participation",
+    "title": "Lindau Nobel Laureate Meeting",
+    "outlet": "Lindau",
+    "role": "Participant",
+    "year": 2025
+  },
+  {
+    "id": "shaw-2025",
+    "category": "participation",
+    "title": "Shaw Laureates Roundtable",
+    "outlet": "Hong Kong",
+    "role": "Academic representative",
+    "year": 2025
+  },
+  {
+    "id": "spsas-2025",
+    "category": "participation",
+    "title": "São Paulo Advanced Science School",
+    "outlet": "São Paulo",
+    "role": "Attendee",
+    "year": 2025
+  },
+  {
+    "id": "cas-2025",
+    "category": "participation",
+    "outlet": "Chinese Academy of Sciences",
+    "title": "CAS Future Leader",
+    "role": "Selected",
+    "year": 2025
+  },
+  {
+    "id": "university-presidents-2024",
+    "category": "participation",
+    "outlet": "The Hong Kong Polytechnic University",
+    "title": "Global University Presidents & Leaders Summit",
+    "role": "Participant",
+    "year": 2024
+  },
+  {
+    "id": "gba-em-2024",
+    "category": "participation",
+    "outlet": "Greater Bay Area",
+    "title": "GBA Electron Microscopy Symposium",
+    "role": "Participant",
+    "year": 2024
+  }
+]
