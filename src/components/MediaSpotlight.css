@@ -1,0 +1,42 @@
+.ms{--ms-paper:#F4F1EA;--ms-ink:#0A1828;--ms-tone:#e7e6de;--ms-accent:#22D3EE;background:var(--ms-paper);color:var(--ms-ink);padding:72px clamp(20px,4vw,64px) 88px;scroll-margin-top:64px}
+.ms *{box-sizing:border-box}
+.ms-header{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:40px}
+.ms h2{font-family:var(--font-cormorant),Georgia,serif;font-weight:500;font-size:clamp(48px,6.2vw,94px);line-height:.98;letter-spacing:-.035em;margin:0}
+.ms a{color:inherit;text-underline-offset:5px}
+.ms a:hover{text-decoration:underline}
+.ms-archive{font-size:16px;display:inline-flex;align-items:center;gap:22px;min-height:44px;white-space:nowrap}
+.ms-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start}
+.ms-feature{min-width:0;scroll-margin-top:100px}
+.ms-visual{animation:ms-in .35s ease-out both}
+.ms figure{margin:0;position:relative;background:var(--ms-tone)}
+.ms figure img{display:block;width:100%;height:clamp(300px,32vw,510px);object-fit:contain}
+.ms figcaption{font-size:14px;line-height:1.5;padding:10px 16px;background:var(--ms-tone)}
+.ms-caption{padding-top:23px}
+.ms-attribution{font-size:16px;line-height:1.5;margin:0 0 9px}
+.ms h3{font-family:var(--font-cormorant),Georgia,serif;font-size:clamp(30px,3.2vw,44px);font-weight:500;line-height:1.05;letter-spacing:-.02em;margin:0 0 12px;max-width:27ch}
+.ms-role{font-size:15px;line-height:1.5;margin:0}
+.ms-source{display:inline-flex;gap:24px;align-items:center;min-height:44px;font-size:16px;margin-top:8px;text-decoration:underline}
+.ms-related{display:flex;gap:8px 20px;flex-wrap:wrap;margin-top:16px;font-size:14px;line-height:1.6}
+.ms-related>span{flex-basis:100%}
+.ms-related a{min-height:44px;display:inline-flex;align-items:center;text-decoration:underline}
+.ms-switch{display:flex;gap:8px;margin-bottom:18px}
+.ms-switch button{font:inherit;font-size:16px;padding:12px 22px;min-height:48px;color:var(--ms-ink);background:var(--ms-tone);border:0;cursor:pointer}
+.ms-switch button[aria-pressed=true]{background:var(--ms-ink);color:var(--ms-paper)}
+.ms-stories{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.ms-story{position:relative;display:block;text-align:left;width:100%;padding:22px 48px 22px 22px;border:0;background:transparent;color:var(--ms-ink);cursor:pointer;font:inherit;transition:background .2s,color .2s}
+.ms-story[aria-pressed=true]{background:var(--ms-ink);color:var(--ms-paper)}
+.ms-story:hover:not([aria-pressed=true]){background:var(--ms-tone)}
+.ms-story-meta{display:flex;justify-content:space-between;gap:18px;font-size:15px;line-height:1.4;margin-bottom:8px}
+.ms-story-title{display:block;font-family:var(--font-cormorant),Georgia,serif;font-size:clamp(26px,2.5vw,35px);font-weight:500;line-height:1.08;letter-spacing:-.02em;max-width:28ch}
+.ms-story-kind{display:block;font-size:14px;line-height:1.45;margin-top:10px}
+.ms-story-arrow{position:absolute;right:18px;top:50%;font-size:23px;transform:translateY(-50%);transition:transform .2s}
+.ms-story:hover .ms-story-arrow{transform:translate(3px,calc(-50% - 3px))}
+.ms-talk-poster{min-height:clamp(300px,32vw,510px);background:var(--ms-ink);color:var(--ms-paper);padding:40px;display:flex;flex-direction:column;justify-content:space-between;gap:32px}
+.ms-talk-poster p{font-size:18px;line-height:1.5;margin:0}
+.ms-talk-poster h3{font-size:clamp(36px,4vw,58px)}
+.ms :focus-visible{outline:3px solid #008396;outline-offset:4px}
+.ms-story[aria-pressed=true]:focus-visible{outline-color:#008396}
+@keyframes ms-in{from{opacity:.6;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.ms{padding-block:48px 64px}.ms-layout{gap:28px}.ms-story{padding:18px 35px 18px 16px}.ms-story-title{font-size:28px}.ms-story-arrow{right:12px}.ms figure img{height:340px}.ms-talk-poster{padding:24px}}
+@media(max-width:640px){.ms-header{display:block;margin-bottom:28px}.ms h2{font-size:52px;max-width:10ch}.ms-archive{margin-top:16px}.ms-layout{grid-template-columns:minmax(0,1fr);gap:32px}.ms figure img{height:310px}.ms-caption{padding-top:20px}.ms h3{font-size:34px}.ms-index{min-width:0}.ms-switch button{flex:1}.ms-story{padding:18px 42px 18px 18px}.ms-story-title{font-size:28px}.ms-talk-poster{min-height:310px}.ms-talk-poster h3{font-size:36px}.ms-related{gap:0 16px}}
+@media(prefers-reduced-motion:reduce){.ms-visual{animation:none}.ms-story,.ms-story-arrow{transition:none}.ms-story:hover .ms-story-arrow{transform:translateY(-50%)}}
