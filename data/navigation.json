@@ -1,7 +1,7 @@
 [
   {"label": "About",    "href": "/about"},
   {"label": "Work",     "href": "/work"},
-  {"label": "Speaking", "href": "/speaking"},
+  {"label": "Media",    "href": "/#media"},
   {"label": "Ng Lab",   "href": "/lab"},
   {"label": "Contact",  "href": "/#contact"}
 ]
